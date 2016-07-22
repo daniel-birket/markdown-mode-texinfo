@@ -7,13 +7,12 @@ compatible with the [`info`][info] help function of Emacs, including
 its [index][index] abilities.
 
 Jason Blevins' `markdown-mode.el` Lisp source code includes an
-extensive block of comments documenting that software. This comment
-block is extracted as a [markdown-format][markdown-format] manual,
-which can be converted to other formats. This manual, once located,
-can be consulted in one buffer while using Emacs Markdown Mode to work
-in another buffer, or the user may consult the
-[online manual][markdown-mode]. The program also includes
-documentation strings describing each of its functions, which are
+extensive block of comments documenting that software. The comment
+block is extracted as a [markdown-format][markdown-format] manual. The
+extracted manual (once located) can be consulted in one buffer while
+working with Emacs Markdown Mode in another buffer, or the user may
+consult the [online manual][markdown-mode] instead. The program also
+includes documentation strings describing its functions, which are
 accessible through other help functions of Emacs. This is perhaps
 adequate documentation for a majority of Emacs users.
 
@@ -27,10 +26,12 @@ which is compatible with both Emacs' `info` reader and the command line
 `info` command. The [Texinfo-format][Texinfo-format] manual can also
 be compiled into HTML, PDF and print formats, as well as markdown-format.
 
-This manual's author undertook the challenge of creating this manual
-as a learning exercise and acknowledges Jason Blevins understandable
-desire to avoid maintaining a manual for markdown-mode.el in the
-complex Texinfo-format, aside from the innate irony.
+This manual's author undertook the challenge of creating a Texinfo manual
+as a learning exercise and acknowledges Jason Blevins' understandable
+adversion (even aside from the innate irony) to maintaining a manual
+for markdown-mode.el in the complex Texinfo-format.
+
+-- Daniel Birket
 
 [markdown-mode]: http://jblevins.org/projects/markdown-mode/
 
