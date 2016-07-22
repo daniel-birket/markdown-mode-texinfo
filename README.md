@@ -6,6 +6,9 @@ Blevins' `markdown-mode` extension to [Emacs][Emacs]. This manual is
 compatible with the [`info`][info] help function of Emacs, including
 its [index][index] abilities.
 
+This project is as yet still in progress with no viable version for either
+review or release.
+
 Jason Blevins' `markdown-mode.el` Lisp source code includes an
 extensive block of comments documenting that software. The comment
 block is extracted as a [markdown-format][markdown-format] manual. The
