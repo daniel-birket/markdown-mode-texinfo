@@ -1,70 +1,8 @@
 MarkDown Mode
 
-* Installation
-** Recommended Installation
-** Loading with use-package
-** OS Package Managers
-** Manual Installation
-** Development Version
-** Dependencies
 * Usage
 ** Usage Overview
 ** Insert Commands
-*** Links
-**** Insert Inline Link
-C-c C-a
-**** Insert Reference Link
-C-c C-a L
-**** Insert Bare URL
-C-c C-a u
-**** Insert Footnote Link
-C-c C-a f
-**** Insert Wiki Link
-C-c C-a w
-**** Kill Link
-C-c C-k
-**** Follow Links
-C-c C-o Folllow
-M-p Previous Link
-M-n Next Link
-**** Jumping
-C-c C-l Jump between ref/def, footnotes
-*** Images
-**** Insert Inline Image
-C-c C-i i
-**** Kill Image
-C-c C-k
-**** Toggle Image Display
-C-c C-i C-t
-*** Styles
-C-c C-s
-**** Insert Emphasis (Italic) Tags
-C-c C-s e
-**** Insert Strong (Bold) Tags
-C-c C-s s
-**** Promote/Demote Emphasis
-C-c C--
-C-c C-=
-**** Insert Code Tags
-C-c C-s c
-**** Insert Keyboard Tags
-C-c C-s k
-**** Insert Blockquote Tags
-C-c C-s b
-C-c C-s C-b
-**** Insert Preformatted Tags
-C-c C-s p
-C-c C-s C-p
-**** Complete Style Tags
-C-c C-]
-**** Kill Styled Text
-C-c C-k
-*** Miscellaneous
-**** Kill Element
-C-C C-k (define here, reference elsewhere)
-**** Insert Rules
-C-c -
-C-u C-c -
 *** Headings
 C-c C-t
 **** Insert Heading
@@ -122,7 +60,59 @@ M-LEFT
 M-RIGHT
 **** Kill List Item
 C-c C-k
-*** Modified Behavior
+*** Styles
+C-c C-s
+**** Insert Emphasis (Italic) Tags
+C-c C-s e
+**** Insert Strong (Bold) Tags
+C-c C-s s
+**** Promote/Demote Emphasis
+C-c C--
+C-c C-=
+**** Insert Code Tags
+C-c C-s c
+**** Insert Keyboard Tags
+C-c C-s k
+**** Insert Blockquote Tags
+C-c C-s b
+C-c C-s C-b
+**** Insert Preformatted Tags
+C-c C-s p
+C-c C-s C-p
+**** Insert Rules
+C-c -
+C-u C-c -
+**** Complete Style Tags
+C-c C-]
+**** Kill Styled Text
+C-c C-k
+*** Links
+**** Insert Inline Link
+C-c C-a
+**** Insert Reference Link
+C-c C-a L
+**** Insert Bare URL
+C-c C-a u
+**** Insert Footnote Link
+C-c C-a f
+**** Insert Wiki Link
+C-c C-a w
+**** Kill Link
+C-c C-k
+**** Follow Links
+C-c C-o Folllow
+M-p Previous Link
+M-n Next Link
+**** Jumping
+C-c C-l Jump between ref/def, footnotes
+*** Images
+**** Insert Inline Image
+C-c C-i i
+**** Kill Image
+C-c C-k
+**** Toggle Image Display
+C-c C-i C-t
+*** Modified Behaviors
 **** Paragraphs and Blocks
 M-{
 M-}
@@ -157,14 +147,21 @@ C-c C-c c
 C-c C-c n
 **** Complete All Headings & Rules
 C-c C-c ]
-** Extensions
-*** Wiki Links Syntax Highlighting
+* Installation
+** Recommended Installation
+** Loading with use-package
+** OS Package Managers
+** Manual Installation
+** Development Version
+** Dependencies
+* Extensions
+** Wiki Links Syntax Highlighting
 M-x markdown-toggle-wiki-links
-*** SmartyPants
-*** LaTeX Math Syntax Highlighting
+** SmartyPants
+** LaTeX Math Syntax Highlighting
 M-x markdown-toggle-math
-** GitHub Flavored Markdown
-** Customization
-** Acknowlegments
-** Bugs
-** History
+* GitHub Flavored Markdown
+* Customization
+* Acknowlegments
+* How to Report Bugs
+* Release History

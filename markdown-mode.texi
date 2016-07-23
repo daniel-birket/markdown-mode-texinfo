@@ -14,19 +14,33 @@
 @comment %**end of header
 
 @copying
-This is the @strong{Unauthorized} Emacs Markdown Mode Manual,
+Copyright @copyright{} 2016 Daniel Birket.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+@ref{GNU Free Documentation License}.
+@end quotation
+
+This is the @emph{Unauthorized} Emacs Markdown Mode Manual,
 @value{EDITION}, written by Daniel Birket @email{danielb@@birket.com}
-to document the software @cite{markdown-mode}, version
+to document the software @code{markdown-mode}, version
 @value{VERSION}, released @value{RELEASED}, which was written and
 Copyright @copyright{} @value{SWCYEARS} by Jason R. Blevins
 @email{jrblevin@@sdf.org} et al.  The @emph{authorized} manual for
-@cite{markdown-mode} is online at
+@code{markdown-mode} is online at
 @uref{http://jblevins.org/projects/markdown-mode/}.
 
-The @cite{markdown-mode} software includes this notice:
+This manual was made possible by the extensive documentation in the
+@code{markdown-mode} source code.
+
+The software source code, @code{markdown-mode.el}, includes this notice:
 
 @lisp
-;; This file is not part of GNU Emacs.
+;; This file [@code{markdown-mode.el}] is not part of GNU Emacs.
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -38,20 +52,6 @@ The @cite{markdown-mode} software includes this notice:
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 @end lisp
-
-This @strong{Unauthorized} Emacs Markdown Mode Manual was written by
-referencing the extensive documentation in the @cite{markdown-mode}
-source code.  This manual is Copyright @copyright{} 2016 Free Software
-Foundation, Inc.
-
-@quotation
-Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3 or
-any later version published by the Free Software Foundation; with no
-Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
-Texts.  A copy of the license is included in the section entitled
-@ref{GNU Free Documentation License}.
-@end quotation
 @end copying
 
 @dircategory Emacs editing modes
@@ -60,9 +60,10 @@ Texts.  A copy of the license is included in the section entitled
 @end direntry
 
 @titlepage
-@title Emacs Markdown Mode Manual, @value{EDITION}
+@title @emph{Unauthorized} Emacs Markdown Mode Manual
+@subtitle @value{EDITION}
 @author Daniel Birket @email{danielb@@birket.com}
-@subtitle for @cite{Emacs Markdown Mode}, version @value{VERSION}, released @value{RELEASED}
+@subtitle for @code{markdown-mode}, version @value{VERSION}, released @value{RELEASED}
 @author Jason R. Blevins @email{jrblevin@@sdf.org} et al.
 @subtitle for use with EMacs 24.3 and later
 @author Richard Stallman et al.
@@ -71,19 +72,23 @@ Texts.  A copy of the license is included in the section entitled
 @insertcopying
 @end titlepage
 
+@comment Output the table of contents
 @contents
 
 @ifnottex
 @node Top
 @top Emacs Markdown Mode
 
-@cite{markdown-mode} is a major mode for editing Markdown-formatted text with EMacs.
+This manual describes @code{markdown-mode}, an Emacs major mode for
+editing Markdown-formatted text. The program @command{markdown} and
+markdown-format is described at
+@uref{http://daringfireball.net/projects/markdown/}
 
 @insertcopying
 @end ifnottex
 
 @menu
-* Invoking sample::
+* Installation::        How to Download & Install.
 * GNU General Public License 2.0::
 * GNU General Public License 3.0::
 * GNU Free Documentation License::
@@ -91,15 +96,13 @@ Texts.  A copy of the license is included in the section entitled
 @end menu
 
 
-@node Invoking sample
-@chapter Invoking sample
+@node Installation
+@chapter Installation
+@cindex Installing markdown-mode
+@cindex Downloading markdown-mode
+@cindex How to Install markdown-mode
 
-@pindex sample
-@cindex invoking @command{sample}
-
-This is a sample manual.  There is no sample program to
-invoke, but if there were, you could see its basic usage
-and command line options here.
+TBD Installation Section
 
 @node GNU General Public License 2.0
 @appendix GNU General Public License 2.0
