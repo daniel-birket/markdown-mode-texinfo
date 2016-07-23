@@ -1,37 +1,42 @@
 This is markdown-mode.info, produced by makeinfo version 6.1 from
 markdown-mode.texi.
 
-This manual is for "Emacs Markdown Mode" (version 2.1, released
-January 9, 2016), which was written and Copyright (C) 2007-2016 by
-Jason R. Blevins (<jrblevin@sdf.org>) and other contributors.
+This is the *Unauthorized* Emacs Markdown Mode Manual, First Edition,
+written by Daniel Birket <danielb@birket.com> to document the software
+'markdown-mode', version 2.1, released January 9, 2016, which was
+written and Copyright (C) 2007-2016 by Jason R. Blevins
+<jrblevin@sdf.org> et al.  The _authorized_ manual for 'markdown-mode'
+is online at <http://jblevins.org/projects/markdown-mode/>.
 
-     This program is not part of GNU Emacs, which it extends.
+   The 'markdown-mode' software includes this notice:
 
-     This program is free software; you can redistribute it and/or
-     modify it under the terms of the GNU General Public License as
-     published by the Free Software Foundation; either version 2, or
-     (at your option) any later version.  A copy of the license is
-     included in the section entitled "GNU General Public License
-     2.0".
+     ;; This file is not part of GNU Emacs.
 
-     This program is distributed in the hope that it will be useful,
-     but WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+     ;; This program is free software; you can redistribute it and/or modify
+     ;; it under the terms of the GNU General Public License as published by
+     ;; the Free Software Foundation; either version 2, or (at your option)
+     ;; any later version. (*Note GNU General Public License 2.0::)
 
-   This manual was written by Daniel Birket (<danielb@birket.com>)
-based upon extensive documentation in the Emacs Markdown Mode source
-code and is Copyright (C) 2016 Free Software Foundation, Inc.
+     ;; This program is distributed in the hope that it will be useful,
+     ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+     ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     ;; GNU General Public License for more details.
+
+   This *Unauthorized* Emacs Markdown Mode Manual was written by
+referencing the extensive documentation in the 'markdown-mode' source
+code.  This manual is Copyright (C) 2016 Free Software Foundation,
+Inc.
 
      Permission is granted to copy, distribute and/or modify this
      document under the terms of the GNU Free Documentation License,
      Version 1.3 or any later version published by the Free Software
      Foundation; with no Invariant Sections, with no Front-Cover
      Texts, and with no Back-Cover Texts.  A copy of the license is
-     included in the section entitled "GNU Free Documentation
-     License".
+     included in the section entitled *note GNU Free Documentation
+     License::.
 INFO-DIR-SECTION Emacs editing modes
 START-INFO-DIR-ENTRY
-* markdown-mode: (markdown-mode)Emacs mode for Markdown-formatted text.
+* markdown-mode: (markdown-mode)Emacs mode for markdown-formatted text.
 END-INFO-DIR-ENTRY
 
 
@@ -40,8 +45,42 @@ File: markdown-mode.info,  Node: Top,  Next: Invoking sample,  Up: (dir)
 Emacs Markdown Mode
 *******************
 
-This manual is for "Emacs Markdown Mode" (version 2.1, released
-January 9, 2016).
+'markdown-mode' is a major mode for editing Markdown-formatted text
+with EMacs.
+
+   This is the *Unauthorized* Emacs Markdown Mode Manual, First
+Edition, written by Daniel Birket <danielb@birket.com> to document the
+software 'markdown-mode', version 2.1, released January 9, 2016, which
+was written and Copyright (C) 2007-2016 by Jason R. Blevins
+<jrblevin@sdf.org> et al.  The _authorized_ manual for 'markdown-mode'
+is online at <http://jblevins.org/projects/markdown-mode/>.
+
+   The 'markdown-mode' software includes this notice:
+
+     ;; This file is not part of GNU Emacs.
+
+     ;; This program is free software; you can redistribute it and/or modify
+     ;; it under the terms of the GNU General Public License as published by
+     ;; the Free Software Foundation; either version 2, or (at your option)
+     ;; any later version. (*Note GNU General Public License 2.0::)
+
+     ;; This program is distributed in the hope that it will be useful,
+     ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+     ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     ;; GNU General Public License for more details.
+
+   This *Unauthorized* Emacs Markdown Mode Manual was written by
+referencing the extensive documentation in the 'markdown-mode' source
+code.  This manual is Copyright (C) 2016 Free Software Foundation,
+Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with no Front-Cover
+     Texts, and with no Back-Cover Texts.  A copy of the license is
+     included in the section entitled *note GNU Free Documentation
+     License::.
 
 * Menu:
 
@@ -64,8 +103,8 @@ here.
 
 File: markdown-mode.info,  Node: GNU General Public License 2.0,  Next: GNU General Public License 3.0,  Prev: Invoking sample,  Up: Top
 
-Appendix A GNU General Public License
-*************************************
+Appendix A GNU General Public License 2.0
+*****************************************
 
                         Version 2, June 1991
 
@@ -434,8 +473,8 @@ the GNU Lesser General Public License instead of this License.
 
 File: markdown-mode.info,  Node: GNU General Public License 3.0,  Next: GNU Free Documentation License,  Prev: GNU General Public License 2.0,  Up: Top
 
-Appendix B GNU General Public License
-*************************************
+Appendix B GNU General Public License 3.0
+*****************************************
 
                        Version 3, 29 June 2007
 
@@ -1673,11 +1712,11 @@ Index
 
 
 Tag Table:
-Node: Top1652
-Node: Invoking sample1997
-Node: GNU General Public License 2.02292
-Node: GNU General Public License 3.021652
-Node: GNU Free Documentation License59361
-Node: Index84587
+Node: Top1926
+Node: Invoking sample3962
+Node: GNU General Public License 2.04257
+Node: GNU General Public License 3.023625
+Node: GNU Free Documentation License61342
+Node: Index86568
 
 End Tag Table
