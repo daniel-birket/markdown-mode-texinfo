@@ -1,1 +1,18 @@
+# Log Files #
 *.log
+
+# Intermediate Files #
+*.aux
+*.cp
+*.cps
+*.dvi
+*.toc
+*.xml
+
+# Output Files #
+*.epub
+*.html
+*.info
+*.md
+*.pdf
+*.ps
