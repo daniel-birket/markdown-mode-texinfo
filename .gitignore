@@ -1,7 +1,13 @@
-# Log Files #
+work
+
+# Auto-Save Files
+\#*
+.#*
+
+# Log Files
 *.log
 
-# Intermediate Files #
+# Intermediate Files
 *.aux
 *.cp
 *.cps
@@ -9,9 +15,9 @@
 *.toc
 *.xml
 
-# Output Files #
+# Output Files
 *.epub
-*.html
+README.html
 *.info
 *.md
 *.pdf

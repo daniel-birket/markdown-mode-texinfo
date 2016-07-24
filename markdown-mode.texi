@@ -3,7 +3,7 @@
 @setfilename markdown-mode.info
 @settitle Emacs Markdown Mode
 @comment created under texinfo 6.1
-@set EDITION WIP Edition
+@set EDITION Working Draft
 @set VERSION 2.1
 @set RELEASED January 9, 2016
 @set SWCYEARS 2007-2016
@@ -12,7 +12,9 @@
 @syncodeindex ky cp
 @comment %**end of header
 
+@comment =============================================================
 @copying
+@cindex Copyright (manual)
 Copyright @copyright{} 2016 Daniel Birket.
 
 @quotation
@@ -25,19 +27,20 @@ Texts.  A copy of the license is included in the section entitled
 @end quotation
 
 This is the Emacs Markdown Mode manual (unauthorized),
-@value{EDITION}, by Daniel Birket.
-
-It describes how to use the Emacs Lisp package @code{markdown-mode},
-version @value{VERSION}, released @value{RELEASED}, by and Copyright
-@copyright{} @value{SWCYEARS} Jason R. Blevins, et al.
-
-The @emph{authorized} manual for @code{markdown-mode} is online at
-@uref{http://jblevins.org/projects/markdown-mode/}.
+@value{EDITION}, by Daniel Birket.  It describes how to install and
+use the Emacs Lisp package @code{markdown-mode}, version
+@value{VERSION}, released @value{RELEASED}, written by and Copyright
+@copyright{} @value{SWCYEARS} Jason R. Blevins, et al.  The
+@code{markdown-mode} package and its @emph{authorized} manual are
+online at @uref{http://jblevins.org/projects/markdown-mode/}.
 
 This manual is based upon the extensive documentation in the
-@code{markdown-mode.el} source code, which includes this notice:
+@code{markdown-mode.el} source code, which includes these lines:
 
+@cindex Copyright (software)
 @lisp
+;; Copyright (C) 2007-2016 Jason R. Blevins <jrblevin@@sdf.org>
+...
 ;; This file is not part of GNU Emacs.
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -50,17 +53,19 @@ This manual is based upon the extensive documentation in the
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 @end lisp
-@xref{GNU General Public License 2.0}.
 @end copying
 
+@comment =============================================================
 @dircategory Emacs editing modes
 @direntry
 * markdown-mode: (markdown-mode).        Emacs mode for markdown-formatted text.
 @end direntry
 
+@comment =============================================================
 @titlepage
 @title Emacs Markdown Mode
-@subtitle (Unauthorized) @value{EDITION}
+@subtitle (Unauthorized)
+@subtitle @value{EDITION}
 @author Daniel Birket,
 @author Jason R. Blevins, et al.
 @page
@@ -70,55 +75,178 @@ This manual is based upon the extensive documentation in the
 
 @contents
 
+@comment =============================================================
 @ifnotdocbook
 @ifnottex
 @node Top
 @top Emacs Markdown Mode
-This manual describes how to use @code{markdown-mode}, an Emacs
-package for editing markdown-formatted text.
+This manual describes how to install and use @code{markdown-mode}, an Emacs
+package for working with markdown-formatted text.
 
+@ifinfo
+In @command{info}, hit @kbd{3} to jump to usage chapter.
+
+@end ifinfo
 @insertcopying
 @end ifnottex
 @end ifnotdocbook
 
 @menu
 * Introduction::                        About @command{markdown} & @code{markdown-mode}
-* Installation::                        How to Download & Install.
-* GNU General Public License 2.0::      1991 GPL used by markdown-mode.el
-* GNU Free Documentation License::      used by this manual
+* Installing::                          How to Download & Install @code{markdown-mode}
+* Using Markdown Mode::                 How to Use @code{markdown-mode}
+* Using GFM Mode::                      How to Use @code{gfm-mode}
+* Customizing::                         How to Customize @code{markdown-mode} (Variables)
+* Using Extensions::                    How to Use Supported Extensions
+
+Appendices
+* Acknowledgments::                     Many Thanks to Contributors
+* Bugs and Errors::                     How to Report Bugs and Errors
+* History of Releases::                 History of @code{markdown-mode}
+* GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991)
+* GNU General Public License 3.0::      Optional updated license (2007)
+* GNU Free Documentation License::      License of this manual (2008)
 * Index::
 @end menu
 
+
+@comment =============================================================
 @node Introduction
 @chapter Introduction
 @cindex markdown
 
-TBD Introduction Chapter Text
+This manual describes how to install and use @code{markdown-mode}, an Emacs
+package for working with markdown-formatted text.
 
-The program @command{markdown} and markdown-format is described at
+The package implements two Emacs ``major modes'':
+@itemize @bullet
+@item
+@code{markdown-mode}, for editing standard markdown text.
+@xref{Using Markdown Mode}
+
+@item
+@code{gfm-mode}, for editing GitHub-flavored markdown text.
+@xref{Using GFM Mode}
+@end itemize
+
+@command{markdown} is an popular and easy way to write styled text with
+simple text files.  It is described at
 @uref{http://daringfireball.net/projects/markdown/}.
 
+GitHub Flavored Markdown is the dialect of markdown used by GitHub. It
+is described at
+@uref{http://github.github.com/github-flavored-markdown/}.
 
-@node Installation
-@chapter Installation
-@cindex Installing markdown-mode
-@cindex Downloading markdown-mode
-@cindex How to Install markdown-mode
+@command{emacs} is the world's most powerful text editor.  It is highly
+extensible and has a large ecosystem of extensions like this one.  GNU
+emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 
-TBD Installation Chapter Text
 
+@comment =============================================================
+@node Installing
+@chapter Installing
+@cindex Downloading
+@cindex How to Download
+@cindex How to Install
+
+TBD Chapter Text
+
+
+@comment =============================================================
+@node Using Markdown Mode
+@chapter Using Markdown Mode
+@cindex Usage
+@cindex How to Use markdown-mode
+@findex markdown-mode
+
+TBD Chapter Text
+
+
+@comment =============================================================
+@node Using GFM Mode
+@chapter Using GFM Mode
+@cindex GitHub Flavored Markdown
+@cindex How to Use gfm-mode
+@findex gfm-mode
+
+TBD Chapter Text
+
+
+@comment =============================================================
+@node Customizing
+@chapter Customizing
+@cindex How to Customize
+@cindex Variables
+
+TBD Chapter Text
+
+
+@comment =============================================================
+@node Using Extensions
+@chapter Using Extensions
+@cindex Extensions
+@cindex How to Use Extensions
+
+TBD Chapter Text
+
+
+@comment =============================================================
+@node Acknowledgments
+@appendix Acknowledgments
+@cindex Contributors
+@cindex Credits
+
+TBD Chapter Text
+
+
+@comment =============================================================
+@node Bugs and Errors
+@appendix Bugs and Errors
+@cindex How to Report Bugs
+@cindex How to Report Errors
+@cindex Feedback
+@cindex Contact Information
+
+TBD Chapter Text
+
+
+@comment =============================================================
+@node History of Releases
+@appendix History of Releases
+@cindex History
+@cindex Releases
+
+TBD Chapter Text
+
+
+@comment =============================================================
 @node GNU General Public License 2.0
+@cindex License (software)
 @unnumbered GNU General Public License 2.0
+
 @include gpl-2.0.texi
 
 
+@comment =============================================================
+@node GNU General Public License 3.0
+@cindex License (updated)
+@unnumbered GNU General Public License 3.0
+
+@include gpl.texi
+
+
+@comment =============================================================
 @node GNU Free Documentation License
+@cindex License (manual)
 @unnumbered GNU Free Documentation License
+
 @include fdl.texi
 
 
+@comment =============================================================
 @node Index
 @unnumbered Index
+
 @printindex cp
 
 @bye

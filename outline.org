@@ -1,6 +1,17 @@
-MarkDown Mode
+Emacs MarkDown Mode
 
-* Usage
+* Introduction
+Markdown
+markdown-mode
+gfm-mode
+* Installation
+** Recommended Installation
+** Loading with use-package
+** OS Package Managers
+** Manual Installation
+** Development Version
+** Dependencies
+* Using Markdown Mode
 ** Usage Overview
 ** Insert Commands
 *** Headings
@@ -147,21 +158,14 @@ C-c C-c c
 C-c C-c n
 **** Complete All Headings & Rules
 C-c C-c ]
-* Installation
-** Recommended Installation
-** Loading with use-package
-** OS Package Managers
-** Manual Installation
-** Development Version
-** Dependencies
-* Extensions
+* Using GFM Mode
+* Customization
+* Using Extensions
 ** Wiki Links Syntax Highlighting
 M-x markdown-toggle-wiki-links
 ** SmartyPants
 ** LaTeX Math Syntax Highlighting
 M-x markdown-toggle-math
-* GitHub Flavored Markdown
-* Customization
-* Acknowlegments
-* How to Report Bugs
-* Release History
+* Acknowledgments
+* Bugs and Errors
+* History
