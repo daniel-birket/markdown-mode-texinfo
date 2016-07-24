@@ -26,10 +26,10 @@ quickly find information via the Emacs help.
 
 The Texinfo-format manual is compiled into info-format, which is
 compatible with both Emacs' `info` reader and the command line `info`
-command. (This `info` file must be copied to a directory with other
-`info` files where `emacs` can find it. See INFOPATH.) The
-Texinfo-format manual can also be compiled into HTML, PDF, ePub and
-other formats - even markdown.
+command. (This `info` file must be intalled in a directory with other
+`info` files where `emacs` can find it. See $ info '(texinfo)New Info
+File'.) The Texinfo-format manual can also be compiled into HTML, PDF,
+ePub and other formats - even markdown.
 
 This project is still in progress with no release version. You can
 conveniently view the HTML [working draft][]. Feedback is welcome.
