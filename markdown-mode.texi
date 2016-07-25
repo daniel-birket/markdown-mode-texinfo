@@ -92,23 +92,20 @@ In @command{info}, hit @kbd{3} to jump to usage chapter.
 @end ifnotdocbook
 
 @menu
-* Introduction::                        About @command{markdown} & @code{markdown-mode}
-* Installing::                          How to Download & Install @code{markdown-mode}
-* Using Markdown Mode::                 How to Use @code{markdown-mode}
-* Using GFM Mode::                      How to Use @code{gfm-mode}
-* Customizing::                         How to Customize @code{markdown-mode} (Variables)
-* Using Extensions::                    How to Use Supported Extensions
+* Introduction::                About @command{markdown} & @code{markdown-mode}.
+* Installing::                  How to Download & Install @code{markdown-mode}.
+* Using Markdown Mode::         How to Use @code{markdown-mode}.
+* Using GFM Mode::              How to Use @code{gfm-mode}.
+* Customizing::                 How to Customize @code{markdown-mode} (Variables).
+* Using Extensions::            How to Use Supported Extensions.
 
 Appendices
-* Acknowledgments::                     Many Thanks to Contributors
-* Bugs and Errors::                     How to Report Bugs and Errors
-* History of Releases::                 History of @code{markdown-mode}
-* GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991)
-* GNU General Public License 3.0::      Optional updated license (2007)
-* GNU Free Documentation License::      License of this manual (2008)
+* Development::                 For those who contribute, then or now.
+* GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991).
+* GNU General Public License 3.0::      Optional updated license (2007).
+* GNU Free Documentation License::      License of this manual (2008).
 * Index::
 @end menu
-
 
 @comment =============================================================
 @node Introduction
@@ -141,7 +138,6 @@ is described at
 extensible and has a large ecosystem of extensions like this one.  GNU
 emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 
-
 @comment =============================================================
 @node Installing
 @chapter Installing
@@ -149,8 +145,59 @@ emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 @cindex How to Download
 @cindex How to Install
 
-TBD Chapter Text
+ToDo Chapter Text
 
+@menu
+* Recommended Installation::    How to Install with @code{package.el}.
+* Managed Loading::             How to Manage with @code{use-package.el}.
+* OS Package Managers::         How to Install with OS Package Managers.
+* Manual Installation::         How to Install the hard way.
+@end menu
+
+@comment -------------------------------------------------------------
+@node Recommended Installation
+@section Recommended Installation
+@cindex How to Install using @code{package.el}
+@cindex MELPA Stable
+@findex package.el
+@findex package-install
+
+ToDo Section Text
+
+This package @code{markdown-mode} depends on the package @code{cl-lib},
+which has been bundled with GNU Emacs since version 24.3. If you use
+GNU Emacs version 24.1 or 24.2, you should install @code{cl-lib} using
+@code{package.el}.
+
+ToDo add instructions to install cl-lib
+
+@comment -------------------------------------------------------------
+@node Managed Loading
+@section Managed Loading
+@cindex How to Manage with @code{use-package}
+@findex use-package.el
+
+ToDo Section Text
+
+@comment -------------------------------------------------------------
+@node OS Package Managers
+@section OS Package Managers
+@cindex How to Install as a Linux Package
+@cindex How to Install as a Debian Package
+@cindex How to Install as a Ubuntu Package
+@cindex How to Install as a Fedora Package
+@cindex How to Install as a FreeBSD Package
+@cindex How to Install as a MacPorts Package
+
+ToDo Section Text
+
+@comment -------------------------------------------------------------
+@node Manual Installation
+@section Manual Installation
+@cindex How to Install Manually
+@cindex How to Download Manully
+
+ToDo Section Text
 
 @comment =============================================================
 @node Using Markdown Mode
@@ -159,8 +206,7 @@ TBD Chapter Text
 @cindex How to Use markdown-mode
 @findex markdown-mode
 
-TBD Chapter Text
-
+ToDo Chapter Text
 
 @comment =============================================================
 @node Using GFM Mode
@@ -169,8 +215,7 @@ TBD Chapter Text
 @cindex How to Use gfm-mode
 @findex gfm-mode
 
-TBD Chapter Text
-
+ToDo Chapter Text
 
 @comment =============================================================
 @node Customizing
@@ -178,8 +223,7 @@ TBD Chapter Text
 @cindex How to Customize
 @cindex Variables
 
-TBD Chapter Text
-
+ToDo Chapter Text
 
 @comment =============================================================
 @node Using Extensions
@@ -187,37 +231,54 @@ TBD Chapter Text
 @cindex Extensions
 @cindex How to Use Extensions
 
-TBD Chapter Text
-
+ToDo Chapter Text
 
 @comment =============================================================
-@node Acknowledgments
-@appendix Acknowledgments
+@node Development
+@appendix Development
+
+ToDo Chapter Text
+
+@menu
+* Acknowledgements::            Many Thanks to Contributors.
+* History of Releases::         History of Software Releases.
+* Development Version::         How to Get the Development Software.
+* Bugs and Errors::             How to Report Bugs and Errors.
+@end menu
+
+@comment -------------------------------------------------------------
+@node Acknowledgements
+@section Acknowledgements
 @cindex Contributors
 @cindex Credits
 
-TBD Chapter Text
+ToDo Section Text
 
+@comment -------------------------------------------------------------
+@node History of Releases
+@section History of Releases
+@cindex History
+@cindex Releases
 
-@comment =============================================================
+ToDo Section Text
+
+@comment -------------------------------------------------------------
+@node Development Version
+@section Development Version
+@cindex How to Get Development Version
+@cindex How to Install Development Version
+
+ToDo Section Text
+
+@comment -------------------------------------------------------------
 @node Bugs and Errors
-@appendix Bugs and Errors
+@section Bugs and Errors
 @cindex How to Report Bugs
 @cindex How to Report Errors
 @cindex Feedback
 @cindex Contact Information
 
-TBD Chapter Text
-
-
-@comment =============================================================
-@node History of Releases
-@appendix History of Releases
-@cindex History
-@cindex Releases
-
-TBD Chapter Text
-
+ToDo Section Text
 
 @comment =============================================================
 @node GNU General Public License 2.0
@@ -226,7 +287,6 @@ TBD Chapter Text
 
 @include gpl-2.0.texi
 
-
 @comment =============================================================
 @node GNU General Public License 3.0
 @cindex License (updated)
@@ -234,14 +294,12 @@ TBD Chapter Text
 
 @include gpl.texi
 
-
 @comment =============================================================
 @node GNU Free Documentation License
 @cindex License (manual)
 @unnumbered GNU Free Documentation License
 
 @include fdl.texi
-
 
 @comment =============================================================
 @node Index
