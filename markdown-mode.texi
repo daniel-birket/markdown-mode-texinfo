@@ -12,7 +12,6 @@
 @syncodeindex ky cp
 @comment %**end of header
 
-@comment =============================================================
 @copying
 @cindex Copyright (manual)
 Copyright @copyright{} 2016 Daniel Birket.
@@ -55,13 +54,11 @@ This manual is based upon the extensive documentation in the
 @end lisp
 @end copying
 
-@comment =============================================================
 @dircategory Emacs editing modes
 @direntry
 * markdown-mode: (markdown-mode).        Emacs mode for markdown-formatted text.
 @end direntry
 
-@comment =============================================================
 @titlepage
 @title Emacs Markdown Mode
 @subtitle (Unauthorized)
@@ -75,7 +72,6 @@ This manual is based upon the extensive documentation in the
 
 @contents
 
-@comment =============================================================
 @ifnotdocbook
 @ifnottex
 @node Top
@@ -84,7 +80,9 @@ This manual describes how to install and use @code{markdown-mode}, an Emacs
 package for working with markdown-formatted text.
 
 @ifinfo
-In @command{info}, hit @kbd{3} to jump to usage chapter.
+In @command{info}, type @kbd{3} to jump to usage chapter, or type
+@w{@kbd{i How to@key{SPC}@key{TAB}}} to see index of ``How to...''
+instructions.
 
 @end ifinfo
 @insertcopying
@@ -107,7 +105,6 @@ Appendices
 * Index::
 @end menu
 
-@comment =============================================================
 @node Introduction
 @chapter Introduction
 @cindex markdown
@@ -138,7 +135,6 @@ is described at
 extensible and has a large ecosystem of extensions like this one.  GNU
 emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 
-@comment =============================================================
 @node Installing
 @chapter Installing
 @cindex Downloading
@@ -154,7 +150,6 @@ ToDo Chapter Text
 * Manual Installation::         How to Install the hard way.
 @end menu
 
-@comment -------------------------------------------------------------
 @node Recommended Installation
 @section Recommended Installation
 @cindex How to Install with @code{package.el}
@@ -171,7 +166,6 @@ GNU Emacs version 24.1 or 24.2, you should install @code{cl-lib} using
 
 ToDo add instructions to install cl-lib
 
-@comment -------------------------------------------------------------
 @node Managed Loading
 @section Managed Loading
 @cindex How to Manage with @code{use-package}
@@ -179,7 +173,6 @@ ToDo add instructions to install cl-lib
 
 ToDo Section Text
 
-@comment -------------------------------------------------------------
 @node OS Package Managers
 @section OS Package Managers
 @cindex How to Install as a Linux Package
@@ -191,7 +184,6 @@ ToDo Section Text
 
 ToDo Section Text
 
-@comment -------------------------------------------------------------
 @node Manual Installation
 @section Manual Installation
 @cindex How to Install Manually
@@ -199,7 +191,6 @@ ToDo Section Text
 
 ToDo Section Text
 
-@comment =============================================================
 @node Using Markdown Mode
 @chapter Using Markdown Mode
 @cindex Usage
@@ -208,7 +199,61 @@ ToDo Section Text
 
 ToDo Chapter Text
 
-@comment =============================================================
+@menu
+* Headings::            How to Work with Headings.
+* Lists::               How to Work with Lists.
+* Styles::              How to Work with Styles.
+* Links::               How to Work with Links.
+* Images::              How to Work with Images.
+* Differences::         How @code{markdown-mode} differs from  @code{text-mode}
+* Output Commands::     How to use @command{markdown} to Output HTML
+@end menu
+
+@node Headings
+@section Headings
+@cindex How to Work with Headings
+
+ToDo Section Text
+
+@node Lists
+@section Lists
+@cindex How to Work with Lists
+
+ToDo Section Text
+
+@node Styles
+@section Styles
+@cindex How to Work with Styles
+
+ToDo Section Text
+
+@node Links
+@section Links
+@cindex How to Work with Links
+
+ToDo Section Text
+
+@node Images
+@section Images
+@cindex How to Work with Images
+
+ToDo Section Text
+
+@node Differences
+@section Differences
+@cindex Differences from @code{text-mode}
+@cindex Modified Behaviors
+
+ToDo Section Text
+
+@node Output Commands
+@section Output Commands
+@cindex How to Output HTML
+@cindex How to Compile markdown
+@cindex How to Convert markdown
+
+ToDo Section Text
+
 @node Using GFM Mode
 @chapter Using GFM Mode
 @cindex GitHub Flavored Markdown
@@ -217,7 +262,6 @@ ToDo Chapter Text
 
 ToDo Chapter Text
 
-@comment =============================================================
 @node Customizing
 @chapter Customizing
 @cindex How to Customize
@@ -225,7 +269,6 @@ ToDo Chapter Text
 
 ToDo Chapter Text
 
-@comment =============================================================
 @node Using Extensions
 @chapter Using Extensions
 @cindex Extensions
@@ -239,7 +282,6 @@ ToDo Chapter Text
 * Wiki Links::                  Highlight Wiki Links Syntax
 @end menu
 
-@comment -------------------------------------------------------------
 @node SmartyPants
 @section SmartyPants
 @cindex How to Use SmartyPants
@@ -247,8 +289,7 @@ ToDo Chapter Text
 
 ToDo Section Text
 
-@comment -------------------------------------------------------------
-@node LaTeX Math
+@node @LaTeX{} Math
 @section @LaTeX{} Math
 @cindex Highlighting @LaTeX{} Math Syntax
 @cindex @LaTeX{} Math Syntax Highlighting
@@ -256,7 +297,6 @@ ToDo Section Text
 
 ToDo Section Text
 
-@comment -------------------------------------------------------------
 @node Wiki Links
 @section Wiki Links
 @cindex Highlighting Wiki Links Syntax
@@ -265,7 +305,6 @@ ToDo Section Text
 
 ToDo Section Text
 
-@comment =============================================================
 @node Development
 @appendix Development
 
@@ -278,7 +317,6 @@ ToDo Chapter Text
 * Bugs and Errors::             How to Report Bugs and Errors.
 @end menu
 
-@comment -------------------------------------------------------------
 @node Acknowledgements
 @section Acknowledgements
 @cindex Contributors
@@ -286,7 +324,6 @@ ToDo Chapter Text
 
 ToDo Section Text
 
-@comment -------------------------------------------------------------
 @node History of Releases
 @section History of Releases
 @cindex History
@@ -294,7 +331,6 @@ ToDo Section Text
 
 ToDo Section Text
 
-@comment -------------------------------------------------------------
 @node Development Version
 @section Development Version
 @cindex How to Get the Development Version
@@ -302,7 +338,6 @@ ToDo Section Text
 
 ToDo Section Text
 
-@comment -------------------------------------------------------------
 @node Bugs and Errors
 @section Bugs and Errors
 @cindex How to Report Bugs
@@ -312,28 +347,24 @@ ToDo Section Text
 
 ToDo Section Text
 
-@comment =============================================================
 @node GNU General Public License 2.0
 @cindex License (software)
 @unnumbered GNU General Public License 2.0
 
 @include gpl-2.0.texi
 
-@comment =============================================================
 @node GNU General Public License 3.0
 @cindex License (updated)
 @unnumbered GNU General Public License 3.0
 
 @include gpl.texi
 
-@comment =============================================================
 @node GNU Free Documentation License
 @cindex License (manual)
 @unnumbered GNU Free Documentation License
 
 @include fdl.texi
 
-@comment =============================================================
 @node Index
 @unnumbered Index
 
