@@ -31,8 +31,7 @@ command. (This `info` file must be intalled in a directory with other
 File'.) The Texinfo-format manual can also be compiled into HTML, PDF,
 ePub and other formats - even markdown.
 
-This project is still in progress with no release version. You can
-conveniently view the HTML [working draft][]. Feedback is welcome.
+This project is still in progress with no release version.
 
 -- Daniel Birket
 

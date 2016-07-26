@@ -18,6 +18,7 @@ work
 # Output Files
 *.epub
 README.html
+markdown-mode.html
 *.info
 *.md
 *.pdf
