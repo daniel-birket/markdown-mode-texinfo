@@ -10,6 +10,7 @@
 @syncodeindex fn cp
 @syncodeindex vr cp
 @syncodeindex ky cp
+@syncodeindex pg cp
 @comment %**end of header
 
 @copying
@@ -215,11 +216,60 @@ ToDo Chapter Text
 
 ToDo Section Text
 
+@menu
+* Inserting and Killing Headings::
+* Changing Headings::
+* Outlining::
+@end menu
+
+@node Inserting and Killing Headings
+@subsection Inserting and Killing Headings
+@cindex How to Insert Headings
+
+ToDo Subsection Text
+
+@node Changing Headings
+@subsection Changing Headings
+@cindex How to Change Headings
+
+ToDo Subsection Text
+
+@node Outlining
+@subsection Outlining
+@cindex How to Use Outlining
+@findex org-mode
+
+ToDo Subsection Text
+
 @node Lists
 @section Lists
 @cindex How to Work with Lists
 
 ToDo Section Text
+
+@menu
+* Inserting and Killing List Items::
+* Changing List Items::
+* Renumbering Lists::
+@end menu
+
+@node Inserting and Killing List Items
+@subsection Inserting and Killing List Items
+@cindex How to Insert List Items
+
+ToDo Subsection Text
+
+@node Changing List Items
+@subsection Changing List Items
+@cindex How to Change List Items
+
+ToDo Subsection Text
+
+@node Renumbering Lists
+@subsection Renumbering Lists
+@cindex How to Renumber Lists
+
+ToDo Subsection Text
 
 @node Styles
 @section Styles
@@ -248,9 +298,9 @@ ToDo Section Text
 
 @node Output Commands
 @section Output Commands
-@cindex How to Output HTML
-@cindex How to Compile markdown
-@cindex How to Convert markdown
+@cindex How to Output
+@cindex How to Compile
+@cindex How to Convert
 
 ToDo Section Text
 
@@ -277,17 +327,12 @@ ToDo Chapter Text
 ToDo Chapter Text
 
 @menu
-* SmartyPants::                 Smart Quotation Marks.
-* @LaTeX{} Math::                  Highlight @LaTeX{} Math Syntax
+* @LaTeX{} Math::               Highlight @LaTeX{} Math Syntax
 * Wiki Links::                  Highlight Wiki Links Syntax
+* SmartyPants::                 Smart Quotation Marks.
+* Using Alternatives to @command{markdown}::
+* Outputing to Other Formats::
 @end menu
-
-@node SmartyPants
-@section SmartyPants
-@cindex How to Use SmartyPants
-@cindex Smart Quote Marks
-
-ToDo Section Text
 
 @node @LaTeX{} Math
 @section @LaTeX{} Math
@@ -302,6 +347,30 @@ ToDo Section Text
 @cindex Highlighting Wiki Links Syntax
 @cindex Wiki Links Syntax Highlighting
 @cindex How to Highlight Wiki Links
+
+ToDo Section Text
+
+@node SmartyPants
+@section SmartyPants
+@cindex How to Use SmartyPants
+@cindex Smart Quote Marks
+
+ToDo Section Text
+
+@node Using Alternatives to @command{markdown}
+@section Using Alternatives to @command{markdown}
+@cindex How to Use Alternatives to @command{markdown}
+@cindex How to Use with MultiMarkdown
+@cindex How to Use with Pandoc Markdown
+@pindex MultiMarkdown
+
+ToDo Section Text
+
+@node Outputing to Other Formats
+@section Outputing to Other Formats
+@cindex How to Output to Other Formats
+@cindex How to Use PanDoc to Output Format 'X'
+@pindex PanDoc
 
 ToDo Section Text
 

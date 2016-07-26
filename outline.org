@@ -12,15 +12,16 @@ gfm-mode
 * Using Markdown Mode
 ** Headings
 C-c C-t
-*** Insert Heading
+*** Inserting and Killing Headings
+**** Insert Heading
 C-c C-t h
 C-u C-c C-t h
 C-u C-u C-c C-t h
-*** Insert Underlined Heading
+**** Insert Underlined Heading
 C-c C-t H
 C-u C-c C-t H
 C-u C-u C-c C-t H
-*** Insert Specified Heading
+**** Insert Specified Heading
 C-c C-t 1
 C-c C-t 2
 C-c C-t 3
@@ -29,47 +30,51 @@ C-c C-t 5
 C-c C-t 6
 C-c C-t !
 C-c C-t @
-*** Complete Heading
+**** Complete Heading
 C-c C-]
-*** Complete All Headings & Rules
+**** Complete All Headings & Rules
 C-c C-c ]
-*** Kill Heading
+**** Kill Heading
 C-c C-k
-*** Promote/Demote Heading
+*** Changing Headings
+**** Promote/Demote Heading
 C-c C--
 C-c C-=
 M-LEFT
 M-RIGHT
-*** Promote/Demote Subtree
+**** Promote/Demote Subtree
 M-S-LEFT
 M_S-RIGHT
-*** Shift Subtree Up/Down
+**** Shift Subtree Up/Down
 M-S-UP
 M-S-DOWN
-*** Outline Movement
+*** Outlining
+**** Outline Movement
 C-c C-n
 C-c C-p
 C-c C-f
 C-c C-b
 C-c C-u
-*** Outline Visibility
+**** Outline Visibility
 TAB
 S-TAB
 ** Lists
-*** Insert List Item
+*** Inserting and Killing List Items
+**** Insert List Item
 M-RET
 C-c C-j
 C-u C-c C-j
 C-u C-u C-c C-j
-*** Shift Item Up/Down
-M-UP
-M-DOWN
-*** Promote/Demote List Item
+**** Kill List Item
+C-c C-k
+*** Changing List Items
+**** Promote/Demote List Item
 M-LEFT
 M-RIGHT
-*** Kill List Item
-C-c C-k
-*** Renumber All Lists
+**** Shift Item Up/Down
+M-UP
+M-DOWN
+*** Renumbering All Lists
 C-c C-c n
 ** Styles
 C-c C-s
@@ -156,11 +161,13 @@ C-c C-c c
 * Using GFM Mode
 * Customizing
 * Using Extensions
+** LaTeX Math Syntax Highlighting
+M-x markdown-toggle-math
 ** Wiki Links Syntax Highlighting
 M-x markdown-toggle-wiki-links
 ** SmartyPants
-** LaTeX Math Syntax Highlighting
-M-x markdown-toggle-math
+** Using Alternatives to @command{markdown}
+** Outputing to Other Formats
 * Development
 ** Acknowledgments
 ** Release History
