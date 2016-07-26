@@ -101,9 +101,9 @@ In @command{info}, hit @kbd{3} to jump to usage chapter.
 
 Appendices
 * Development::                 For those who contribute, then or now.
-* GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991).
-* GNU General Public License 3.0::      Optional updated license (2007).
-* GNU Free Documentation License::      License of this manual (2008).
+* GNU General Public License 2.0::  License of @code{markdown-mode.el} (1991).
+* GNU General Public License 3.0::  Optional updated license (2007).
+* GNU Free Documentation License::  License of this manual (2008).
 * Index::
 @end menu
 
@@ -232,6 +232,38 @@ ToDo Chapter Text
 @cindex How to Use Extensions
 
 ToDo Chapter Text
+
+@menu
+* SmartyPants::                 Smart Quotation Marks.
+* LaTeX Math::                  Highlight LaTeX Math Syntax
+* Wiki Links::                  Highlight Wiki Links Syntax
+@end menu
+
+@comment -------------------------------------------------------------
+@node SmartyPants
+@section SmartyPants
+@cindex How to Use SmartyPants
+@cindex Smart Quote Marks
+
+ToDo Section Text
+
+@comment -------------------------------------------------------------
+@node LaTeX Math
+@section LaTeX Math
+@cindex Highlighting LaTeX Math Syntax
+@cindex LaTeX Math Syntax Highlighting
+@cindex How to Highlight LaTeX Math
+
+ToDo Section Text
+
+@comment -------------------------------------------------------------
+@node Wiki Links
+@section Wiki Links
+@cindex Highlighting Wiki Links Syntax
+@cindex Wiki Links Syntax Highlighting
+@cindex How to Highlight Wiki Links
+
+ToDo Section Text
 
 @comment =============================================================
 @node Development
