@@ -4,13 +4,11 @@ Emacs MarkDown Mode
 Markdown
 markdown-mode
 gfm-mode
-* Installation
+* Installing
 ** Recommended Installation
-** Loading with use-package
+** Managed Loading
 ** OS Package Managers
 ** Manual Installation
-** Development Version
-** Dependencies
 * Using Markdown Mode
 ** Usage Overview
 ** Insert Commands
@@ -159,13 +157,15 @@ C-c C-c n
 **** Complete All Headings & Rules
 C-c C-c ]
 * Using GFM Mode
-* Customization
+* Customizing
 * Using Extensions
 ** Wiki Links Syntax Highlighting
 M-x markdown-toggle-wiki-links
 ** SmartyPants
 ** LaTeX Math Syntax Highlighting
 M-x markdown-toggle-math
-* Acknowledgments
-* Bugs and Errors
-* History
+* Development
+** Acknowledgments
+** Release History
+** Development Version
+** Bugs and Errors

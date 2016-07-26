@@ -157,7 +157,7 @@ ToDo Chapter Text
 @comment -------------------------------------------------------------
 @node Recommended Installation
 @section Recommended Installation
-@cindex How to Install using @code{package.el}
+@cindex How to Install with @code{package.el}
 @cindex MELPA Stable
 @findex package.el
 @findex package-install
@@ -235,7 +235,7 @@ ToDo Chapter Text
 
 @menu
 * SmartyPants::                 Smart Quotation Marks.
-* LaTeX Math::                  Highlight LaTeX Math Syntax
+* @LaTeX{} Math::                  Highlight @LaTeX{} Math Syntax
 * Wiki Links::                  Highlight Wiki Links Syntax
 @end menu
 
@@ -249,10 +249,10 @@ ToDo Section Text
 
 @comment -------------------------------------------------------------
 @node LaTeX Math
-@section LaTeX Math
-@cindex Highlighting LaTeX Math Syntax
-@cindex LaTeX Math Syntax Highlighting
-@cindex How to Highlight LaTeX Math
+@section @LaTeX{} Math
+@cindex Highlighting @LaTeX{} Math Syntax
+@cindex @LaTeX{} Math Syntax Highlighting
+@cindex How to Highlight @LaTeX{} Math
 
 ToDo Section Text
 
@@ -297,7 +297,7 @@ ToDo Section Text
 @comment -------------------------------------------------------------
 @node Development Version
 @section Development Version
-@cindex How to Get Development Version
+@cindex How to Get the Development Version
 @cindex How to Install Development Version
 
 ToDo Section Text
