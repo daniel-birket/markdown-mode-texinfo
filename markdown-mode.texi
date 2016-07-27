@@ -96,18 +96,18 @@ instructions.
 * Using Markdown Mode::         How to Use @code{markdown-mode}.
 * Using GFM Mode::              How to Use @code{gfm-mode}.
 * Customizing::                 How to Customize @code{markdown-mode} (Variables).
-* Using Extensions::            How to Use Supported Extensions.
-
-Appendices
 * Development::                 For those who contribute, then or now.
-* GNU General Public License 2.0::  License of @code{markdown-mode.el} (1991).
-* GNU General Public License 3.0::  Optional updated license (2007).
-* GNU Free Documentation License::  License of this manual (2008).
+
+Appendices:
+* GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991).
+* GNU General Public License 3.0::      Current GNU GPL (2007).
+* GNU Free Documentation License::      License of this manual (2008).
 * Index::
 @end menu
 
 @node Introduction
 @chapter Introduction
+@cindex Introduction
 @cindex markdown
 
 This manual describes how to install and use @code{markdown-mode}, an Emacs
@@ -138,6 +138,7 @@ emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 
 @node Installing
 @chapter Installing
+@cindex Installing
 @cindex Downloading
 @cindex How to Download
 @cindex How to Install
@@ -153,6 +154,7 @@ ToDo Chapter Text
 
 @node Recommended Installation
 @section Recommended Installation
+@cindex Recommended Installation
 @cindex How to Install with @code{package.el}
 @cindex MELPA Stable
 @findex package.el
@@ -169,6 +171,7 @@ ToDo add instructions to install cl-lib
 
 @node Managed Loading
 @section Managed Loading
+@cindex Managed Loading
 @cindex How to Manage with @code{use-package}
 @findex use-package.el
 
@@ -176,6 +179,7 @@ ToDo Section Text
 
 @node OS Package Managers
 @section OS Package Managers
+@cindex OS Package Managers
 @cindex How to Install as a Linux Package
 @cindex How to Install as a Debian Package
 @cindex How to Install as a Ubuntu Package
@@ -187,6 +191,7 @@ ToDo Section Text
 
 @node Manual Installation
 @section Manual Installation
+@cindex Manual Installation
 @cindex How to Install Manually
 @cindex How to Download Manully
 
@@ -194,6 +199,7 @@ ToDo Section Text
 
 @node Using Markdown Mode
 @chapter Using Markdown Mode
+@cindex Using Markdown Mode
 @cindex Usage
 @cindex How to Use markdown-mode
 @findex markdown-mode
@@ -206,36 +212,41 @@ ToDo Chapter Text
 * Styles::              How to Work with Styles.
 * Links::               How to Work with Links.
 * Images::              How to Work with Images.
-* Differences::         How @code{markdown-mode} differs from  @code{text-mode}
-* Output Commands::     How to use @command{markdown} to Output HTML
+* Differences::         How @code{markdown-mode} differs from  @code{text-mode}.
+* Output Commands::     How to use @command{markdown} to Output HTML.
 @end menu
 
 @node Headings
 @section Headings
+@cindex Headings
+@cindex Headings
 @cindex How to Work with Headings
 
 ToDo Section Text
 
 @menu
-* Inserting and Killing Headings::
-* Changing Headings::
-* Outlining::
+* Inserting and Killing Headings::      Adding and Removing Headings.
+* Changing Headings::                   Moving Headings Up, Dn, In, Out.
+* Outlining::                           Navigation and Visibility.
 @end menu
 
 @node Inserting and Killing Headings
 @subsection Inserting and Killing Headings
+@cindex Inserting and Killing Headings
 @cindex How to Insert Headings
 
 ToDo Subsection Text
 
 @node Changing Headings
 @subsection Changing Headings
+@cindex Changing Headings
 @cindex How to Change Headings
 
 ToDo Subsection Text
 
 @node Outlining
 @subsection Outlining
+@cindex Outlining
 @cindex How to Use Outlining
 @findex org-mode
 
@@ -243,54 +254,62 @@ ToDo Subsection Text
 
 @node Lists
 @section Lists
+@cindex Lists
 @cindex How to Work with Lists
 
 ToDo Section Text
 
 @menu
-* Inserting and Killing List Items::
-* Changing List Items::
-* Renumbering Lists::
+* Inserting and Killing List Items::    Adding and Removing.
+* Changing List Items::      Moving Items Up, Dn, In, Out.
+* Renumbering Lists::        How to Renumber Lists.
 @end menu
 
 @node Inserting and Killing List Items
 @subsection Inserting and Killing List Items
+@cindex Inserting and Killing List Items
 @cindex How to Insert List Items
 
 ToDo Subsection Text
 
 @node Changing List Items
 @subsection Changing List Items
+@cindex Changing List Items
 @cindex How to Change List Items
 
 ToDo Subsection Text
 
 @node Renumbering Lists
 @subsection Renumbering Lists
+@cindex Renumbering Lists
 @cindex How to Renumber Lists
 
 ToDo Subsection Text
 
 @node Styles
 @section Styles
+@cindex Styles
 @cindex How to Work with Styles
 
 ToDo Section Text
 
 @node Links
 @section Links
+@cindex Links
 @cindex How to Work with Links
 
 ToDo Section Text
 
 @node Images
 @section Images
+@cindex Images
 @cindex How to Work with Images
 
 ToDo Section Text
 
 @node Differences
 @section Differences
+@cindex Differences
 @cindex Differences from @code{text-mode}
 @cindex Modified Behaviors
 
@@ -298,7 +317,10 @@ ToDo Section Text
 
 @node Output Commands
 @section Output Commands
+@cindex Output Commands
 @cindex How to Output
+@cindex How to Output HTML
+@cindex How to Use with @command{markdown}
 @cindex How to Compile
 @cindex How to Convert
 
@@ -306,6 +328,7 @@ ToDo Section Text
 
 @node Using GFM Mode
 @chapter Using GFM Mode
+@cindex Using GFM Mode
 @cindex GitHub Flavored Markdown
 @cindex How to Use gfm-mode
 @findex gfm-mode
@@ -314,68 +337,81 @@ ToDo Chapter Text
 
 @node Customizing
 @chapter Customizing
+@cindex Customizing
 @cindex How to Customize
 @cindex Variables
 
 ToDo Chapter Text
 
-@node Using Extensions
-@chapter Using Extensions
-@cindex Extensions
-@cindex How to Use Extensions
-
-ToDo Chapter Text
-
 @menu
-* @LaTeX{} Math::               Highlight @LaTeX{} Math Syntax
-* Wiki Links::                  Highlight Wiki Links Syntax
-* SmartyPants::                 Smart Quotation Marks.
-* Using Alternatives to @command{markdown}::
-* Outputing to Other Formats::
+* @LaTeX{} Math Syntax Highlighting::
+* [[WikiLinks]] Syntax Highlighting::
+* Controlling Output::          How to Control Output Format.
 @end menu
 
-@node @LaTeX{} Math
-@section @LaTeX{} Math
-@cindex Highlighting @LaTeX{} Math Syntax
+@node @LaTeX{} Math Syntax Highlighting
+@section @LaTeX{} Math Syntax Highlighting
 @cindex @LaTeX{} Math Syntax Highlighting
+@cindex Highlighting @LaTeX{} Math Syntax
 @cindex How to Highlight @LaTeX{} Math
 
 ToDo Section Text
 
-@node Wiki Links
-@section Wiki Links
-@cindex Highlighting Wiki Links Syntax
+@node [[WikiLinks]] Syntax Highlighting
+@section [[WikiLinks]] Syntax Highlighting
+@cindex [[WikiLinks]] Syntax Highlighting
 @cindex Wiki Links Syntax Highlighting
-@cindex How to Highlight Wiki Links
+@cindex Highlighting [[WikiLinks]] Syntax
+@cindex How to Highlight [[WikiLinks]]
 
 ToDo Section Text
+
+@node Controlling Output
+@section Controlling Output
+@cindex Controlling Output
+@cindex How to Control Output Format
+@cindex How to Use @code{markdown-command}
+@findex markdown-command
+
+ToDo Section Text
+
+@menu
+* SmartyPants::                 Smart Quotation Marks.
+* Alternatives to @command{markdown}::          Multimarkdown, et al.
+* Outputing to Other Formats::  Using Pandoc, et al.
+@end menu
 
 @node SmartyPants
-@section SmartyPants
+@subsection SmartyPants
+@cindex SmartyPants
 @cindex How to Use SmartyPants
-@cindex Smart Quote Marks
+@cindex Smart Quotation Marks
 
 ToDo Section Text
 
-@node Using Alternatives to @command{markdown}
-@section Using Alternatives to @command{markdown}
+@node Alternatives to @command{markdown}
+@subsection Alternatives to @command{markdown}
+@cindex Alternatives to @command{markdown}
 @cindex How to Use Alternatives to @command{markdown}
-@cindex How to Use with MultiMarkdown
-@cindex How to Use with Pandoc Markdown
-@pindex MultiMarkdown
+@cindex How to Use with @command{multimarkdown}
+@cindex How to Use with @command{pandoc} Markdown
+@pindex multimarkdown
 
 ToDo Section Text
 
 @node Outputing to Other Formats
-@section Outputing to Other Formats
+@subsection Outputing to Other Formats
+@cindex Outputing to Other Formats
 @cindex How to Output to Other Formats
-@cindex How to Use PanDoc to Output Format 'X'
-@pindex PanDoc
+@cindex How to Use with @command{pandoc}
+@cindex How to Output Format 'X'
+@pindex pandoc
 
 ToDo Section Text
 
 @node Development
 @appendix Development
+@cindex Development
 
 ToDo Chapter Text
 
@@ -388,6 +424,7 @@ ToDo Chapter Text
 
 @node Acknowledgements
 @section Acknowledgements
+@cindex Acknowledgements
 @cindex Contributors
 @cindex Credits
 
@@ -395,6 +432,7 @@ ToDo Section Text
 
 @node History of Releases
 @section History of Releases
+@cindex History of Releases
 @cindex History
 @cindex Releases
 
@@ -402,6 +440,7 @@ ToDo Section Text
 
 @node Development Version
 @section Development Version
+@cindex Development Version
 @cindex How to Get the Development Version
 @cindex How to Install Development Version
 
@@ -409,6 +448,7 @@ ToDo Section Text
 
 @node Bugs and Errors
 @section Bugs and Errors
+@cindex Bugs and Errors
 @cindex How to Report Bugs
 @cindex How to Report Errors
 @cindex Feedback
@@ -417,25 +457,29 @@ ToDo Section Text
 ToDo Section Text
 
 @node GNU General Public License 2.0
-@cindex License (software)
 @unnumbered GNU General Public License 2.0
+@cindex License (software)
+@cindex GNU General Public License 2.0
 
 @include gpl-2.0.texi
 
 @node GNU General Public License 3.0
-@cindex License (updated)
 @unnumbered GNU General Public License 3.0
+@cindex License (updated)
+@cindex GNU General Public License 3.0
 
 @include gpl.texi
 
 @node GNU Free Documentation License
-@cindex License (manual)
 @unnumbered GNU Free Documentation License
+@cindex License (manual)
+@cindex GNU Free Documentation License
 
 @include fdl.texi
 
 @node Index
 @unnumbered Index
+@cindex Index ;-)
 
 @printindex cp
 

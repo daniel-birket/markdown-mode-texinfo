@@ -10,7 +10,7 @@ markdown-mode.info: ${SOURCE} ${INCLUDE}
 
 markdown-mode.html: ${SOURCE} ${INCLUDE}
 	texi2any --HTML --no-split --no-headers ${SOURCE} | smartypants
-	emacsclient -n -e '(eww-open-file "markdown-mode.html")'
+	emacsclient -n -e '(eww-open-file "markdown-mode.html")' || true
 
 markdown-mode.pdf: ${SOURCE} ${INCLUDE}
 	texi2pdf ${SOURCE}
