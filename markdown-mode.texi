@@ -96,7 +96,7 @@ instructions.
 * Using Markdown Mode::         How to Use @code{markdown-mode}.
 * Using GFM Mode::              How to Use @code{gfm-mode}.
 * Customizing::                 How to Customize @code{markdown-mode} (Variables).
-* Development::                 For those who contribute, then or now.
+* Development::                 For all those that contribute, then and now.
 
 Appendices:
 * GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991).
@@ -111,17 +111,20 @@ Appendices:
 @cindex markdown
 
 This manual describes how to install and use @code{markdown-mode}, an Emacs
-package for working with markdown-formatted text.
+package for working with markdown-formatted text. The features of this
+package assist the user to insert and manipulate markdown-compatible
+markup syntax and to use the external @command{markdown} command to
+convert the markdown-formatted text to HTML-formatted text.
 
 The package implements two Emacs ``major modes'':
 @itemize @bullet
 @item
 @code{markdown-mode}, for editing standard markdown text.
-@xref{Using Markdown Mode}
+@xref{Using Markdown Mode}.
 
 @item
 @code{gfm-mode}, for editing GitHub-flavored markdown text.
-@xref{Using GFM Mode}
+@xref{Using GFM Mode}.
 @end itemize
 
 @command{markdown} is an popular and easy way to write styled text with
