@@ -497,7 +497,25 @@ ToDo Chapter Text
 @cindex History
 @cindex Releases
 
-ToDo Section Text
+@code{markdown-mode} was written and is maintained by Jason
+Blevins. The first release, 1.1,  was on May 24, 2007. This manual
+documents @code{markdown-mode}, version @value{VERSION}, released
+@value{RELEASED}. Most of the prior versions may be downloaded:
+
+@itemize @bullet{}
+@item 2007-05-24 v1.1
+@item 2007-05-25 v1.2
+@item 2007-06-05 v1.3   http://jblevins.org/projects/markdown-mode/rev-1-3
+@item 2007-06-29 v1.4
+@item 2007-10-11 v1.5   http://jblevins.org/projects/markdown-mode/rev-1-5
+@item 2008-06-04 v1.6   http://jblevins.org/projects/markdown-mode/rev-1-6
+@item 2009-10-01 v1.7   http://jblevins.org/projects/markdown-mode/rev-1-7
+@item 2011-08-12 v1.8   http://jblevins.org/projects/markdown-mode/rev-1-8
+@item 2011-08-15 v1.8.1 http://jblevins.org/projects/markdown-mode/rev-1-8-1
+@item 2013-01-25 v1.9   http://jblevins.org/projects/markdown-mode/rev-1-9
+@item 2013-03-24 v2.0   http://jblevins.org/projects/markdown-mode/rev-2-0
+@item 2016-01-09 v2.1   http://jblevins.org/projects/markdown-mode/rev-2-1
+@end itemize
 
 @node Development Version
 @section Development Version
