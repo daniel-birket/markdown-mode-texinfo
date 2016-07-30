@@ -3,10 +3,10 @@
 @setfilename markdown-mode.info
 @settitle Emacs Markdown Mode
 @comment created under texinfo 6.1
-@set EDITION Working Draft
 @set VERSION 2.1
 @set RELEASED January 9, 2016
 @set SWCYEARS 2007-2016
+@set EDITION @value{VERSION}-Draft
 @syncodeindex fn cp
 @syncodeindex vr cp
 @syncodeindex ky cp
@@ -27,12 +27,17 @@ Texts.  A copy of the license is included in the section entitled
 @end quotation
 
 This is the Emacs Markdown Mode manual (unauthorized),
-@value{EDITION}, by Daniel Birket.  It describes how to install and
-use the Emacs Lisp package @code{markdown-mode}, version
-@value{VERSION}, released @value{RELEASED}, written by and Copyright
-@copyright{} @value{SWCYEARS} Jason R. Blevins, et al.  The
-@code{markdown-mode} package and its @emph{authorized} manual are
-online at @uref{http://jblevins.org/projects/markdown-mode/}.
+@value{EDITION}, by Daniel Birket, updated @today{}.
+@iftex
+It was typeset using @TeX{} by Donald Knuth, et al.
+@end iftex
+
+This manual describes how to install and use the Emacs Lisp software
+package @code{markdown-mode}, version @value{VERSION}, released
+@value{RELEASED}, which was written by and Copyright @copyright{}
+@value{SWCYEARS} Jason R. Blevins, et al. The @code{markdown-mode}
+software package and its @emph{authorized} manual are online at
+@uref{http://jblevins.org/projects/markdown-mode/}.
 
 This manual is based upon the extensive documentation in the
 @code{markdown-mode.el} source code, which includes these lines:
@@ -40,7 +45,7 @@ This manual is based upon the extensive documentation in the
 @cindex Copyright (software)
 @lisp
 ;; Copyright (C) 2007-2016 Jason R. Blevins <jrblevin@@sdf.org>
-...
+@dots{}
 ;; This file is not part of GNU Emacs.
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -84,9 +89,10 @@ package for working with markdown-formatted text.
 In @command{info}, type @kbd{3} to jump to usage chapter, or type
 @w{@kbd{i How to@key{SPC}@key{TAB}}} to see index of ``How to...''
 instructions.
-
 @end ifinfo
+
 @insertcopying
+This
 @end ifnottex
 @end ifnotdocbook
 
@@ -96,7 +102,7 @@ instructions.
 * Using Markdown Mode::         How to Use @code{markdown-mode}.
 * Using GFM Mode::              How to Use @code{gfm-mode}.
 * Customizing::                 How to Customize @code{markdown-mode} (Variables).
-* Development::                 For all those that contribute, then and now.
+* Development::                 For all those that contribute, past or future.
 
 Appendices:
 * GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991).
@@ -127,8 +133,9 @@ The package implements two Emacs ``major modes'':
 @xref{Using GFM Mode}.
 @end itemize
 
-@command{markdown} is an popular and easy way to write styled text with
-simple text files.  It is described at
+@command{markdown} is a popular filter command that provides an easy
+way to write styled text by editing simple text files and then
+converting the text to HTML.  It is described at
 @uref{http://daringfireball.net/projects/markdown/}.
 
 GitHub Flavored Markdown is the dialect of markdown used by GitHub. It
@@ -163,14 +170,17 @@ ToDo Chapter Text
 @findex package.el
 @findex package-install
 
-ToDo Section Text
+The recommended way to install the package @code{markdown-mode} is to
+use @code{package.el}, which has been integrated with Emacs since
+version 24. It is included in version 23, but must be initialized.
 
-This package @code{markdown-mode} depends on the package @code{cl-lib},
-which has been bundled with GNU Emacs since version 24.3. If you use
-GNU Emacs version 24.1 or 24.2, you should install @code{cl-lib} using
-@code{package.el}.
+ToDo
 
-ToDo add instructions to install cl-lib
+This package @code{markdown-mode.el} depends on the package
+@code{cl-lib}, which has been bundled with GNU Emacs since version
+24.3. If you use GNU Emacs version 24.1 or 24.2, you should install
+@code{cl-lib} using @code{package.el}. To install @code{cl-lib} type
+@kbd{M-x package-install @key{RET} cl-lib @key{RET}}
 
 @node Managed Loading
 @section Managed Loading
@@ -196,7 +206,7 @@ ToDo Section Text
 @section Manual Installation
 @cindex Manual Installation
 @cindex How to Install Manually
-@cindex How to Download Manully
+@cindex How to Download Manually
 
 ToDo Section Text
 
@@ -204,7 +214,7 @@ ToDo Section Text
 @chapter Using Markdown Mode
 @cindex Using Markdown Mode
 @cindex Usage
-@cindex How to Use markdown-mode
+@cindex How to Use @code{markdown-mode}
 @findex markdown-mode
 
 ToDo Chapter Text
@@ -348,7 +358,7 @@ ToDo Chapter Text
 
 @menu
 * @LaTeX{} Math Syntax Highlighting::
-* [[WikiLinks]] Syntax Highlighting::
+* [[Wiki-Links]] Syntax Highlighting::
 * Controlling Output::          How to Control Output Format.
 @end menu
 
@@ -360,12 +370,12 @@ ToDo Chapter Text
 
 ToDo Section Text
 
-@node [[WikiLinks]] Syntax Highlighting
-@section [[WikiLinks]] Syntax Highlighting
-@cindex [[WikiLinks]] Syntax Highlighting
+@node [[Wiki-Links]] Syntax Highlighting
+@section [[Wiki-Links]] Syntax Highlighting
+@cindex [[Wiki-Links]] Syntax Highlighting
 @cindex Wiki Links Syntax Highlighting
-@cindex Highlighting [[WikiLinks]] Syntax
-@cindex How to Highlight [[WikiLinks]]
+@cindex Highlighting [[Wiki-Links]] Syntax
+@cindex How to Highlight [[Wiki-Links]]
 
 ToDo Section Text
 
@@ -373,15 +383,15 @@ ToDo Section Text
 @section Controlling Output
 @cindex Controlling Output
 @cindex How to Control Output Format
-@cindex How to Use @code{markdown-command}
-@findex markdown-command
+@cindex How to Configure @code{markdown-command}
+@vindex markdown-command
 
 ToDo Section Text
 
 @menu
 * SmartyPants::                 Smart Quotation Marks.
 * Alternatives to @command{markdown}::          Multimarkdown, et al.
-* Outputing to Other Formats::  Using Pandoc, et al.
+* Outputting to Other Formats::  Using Pandoc, et al.
 @end menu
 
 @node SmartyPants
@@ -402,9 +412,9 @@ ToDo Section Text
 
 ToDo Section Text
 
-@node Outputing to Other Formats
-@subsection Outputing to Other Formats
-@cindex Outputing to Other Formats
+@node Outputting to Other Formats
+@subsection Outputting to Other Formats
+@cindex Outputting to Other Formats
 @cindex How to Output to Other Formats
 @cindex How to Use with @command{pandoc}
 @cindex How to Output Format 'X'
@@ -416,20 +426,21 @@ ToDo Section Text
 @appendix Development
 @cindex Development
 
-ToDo Chapter Text
+This appendix is for everyone that contributes to @code{markdown-mode}, past or future@dots{} @strong{Thank you.}
 
 @menu
-* Acknowledgements::            Many Thanks to Contributors.
+* Acknowledgments::             Many Thanks to Contributors.
 * History of Releases::         History of Software Releases.
-* Development Version::         How to Get the Development Software.
+* Development Version::         How to Get the Development Version.
 * Bugs and Errors::             How to Report Bugs and Errors.
 @end menu
 
-@node Acknowledgements
-@section Acknowledgements
-@cindex Acknowledgements
+@node Acknowledgments
+@section Acknowledgments
+@cindex Acknowledgments
 @cindex Contributors
 @cindex Credits
+@cindex Thank You
 
 @code{markdown-mode} has benefited greatly from the efforts of:
 
@@ -456,10 +467,10 @@ ToDo Chapter Text
 @item @copyright{} 2012 Zhenlei Jia @email{zhenlei.jia@@gmail.com} for smart exdention function.
 @item @copyright{} 2012 Peter Jones @email{pjones@@pmade.com} for link following functions.
 @item @copyright{} 2013 Matus Goljer @email{dota.keys@@gmail.com} for improved wiki link following and GFM code block insertion.
-@item @copyright{} Google, Inc. (Contributor: Samuel Freilich @email{sfreilich@@google.com}) for improved filling behavior regarding list items, footnotes, and reference definitions, improved killing of footnotes, and numerous other tests and bug fixes.
+@item @copyright{} 2015 Google, Inc. (Contributor: Samuel Freilich @email{sfreilich@@google.com}) for improved filling behavior regarding list items, footnotes, and reference definitions, improved killing of footnotes, and numerous other tests and bug fixes.
 @item @copyright{} 2015 Antonis Kanouras @email{antonis@@metadosis.gr} for strikethrough support.
 @item @copyright{} 2015 Howard Melman @email{hmelman@@gmail.com} for supporting GFM checkboxes as buttons.
-@item @copyright{} 2015-2016 Danny McClanahan @email{danieldmcclanahan@@gmail.com} for live preview mode, completion of GFM programming language names, improved font lock for fenced code blocks and metadata blocks, @code{cl-lib} updates, and numerous other improvements.
+@item @copyright{} 2015-2016 Danny McClanahan @email{danieldmcclanahan@@gmail.com} for live preview mode, completion of GFM programming language names, improved font lock for fenced code blocks and meta-data blocks, @code{cl-lib} updates, and numerous other improvements.
 @item @copyright{} 2015-2016 Syohei Yoshida @email{syohex@@gmail.com} for better heading detection and movement functions, improved italic font lock, fixing adaptive filling for hanging list items, more efficient fontification, and numerous other improvements.
 @item @copyright{} 2016 Vitalie Spinu @email{spinuvit@@gmail.com} for improvements to font lock and source code aesthetics.
 @item Kévin Le Gouguec for improvements related to ATX headings and Pandoc fancy lists.
@@ -471,10 +482,10 @@ ToDo Chapter Text
 @item Nelson Minar for @code{html-helper-mode}, from which comment matching functions were derived.
 @item Werner Dittmann for bug reports regarding the `cl` dependency and @code{auto-fill-mode} and indentation.
 @item Alec Resnick for bug reports.
-@item Scott Pfister for generalizing the space substitution character for mapping wiki links to filenames.
+@item Scott Pfister for generalizing the space substitution character for mapping wiki links to file names.
 @item Marcin Kasperski for a patch to escape shell commands.
 @item Kevin Porter for wiki link handling in @code{gfm-mode}.
-@item Max Penet and Peter Eisentraut @email{peter_e@@gmx.net} for an autoload token for @code{gfm-mode}.
+@item Max Penet and Peter Eisentraut @email{peter_e@@gmx.net} for an auto-load token for @code{gfm-mode}.
 @item Ian Yang for improving the reference definition regex.
 @item Michael Sperber for @command{XEmacs} fixes.
 @item Francois Gannaz for suggesting charset declaration in XHTML output.
@@ -497,34 +508,72 @@ ToDo Chapter Text
 @cindex History
 @cindex Releases
 
-@code{markdown-mode} was written and is maintained by Jason
+@code{markdown-mode} was primarily written and is maintained by Jason
 Blevins. The first release, 1.1,  was on May 24, 2007. This manual
 documents @code{markdown-mode}, version @value{VERSION}, released
-@value{RELEASED}. Most of the prior versions may be downloaded:
+@value{RELEASED}.
+
+Most of the prior versions may be downloaded:
 
 @itemize @bullet{}
 @item 2007-05-24 v1.1
 @item 2007-05-25 v1.2
-@item 2007-06-05 v1.3   http://jblevins.org/projects/markdown-mode/rev-1-3
+@item 2007-06-05 v1.3   @uref{http://jblevins.org/projects/markdown-mode/rev-1-3}
 @item 2007-06-29 v1.4
-@item 2007-10-11 v1.5   http://jblevins.org/projects/markdown-mode/rev-1-5
-@item 2008-06-04 v1.6   http://jblevins.org/projects/markdown-mode/rev-1-6
-@item 2009-10-01 v1.7   http://jblevins.org/projects/markdown-mode/rev-1-7
-@item 2011-08-12 v1.8   http://jblevins.org/projects/markdown-mode/rev-1-8
-@item 2011-08-15 v1.8.1 http://jblevins.org/projects/markdown-mode/rev-1-8-1
-@item 2013-01-25 v1.9   http://jblevins.org/projects/markdown-mode/rev-1-9
-@item 2013-03-24 v2.0   http://jblevins.org/projects/markdown-mode/rev-2-0
-@item 2016-01-09 v2.1   http://jblevins.org/projects/markdown-mode/rev-2-1
+@item 2007-10-11 v1.5   @uref{http://jblevins.org/projects/markdown-mode/rev-1-5}
+@item 2008-06-04 v1.6   @uref{http://jblevins.org/projects/markdown-mode/rev-1-6}
+@item 2009-10-01 v1.7   @uref{http://jblevins.org/projects/markdown-mode/rev-1-7}
+@item 2011-08-12 v1.8   @uref{http://jblevins.org/projects/markdown-mode/rev-1-8}
+@item 2011-08-15 v1.8.1 @uref{http://jblevins.org/projects/markdown-mode/rev-1-8-1}
+@item 2013-01-25 v1.9   @uref{http://jblevins.org/projects/markdown-mode/rev-1-9}
+@item 2013-03-24 v2.0   @uref{http://jblevins.org/projects/markdown-mode/rev-2-0}
+@item 2016-01-09 v2.1   @uref{http://jblevins.org/projects/markdown-mode/rev-2-1}
 @end itemize
 
 @node Development Version
 @section Development Version
 @cindex Development Version
-@cindex How to Get the Development Version
-@cindex How to Install Development Version
 
-ToDo Section Text
+You may browse the project files of @code{markdown-mode}, contribute
+to its development or help to test the current development version.
 
+@cindex How to Browse the Source Code
+@itemize @bullet
+@item To browse the @code{markdown-mode} project files, visit the project's
+page on GitHub at @uref{https://github.com/jrblevin/markdown-mode}.
+
+@cindex How to Contribute to Development
+@item To contribute to the development of @code{markdown-mode}, you may fork
+the project to your own GitHub account or clone the repository
+directly with:
+
+@cartouche
+@table @asis
+@item Using @acronym{HTTPS}
+@samp{$ git clone https://github.com/jrblevin/markdown-mode.git}
+
+@item Using @acronym{SSH}
+@samp{$ git clone ssh://git@@github.com:jrblevin/markdown-mode.git}
+@end table
+@end cartouche
+
+@cindex How to Test the Development Version
+@item To test the current development version of
+@code{markdown-mode}, you may either download @code{markdown-mode.el}
+from the repository at
+@uref{https://github.com/jrblevin/markdown-mode} or from
+@acronym{MELPA} at @url{https://melpa.org/#/markdown-mode}.
+
+After downloading @code{markdown-mode.el} to the directory
+@file{~/my/directory}, then ensure that Emacs can find it by adding
+the following line to your Emacs startup file:
+
+@lisp
+(add-to-list 'load-path "~/my/directory")
+@end lisp
+
+Please realize that the development version may be unstable at times. See the next section for how to submit a bug report.
+@end itemize
 @node Bugs and Errors
 @section Bugs and Errors
 @cindex Bugs and Errors
@@ -533,7 +582,25 @@ ToDo Section Text
 @cindex Feedback
 @cindex Contact Information
 
-ToDo Section Text
+@table @strong
+@item Software Bugs
+@code{markdown-mode} was developed and primarily tested for
+compatibility with GNU Emacs 24.3 and later. If you encounter a
+problem and have an older version of Emacs, please consider updating
+your version of Emacs to resolve the problem.
+
+If you have identified a bug with @code{markdown-mode.el}, please
+construct a test case or a patch and create an issue on the issue
+tracker at @uref{https://github.com/jrblevin/markdown-mode/issues}.
+
+@item Manual Errors
+If you find an error in this @emph{unauthorized} manual, please create
+an issue on the issue tracker at
+@uref{https://github.com/daniel-birket/markdown-mode-texinfo/issues}. Please
+do not complain to Mr. Blevin about errors in @emph{this} manual. You
+will find his original manual at
+@uref{https://github.com/jrblevin/markdown-mode}.
+@end table
 
 @node GNU General Public License 2.0
 @unnumbered GNU General Public License 2.0
