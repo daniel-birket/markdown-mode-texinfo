@@ -14,6 +14,7 @@ markdown-mode.html: ${SOURCE} ${INCLUDE}
 
 markdown-mode.pdf: ${SOURCE} ${INCLUDE}
 	texi2pdf ${SOURCE}
+	open markdown-mode.pdf
 
 markdown-mode.ps: ${SOURCE} ${INCLUDE}
 	texi2dvi --ps  ${SOURCE}
