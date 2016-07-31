@@ -13,9 +13,11 @@ work
 *.cps
 *.dvi
 *.toc
-*.xml
+*.vr
+*.vrs
 
 # Output Files
+*.xml
 *.epub
 README.html
 markdown-mode.html
