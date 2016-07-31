@@ -69,8 +69,8 @@ This manual is based upon the extensive documentation in the
 @title Emacs Markdown Mode
 @subtitle (Unauthorized)
 @subtitle @value{EDITION}
-@author Daniel Birket,
-@author Jason R. Blevins, et al.
+@author by Daniel Birket
+@author @code{markdown-mode.el} by Jason R. Blevins, et al.
 @page
 @vskip 0pt plus 1filll
 @insertcopying
@@ -133,10 +133,12 @@ The package implements two Emacs ``major modes'':
 @xref{Using GFM Mode}.
 @end itemize
 
-@command{markdown} is a popular filter command that provides an easy
-way to write styled text by editing simple text files and then
-converting the text to HTML.  It is described at
-@uref{http://daringfireball.net/projects/markdown/}.
+@command{markdown}, created by John Gruber in 2004, is a popular unix
+filter command that provides an easy way to produce styled text by
+editing simple text files and then converting the text to HTML.  It is
+described at @uref{http://daringfireball.net/projects/markdown/}.
+
+@command{markdown} has been reimplimented by various authors and with various additional features and syntax, including @command{multimarkdown}, 
 
 GitHub Flavored Markdown is the dialect of markdown used by GitHub. It
 is described at
@@ -357,10 +359,87 @@ ToDo Chapter Text
 ToDo Chapter Text
 
 @menu
+* Customizing Output Processor::
 * @LaTeX{} Math Syntax Highlighting::
 * [[Wiki-Links]] Syntax Highlighting::
-* Controlling Output::          How to Control Output Format.
 @end menu
+
+@node Customizing Output Processor
+@section Customizing Output Processor
+@cindex Customizing Output Processor
+@cindex How to Control Output Format
+@cindex How to Configure @code{markdown-command}
+@cindex How to Use SmartyPants
+@cindex Smart Quotation Marks
+@cindex How to Use Alternatives to @command{markdown}
+@cindex How to Use with @command{multimarkdown}
+@cindex Outputting to Other Formats
+@cindex How to Output to Other Formats
+@cindex How to Use with @command{pandoc}
+@cindex How to Output Format 'X'
+@cindex Variables that Control Output
+
+These variables control how @code{markdown-mode} converts markdown
+text to HTML or another format.
+
+@vtable @code
+@item markdown-command
+string, default: ``markdown''.
+
+This variable specifies the command and options that
+@code{markdown-mode} will use to run @command{markdown} or another
+output processor in the following functions:
+
+@itemize @bullet
+@item @kbd{C-c C-c m} (@code{markdown-other-buffer})
+@item @kbd{C-c C-c p} (@code{markdown-preview})
+@item @kbd{C-c C-c e} (@code{markdown-export})
+@item @kbd{C-c C-c v} (@code{markdown-export-and-preview})
+@item @kbd{C-c C-c w} (@code{markdown-kill-ring-save})
+@end itemize
+
+Examples @code{markdown-command} configurations in Emacs startup file:
+
+@table @asis
+@item Default. @command{markdown} command in $PATH
+@lisp
+(setq markdown-command "markdown")
+@end lisp
+
+@item @command{markdown} with specified path
+@lisp
+(setq markdown-command "\usr\local/bin/markdown")
+@end lisp
+
+@end table
+
+@item markdown-command-needs-filename
+@code{nil} or @code{t}, default: @code{nil}.
+
+Set @code{markdown-command-needs-filename} to @code{t} if the program
+specified by @code{markdown-command} needs a filename, that is, if the
+program does not accept standard input (@code{stdin}).
+
+When @code{markdown-command-needs-filename} is set to @code{nil}, the
+default, @code{markdown-mode} will pass the markdown content to the
+program specified by @code{markdown-command} using standard input
+(@code{stdin}).
+
+When @code{markdown-command-needs-filename} is set to @code{t} (or any
+non-@code{nil}), @code{markdown-mode} will pass the name of the file
+visited by the current buffer as the final command-line argument to
+the program specified by @code{markdown-command}. Note that in this
+case, you will only be able to run @code{markdown-command} from
+buffers that are visiting a file.
+
+@item markdown-open-command
+string, default: @code{nil}.
+
+This variable specifies the command and options that the function
+@code{markdown-open}, bound to @kbd{C-c C-c o}, will use to open the
+markdown file in an eternal markdown previewer application.
+
+@end vtable
 
 @node @LaTeX{} Math Syntax Highlighting
 @section @LaTeX{} Math Syntax Highlighting
@@ -379,54 +458,11 @@ ToDo Section Text
 
 ToDo Section Text
 
-@node Controlling Output
-@section Controlling Output
-@cindex Controlling Output
-@cindex How to Control Output Format
-@cindex How to Configure @code{markdown-command}
-@vindex markdown-command
-
-ToDo Section Text
-
-@menu
-* SmartyPants::                 Smart Quotation Marks.
-* Alternatives to @command{markdown}::          Multimarkdown, et al.
-* Outputting to Other Formats::  Using Pandoc, et al.
-@end menu
-
-@node SmartyPants
-@subsection SmartyPants
-@cindex SmartyPants
-@cindex How to Use SmartyPants
-@cindex Smart Quotation Marks
-
-ToDo Section Text
-
-@node Alternatives to @command{markdown}
-@subsection Alternatives to @command{markdown}
-@cindex Alternatives to @command{markdown}
-@cindex How to Use Alternatives to @command{markdown}
-@cindex How to Use with @command{multimarkdown}
-@cindex How to Use with @command{pandoc} Markdown
-@pindex multimarkdown
-
-ToDo Section Text
-
-@node Outputting to Other Formats
-@subsection Outputting to Other Formats
-@cindex Outputting to Other Formats
-@cindex How to Output to Other Formats
-@cindex How to Use with @command{pandoc}
-@cindex How to Output Format 'X'
-@pindex pandoc
-
-ToDo Section Text
-
 @node Development
 @appendix Development
 @cindex Development
 
-This appendix is for everyone that contributes to @code{markdown-mode}, past or future@dots{} @strong{Thank you.}
+This appendix is for contributors to @code{markdown-mode}, past or future@dots{} @strong{Thank you.}
 
 @menu
 * Acknowledgments::             Many Thanks to Contributors.
