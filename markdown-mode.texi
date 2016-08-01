@@ -109,6 +109,53 @@ Appendices:
 * GNU General Public License 3.0::      Current GNU GPL (2007).
 * GNU Free Documentation License::      License of this manual (2008).
 * Index::
+
+@detailmenu
+ --- The Detailed Node Listing ---
+
+Installing
+
+* Recommended Installation::    How to Install with @code{package.el}.
+* Managed Loading::             How to Manage with @code{use-package.el}.
+* OS Package Managers::         How to Install with OS Package Managers.
+* Manual Installation::         How to Install the hard way.
+
+Using Markdown Mode
+
+* Headings::            How to Work with Headings.
+* Lists::               How to Work with Lists.
+* Styles::              How to Work with Styles.
+* Links::               How to Work with Links.
+* Images::              How to Work with Images.
+* Differences::         How @code{markdown-mode} differs from  @code{text-mode}.
+* Output Commands::     How to use @command{markdown} to Output HTML.
+
+Headings
+
+* Inserting and Killing Headings::      Adding and Removing Headings.
+* Changing Headings::                   Moving Headings Up, Dn, In, Out.
+* Outlining::                           Navigation and Visibility.
+
+Lists
+
+* Inserting and Killing List Items::    Adding and Removing.
+* Changing List Items::      Moving Items Up, Dn, In, Out.
+* Renumbering Lists::        How to Renumber Lists.
+
+Customizing
+
+* Customizing the Output Processor::
+* @LaTeX{} Math Syntax Highlighting::
+* [[Wiki-Links]] Syntax Highlighting::
+
+Development
+
+* Acknowledgments::             Many Thanks to Contributors.
+* History of Releases::         History of Software Releases.
+* Development Version::         How to Get the Development Version.
+* Bugs and Errors::             How to Report Bugs and Errors.
+
+@end detailmenu
 @end menu
 
 @node Introduction
@@ -359,24 +406,15 @@ ToDo Chapter Text
 ToDo Chapter Text
 
 @menu
-* Customizing Output Processor::
+* Customizing the Output Processor::
 * @LaTeX{} Math Syntax Highlighting::
 * [[Wiki-Links]] Syntax Highlighting::
 @end menu
 
-@node Customizing Output Processor
-@section Customizing Output Processor
-@cindex Customizing Output Processor
-@cindex How to Control Output Format
-@cindex How to Configure @code{markdown-command}
-@cindex How to Use SmartyPants
-@cindex Smart Quotation Marks
+@node Customizing the Output Processor
+@section Customizing the Output Processor
+@cindex Customizing the Output Processor
 @cindex How to Use Alternatives to @command{markdown}
-@cindex How to Use with @command{multimarkdown}
-@cindex Outputting to Other Formats
-@cindex How to Output to Other Formats
-@cindex How to Use with @command{pandoc}
-@cindex How to Output Format 'X'
 @cindex Variables that Control Output
 
 These variables control how @code{markdown-mode} converts markdown
@@ -384,6 +422,7 @@ text to HTML or another format.
 
 @vtable @code
 @item markdown-command
+@cindex How to Configure @code{markdown-command}
 string, default: ``markdown''.
 
 This variable specifies the command and options that
@@ -401,15 +440,59 @@ output processor in the following functions:
 Examples @code{markdown-command} configurations in Emacs startup file:
 
 @table @asis
-@item Default. @command{markdown} command in $PATH
+@item Default. @command{markdown} command in @env{$PATH}
+
+@cartouche
 @lisp
 (setq markdown-command "markdown")
 @end lisp
+@end cartouche
 
 @item @command{markdown} with specified path
+You may need to specify the path to @command{markdown} if it is not in
+the @env{$PATH}, as when Emacs is launched as an app under MacOS.
+
+@cartouche
 @lisp
 (setq markdown-command "\usr\local/bin/markdown")
 @end lisp
+@end cartouche
+
+@item @command{markdown} with @command{smartypants}
+@cindex How to Use SmartyPants
+@cindex Smart Quotation Marks
+You may pipe the output of @command{markdown} to @command{smartypants}
+to add smart quotation marks.
+
+@cartouche
+@lisp
+(setq markdown-command "markdown | smartypants")
+@end lisp
+@end cartouche
+
+@item @command{multimarkdown}
+@cindex How to Use with @command{multimarkdown}
+@command{multimarkdown} (@uref{http://fletcherpenney.net/multimarkdown/}) incorporates @command{smartypants}. It usually outputs to HTML like markdown, but can also output to several other formats with the @option{--to=@var{FORMAT}} option.
+
+@cartouche
+@lisp
+(setq markdown-command
+      "\usr\local/bin/multimarkdown")
+@end lisp
+@end cartouche
+
+@item @command{pandoc}
+@cindex How to Use with @command{pandoc}
+@cindex How to Output to Other Formats
+@cindex Outputting to Other Formats
+@command{pandoc} will output to HTML also, but it can also output to 40 other formats and converts from 5 different markdown dialects, including github-flavored markdown.
+
+@cartouche
+@lisp
+(setq markdown-command
+      "\usr\local/bin/pandoc --from=markdown --to=html")
+@end lisp
+@end cartouche
 
 @end table
 
