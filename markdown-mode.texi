@@ -86,13 +86,11 @@ This manual describes how to install and use @code{markdown-mode}, an Emacs
 package for working with markdown-formatted text.
 
 @ifinfo
-In @command{info}, type @kbd{3} to jump to usage chapter, or type
-@w{@kbd{i How to@key{SPC}@key{TAB}}} to see index of ``How to...''
-instructions.
+In @command{info}, type @kbd{3} to jump to the chapter on usage, or type
+@w{@kbd{i How to@key{SPC}@key{TAB}}} to see the ``How to...'' index.
 @end ifinfo
 
 @insertcopying
-This
 @end ifnottex
 @end ifnotdocbook
 
@@ -105,9 +103,9 @@ This
 * Development::                 For all those that contribute, past or future.
 
 Appendices:
-* GNU General Public License 2.0::      License of @code{markdown-mode.el} (1991).
-* GNU General Public License 3.0::      Current GNU GPL (2007).
-* GNU Free Documentation License::      License of this manual (2008).
+* GNU General Public License 2.0::  License of @code{markdown-mode.el} (1991).
+* GNU General Public License 3.0::  Current GNU GPL (2007).
+* GNU Free Documentation License::  License of this manual (2008).
 * Index::
 
 @detailmenu
@@ -122,13 +120,13 @@ Installing
 
 Using Markdown Mode
 
-* Headings::            How to Work with Headings.
-* Lists::               How to Work with Lists.
-* Styles::              How to Work with Styles.
-* Links::               How to Work with Links.
-* Images::              How to Work with Images.
-* Differences::         How @code{markdown-mode} differs from  @code{text-mode}.
-* Output Commands::     How to use @command{markdown} to Output HTML.
+* Headings::                    How to Work with Headings.
+* Lists::                       How to Work with Lists.
+* Styles::                      How to Work with Styles.
+* Links::                       How to Work with Links.
+* Images::                      How to Work with Images.
+* Differences::                 How @code{markdown-mode} differs from  @code{text-mode}.
+* External Commands::           How to use @command{markdown} to Output
 
 Headings
 
@@ -144,9 +142,11 @@ Lists
 
 Customizing
 
-* Customizing the Output Processor::
-* @LaTeX{} Math Syntax Highlighting::
-* [[Wiki-Links]] Syntax Highlighting::
+* Customizing External Commands::      How to Customize External Commands
+* Customizing Markdown Format::        How to Customize Markdown Format
+* Customizing HTML Format::            How to Customize HTML Format
+* @LaTeX{} Math Syntax Highlighting::  How to Highlight @LaTeX{} Math
+* [[Wiki-Links]] Syntax Highlighting:: How to Highlight [[Wiki-Links]]
 
 Development
 
@@ -185,7 +185,9 @@ filter command that provides an easy way to produce styled text by
 editing simple text files and then converting the text to HTML.  It is
 described at @uref{http://daringfireball.net/projects/markdown/}.
 
-@command{markdown} has been reimplimented by various authors and with various additional features and syntax, including @command{multimarkdown}, 
+@command{markdown} has been reimplimented by various authors and with
+various additional features and syntax, including
+@command{multimarkdown},
 
 GitHub Flavored Markdown is the dialect of markdown used by GitHub. It
 is described at
@@ -223,7 +225,7 @@ The recommended way to install the package @code{markdown-mode} is to
 use @code{package.el}, which has been integrated with Emacs since
 version 24. It is included in version 23, but must be initialized.
 
-ToDo
+ToDo Section Text
 
 This package @code{markdown-mode.el} depends on the package
 @code{cl-lib}, which has been bundled with GNU Emacs since version
@@ -269,13 +271,13 @@ ToDo Section Text
 ToDo Chapter Text
 
 @menu
-* Headings::            How to Work with Headings.
-* Lists::               How to Work with Lists.
-* Styles::              How to Work with Styles.
-* Links::               How to Work with Links.
-* Images::              How to Work with Images.
-* Differences::         How @code{markdown-mode} differs from  @code{text-mode}.
-* Output Commands::     How to use @command{markdown} to Output HTML.
+* Headings::                    How to Work with Headings.
+* Lists::                       How to Work with Lists.
+* Styles::                      How to Work with Styles.
+* Links::                       How to Work with Links.
+* Images::                      How to Work with Images.
+* Differences::                 How @code{markdown-mode} differs from  @code{text-mode}.
+* External Commands::           How to use @command{markdown} to Output.
 @end menu
 
 @node Headings
@@ -377,12 +379,10 @@ ToDo Section Text
 
 ToDo Section Text
 
-@node Output Commands
-@section Output Commands
-@cindex Output Commands
-@cindex How to Output
+@node External Commands
+@section External Commands
+@cindex External Commands
 @cindex How to Output HTML
-@cindex How to Use with @command{markdown}
 @cindex How to Compile
 @cindex How to Convert
 
@@ -400,25 +400,31 @@ ToDo Chapter Text
 @node Customizing
 @chapter Customizing
 @cindex Customizing
-@cindex How to Customize
+@cindex How to Customize @code{markdown-mode}
 @cindex Variables
 
-ToDo Chapter Text
+You may customize the variables in this section by adding lines to
+your Emacs startup file or by running @kbd{M-x customize-group
+markdown} and then restarting Emacs.
 
 @menu
-* Customizing the Output Processor::
-* @LaTeX{} Math Syntax Highlighting::
-* [[Wiki-Links]] Syntax Highlighting::
+* Customizing External Commands::       How to Customize External Commands.
+* Customizing Markdown Format::         How to Customize Markdown Format.
+* Customizing GitHub Flavored Markdown::
+* Customizing HTML Format::             How to Customize HTML Format.
+* @LaTeX{} Math Syntax Highlighting::   How to Highlight @LaTeX{} Math.
+* [[Wiki-Links]] Syntax Highlighting::  How to Highlight [[Wiki-Links]].
 @end menu
 
-@node Customizing the Output Processor
-@section Customizing the Output Processor
-@cindex Customizing the Output Processor
-@cindex How to Use Alternatives to @command{markdown}
-@cindex Variables that Control Output
+@node Customizing External Commands
+@section Customizing External Commands
+@cindex Customizing External Commands
+@cindex How to Customize External Commands
+@cindex Variables that Control External Commands
 
-These variables control how @code{markdown-mode} converts markdown
-text to HTML or another format.
+The variables in this section control how @code{markdown-mode} calls
+external commands to convert markdown text to HTML or another format
+or to preview the markdown text.
 
 @vtable @code
 @item markdown-command
@@ -437,10 +443,11 @@ output processor in the following functions:
 @item @kbd{C-c C-c w} (@code{markdown-kill-ring-save})
 @end itemize
 
-Examples @code{markdown-command} configurations in Emacs startup file:
+Examples of @code{markdown-command} configurations in Emacs startup file:
 
 @table @asis
-@item Default. @command{markdown} command in @env{$PATH}
+@item Default. @command{markdown} command in @env{$PATH}. ()
+@cindex How to Use with @command{markdown}
 
 @cartouche
 @lisp
@@ -462,7 +469,8 @@ the @env{$PATH}, as when Emacs is launched as an app under MacOS.
 @cindex How to Use SmartyPants
 @cindex Smart Quotation Marks
 You may pipe the output of @command{markdown} to @command{smartypants}
-to add smart quotation marks.
+(@uref{https://daringfireball.net/projects/smartypants/}) to add smart
+quotation marks.
 
 @cartouche
 @lisp
@@ -472,7 +480,11 @@ to add smart quotation marks.
 
 @item @command{multimarkdown}
 @cindex How to Use with @command{multimarkdown}
-@command{multimarkdown} (@uref{http://fletcherpenney.net/multimarkdown/}) incorporates @command{smartypants}. It usually outputs to HTML like markdown, but can also output to several other formats with the @option{--to=@var{FORMAT}} option.
+@command{multimarkdown}
+(@uref{http://fletcherpenney.net/multimarkdown/}) incorporates
+@command{smartypants}. It usually outputs to HTML like markdown, but
+can also output to several other formats with the
+@option{--to=@var{FORMAT}} option.
 
 @cartouche
 @lisp
@@ -485,7 +497,9 @@ to add smart quotation marks.
 @cindex How to Use with @command{pandoc}
 @cindex How to Output to Other Formats
 @cindex Outputting to Other Formats
-@command{pandoc} will output to HTML also, but it can also output to 40 other formats and converts from 5 different markdown dialects, including github-flavored markdown.
+@command{pandoc} (@uref{http://pandoc.org}) will output to HTML, but
+it can also output to 40 other formats and converts from 5 different
+markdown dialects, including github-flavored markdown.
 
 @cartouche
 @lisp
@@ -520,9 +534,81 @@ string, default: @code{nil}.
 
 This variable specifies the command and options that the function
 @code{markdown-open}, bound to @kbd{C-c C-c o}, will use to open the
-markdown file in an eternal markdown previewer application.
+markdown file in an external markdown previewer application. The
+command will be called with the name of the file visited by the buffer
+as the only argument.
+
+One possible previewer application is @cite{Marked 2} By Brett
+Terpstra , a live-updating Markdown previewer available from
+the Apple app store.
+
+You can can open an OSX app like ``Marked 2''  by running a script like the one below with the @code{markdown-open-command}.
+
+Script @file{/usr/local/bin/markview}
+@cartouche
+@example
+#!/bin/bash
+# Check that file exists and launch app with or without it.
+if test -f $1; then
+   open -a "Marked 2" $1;
+else
+   open -a "Marked 2";
+fi
+@end example
+@end cartouche
 
 @end vtable
+
+@node Customizing Markdown Format
+@section Customizing Markdown Format
+@cindex Customizing Markdown Format
+@cindex How to Customize Markdown Format
+
+ToDo Section Text
+
+@vtable
+@item markdown-hr-strings
+
+
+@item markdown-bold-underscore
+
+
+@item markdown-italic-underscore
+
+
+@item markdown-asymmetric-header
+
+
+@item markdown-header-scaling
+
+
+@item markdown-header-scaling-values
+
+
+@item markdown-list-indent-width
+
+
+@item markdown-indent-function
+
+
+@item markdown-indent-on-enter
+
+
+@end vtable
+
+@node Customizing GitHub Flavored Markdown
+@section Customizing GitHub Flavored Markdown
+@cindex Customizing GitHub Flavored Markdown
+@cindex How to Customize Markdown Format
+
+ToDo Section Text
+
+@node Customizing HTML Format
+@section Customizing HTML Format
+@cindex Customizing HTML Format
+@cindex How to Customize HTML Format
+
+ToDo Section Text
 
 @node @LaTeX{} Math Syntax Highlighting
 @section @LaTeX{} Math Syntax Highlighting
@@ -545,7 +631,8 @@ ToDo Section Text
 @appendix Development
 @cindex Development
 
-This appendix is for contributors to @code{markdown-mode}, past or future@dots{} @strong{Thank you.}
+This appendix is for contributors to @code{markdown-mode}, past or
+future@dots{} @strong{Thank you.}
 
 @menu
 * Acknowledgments::             Many Thanks to Contributors.
@@ -691,7 +778,8 @@ the following line to your Emacs startup file:
 (add-to-list 'load-path "~/my/directory")
 @end lisp
 
-Please realize that the development version may be unstable at times. See the next section for how to submit a bug report.
+Please realize that the development version may be unstable at
+times. See the next section for how to submit a bug report.
 @end itemize
 @node Bugs and Errors
 @section Bugs and Errors
