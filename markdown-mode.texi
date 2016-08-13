@@ -452,7 +452,7 @@ output processor in the following functions:
 Examples of @code{markdown-command} configurations in Emacs startup file:
 
 @table @asis
-@item Default. @command{markdown} command in @env{$PATH}. ()
+@item Default. Assumes @command{markdown} command in @env{$PATH}.
 @cindex How to Use with @command{markdown}
 
 @cartouche
@@ -467,7 +467,7 @@ the @env{$PATH}, as when Emacs is launched as an app under MacOS.
 
 @cartouche
 @lisp
-(setq markdown-command "\usr\local/bin/markdown")
+(setq markdown-command "/usr/local/bin/markdown")
 @end lisp
 @end cartouche
 
@@ -495,7 +495,7 @@ can also output to several other formats with the
 @cartouche
 @lisp
 (setq markdown-command
-      "\usr\local/bin/multimarkdown")
+      "/usr/local/bin/multimarkdown")
 @end lisp
 @end cartouche
 
@@ -510,7 +510,10 @@ markdown dialects, including github-flavored markdown.
 @cartouche
 @lisp
 (setq markdown-command
-      "\usr\local/bin/pandoc --from=markdown --to=html")
+      (concat
+      "/usr/local/bin/pandoc"
+      " --from=markdown"
+      " --to=html"))
 @end lisp
 @end cartouche
 
@@ -555,10 +558,9 @@ Script @file{/usr/local/bin/markview}
 @example
 #!/bin/bash
 # Check that file exists and launch app with or without it.
-if test -f $1; then
-   open -a "Marked 2" $1;
-else
-   open -a "Marked 2";
+if [[ -f $1 ]]
+then open -a "Marked 2" $1
+else open -a "Marked 2"
 fi
 @end example
 @end cartouche
