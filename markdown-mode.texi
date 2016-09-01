@@ -208,13 +208,14 @@ emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 @cindex How to Download
 @cindex How to Install
 
-ToDo Chapter Text
+This section describes how to install @code{markdown-mode} for use. To
+install the development version, see @ref{Development Version}.
 
 @menu
 * Recommended Installation::    How to Install with @code{package.el}.
+* Manual Installation::         How to Install the hard way.
 * Managed Loading::             How to Manage with @code{use-package.el}.
 * OS Package Managers::         How to Install with OS Package Managers.
-* Manual Installation::         How to Install the hard way.
 @end menu
 
 @node Recommended Installation
@@ -227,7 +228,37 @@ ToDo Chapter Text
 
 The recommended way to install the package @code{markdown-mode} is to
 use @code{package.el}, which has been integrated with Emacs since
-version 24. It is included in version 23, but must be initialized.
+version 24. (It is included in version 23, but must be initialized.)
+
+To install @code{markdown-mode}, first add the MELPA Stable archive to
+the list of archives used by @code{package.el} by adding the following
+lines to your @file{.emacs}, @file{init.el}, or other Emacs startup
+file and restarting Emacs (or just evaluate the statements):
+
+@cartouche
+@lisp
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(package-initialize)          ;; only needed if evaluating manually
+@end lisp
+@end cartouche
+
+Then, after restarting Emacs (or otherwise evaulating the above
+statements), type the following command:
+
+@kbd{M-x package-install @key{RET} markdown-mode @key{RET}}.
+
+When installed using the package manager this way, the major modes
+@code{markdown-mode} and @code{gfm-mode} will be autoloaded, and
+@code{markdown-mode} will be used automatically for file names ending
+in either @file{.md} or @file{.markdown}.
+
+@node Manual Installation
+@section Manual Installation
+@cindex Manual Installation
+@cindex How to Install Manually
+@cindex How to Download Manually
 
 ToDo Section Text
 
@@ -243,7 +274,22 @@ This package @code{markdown-mode.el} depends on the package
 @cindex How to Manage with @code{use-package}
 @findex use-package.el
 
-ToDo Section Text
+If you manage loading packages with @code{use-package} then you can
+automatically install and configure @code{markdown-mode} by adding a
+declaration such as this one to your init file (This is an
+example. Please adjust these settings as desired):
+
+@cartouche
+@lisp
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+@end lisp
+@end cartouche
 
 @node OS Package Managers
 @section OS Package Managers
@@ -254,14 +300,6 @@ ToDo Section Text
 @cindex How to Install as a Fedora Package
 @cindex How to Install as a FreeBSD Package
 @cindex How to Install as a MacPorts Package
-
-ToDo Section Text
-
-@node Manual Installation
-@section Manual Installation
-@cindex Manual Installation
-@cindex How to Install Manually
-@cindex How to Download Manually
 
 ToDo Section Text
 
