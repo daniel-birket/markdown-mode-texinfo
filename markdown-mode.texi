@@ -254,15 +254,45 @@ When installed using the package manager this way, the major modes
 @code{markdown-mode} will be used automatically for file names ending
 in either @file{.md} or @file{.markdown}.
 
+Browse the MELPA-Stable archive at @uref{http://stable.melpa.org/}
+
 @node Manual Installation
 @section Manual Installation
 @cindex Manual Installation
 @cindex How to Install Manually
 @cindex How to Download Manually
 
-ToDo Section Text
+You can manually download and install markdown-mode.
 
-This package @code{markdown-mode.el} depends on the package
+First, download @code{markdown-mode} from one of:
+
+@itemize @bullet
+@item @uref{http://jblevins.org/projects/markdown-mode/markdown-mode.el}
+@item @uref{http://stable.melpa.org/}
+@end itemize
+
+and save the file where Emacs can find it in a directory listed in your
+@code{load-path} like @file{/usr/local/share/emacs/site-lisp}.
+
+Then configure @code{markdown-mode} and @code{gfm-mode}
+to load automatically by adding the following to your init file:
+
+@cartouche
+@lisp
+(autoload 'markdown-mode
+          "markdown-mode"
+          "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode
+          "markdown-mode"
+          "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+@end lisp
+@end cartouche
+
+This package, @code{markdown-mode.el}, depends on the package
 @code{cl-lib}, which has been bundled with GNU Emacs since version
 24.3. If you use GNU Emacs version 24.1 or 24.2, you should install
 @code{cl-lib} using @code{package.el}. To install @code{cl-lib} type
@@ -291,17 +321,104 @@ example. Please adjust these settings as desired):
 @end lisp
 @end cartouche
 
+@code{use-package} is documented at @uref{https://github.com/jwiegley/use-package}
+
 @node OS Package Managers
 @section OS Package Managers
 @cindex OS Package Managers
-@cindex How to Install as a Linux Package
-@cindex How to Install as a Debian Package
-@cindex How to Install as a Ubuntu Package
-@cindex How to Install as a Fedora Package
-@cindex How to Install as a FreeBSD Package
-@cindex How to Install as a MacPorts Package
+@cindex How to Download a Linux Package
 
-ToDo Section Text
+You may download @code{markdown-mode} in packages for use with several
+OS package managers. Most OS packages do not contain the latest stable
+version.  (Please notify the package maintainer if you download one
+that does not.) Note that OS package managers generally do NOT
+byte-compile or configure @code{markdown-mode} to load
+automatically. Please see the instructions under @ref{Manual
+Installation} if @code{markdown-mode} does not load automatically.
+
+@table @asis
+@item Debian Linux
+@cindex How to Download a Debian Package
+@uref{https://packages.debian.org/sid/lisp/elpa-markdown-mode}
+
+Note: As of Sep-2016, this package contains @code{markdown-mode}
+version 2.1. It is unknown if the package manager compiles or
+configures @code{markdown-mode}.
+
+@uref{http://packages.debian.org/emacs-goodies-el}
+
+Note: @cite{emacs-goodies-el} is a collection of Emacs programs. The
+version of @code{markdown-mode} included in it is unknown.
+
+@item Ubuntu Linux
+@cindex How to Download a Ubuntu Package
+@uref{http://packages.ubuntu.com/search?keywords=elpa-markdown-mode}
+
+Note: As of Sep-2016, this search does not find @code{markdown-mode}.
+
+@item RedHat and Fedora Linux
+@cindex How to Download a RedHat Package
+@cindex How to Download a Fedora Package
+@uref{https://apps.fedoraproject.org/packages/emacs-goodies}
+
+Note: @cite{emacs-goodies} is a collection of Emacs programs. The
+version of @code{markdown-mode} included in it is unknown.
+
+This package is maintained by @email{sagarun@@fedoraproject.org}
+
+@item NetBSD
+@cindex How to Download a NetBSD Package
+@uref{http://pkgsrc.se/textproc/markdown-mode}
+
+Note: As of Sep-2016, this package installs and byte-compiles an
+@strong{obsolete version 2.0 (Sep-2014)} of @code{markdown-mode}. You
+must manually edit your startup file as described above under
+@ref{Manual Installation}.
+
+The package is maintained by @email{minskim@@NetBSD.org}.
+
+@item FreeBSD
+@cindex How to Download a FreeBSD Package
+@uref{http://svnweb.freebsd.org/ports/head/textproc/markdown-mode.el}
+
+Note: As of Sep-2016, this package downloads (but does not
+byte-compile or configure) @code{markdown-mode} version 2.1 to
+@file{/usr/local/share/emacs/site-lisp}.  You must manually edit your
+startup file as described above under @ref{Manual Installation}.
+
+The package is maintained by @email{olgeni@@FreeBSD.org}
+
+@item Macintosh MacPorts
+@cindex How to Download a MacPorts Package
+@uref{https://trac.macports.org/browser/trunk/dports/editors/markdown-mode.el/Portfile}
+
+Note: As of Sep-2016, this package downloads (but does not
+byte-compile or configure) an @strong{obsolete version 2.0 (Sep-2014)}
+of @code{markdown-mode} from
+@uref{git://jblevins.org/git/markdown-mode.git} to
+@file{/usr/local/share/emacs/site-lisp}. You must manually
+edit your startup file as described above under @ref{Manual
+Installation}.
+
+The package is maintained by @cite{easieste openmaintainer}.
+
+@item Macintosh HomeBrew
+@cindex How to Download a Mac HomeBrew Package
+At the terminal prompt type
+@cartouche
+@example
+$ brew info homebrew/emacs/markdown-mode
+
+homebrew/emacs/markdown-mode: stable 2.1, HEAD
+Major mode for editing Markdown files
+http://jblevins.org/projects/markdown-mode/
+Not installed
+
+$ brew install homebrew/emacs/markdown-mode
+@end example
+@end cartouche
+
+@end table
 
 @node Using Markdown Mode
 @chapter Using Markdown Mode
@@ -513,8 +630,9 @@ the @env{$PATH}, as when Emacs is launched as an app under MacOS.
 @cindex How to Use SmartyPants
 @cindex Smart Quotation Marks
 You may pipe the output of @command{markdown} to @command{smartypants}
-(@uref{https://daringfireball.net/projects/smartypants/}) to add smart
-quotation marks.
+to add smart quotation marks.
+
+See @uref{https://daringfireball.net/projects/smartypants/}.
 
 @cartouche
 @lisp
@@ -524,11 +642,12 @@ quotation marks.
 
 @item @command{multimarkdown}
 @cindex How to Use with @command{multimarkdown}
-@command{multimarkdown}
-(@uref{http://fletcherpenney.net/multimarkdown/}) incorporates
-@command{smartypants}. It usually outputs to HTML like markdown, but
-can also output to several other formats with the
-@option{--to=@var{FORMAT}} option.
+@command{multimarkdown} usually outputs to HTML like
+@command{markdown}, but can also output to several other formats with
+the @option{--to=@var{FORMAT}} option. It includes
+@command{smartypants}.
+
+See @uref{http://fletcherpenney.net/multimarkdown/}.
 
 @cartouche
 @lisp
@@ -670,7 +789,8 @@ behavior induced when the global variable is non-nil.
 @cindex Customizing Markdown Headers
 @cindex How to Customize Markdown Headers
 
-ToDo Section Text
+The variables in this section allow you to customize how
+@code{markdown-mode} uses headers.
 
 @vtable @code
 
