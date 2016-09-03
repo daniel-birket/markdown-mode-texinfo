@@ -870,7 +870,7 @@ Determines the depth of indentation for lists when inserting,
 promoting, and demoting list items.
 
 @item markdown-indent-function
-string, default: @code{markdown-indent-line}
+function, default: @code{markdown-indent-line}
 
 Determines the function to use for automatic indentation.
 
@@ -889,19 +889,75 @@ enter key is pressed.
 @cindex Highlighting [[Wiki-Links]] Syntax
 @cindex How to Highlight [[Wiki-Links]]
 
-ToDo Section Text
+Besides supporting the basic Markdown syntax, @code{markdown-mode} also
+includes syntax highlighting for [[Wiki-Links]].  This support is
+enabled by setting @code{markdown-enable-wiki-links} to a non-nil value.
+
+Wiki-links may be followed by pressing @kbd{C-c C-o} when the point
+is at a wiki-link.  Use @kbd{M-p} and @kbd{M-n} to quickly jump to the
+previous and next links (including links of other types).
+
+Aliased (or ``piped'') wiki-links of the form
+@samp{[[linktext|PageName]]} are also supported.  Since some wikis
+reverse these components, set @code{markdown-wiki-link-alias-first} to
+nil to treat them as @samp{[[PageName|linktext]]}.
+
+If @code{markdown-wiki-link-fontify-missing}
+is also non-nil, @code{markdown-mode} will highlight wiki-links with a
+missing target file in a different color.  By default, Markdown
+Mode only searches for target files in the current directory.
+Sequential parent directory search (like @command{Ikiwiki}) can be
+enabled by setting @code{markdown-wiki-link-search-parent-directories}
+to a non-nil value.
 
 @vtable @code
 
-@item markdown-link-space-sub-char
-
 @item markdown-enable-wiki-links
+@code{nil} or @code{t}, default: @code{nil}.
+
+This enables syntax highlighting for [[Wiki-Links]].
+
+Set this to a non-nil value to turn on
+[[Wiki-Links]] support by default.  [[Wiki-Links]] support can be toggled
+later using the function @code{markdown-toggle-wiki-links}.
+
+@item markdown-link-space-sub-char
+character, default: @code{"_"}
+
+Determines the character to replace spaces when mapping wiki links to
+filenames.
+
+For example, use an underscore for compatibility with the Python
+Markdown WikiLinks extension.  In @code{gfm-mode}, this is set to
+@code{"-"} to conform with GitHub wiki links.
 
 @item markdown-wiki-link-alias-first
+@code{nil} or @code{t}, default: @code{t}.
+
+Set this to a non-nil value to treat aliased wiki links as
+@samp{[[linktext|PageName]]}.  When set to nil, they will be treated
+as @samp{[[PageName|linktext]]}.
 
 @item markdown-wiki-link-fontify-missing
+@code{nil} or @code{t}, default: @code{nil}.
+
+When non-nil, change the wiki-link face according to the existence of
+the target files.
+
+This is expensive because it requires checking for the file each time the buffer
+changes or the user switches windows.  It is disabled by default because it may
+cause lag when typing on slower machines.
 
 @item markdown-wiki-link-search-parent-directories
+@code{nil} or @code{t}, default: @code{nil}.
+
+When non-nil, search for wiki-link targets in parent
+directories. (This is the default search behavior of Ikiwiki.)
+
+This only applies when @code{markdown-wiki-link-fontify-missing},
+above, is non-nil.
+
+See @uref{https://ikiwiki.info}
 
 @end vtable
 
