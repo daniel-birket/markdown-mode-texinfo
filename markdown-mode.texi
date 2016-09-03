@@ -701,14 +701,16 @@ string, default: @code{nil}.
 This variable specifies the command and options that the function
 @code{markdown-open}, bound to @kbd{C-c C-c o}, will use to open the
 markdown file in an external markdown previewer application. The
-command will be called with the name of the file visited by the buffer
-as the only argument.
+command will be called with a single argument: the name of the file
+visited by the buffer. (This only works if the buffer is visiting a
+file.)
 
 One possible previewer application is @cite{Marked 2} by Brett
 Terpstra, a live-updating Markdown previewer available from
 the Apple app store.
 
-You can can open an OSX app like @cite{Marked 2}  by running a script like the one below with the @code{markdown-open-command}.
+You can can open an OSX app like @cite{Marked 2} by running a script
+like the one below with the @code{markdown-open-command}.
 
 Script @file{/usr/local/bin/markview}
 @cartouche
@@ -795,15 +797,52 @@ The variables in this section allow you to customize how
 @vtable @code
 
 @item markdown-asymmetric-header
+@code{nil} or @code{t}, default: @code{nil}.
+
+Determines if header style will be asymmetric.
+
+Set to non-nil to only have header characters to the left of the title.
+The default will ensure header characters are placed to the left and right
+of the title.
 
 @item markdown-header-scaling
+@code{nil} or @code{t}, default: @code{nil}.
 
+Determines whether to use variable-height faces for headers.
+
+Set to a non-nil value to use a variable-pitch font for headings where
+the size corresponds to the level of the heading.
+
+In detail: When non-nil, @code{markdown-header-face} will inherit from
+@code{variable-pitch} and the six scaling values in
+@code{markdown-header-scaling-values} will be applied to headers of
+levels one through six respectively.
+    
 @item markdown-header-scaling-values
+A list of 6 float, default: @code{(list 1.8 1.4 1.2 1.0 1.0 1.0)}
+
+A list of 6 scaling values, relative to baseline, for headers of levels
+one through six. They are used when `markdown-header-scaling` is non-nil.
 
 @item markdown-nested-imenu-heading-index
+@code{nil} or @code{t}, default: @code{nil}.
+
+Set to a non-nil value to use nested imenu heading instead of a flat
+index.  A nested index may provide more natural browsing from the
+menu, but a flat list may allow for faster keyboard navigation via tab
+completion.
 
 @item markdown-hr-strings
-List of six strings. Default is six strings of varying widths and lengths.
+A list of 6 strings. The default is:
+
+@lisp
+("-------------------------------------------------------------------------------"
+ "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+ "---------------------------------------"
+ "* * * * * * * * * * * * * * * * * * * *"
+ "---------"
+ "* * * * *")
+ @end lisp
 
 A list of strings to use when inserting horizontal rules.  Different
 strings will not be distinguished when converted to HTML -- they
@@ -819,15 +858,27 @@ to smallest.
 @cindex Customizing Indenting
 @cindex How to Customize Indenting
 
-ToDo Section Text
+The variables in this section allow you to customize how
+@code{markdown-mode} handles indentation.
 
 @vtable @code
 
 @item markdown-list-indent-width
+integer, default: 4
+
+Determines the depth of indentation for lists when inserting,
+promoting, and demoting list items.
 
 @item markdown-indent-function
+string, default: @code{markdown-indent-line}
+
+Determines the function to use for automatic indentation.
 
 @item markdown-indent-on-enter
+@code{nil} or @code{t}, default: @code{t}.
+
+Set to a non-nil value to automatically indent new lines when the
+enter key is pressed.
 
 @end vtable
 
