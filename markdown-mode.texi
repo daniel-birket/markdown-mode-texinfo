@@ -427,7 +427,7 @@ $ brew install homebrew/emacs/markdown-mode
 @cindex How to Use @code{markdown-mode}
 @findex markdown-mode
 
-ToDo Chapter Text
+This chapter describes how to use @code{markdown-mode}.
 
 @menu
 * Headings::                    How to Work with Headings.
@@ -561,6 +561,8 @@ ToDo Chapter Text
 @cindex Customizing
 @cindex How to Customize @code{markdown-mode}
 @cindex Variables
+
+This chapter describes how to customize @code{markdown-mode}.
 
 You may customize the variables in this section by adding lines to
 your Emacs startup file or by running @kbd{M-x customize-group
@@ -910,6 +912,8 @@ Sequential parent directory search (like @command{Ikiwiki}) can be
 enabled by setting @code{markdown-wiki-link-search-parent-directories}
 to a non-nil value.
 
+The variables below customize how Wiki-Links are handled.
+
 @vtable @code
 
 @item markdown-enable-wiki-links
@@ -966,15 +970,33 @@ See @uref{https://ikiwiki.info}
 @cindex Customizing GitHub Flavored Markdown
 @cindex How to Customize Markdown Format
 
-ToDo Section Text
+This section describes variables that customize @code{gfm-mode}.
 
 @vtable @code
 
 @item markdown-gfm-additional-languages
+list of strings, default @code{nil}
+
+Determines any more languages to make available, in addition to the
+300+ languages predefined in @code{markdown-gfm-recognized-languages},
+when inserting GFM code blocks. Language strings must be trimmed of
+whitespace and not contain any curly braces. They may be of arbitrary
+capitalization.
 
 @item markdown-gfm-use-electric-backquote
+@code{nil} or @code{t}, default @code{t}
+
+Set to non-nill to use the function @code{markdown-electric-backquote}
+for interactive insertion of GFM code blocks when backquote is pressed
+three times.
 
 @item markdown-make-gfm-checkboxes-buttons
+@code{nil} or @code{t}, default @code{t}
+
+Determines whether GitHub Flavored Markdown style task lists
+(checkboxes) should be turned into buttons that can be toggled with
+mouse-1 or RET. If non-nil, then buttons are enabled.  This works in
+@code{markdown-mode} as well as @code{gfm-mode}.
 
 @end vtable
 
@@ -983,17 +1005,45 @@ ToDo Section Text
 @cindex Customizing HTML Format
 @cindex How to Customize HTML Format
 
-ToDo Section Text
+This section describes variables that customize HTML formatting.
 
 @vtable @code
 
 @item markdown-uri-types
+list of strings, default: ("acap" "cid" "data" "dav" "fax" "file"
+"ftp" "gopher" "http" "https" "imap" "ldap" "mailto" "mid" "modem"
+"news" "nfs" "nntp" "pop" "prospero" "rtsp" "service" "sip" "tel"
+"telnet" "tip" "urn" "vemmi" "wais")
+
+Determines the list of protocol schemes (e.g., "http") for URIs that
+@code{markdown-mode} should highlight.
 
 @item markdown-css-paths
+list of strings, default @code{nil}
+
+Determines a list of URLs of CSS files to link to in the output XHTML.
 
 @item markdown-content-type
+string, default: @code{""}
+
+when set to a nonempty string, an @samp{http-equiv} attribute will be
+included in the XHTML @samp{<head>} block.  The suggested values are
+@code{"application/xhtml+xml"} or @code{"text/html"}.
+
+This variable must be set to a non-empty string to use
+@code{markdown-coding-system}, below.
 
 @item markdown-coding-system
+string or @code{nil}, default: @code{nil}
+
+This variable is used for specifying the character set identifier in
+the @samp{http-equiv} attribute when included.  The variable
+@code{markdown-content-type} must be set before this variable has any
+effect.  When @code{markdown-coding-system} is set to @code{nil},
+@code{buffer-file-coding-system} will be used to automatically
+determine the coding system string (falling back to @samp{iso-8859-1}
+when unavailable).  Common settings are @samp{utf-8} and
+@samp{iso-latin-1}.
 
 @item markdown-xhtml-header-content
 
