@@ -397,6 +397,38 @@ $ brew install homebrew/emacs/markdown-mode
 
 This chapter describes how to use @code{markdown-mode}.
 
+Many keybindings are grouped by prefixes based on their function:
+
+@table @kbd
+@item C-c C-a
+Prefix keys for insert link commands. (HTML <a> tag)
+
+@item C-c C-c
+Prefix keys for 'compiling' markdown. (@strong{c}ompile)
+
+@item C-c C-i
+Prefix keys for insert image commands. (@strong{i}mage)
+
+@item C-c C-s
+Prefix keys for insert style commands. (@strong{s}tyle)
+
+@item C-c C-t
+Prefix keys for insert title/header commands. (@strong{t}itle)
+
+@item C-c C-x
+Prefix keys for manipulating lists.
+
+@end table
+
+Movement and shifting commands tend to be associated with paired
+delimiters such as @kbd{M-@{} and @kbd{M-@}} or @kbd{C-c <} and
+@kbd{C-c >}.
+
+Outline navigation keybindings the same as in @code{org-mode}.
+
+You can obtain a list of all keybindings by pressing @kbd{C-c
+C-h}.
+
 @menu
 * Headings::                    How to Work with Headings.
 * Lists::                       How to Work with Lists.
