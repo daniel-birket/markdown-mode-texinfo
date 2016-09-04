@@ -369,8 +369,6 @@ of @code{markdown-mode} from
 edit your startup file as described above under @ref{Manual
 Installation}.
 
-The package is maintained by @cite{easieste openmaintainer}.
-
 @item Macintosh HomeBrew
 @cindex How to Download a Mac HomeBrew Package
 @pindex brew
