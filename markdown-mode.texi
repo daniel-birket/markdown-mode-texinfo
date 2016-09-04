@@ -103,6 +103,8 @@ Appendices:
 * GNU Free Documentation License::  License of this manual (2008).
 * Concept Index::
 * Variable Index::
+* Function Index::
+* Program Index::
 @end menu
 
 @node Introduction
@@ -127,6 +129,7 @@ The package implements two Emacs @emph{major modes}:
 @xref{Using GFM Mode}.
 @end itemize
 
+@pindex markdown
 @command{markdown}, created by John Gruber in 2004, is a popular unix
 filter command that provides an easy way to produce styled text by
 editing simple text files and then converting the text to HTML.  It is
@@ -141,7 +144,8 @@ GitHub Flavored Markdown is the dialect of markdown used by GitHub. It
 is described at
 @uref{http://github.github.com/github-flavored-markdown/}.
 
-@command{emacs} is the world's most powerful text editor.  It is highly
+@pindex emacs
+@command{emacs} is a powerful text editor (and more).  It is highly
 extensible and has a large ecosystem of extensions like this one.  GNU
 emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 
@@ -168,7 +172,6 @@ install the development version, see @ref{Development Version}.
 @cindex How to Install with @code{package.el}
 @cindex MELPA Stable
 @findex package.el
-@findex package-install
 
 The recommended way to install the package @code{markdown-mode} is to
 use @code{package.el}, which has been integrated with Emacs since
@@ -188,6 +191,7 @@ file and restarting Emacs (or just evaluate the statements):
 @end lisp
 @end cartouche
 
+@findex package-install
 Then, after restarting Emacs (or otherwise evaulating the above
 statements), type the following command:
 
@@ -296,6 +300,7 @@ version of @code{markdown-mode} included in it is unknown.
 
 @item Ubuntu Linux
 @cindex How to Download a Ubuntu @command{apt} Package
+@pindex apt
 
 At the terminal prompt, type:
 @cartouche
@@ -368,6 +373,7 @@ The package is maintained by @cite{easieste openmaintainer}.
 
 @item Macintosh HomeBrew
 @cindex How to Download a Mac HomeBrew Package
+@pindex brew
 At the terminal prompt type
 @cartouche
 @example
@@ -575,6 +581,7 @@ Examples of @code{markdown-command} configurations in Emacs startup file:
 @table @asis
 @item Default. Assumes @command{markdown} command in @env{$PATH}.
 @cindex How to Use with @command{markdown}
+@pindex markdown
 
 @cartouche
 @lisp
@@ -595,6 +602,7 @@ the @env{$PATH}, as when Emacs is launched as an app under MacOS.
 @item @command{markdown} with @command{smartypants}
 @cindex How to Use SmartyPants
 @cindex Smart Quotation Marks
+@pindex smartypants
 You may pipe the output of @command{markdown} to @command{smartypants}
 to add smart quotation marks.
 
@@ -608,10 +616,12 @@ See @uref{https://daringfireball.net/projects/smartypants/}.
 
 @item @command{multimarkdown}
 @cindex How to Use with @command{multimarkdown}
+@pindex multimarkdown
+
 @command{multimarkdown} usually outputs to HTML like
 @command{markdown}, but can also output to several other formats with
-the @option{--to=@var{FORMAT}} option. It includes
-@command{smartypants}.
+the @option{--to=@var{FORMAT}} option. It includes the functionality
+of @command{smartypants}.
 
 See @uref{http://fletcherpenney.net/multimarkdown/}.
 
@@ -626,9 +636,13 @@ See @uref{http://fletcherpenney.net/multimarkdown/}.
 @cindex How to Use with @command{pandoc}
 @cindex How to Output to Other Formats
 @cindex Outputting to Other Formats
+@pindex pandoc
+
 @command{pandoc} (@uref{http://pandoc.org}) will output to HTML, but
 it can also output to 40 other formats and converts from 5 different
 markdown dialects, including github-flavored markdown.
+
+See @uref{http://pandoc.org}
 
 @cartouche
 @lisp
@@ -881,13 +895,14 @@ The variables below customize how Wiki-Links are handled.
 @vtable @code
 
 @item markdown-enable-wiki-links
+@findex markdown-toggle-wiki-links
 @code{nil} or @code{t}, default: @code{nil}.
 
 This enables syntax highlighting for [[Wiki-Links]].
 
-Set this to a non-nil value to turn on
-[[Wiki-Links]] support by default.  [[Wiki-Links]] support can be toggled
-later using the function @code{markdown-toggle-wiki-links}.
+Set this to a non-nil value to turn on [[Wiki-Links]] support by
+default.  [[Wiki-Links]] support can be toggled later using the
+function @code{markdown-toggle-wiki-links}.
 
 @item markdown-link-space-sub-char
 character, default: @code{"_"}
@@ -917,6 +932,7 @@ changes or the user switches windows.  It is disabled by default because it may
 cause lag when typing on slower machines.
 
 @item markdown-wiki-link-search-parent-directories
+@pindex ikiwiki
 @code{nil} or @code{t}, default: @code{nil}.
 
 When non-nil, search for wiki-link targets in parent
@@ -948,6 +964,7 @@ whitespace and not contain any curly braces. They may be of arbitrary
 capitalization.
 
 @item markdown-gfm-use-electric-backquote
+@findex markdown-electric-backquote
 @code{nil} or @code{t}, default @code{t}
 
 Set to non-nill to use the function @code{markdown-electric-backquote}
@@ -1257,7 +1274,7 @@ will find his original manual at
 @include fdl.texi
 
 @node Concept Index
-@unnumbered Index
+@unnumbered Concept Index
 @cindex Concept Index @samp{;-)}
 
 @printindex cp
@@ -1267,5 +1284,17 @@ will find his original manual at
 @cindex Variable Index
 
 @printindex vr
+
+@node Function Index
+@unnumbered Function Index
+@cindex Function Index
+
+@printindex fn
+
+@node Program Index
+@unnumbered Program Index
+@cindex Program Index
+
+@printindex pg
 
 @bye
