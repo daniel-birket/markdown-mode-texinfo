@@ -24,9 +24,18 @@ Texts.  A copy of the license is included in the section entitled
 
 This is the Emacs Markdown Mode manual (unauthorized),
 @value{EDITION}, by Daniel Birket, updated @today{}.
+@ifinfo
+This @command{info} file was was compiled from @file{.texinfo} source with Gnu TexInfo v6.1.
+@end ifinfo
 @iftex
-It was typeset using @TeX{} by Donald Knuth, et al.
+This document was compiled from @file{.texinfo} source with Gnu TexInfo v6.1 and typeset using @TeX{} by Donald Knuth, et al.
 @end iftex
+@ifhtml
+This HTML document was was compiled from @file{.texinfo} source with Gnu TexInfo v6.1.
+@end ifhtml
+@ifdocbook
+This document was was compiled from @file{.texinfo} source with Gnu TexInfo v6.1 and converted from @command{docbook} format using  @command{pandoc}.
+@end ifdocbook
 
 This manual describes how to install and use the Emacs Lisp software
 package @code{markdown-mode}, version @value{VERSION}, released
@@ -1400,6 +1409,7 @@ will find his original manual at
 
 @include fdl.texi
 
+@ifnotdocbook
 @node Concept Index
 @unnumbered Concept Index
 @cindex Concept Index @samp{;-)}
@@ -1423,5 +1433,5 @@ will find his original manual at
 @cindex Program Index
 
 @printindex pg
-
+@end ifnotdocbook
 @bye
