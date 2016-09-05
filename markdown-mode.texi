@@ -36,12 +36,22 @@ software package and its @emph{authorized} manual are online at
 @uref{http://jblevins.org/projects/markdown-mode/}.
 
 This manual is based upon the extensive documentation in the
-@code{markdown-mode.el} source code, which includes these lines:
+@code{markdown-mode.el} source code, which begins with:
 
 @cindex Copyright (software)
 @lisp
+;;; markdown-mode.el --- Major mode for Markdown-formatted text @dots{}
+
 ;; Copyright (C) 2007-2016 Jason R. Blevins <jrblevin@@sdf.org>
 @dots{}
+;; Author: Jason R. Blevins <jrblevin@@sdf.org>
+;; Maintainer: Jason R. Blevins <jrblevin@@sdf.org>
+;; Created: May 24, 2007
+;; Version: 2.1
+;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
+;; Keywords: Markdown, GitHub Flavored Markdown, itex
+;; URL: http://jblevins.org/projects/markdown-mode/
+
 ;; This file is not part of GNU Emacs.
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -58,15 +68,15 @@ This manual is based upon the extensive documentation in the
 
 @dircategory Emacs editing modes
 @direntry
-* markdown-mode: (markdown-mode).        Emacs mode for markdown-formatted text.
+sd8* markdown-mode: (markdown-mode).        Emacs mode for markdown-formatted text.
 @end direntry
 
 @titlepage
 @title Emacs Markdown Mode
 @subtitle (Unauthorized)
 @subtitle @value{EDITION}
-@author by Daniel Birket
 @author @code{markdown-mode.el} by Jason R. Blevins, et al.
+@author Manual by Daniel Birket
 @page
 @vskip 0pt plus 1filll
 @insertcopying
@@ -397,30 +407,32 @@ $ brew install homebrew/emacs/markdown-mode
 
 This chapter describes how to use @code{markdown-mode}.
 
-Many keybindings are grouped by prefixes based on their function:
+@kbd{C-c} is the @code{mode-specific-command-prefix} and all of
+@code{markdown-mode}'s keybindings begin with it.  Under it, many
+keybindings are grouped based on their function:
 
 @table @kbd
 @item C-c C-a
 Prefix keys for insert link commands. (HTML <a> tag)
 
 @item C-c C-c
-Prefix keys for 'compiling' markdown. (@strong{c}ompile)
+Prefix keys for 'compiling' markdown. ([c]ompile)
 
 @item C-c C-i
-Prefix keys for insert image commands. (@strong{i}mage)
+Prefix keys for insert image commands. ([i]mage)
 
 @item C-c C-s
-Prefix keys for insert style commands. (@strong{s}tyle)
+Prefix keys for insert style commands. ([s]tyle)
 
 @item C-c C-t
-Prefix keys for insert title/header commands. (@strong{t}itle)
+Prefix keys for insert title/header commands. ([t]itle)
 
 @item C-c C-x
 Prefix keys for manipulating lists.
 
 @end table
 
-Movement and shifting commands tend to be associated with paired
+Movement and shifting commands are gnerally associated with paired
 delimiters such as @kbd{M-@{} and @kbd{M-@}} or @kbd{C-c <} and
 @kbd{C-c >}.
 
@@ -459,6 +471,10 @@ ToDo Section Text
 @cindex How to Insert Headings
 
 ToDo Subsection Text
+
+@strong{Inserting Headings:}
+The prefix for this group of commands is @kbd{C-c C-t}.
+
 
 @node Changing Headings
 @subsection Changing Headings
@@ -516,19 +532,98 @@ ToDo Subsection Text
 
 ToDo Section Text
 
+The prefix for this group of commands is @kbd{C-c C-s}.
+
 @node Links
 @section Links
 @cindex Links
 @cindex How to Work with Links
 
-ToDo Section Text
+This section describes how to insert and work with links.
+
+@strong{Inserting Links:}
+
+The prefix for this group of commands is @kbd{C-c C-a}.
+
+@table @asis
+@item @kbd{C-c C-a l} (@code{markdown-insert-link})
+@kindex C-c C-a l
+@findex markdown-insert-link
+@vindex markdown-reference-location
+This inserts a reference link of the form @samp{[text][label]} and an
+optional corresponding reference label definition.  The region (if
+active) or the word at point (if any) will be used for the link text.
+If neither is available, then the link text will be read from the
+minibuffer.
+
+The reference label will be read from the minibuffer, with completion
+from the set of currently defined references.  To create an implicit
+reference link, press @key{RET} to accept the default empty label.  If
+the entered reference label is not defined, it will prompt for the URL
+and an optional title.
+
+If a URL is provided, a reference definition will be inserted in
+accordance with @code{markdown-reference-location}.  If a title is given,
+it will be added to the end of the reference definition and will be
+used to populate the title attribute when converted to XHTML.
+
+@item @kbd{C-c C-a u} (@code{markdown-insert-uri})
+@kindex C-c C-a u
+@findex markdown-insert-uri
+This inserts a bare URI (URL), delimited by angle brackets.  The
+region (if active) or the URI at point (if any) will be used for the
+link text.  Otherwise, it will insert @samp{<>} and position the
+point in between the brackets for inserting the URI.
+
+@item @kbd{C-c C-a f} (@code{markdown-insert-footnote})
+@kindex C-c C-a f
+@findex markdown-insert-footnote
+This inserts a footnote marker at the point, inserts a
+footnote definition below, and positions the point for
+inserting the footnote text.  Note that footnotes are an
+extension to Markdown and are not supported by all processors.
+
+@item @kbd{C-c C-a w} (@code{markdown-insert-wiki-link})
+@kindex C-c C-a w
+@findex markdown-insert-wiki-link
+This is like the inline link insertion command but inserts a wiki link
+of the form @samp{[[WikiLink]]}.  The region (if active) or the word
+at point (if any) will be used for the link text.  If neither is
+available, it will simply insert @samp{[[]]} and position the point
+between the brackets for inserting the link.  Note that wiki links are
+an extension to Markdown and are not supported by all processors.
+
+@end table
 
 @node Images
 @section Images
 @cindex Images
 @cindex How to Work with Images
 
-ToDo Section Text
+This section describes how to insert and work with images. The prefix
+for this group of commands is @kbd{C-c C-i}.
+
+@table @asis
+@item @kbd{C-c C-i i} (@code{markdown-insert-image})
+@kindex C-c C-i i
+@findex markdown-insert-image
+This inserts markup for an inline image using the active region or
+the word at point (if any) as the alt text.
+
+@item @kbd{C-c C-i I} (@code{markdown-insert-reference-image})
+@kindex C-c C-i I
+@findex markdown-insert-reference-image
+This inserts markup for an reference-style image using the active region or
+the word at point (if any) as the alt text.
+
+@item @kbd{C-c C-i C-t} (@code{markdown-toggle-inline-images})
+@kindex C-c C-i C-t
+@findex markdown-toggle-inline-images
+
+This will toggle display of local inline images. Use it again to
+remove local inline image display. (@code{markdown-mode} version 2.2).
+
+@end table
 
 @node Differences
 @section Differences
@@ -546,6 +641,8 @@ ToDo Section Text
 @cindex How to Convert
 
 ToDo Section Text
+
+The prefix for this group of commands is @kbd{C-c C-c}.
 
 @node Using GFM Mode
 @chapter Using GFM Mode
