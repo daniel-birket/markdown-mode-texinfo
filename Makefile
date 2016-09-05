@@ -1,34 +1,61 @@
 SOURCE	:= markdown-mode.texi
 INCLUDE	:= fdl.texi gpl-2.0.texi gpl.texi
 
+TEXI2ANY = texi2any
+TEXI2PDF = texi2pdf
+TEXI2DVI = texi2dvi
+PANDOC = pandoc
 
-most: markdown-mode.info markdown-mode.html markdown-mode.pdf
-	# make most targets
+help:
+	# Options:
+	# make info
+	# make html
+	# make pdf
+	# make ps
+	# make txt
+	# make docbook
+	# make clean
+
+info: markdown-mode.info
 
 markdown-mode.info: ${SOURCE} ${INCLUDE}
-	texi2any --info $<
+	$(TEXI2ANY) --info $<
+
+html: markdown-mode.html
 
 markdown-mode.html: ${SOURCE} ${INCLUDE}
-	texi2any --HTML --no-split --no-headers ${SOURCE} | smartypants
-	emacsclient -n -e '(eww-open-file "'$@'")' || true
+	$(TEXI2ANY) --HTML --no-split --no-headers ${SOURCE} | smartypants
+
+pdf: markdown-mode.pdf
 
 markdown-mode.pdf: ${SOURCE} ${INCLUDE}
-	texi2pdf $<
-	open $@
+	$(TEXI2PDF) $<
+
+ps: markdown-mode.ps
 
 markdown-mode.ps: ${SOURCE} ${INCLUDE}
-	texi2dvi --ps  $<
+	$(TEXI2DVI) --ps  $<
+
+txt: markdown-mode.txt
+
+markdown-mode.txt: ${SOURCE} ${INCLUDE}
+	$(TEXI2ANY) --plaintext $< >$@
+
+docbook: markdown-mode.xml
 
 markdown-mode.xml: ${SOURCE} ${INCLUDE}
-	texi2any --docbook $<
+	$(TEXI2ANY) --docbook $<
 
+# index entries are not handled correctly in epub version
 markdown-mode.epub: markdown-mode.xml
-	pandoc -s -t epub -o $@ -f docbook $<
+	$(PANDOC) -s -t epub -o $@ -f docbook $<
 
+# index entries are not handled correctly in markdown version
 markdown-mode.md: markdown-mode.xml
-	pandoc -s -t markdown_strict -o $@ -f docbook $<
+	$(PANDOC) -s -t markdown_strict -o $@ -f docbook $<
 
 clean:
-	rm *.aux *.cp *.cps *.toc *.vr *.vrs || true
+	rm *.aux *.toc *.log || true
+	rm *.cp *.cps *.vr *.vrs *.fn *.fns *.ky *.kys *.pg *.pgs || true
 	rm *.dvi *.ps || true
 	rm *.xml *.epub markdown-mode.md || true
