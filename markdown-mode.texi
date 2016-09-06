@@ -206,7 +206,7 @@ file and restarting Emacs (or just evaluate the statements):
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(package-initialize)          ;; only needed if evaluating manually
+(package-initialize)
 @end lisp
 @end cartouche
 
@@ -221,7 +221,7 @@ When installed using the package manager this way, the major modes
 @code{markdown-mode} will be used automatically for file names ending
 in either @file{.md} or @file{.markdown}.
 
-Browse the MELPA-Stable archive at @uref{http://stable.melpa.org/}
+You may browse the 1500+ packages in the MELPA-Stable archive at @uref{http://stable.melpa.org/} or by typing @kbd{M-x list-packages @key{RET}} (after adding it to your package-archives list, above).
 
 @node Manual Installation
 @section Manual Installation
@@ -333,9 +333,10 @@ Package: elpa-markdown-mode
 Source: markdown-mode
 Version: 2.1-1
 ...
-Description-en: mode for editing Markdown-formatted text files in GNU
-Emacs.  The mode provides syntax highlighted, and keyboard shortcuts
-for editing, compiling and previewing Markdown.
+Description-en: mode for editing Markdown-formatted text
+files in GNU Emacs.  The mode provides syntax highlighted,
+and keyboard shortcuts for editing, compiling and previewing
+Markdown.
 ...
 Homepage: http://jblevins.org/projects/markdown-mode/
 ...
@@ -359,7 +360,7 @@ This package is maintained by @email{sagarun@@fedoraproject.org}
 @uref{http://pkgsrc.se/textproc/markdown-mode}
 
 Note: As of Sep-2016, this package installs and byte-compiles an
-@strong{obsolete version 2.0 (Sep-2014)} of @code{markdown-mode}. You
+@strong{obsolete} version 2.0 (Sep-2014) of @code{markdown-mode}. You
 must manually edit your startup file as described above under
 @ref{Manual Installation}.
 
@@ -378,15 +379,16 @@ The package is maintained by @email{olgeni@@FreeBSD.org}
 
 @item Macintosh MacPorts
 @cindex How to Download a MacPorts Package
-@uref{https://trac.macports.org/browser/trunk/dports/editors/markdown-mode.el/Portfile}
+https://trac.macports.org/browser/trunk/dports/editors/markdown-mode.el/Portfile
 
+@raggedright
 Note: As of Sep-2016, this package downloads (but does not
-byte-compile or configure) an @strong{obsolete version 2.0 (Sep-2014)}
+byte-compile or configure) an @strong{obsolete} version 2.0 (Sep-2014)
 of @code{markdown-mode} from
 @uref{git://jblevins.org/git/markdown-mode.git} to
-@file{/usr/local/share/emacs/site-lisp}. You must manually
-edit your startup file as described above under @ref{Manual
-Installation}.
+@file{/usr/local/share/emacs/site-lisp}. You must manually edit your
+startup file as described above under @ref{Manual Installation}.
+@end raggedright
 
 @item Macintosh HomeBrew
 @cindex How to Download a Mac HomeBrew Package
