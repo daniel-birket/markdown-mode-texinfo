@@ -77,7 +77,7 @@ This manual is based upon the extensive documentation in the
 
 @dircategory Emacs editing modes
 @direntry
-sd8* markdown-mode: (markdown-mode).        Emacs mode for markdown-formatted text.
+* markdown-mode: (markdown-mode).        Emacs mode for markdown-formatted text.
 @end direntry
 
 @titlepage
