@@ -541,9 +541,84 @@ ToDo Subsection Text
 @cindex Styles
 @cindex How to Work with Styles
 
-ToDo Section Text
+This section describes how to insert style markup.
 
 The prefix for this group of commands is @kbd{C-c C-s}.
+
+@table @asis
+@item @kbd{C-c C-s e} (@code{markdown-insert-italic})
+@kindex C-c C-s e
+@findex markdown-insert-italic
+This inserts markup to @emph{emphasize} a region or word with
+@emph{italic} face, or removes the existing italic emphasis.
+
+If there is an active region, it makes the region italic.  If the
+point is at a non-italic word, it makes the word italic.  If the point
+is at an italic word or phrase, it removes the italic markup.
+Otherwise, it simply inserts italic delimiters and place the cursor
+between them.
+
+@item @kbd{C-c C-s s} (@code{markdown-insert-bold})
+@kindex C-c C-s s
+@findex markdown-insert-bold
+This inserts markup for @strong{strong} emphasis of a region or word
+with @strong{bold} face, or removes the existing bold strong
+emphasis.
+
+If there is an active region, it makes the region bold.  If the point
+is at a non-italic word, it makes the word bold.  If the point is at
+an bold word or phrase, it removes the bold markup.  Otherwise, it
+simply inserts bold delimiters and place the cursor between them.
+
+@item @kbd{C-c C-s c} (@code{markdown-insert-code})
+@kindex C-c C-s c
+@findex markdown-insert-code
+Insert markup to make a region or word an inline code fragment.
+
+If there is an active region, make the region an inline code fragment.
+If the point is at a word, make the word an inline code fragment.
+Otherwise, simply insert code delimiters and place the cursor
+between them.
+
+
+@item @kbd{C-c C-s k} (@code{markdown-insert-kbd})
+@kindex C-c C-s k
+@findex markdown-insert-kbd
+Insert markup to wrap a region or word in <kbd> tags.
+
+If there is an active region, use the region.  If the point is at a
+word, use the word.  Otherwise, simply insert <kbd> tags and place the
+cursor between them. (@code{markdown-mode} version 2.2).
+
+@item @kbd{C-c C-s b} (@code{markdown-insert-blockquote})
+@kindex C-c C-s b
+@findex markdown-insert-blockquote
+This inserts blockquote markup around the active region, if any, or
+inserts empty blockquote markup.
+
+@item @kbd{C-c C-s C-b} (@code{markdown-blockquote-region})
+@kindex C-c C-s C-b
+@findex markdown-blockquote-region
+This variation of the insert-blockquote function (above) always
+operates on the region, regardless of whether it is active or not.
+
+The appropriate amount of indentation, if any, is calculated
+automatically given the surrounding context, but may be adjusted later
+using the region indentation commands.
+
+@item @kbd{C-c C-s p} (@code{markdown-insert-pre})
+@kindex C-c C-s p
+@findex markdown-insert-pre
+This inserts preformatted code block markup around the active region,
+if any, or inserts empty preformatted code block markup.
+
+@item @kbd{C-c C-s C-p} (@code{markdown-pre-region})
+@kindex C-c C-s C-p
+@findex markdown-pre-region
+This variation of the insert-pre function (above) always
+operates on the region, regardless of whether it is active or not.
+
+@end table
 
 @node Links
 @section Links
@@ -559,6 +634,19 @@ The prefix for this group of commands is @kbd{C-c C-a}.
 @table @asis
 @item @kbd{C-c C-a l} (@code{markdown-insert-link})
 @kindex C-c C-a l
+@findex markdown-insert-link
+This inserts an inline link of the form @samp{[text](url)}. The link
+text is determined as follows:  If there is an active region
+(i.e., when transient mark mode is on and the mark is active), use it
+as the link text.  Otherwise, if the point is at a word, use that word as
+the link text.  In these two cases, the original text will be replaced
+with the link and point will be left at the position for inserting a
+URL.  Otherwise, insert empty link markup and place the point for
+inserting the link text.
+
+@item @kbd{C-c C-a L} @kbd{C-c C-a r} (@code{markdown-insert-reference-link-dwim})
+@kindex C-c C-a L
+@kindex C-c C-a r
 @findex markdown-insert-link
 @vindex markdown-reference-location
 This inserts a reference link of the form @samp{[text][label]} and an
