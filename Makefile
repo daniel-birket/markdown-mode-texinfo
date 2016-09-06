@@ -5,6 +5,7 @@ TEXI2ANY = texi2any
 TEXI2PDF = texi2pdf
 TEXI2DVI = texi2dvi
 PANDOC = pandoc
+GZIP = gzip
 
 help:
 	# Options:
@@ -16,10 +17,13 @@ help:
 	# make docbook
 	# make clean
 
-info: markdown-mode.info
+info: markdown-mode.info.gz
 
 markdown-mode.info: ${SOURCE} ${INCLUDE}
 	$(TEXI2ANY) --info $<
+
+markdown-mode.info.gz: markdown-mode.info
+	$(GZIP) $<
 
 html: markdown-mode.html
 
