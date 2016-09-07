@@ -459,7 +459,7 @@ C-h}.
 * Links::                       How to Work with Links.
 * Images::                      How to Work with Images.
 * Differences::                 How @code{markdown-mode} differs from  @code{text-mode}.
-* External Commands::           How to use @command{markdown} to Output.
+* External Commands::           How to output with @command{markdown}.
 @end menu
 
 @node Headings
@@ -470,17 +470,11 @@ C-h}.
 
 ToDo Section Text
 
-John Gruber created @command{markdown} to handle two existing types of
-titles and headings: the underlined titles supported by
-@command{setext} by Ian Feldman and the headings marked with hashmarks
-supported by @command{atx} by Aaron Swartz. @code{markdown-mode}
-refers to these heading styles as @command{setext} and @command{atx}
-headings.
-
 @menu
 * Inserting and Killing Headings::  Adding and Removing Headings.
 * Changing Headings::           Moving Headings Up, Dn, In, Out.
 * Outlining::                   Navigation and Visibility.
+* Inserting Horizontal Rules::  Adding Horizontal Rules.
 @end menu
 
 @node Inserting and Killing Headings
@@ -488,18 +482,76 @@ headings.
 @cindex Inserting and Killing Headings
 @cindex How to Insert Headings
 
+This section describes how to kill and insert headings.
+
+@table @asis
+@item @kbd{C-c C-k} @code{markdown-kill-thing-at-point}
+@kindex C-c C-k
+@findex markdown-kill-thing-at-point
+
+@kbd{C-c C-k} kills the header (or other markdown 'thing') at the
+point. The interesting text (but not the markup) is added to the
+kill-ring. You can use @kbd{C-y} as usual to yank the text back if
+desired, without the old markup.
+@end table
+
 All heading insertion commands use the text in the active region, if
 any, as the heading text.  Otherwise, if the current line is not
 blank, they use the text on the current line. The setext-style
 (underlined) heading insert commands will prompt for heading text if
 there is no active region and the current line is blank.
 
-The prefix for this group of commands is @kbd{C-c C-t}.
+The prefix for this group of heading insert commands is @kbd{C-c C-t}.
+
+@table @asis
+@item @kbd{C-c C-t h} @code{markdown-insert-header-dwim}
+@kindex C-c C-t h
+@findex markdown-insert-header-dwim
+This will insert or replace 'appropriate' header markup.
+
+The level and type of the header will match the type and level of the
+previous header, unless a prefix argument is used.
+
+@kbd{C-1 C-c C-t h} through @kbd{C-6 C-c C-t h}
+
+With a numeric prefix @kbd{C-1} to @kbd{C-6}, this inserts a header of
+the given level, with the type being determined automatically (Note
+that only level 1 or 2 setext headers are possible).
+
+@kbd{C-u C-c C-t h} and @kbd{C-u C-u C-c C-t h}
+
+With a @kbd{C-u} prefix, this promotes the heading by one level.  With a
+@kbd{C-u C-u} prefix, this demotes the heading by one level.
+
+When there is an active region, this will use it for the header text.  When the
+point is at an existing header, it will change the type and level according to
+the rules above.  Otherwise, if the line is not empty, it will create a header
+using the text on the current line as the header text.  Finally, if
+the point is on a blank line, it will insert empty header markup (atx) or
+prompt for text (setext).
+
+@item @kbd{C-c C-t H} @code{markdown-insert-header-setext-dwim}
+@kindex C-c C-t H
+@findex markdown-insert-header-setext--dwim
+This will insert setext-style (underlined) headers when possible. (Note
+that only level 1 or 2 setext headers are possible).
+
+@kbd{C-1 C-c C-t H} inserts level-one setext-style headers.
+
+@kbd{C-2 C-c C-t H} inserts level-two setext-style headers.
+
+@kbd{C-u C-c C-t H} and @kbd{C-u C-u C-c C-t H} insert higher or lower level setext-style headers, if possible.
+
+@end table
+
+To insert a specific style and level of heading use one of the
+commands below. If the point is at a heading, these commands will
+replace the existing markup in order to update the level and/or type
+of the heading.
 
 @strong{atx-style (#) Headings}
 
 @table @asis
-
 @item @kbd{C-c C-t 1} @code{markdown-insert-header-atx-1}
 @kindex C-c C-t 1
 @findex markdown-insert-header-atx-1
@@ -541,18 +593,27 @@ active region or the text on the current line, if any.
 @strong{setext-style (underlined) Headings}
 
 @table @asis
-
 @item @kbd{C-c C-t t} @kbd{C-c C-t !} @code{markdown-insert-header-setext-1}
 @kindex C-c C-t t
 @kindex C-c C-t !
 @findex markdown-insert-header-setext-1
+This inserts a first-level setext-style (underlined) header, using the
+text in the active region or the text on the current line, if any.
 
 @item @kbd{C-c C-t s} @kbd{C-c C-t @@} @code{markdown-insert-header-setext-2}
 @kindex C-c C-t s
 @kindex C-c C-t @@
 @findex markdown-insert-header-setext-2
-
+This inserts a second-level setext-style (underlined) header, using the
+text in the active region or the text on the current line, if any.
 @end table
+
+Note: John Gruber created @command{markdown} to handle two pre-existing
+types of titles and headings: the underlined titles supported by
+@command{setext} by Ian Feldman and the headings marked with hashmarks
+supported by @command{atx} by Aaron Swartz. @code{markdown-mode}
+refers to these heading styles as @command{setext} and @command{atx}
+headings.
 
 @node Changing Headings
 @subsection Changing Headings
@@ -568,6 +629,27 @@ ToDo Subsection Text
 @findex org-mode
 
 ToDo Subsection Text
+
+@node Inserting Horizontal Rules
+@subsection Inserting Horizontal Rules
+@cindex Inserting Horizontal Rules
+@cindex How to Insert Horizontal Rules
+
+This subsection describes how to insert horizontal rules.
+
+@table @asis
+@item @kbd{C-c -} @code{markdown-insert-hr}
+@kindex C-c -
+@findex markdown-insert-hr
+This will insert (or replace) a horizontal rule.
+
+Without a prefix argument, it will use the first horizontal rule in the @code{markdown-hr-strings} list.
+
+@kbd{C-u C-c -} will use the last (sixth) horizontal rule in the list.
+
+@kbd{C-1 C-c -} through @kbd{C-6 C-c -} will use the horizontal rule string selected by the number.
+
+@end table
 
 @node Lists
 @section Lists
