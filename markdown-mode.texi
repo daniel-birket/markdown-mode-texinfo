@@ -459,7 +459,7 @@ C-h}.
 * Links::                       How to Work with Links.
 * Images::                      How to Work with Images.
 * Differences::                 How @code{markdown-mode} differs from  @code{text-mode}.
-* External Commands::           How to output with @command{markdown}.
+* Compile Commands::            Compile and Maintenance Commands.
 @end menu
 
 @node Headings
@@ -776,7 +776,15 @@ operates on the region, regardless of whether it is active or not.
 
 This section describes how to insert and work with links.
 
-@strong{Inserting Links:}
+@menu
+* Inserting Links::
+* Navigating Links::
+@end menu
+
+@node Inserting Links
+@subsection Inserting Links
+@cindex Inserting Links
+@cindex How to Insert Links
 
 The prefix for this group of commands is @kbd{C-c C-a}.
 
@@ -784,6 +792,7 @@ The prefix for this group of commands is @kbd{C-c C-a}.
 @item @kbd{C-c C-a l} (@code{markdown-insert-link})
 @kindex C-c C-a l
 @findex markdown-insert-link
+@cindex How to Insert Inline Links
 This inserts an inline link of the form @samp{[text](url)}. The link
 text is determined as follows:  If there is an active region
 (i.e., when transient mark mode is on and the mark is active), use it
@@ -798,6 +807,7 @@ inserting the link text.
 @kindex C-c C-a r
 @findex markdown-insert-link
 @vindex markdown-reference-location
+@cindex How to Insert Reference Links
 This inserts a reference link of the form @samp{[text][label]} and an
 optional corresponding reference label definition.  The region (if
 active) or the word at point (if any) will be used for the link text.
@@ -818,6 +828,7 @@ used to populate the title attribute when converted to XHTML.
 @item @kbd{C-c C-a u} (@code{markdown-insert-uri})
 @kindex C-c C-a u
 @findex markdown-insert-uri
+@cindex How to Insert URIs
 This inserts a bare URI (URL), delimited by angle brackets.  The
 region (if active) or the URI at point (if any) will be used for the
 link text.  Otherwise, it will insert @samp{<>} and position the
@@ -826,6 +837,7 @@ point in between the brackets for inserting the URI.
 @item @kbd{C-c C-a f} (@code{markdown-insert-footnote})
 @kindex C-c C-a f
 @findex markdown-insert-footnote
+@cindex How to Insert Footnotes
 This inserts a footnote marker at the point, inserts a
 footnote definition below, and positions the point for
 inserting the footnote text.  Note that footnotes are an
@@ -834,12 +846,28 @@ extension to Markdown and are not supported by all processors.
 @item @kbd{C-c C-a w} (@code{markdown-insert-wiki-link})
 @kindex C-c C-a w
 @findex markdown-insert-wiki-link
+@cindex How to Insert Wiki-Links
 This is like the inline link insertion command but inserts a wiki link
 of the form @samp{[[WikiLink]]}.  The region (if active) or the word
 at point (if any) will be used for the link text.  If neither is
 available, it will simply insert @samp{[[]]} and position the point
 between the brackets for inserting the link.  Note that wiki links are
 an extension to Markdown and are not supported by all processors.
+
+@end table
+
+@node Navigating Links
+@subsection Navigating Links
+@cindex Navigating Links
+@cindex How to Navigate Links
+
+ToDo SubSection Text
+
+@table @asis
+@item @kbd{C-c C-o} @code{markdown-follow-thing-at-point}
+
+@item @kbd{C-c C-j} @code{markdown-jump}
+@c The Blevin's manual says this is C-c C-l, but lisp says C-c C-j.
 
 @end table
 
@@ -881,16 +909,59 @@ remove local inline image display. (@code{markdown-mode} version 2.2).
 
 ToDo Section Text
 
-@node External Commands
-@section External Commands
-@cindex External Commands
-@cindex How to Output HTML
+@node Compile Commands
+@section Compile Commands
+@cindex Compile Commands
 @cindex How to Compile
 @cindex How to Convert
+@cindex How to Output HTML
 
-ToDo Section Text
+This section describes compile (output) and maintenance commands.
 
 The prefix for this group of commands is @kbd{C-c C-c}.
+
+@table @asis
+@item @kbd{C-c C-c m} @code{markdown-other-window}
+@kindex C-c C-c m
+@findex markdown-other-window
+
+@item @kbd{C-c C-c p} @code{markdown-preview}
+@kindex C-c C-c p
+@findex markdown-preview
+
+@item @kbd{C-c C-c e} @code{markdown-export}
+@kindex C-c C-c e
+@findex markdown-export
+
+@item @kbd{C-c C-c v} @code{markdown-export-and-preview}
+@kindex C-c C-c v
+@findex markdown-export-and-preview
+
+@item @kbd{C-c C-c w} @code{markdown-kill-ring-save}
+@kindex C-c C-c w
+@findex markdown-kill-ring-save
+
+@item @kbd{C-c C-c o} @code{markdown-open}
+@kindex C-c C-c o
+@findex markdown-open
+
+@item @kbd{C-c C-c l} @code{markdown-live-preview-mode}
+@kindex C-c C-c l
+@findex markdown-live-preview-mode
+
+@item @kbd{C-c C-c n} @code{markdown-cleanup-list-numbers}
+@kindex C-c C-c n
+@findex markdown-cleanup-list-numbers
+
+@item @kbd{C-c C-c ]} @code{markdown-complete-buffer}
+@kindex C-c C-c ]
+@findex markdown-complete-buffer
+
+@item @kbd{C-c C-c c} @code{markdown-check-refs}
+@kindex C-c C-c c
+@findex markdown-check-refs
+
+@end table
 
 @node Using GFM Mode
 @chapter Using GFM Mode
