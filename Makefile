@@ -61,5 +61,7 @@ markdown-mode.md: markdown-mode.xml
 clean:
 	rm *.aux *.toc *.log || true
 	rm *.cp *.cps *.vr *.vrs *.fn *.fns *.ky *.kys *.pg *.pgs || true
-	rm *.dvi *.ps || true
-	rm *.xml *.epub markdown-mode.md || true
+	rm markdown-mode.dvi markdown-mode.ps || true
+	rm markdown-mode.xml markdown-mode.epub markdown-mode.md || true
+	rm markdown-mode.html markdown-mode.txt markdown-mode.pdf || true
+	rm markdown-mode.info markdown-mode.info.gz || true
