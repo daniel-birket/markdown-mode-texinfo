@@ -175,7 +175,7 @@ emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 @cindex How to Download
 @cindex How to Install
 
-This section describes how to install @code{markdown-mode} for use. To
+This chapter describes how to install @code{markdown-mode} for use. To
 install the development version, see @ref{Development Version}.
 
 @menu
@@ -458,6 +458,7 @@ C-h}.
 * Styles::                      How to Work with Styles.
 * Links::                       How to Work with Links.
 * Images::                      How to Work with Images.
+* Other Commands::              Miscellanous Commands
 * Differences::                 How @code{markdown-mode} differs from  @code{text-mode}.
 * Compile Commands::            Compile and Maintenance Commands.
 @end menu
@@ -468,32 +469,21 @@ C-h}.
 @cindex Headings
 @cindex How to Work with Headings
 
-ToDo Section Text
+This section describes how to work with headings and horizontal rules.
 
 @menu
-* Inserting and Killing Headings::  Adding and Removing Headings.
-* Changing Headings::           Moving Headings Up, Dn, In, Out.
-* Outlining::                   Navigation and Visibility.
-* Inserting Horizontal Rules::  Adding Horizontal Rules.
+* Inserting Headings::          How to Insert Headings
+* Moving Headings::             Promote, Demote, and Reorder
+* Navigating Headings::         Outline Navigation
+* Inserting Horizontal Rules::  ------------------.
 @end menu
 
-@node Inserting and Killing Headings
-@subsection Inserting and Killing Headings
-@cindex Inserting and Killing Headings
+@node Inserting Headings
+@subsection Inserting Headings
+@cindex Inserting Headings
 @cindex How to Insert Headings
 
-This section describes how to kill and insert headings.
-
-@table @asis
-@item @kbd{C-c C-k} @code{markdown-kill-thing-at-point}
-@kindex C-c C-k
-@findex markdown-kill-thing-at-point
-
-@kbd{C-c C-k} kills the header (or other markdown 'thing') at the
-point. The interesting text (but not the markup) is added to the
-kill-ring. You can use @kbd{C-y} as usual to yank the text back if
-desired, without the old markup.
-@end table
+This subsection describes how to insert headings.
 
 All heading insertion commands use the text in the active region, if
 any, as the heading text.  Otherwise, if the current line is not
@@ -504,7 +494,7 @@ there is no active region and the current line is blank.
 The prefix for this group of heading insert commands is @kbd{C-c C-t}.
 
 @table @asis
-@item @kbd{C-c C-t h} @code{markdown-insert-header-dwim}
+@item @kbd{C-c C-t h} (@code{markdown-insert-header-dwim})
 @kindex C-c C-t h
 @findex markdown-insert-header-dwim
 This will insert or replace 'appropriate' header markup.
@@ -530,9 +520,9 @@ using the text on the current line as the header text.  Finally, if
 the point is on a blank line, it will insert empty header markup (atx) or
 prompt for text (setext).
 
-@item @kbd{C-c C-t H} @code{markdown-insert-header-setext-dwim}
+@item @kbd{C-c C-t H} (@code{markdown-insert-header-setext-dwim})
 @kindex C-c C-t H
-@findex markdown-insert-header-setext--dwim
+@findex markdown-insert-header-setext-dwim
 This will insert setext-style (underlined) headers when possible. (Note
 that only level 1 or 2 setext headers are possible).
 
@@ -552,37 +542,37 @@ of the heading.
 @strong{atx-style (#) Headings}
 
 @table @asis
-@item @kbd{C-c C-t 1} @code{markdown-insert-header-atx-1}
+@item @kbd{C-c C-t 1} (@code{markdown-insert-header-atx-1})
 @kindex C-c C-t 1
 @findex markdown-insert-header-atx-1
 This inserts a first-level atx-style (#) header, using the text in the
 active region or the text on the current line, if any.
 
-@item @kbd{C-c C-t 2} @code{markdown-insert-header-atx-2}
+@item @kbd{C-c C-t 2} (@code{markdown-insert-header-atx-2})
 @kindex C-c C-t 2
 @findex markdown-insert-header-atx-2
 This inserts a second-level atx-style (##) header, using the text in the
 active region or the text on the current line, if any.
 
-@item @kbd{C-c C-t 3} @code{markdown-insert-header-atx-3}
+@item @kbd{C-c C-t 3} (@code{markdown-insert-header-atx-3})
 @kindex C-c C-t 3
 @findex markdown-insert-header-atx-3
 This inserts a third-level atx-style (###) header, using the text in the
 active region or the text on the current line, if any.
 
-@item @kbd{C-c C-t 4} @code{markdown-insert-header-atx-4}
+@item @kbd{C-c C-t 4} (@code{markdown-insert-header-atx-4})
 @kindex C-c C-t 4
 @findex markdown-insert-header-atx-4
 This inserts a fourth-level atx-style (####) header, using the text in the
 active region or the text on the current line, if any.
 
-@item @kbd{C-c C-t 5} @code{markdown-insert-header-atx-5}
+@item @kbd{C-c C-t 5} (@code{markdown-insert-header-atx-5})
 @kindex C-c C-t 5
 @findex markdown-insert-header-atx-5
 This inserts a fifth-level atx-style (#####) header, using the text in the
 active region or the text on the current line, if any.
 
-@item @kbd{C-c C-t 6} @code{markdown-insert-header-atx-6}
+@item @kbd{C-c C-t 6} (@code{markdown-insert-header-atx-6})
 @kindex C-c C-t 6
 @findex markdown-insert-header-atx-6
 This inserts a sixth-level atx-style (######) header, using the text in the
@@ -593,17 +583,19 @@ active region or the text on the current line, if any.
 @strong{setext-style (underlined) Headings}
 
 @table @asis
-@item @kbd{C-c C-t t} @kbd{C-c C-t !} @code{markdown-insert-header-setext-1}
+@item @kbd{C-c C-t !} (@code{markdown-insert-header-setext-1})
 @kindex C-c C-t t
 @kindex C-c C-t !
 @findex markdown-insert-header-setext-1
+(@kbd{C-c C-t t} depreciated keybinding)
 This inserts a first-level setext-style (underlined) header, using the
 text in the active region or the text on the current line, if any.
 
-@item @kbd{C-c C-t s} @kbd{C-c C-t @@} @code{markdown-insert-header-setext-2}
+@item @kbd{C-c C-t @@} (@code{markdown-insert-header-setext-2})
 @kindex C-c C-t s
 @kindex C-c C-t @@
 @findex markdown-insert-header-setext-2
+(@kbd{C-c C-t s} depreciated keybinding)
 This inserts a second-level setext-style (underlined) header, using the
 text in the active region or the text on the current line, if any.
 @end table
@@ -615,20 +607,24 @@ supported by @command{atx} by Aaron Swartz. @code{markdown-mode}
 refers to these heading styles as @command{setext} and @command{atx}
 headings.
 
-@node Changing Headings
-@subsection Changing Headings
-@cindex Changing Headings
-@cindex How to Change Headings
+@node Moving Headings
+@subsection Moving Headings
+@cindex Moving Headings
+@cindex How to Move Headings
+@cindex How to Re-order Headings
+@cindex How to Promote & Demote Headings
 
-ToDo Subsection Text
+This subsection describes how to promote, demote and change the order
+of headings.
 
-@node Outlining
-@subsection Outlining
-@cindex Outlining
+@node Navigating Headings
+@subsection Navigating Headings
+@cindex Navigating Headings
+@cindex How to Navigate Headings
 @cindex How to Use Outlining
 @findex org-mode
 
-ToDo Subsection Text
+This subsection describes how to navigate among headings and collapse and expand heading sections.
 
 @node Inserting Horizontal Rules
 @subsection Inserting Horizontal Rules
@@ -638,7 +634,7 @@ ToDo Subsection Text
 This subsection describes how to insert horizontal rules.
 
 @table @asis
-@item @kbd{C-c -} @code{markdown-insert-hr}
+@item @kbd{C-c -} (@code{markdown-insert-hr})
 @kindex C-c -
 @findex markdown-insert-hr
 This will insert (or replace) a horizontal rule.
@@ -659,14 +655,14 @@ Without a prefix argument, it will use the first horizontal rule in the @code{ma
 ToDo Section Text
 
 @menu
-* Inserting and Killing List Items::  Adding and Removing.
+* Inserting List Items::        How to Insert List Items
 * Changing List Items::         Moving Items Up, Dn, In, Out.
 * Renumbering Lists::           How to Renumber Lists.
 @end menu
 
-@node Inserting and Killing List Items
-@subsection Inserting and Killing List Items
-@cindex Inserting and Killing List Items
+@node Inserting List Items
+@subsection Inserting List Items
+@cindex Inserting List Items
 @cindex How to Insert List Items
 
 ToDo Subsection Text
@@ -802,12 +798,13 @@ with the link and point will be left at the position for inserting a
 URL.  Otherwise, insert empty link markup and place the point for
 inserting the link text.
 
-@item @kbd{C-c C-a L} @kbd{C-c C-a r} (@code{markdown-insert-reference-link-dwim})
+@item @kbd{C-c C-a L} (@code{markdown-insert-reference-link-dwim})
 @kindex C-c C-a L
 @kindex C-c C-a r
 @findex markdown-insert-link
 @vindex markdown-reference-location
 @cindex How to Insert Reference Links
+(@kbd{C-c C-a r} depreciated keybinding)
 This inserts a reference link of the form @samp{[text][label]} and an
 optional corresponding reference label definition.  The region (if
 active) or the word at point (if any) will be used for the link text.
@@ -861,14 +858,36 @@ an extension to Markdown and are not supported by all processors.
 @cindex Navigating Links
 @cindex How to Navigate Links
 
-ToDo SubSection Text
+This subsection describes commands that navigate links.
 
 @table @asis
-@item @kbd{C-c C-o} @code{markdown-follow-thing-at-point}
+@item @kbd{M-p} (@code{markdown-previous-link})
+@kindex M-p
+@findex markdown-previous-link
+@cindex How to jump to previous link
 
-@item @kbd{C-c C-j} @code{markdown-jump}
-@c The Blevin's manual says this is C-c C-l, but lisp says C-c C-j.
+This will move to the previous inline, reference or wiki link, if any.
 
+@item @kbd{M-n} (@code{markdown-next-link})
+@kindex M-n
+@findex markdown-next-link
+@cindex How to jump to next link
+
+This will move to the next inline, reference or wiki link, if any.
+
+@item @kbd{C-c C-o} (@code{markdown-follow-thing-at-point})
+@kindex C-c C-o
+@findex markdown-follow-thing-at-point
+@cindex How to open a link
+@cindex Hot to follow a link
+
+@item @kbd{C-c C-l} (@code{markdown-jump})
+@kindex C-c C-l
+@findex markdown-jump
+@cindex How to jump to a footnote or its marker
+@cindex How to jump to link or its definition
+
+Note: the @code{markdown-jump} function's keybinding was changed from @kbd{C-c C-j} ('j'ump) in version 2.1 to @kbd{C-c C-l} ('l'eap) in version 2.2 so that @kbd{C-c C-j} could be used to insert list items using the same key binding as the AUCTeX editor.
 @end table
 
 @node Images
@@ -901,6 +920,23 @@ remove local inline image display. (@code{markdown-mode} version 2.2).
 
 @end table
 
+@node Other Commands
+@section Other Commands
+@cindex Other Commands
+
+This section describes various other commands not described above.
+
+@table @asis
+@item @kbd{C-c C-k} (@code{markdown-kill-thing-at-point})
+@kindex C-c C-k
+@findex markdown-kill-thing-at-point
+
+This kills the header, item or other markdown 'thing' at the
+point. The interesting text (but not the markup) is added to the
+kill-ring. You can use @kbd{C-y} as usual to yank the text back if
+desired, without the old markup.
+@end table
+
 @node Differences
 @section Differences
 @cindex Differences
@@ -921,43 +957,43 @@ This section describes compile (output) and maintenance commands.
 The prefix for this group of commands is @kbd{C-c C-c}.
 
 @table @asis
-@item @kbd{C-c C-c m} @code{markdown-other-window}
+@item @kbd{C-c C-c m} (@code{markdown-other-window})
 @kindex C-c C-c m
 @findex markdown-other-window
 
-@item @kbd{C-c C-c p} @code{markdown-preview}
+@item @kbd{C-c C-c p} (@code{markdown-preview})
 @kindex C-c C-c p
 @findex markdown-preview
 
-@item @kbd{C-c C-c e} @code{markdown-export}
+@item @kbd{C-c C-c e} (@code{markdown-export})
 @kindex C-c C-c e
 @findex markdown-export
 
-@item @kbd{C-c C-c v} @code{markdown-export-and-preview}
+@item @kbd{C-c C-c v} (@code{markdown-export-and-preview})
 @kindex C-c C-c v
 @findex markdown-export-and-preview
 
-@item @kbd{C-c C-c w} @code{markdown-kill-ring-save}
+@item @kbd{C-c C-c w} (@code{markdown-kill-ring-save})
 @kindex C-c C-c w
 @findex markdown-kill-ring-save
 
-@item @kbd{C-c C-c o} @code{markdown-open}
+@item @kbd{C-c C-c o} (@code{markdown-open})
 @kindex C-c C-c o
 @findex markdown-open
 
-@item @kbd{C-c C-c l} @code{markdown-live-preview-mode}
+@item @kbd{C-c C-c l} (@code{markdown-live-preview-mode})
 @kindex C-c C-c l
 @findex markdown-live-preview-mode
 
-@item @kbd{C-c C-c n} @code{markdown-cleanup-list-numbers}
+@item @kbd{C-c C-c n} (@code{markdown-cleanup-list-numbers})
 @kindex C-c C-c n
 @findex markdown-cleanup-list-numbers
 
-@item @kbd{C-c C-c ]} @code{markdown-complete-buffer}
+@item @kbd{C-c C-c ]} (@code{markdown-complete-buffer})
 @kindex C-c C-c ]
 @findex markdown-complete-buffer
 
-@item @kbd{C-c C-c c} @code{markdown-check-refs}
+@item @kbd{C-c C-c c} (@code{markdown-check-refs})
 @kindex C-c C-c c
 @findex markdown-check-refs
 
@@ -970,7 +1006,7 @@ The prefix for this group of commands is @kbd{C-c C-c}.
 @cindex How to Use gfm-mode
 @findex gfm-mode
 
-ToDo Chapter Text
+This chapter describes ToDo...
 
 @node Customizing
 @chapter Customizing
