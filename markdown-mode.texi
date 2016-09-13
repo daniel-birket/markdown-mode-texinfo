@@ -459,8 +459,9 @@ C-h}.
 * Links::                       How to Work with Links.
 * Images::                      How to Work with Images.
 * Other Commands::              Miscellanous Commands
-* Differences::                 How @code{markdown-mode} differs from  @code{text-mode}.
-* Compile Commands::            Compile and Maintenance Commands.
+* Differences::                 Differences from @code{text-mode}.
+* Compile Commands::            Compile Commands.
+* Maintenance Commands::        Maintenance Commands.
 @end menu
 
 @node Headings
@@ -952,7 +953,7 @@ ToDo Section Text
 @cindex How to Convert
 @cindex How to Output HTML
 
-This section describes compile (output) and maintenance commands.
+This section describes compile (output) commands.
 
 The prefix for this group of commands is @kbd{C-c C-c}.
 
@@ -961,42 +962,89 @@ The prefix for this group of commands is @kbd{C-c C-c}.
 @kindex C-c C-c m
 @findex markdown-other-window
 
+This will run @code{markdown-command} on the current buffer and
+display the output (XHTML) in the other window with the buffer name
+``*markdown-output*''.
+
 @item @kbd{C-c C-c p} (@code{markdown-preview})
 @kindex C-c C-c p
 @findex markdown-preview
+
+This will run @code{markdown-command} on the current buffer and then
+preview it by writing it to a temporary file and opening that file in
+a browser.
 
 @item @kbd{C-c C-c e} (@code{markdown-export})
 @kindex C-c C-c e
 @findex markdown-export
 
+This will run @code{markdown-command} on the current buffer and then
+save the result to the file @file{basename.html}, where
+@samp{basename} is the name of the markdown file (visted by the source
+buffer) without its extension.
+
 @item @kbd{C-c C-c v} (@code{markdown-export-and-preview})
 @kindex C-c C-c v
 @findex markdown-export-and-preview
+This will run @code{markdown-command} on the current buffer and then
+save the result to the file @file{basename.html}, as with
+@code{markdown-export}above, and then preview that file in a browser.
 
 @item @kbd{C-c C-c w} (@code{markdown-kill-ring-save})
 @kindex C-c C-c w
 @findex markdown-kill-ring-save
+This will run @code{markdown-command} on the current buffer and save
+the output to the kill ring. You can yank it back where desired with
+@kbd{C-y} as usual.
 
 @item @kbd{C-c C-c o} (@code{markdown-open})
 @kindex C-c C-c o
 @findex markdown-open
+This will use @code{markdown-open-command} to open the source markdown
+file visited by the buffer directly. See
 
 @item @kbd{C-c C-c l} (@code{markdown-live-preview-mode})
 @kindex C-c C-c l
 @findex markdown-live-preview-mode
+This will toggle markdown live preview mode. When enabled, it will
+preview the output in the Emacs @code{eww} browser whenever you save
+the markdown file. Toggle it off again to stop live preview and close
+the @code{eww} browser. You may customize the value of the variable
+@code{markdown-live-preview-window-function} with your own function to
+use a browser other than @code{eww}. The default value of the variable
+is the function @code{markdown-live-preview-window-eww}.
+@end table
 
+@node Maintenance Commands
+@section Maintenance Commands
+@cindex Maintenance Commands
+
+This section describes maintenance commands.
+
+The prefix for this group of commands is also @kbd{C-c C-c}.
+
+@table @asis
 @item @kbd{C-c C-c n} (@code{markdown-cleanup-list-numbers})
 @kindex C-c C-c n
 @findex markdown-cleanup-list-numbers
+This renumbers any ordered lists in the buffer that are out of
+sequence.
 
 @item @kbd{C-c C-c ]} (@code{markdown-complete-buffer})
 @kindex C-c C-c ]
 @findex markdown-complete-buffer
+This completes all headings and normalizes all horizontal rules in the
+buffer.
 
 @item @kbd{C-c C-c c} (@code{markdown-check-refs})
 @kindex C-c C-c c
 @findex markdown-check-refs
-
+This will check for undefined references.  If there are any, a small
+buffer will open with a list of undefined references and the line
+numbers on which they appear.  In Emacs 22 and greater, selecting a
+reference from this list and pressing @key{RET} will insert an empty
+reference definition at the end of the buffer.  Similarly, selecting
+the line number will jump to the corresponding line.
 @end table
 
 @node Using GFM Mode
@@ -1043,6 +1091,7 @@ or to preview the markdown text.
 
 @vtable @code
 @item markdown-command
+@vindex markdown-command
 @cindex How to Configure @code{markdown-command}
 string, default: @code{"markdown"}.
 
@@ -1139,6 +1188,7 @@ See @uref{http://pandoc.org}
 @end table
 
 @item markdown-command-needs-filename
+@vindex markdown-command-needs-filename
 @code{nil} or @code{t}, default: @code{nil}.
 
 Set @code{markdown-command-needs-filename} to @code{t} if the program
@@ -1158,6 +1208,9 @@ case, you will only be able to run @code{markdown-command} from
 buffers that are visiting a file.
 
 @item markdown-open-command
+@vindex markdown-open-command
+@cindex How to Customize markdown-open
+@cindex How to Customize @kbd{C-c C-c o}
 string, default: @code{nil}.
 
 This variable specifies the command and options that the function
