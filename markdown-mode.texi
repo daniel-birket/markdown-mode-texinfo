@@ -44,8 +44,9 @@ package @code{markdown-mode}, version @value{VERSION}, released
 software package and its @emph{authorized} manual are online at
 @uref{http://jblevins.org/projects/markdown-mode/}.
 
-This manual is based upon the extensive documentation in the
-@code{markdown-mode.el} source code, which begins with:
+This manual is based upon (and frequently copied verbatim from) the
+extensive documentation in the @code{markdown-mode.el} source code,
+which begins with:
 
 @cindex Copyright (software)
 @lisp
@@ -130,7 +131,6 @@ Appendices:
 @chapter Introduction
 @cindex Introduction
 @cindex markdown
-
 This manual describes how to install and use @code{markdown-mode}, an Emacs
 package for working with markdown-formatted text. The features of this
 package assist the user to insert and manipulate markdown-compatible
@@ -174,7 +174,6 @@ emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 @cindex Downloading
 @cindex How to Download
 @cindex How to Install
-
 This chapter describes how to install @code{markdown-mode} for use. To
 install the development version, see @ref{Development Version}.
 
@@ -191,7 +190,6 @@ install the development version, see @ref{Development Version}.
 @cindex How to Install with @code{package.el}
 @cindex MELPA Stable
 @findex package.el
-
 The recommended way to install the package @code{markdown-mode} is to
 use @code{package.el}, which has been integrated with Emacs since
 version 24. (It is included in version 23, but must be initialized.)
@@ -228,7 +226,6 @@ You may browse the 1500+ packages in the MELPA-Stable archive at @uref{http://st
 @cindex Manual Installation
 @cindex How to Install Manually
 @cindex How to Download Manually
-
 You can manually download and install markdown-mode.
 
 First, download @code{markdown-mode} from one of:
@@ -270,7 +267,6 @@ This package, @code{markdown-mode.el}, depends on the package
 @cindex Managed Loading
 @cindex How to Manage with @code{use-package}
 @findex use-package.el
-
 If you manage loading packages with @code{use-package} then you can
 automatically install and configure @code{markdown-mode} by adding a
 declaration such as this one to your init file (This is an
@@ -294,7 +290,6 @@ example. Please adjust these settings as desired):
 @section OS Package Managers
 @cindex OS Package Managers
 @cindex How to Download a Linux Package
-
 You may download @code{markdown-mode} in packages for use with several
 OS package managers. Most OS packages do not contain the latest stable
 version.  (Please notify the package maintainer if you download one
@@ -406,7 +401,6 @@ Not installed
 $ brew install homebrew/emacs/markdown-mode
 @end example
 @end cartouche
-
 @end table
 
 @node Using Markdown Mode
@@ -415,7 +409,6 @@ $ brew install homebrew/emacs/markdown-mode
 @cindex Usage
 @cindex How to Use @code{markdown-mode}
 @findex markdown-mode
-
 This chapter describes how to use @code{markdown-mode}.
 
 @kbd{C-c} is the @code{mode-specific-command-prefix} and all of
@@ -453,7 +446,7 @@ You can obtain a list of all keybindings by pressing @kbd{C-c
 C-h}.
 
 @menu
-* Headings::                    How to Work with Headings.
+* Headers::                    How to Work with Headers.
 * Lists::                       How to Work with Lists.
 * Styles::                      How to Work with Styles.
 * Links::                       How to Work with Links.
@@ -464,35 +457,40 @@ C-h}.
 * Maintenance Commands::        Maintenance Commands.
 @end menu
 
-@node Headings
-@section Headings
-@cindex Headings
-@cindex Headings
-@cindex How to Work with Headings
-
-This section describes how to work with headings and horizontal rules.
+@node Headers
+@section Headers
+@cindex Headers
+@cindex Headers
+@cindex How to Work with Headers
+This section describes how to work with headers and horizontal rules.
 
 @menu
-* Inserting Headings::          How to Insert Headings
-* Moving Headings::             Promote, Demote, and Reorder
-* Navigating Headings::         Outline Navigation
+* Inserting Headers::          How to Insert Headers
+* Moving Headers::             Promote, Demote, and Reorder
+* Navigating Headers::         Outline Navigation
 * Inserting Horizontal Rules::  ------------------.
 @end menu
 
-@node Inserting Headings
-@subsection Inserting Headings
-@cindex Inserting Headings
-@cindex How to Insert Headings
+Note: John Gruber created @command{markdown} to handle two pre-existing
+types of titles and headers: the underlined titles supported by
+@command{setext} by Ian Feldman and the headers marked with hashmarks
+supported by @command{atx} by Aaron Swartz. @code{markdown-mode}
+refers to these header styles as @command{setext} and @command{atx}
+headers.
 
-This subsection describes how to insert headings.
+@node Inserting Headers
+@subsection Inserting Headers
+@cindex Inserting Headers
+@cindex How to Insert Headers
+This subsection describes how to insert headers.
 
-All heading insertion commands use the text in the active region, if
-any, as the heading text.  Otherwise, if the current line is not
+All header insertion commands use the text in the active region, if
+any, as the header text.  Otherwise, if the current line is not
 blank, they use the text on the current line. The setext-style
-(underlined) heading insert commands will prompt for heading text if
+(underlined) header insert commands will prompt for header text if
 there is no active region and the current line is blank.
 
-The prefix for this group of heading insert commands is @kbd{C-c C-t}.
+The prefix for this group of header insert commands is @kbd{C-c C-t}.
 
 @table @asis
 @item @kbd{C-c C-t h} (@code{markdown-insert-header-dwim})
@@ -511,8 +509,8 @@ that only level 1 or 2 setext headers are possible).
 
 @kbd{C-u C-c C-t h} and @kbd{C-u C-u C-c C-t h}
 
-With a @kbd{C-u} prefix, this promotes the heading by one level.  With a
-@kbd{C-u C-u} prefix, this demotes the heading by one level.
+With a @kbd{C-u} prefix, this promotes the header by one level.  With a
+@kbd{C-u C-u} prefix, this demotes the header by one level.
 
 When there is an active region, this will use it for the header text.  When the
 point is at an existing header, it will change the type and level according to
@@ -535,12 +533,12 @@ that only level 1 or 2 setext headers are possible).
 
 @end table
 
-To insert a specific style and level of heading use one of the
-commands below. If the point is at a heading, these commands will
+To insert a specific style and level of header use one of the
+commands below. If the point is at a header, these commands will
 replace the existing markup in order to update the level and/or type
-of the heading.
+of the header.
 
-@strong{atx-style (#) Headings}
+@strong{atx-style (#) Headers}
 
 @table @asis
 @item @kbd{C-c C-t 1} (@code{markdown-insert-header-atx-1})
@@ -581,7 +579,7 @@ active region or the text on the current line, if any.
 
 @end table
 
-@strong{setext-style (underlined) Headings}
+@strong{setext-style (underlined) Headers}
 
 @table @asis
 @item @kbd{C-c C-t !} (@code{markdown-insert-header-setext-1})
@@ -601,37 +599,50 @@ This inserts a second-level setext-style (underlined) header, using the
 text in the active region or the text on the current line, if any.
 @end table
 
-Note: John Gruber created @command{markdown} to handle two pre-existing
-types of titles and headings: the underlined titles supported by
-@command{setext} by Ian Feldman and the headings marked with hashmarks
-supported by @command{atx} by Aaron Swartz. @code{markdown-mode}
-refers to these heading styles as @command{setext} and @command{atx}
-headings.
+The prefix for this group of header insert commands is @kbd{C-c C-c}.
 
-@node Moving Headings
-@subsection Moving Headings
-@cindex Moving Headings
-@cindex How to Move Headings
-@cindex How to Re-order Headings
-@cindex How to Promote & Demote Headings
+@table @asis
+@item @kbd{C-c C-]} (@code{markdown-complete})
+@kindex C-c C-]
+@findex markdown-complete
+@cindex How to complete header
+This completes the markup at the point, if it is determined to be
+incomplete.
 
+For example, it ensures that the underline portion of a setext header
+is the same length as the heading text, or that the number of leading
+and trailing hash marks of an atx header are equal and that there is
+no extra whitespace in the header text.
+
+@item @kbd{C-c C-c ]} (@code{markdown-complete-buffer})
+@kindex C-c C-c ]
+@findex markdown-complete-buffer
+This completes all headers and normalizes all horizontal rules in the
+buffer.
+@end table
+
+@node Moving Headers
+@subsection Moving Headers
+@cindex Moving Headers
+@cindex How to Move Headers
+@cindex How to Re-order Headers
+@cindex How to Promote & Demote Headers
 This subsection describes how to promote, demote and change the order
-of headings.
+of headers.
 
-@node Navigating Headings
-@subsection Navigating Headings
-@cindex Navigating Headings
-@cindex How to Navigate Headings
+@node Navigating Headers
+@subsection Navigating Headers
+@cindex Navigating Headers
+@cindex How to Navigate Headers
 @cindex How to Use Outlining
 @findex org-mode
-
-This subsection describes how to navigate among headings and collapse and expand heading sections.
+This subsection describes how to navigate among headers and collapse
+and expand header sections.
 
 @node Inserting Horizontal Rules
 @subsection Inserting Horizontal Rules
 @cindex Inserting Horizontal Rules
 @cindex How to Insert Horizontal Rules
-
 This subsection describes how to insert horizontal rules.
 
 @table @asis
@@ -640,11 +651,13 @@ This subsection describes how to insert horizontal rules.
 @findex markdown-insert-hr
 This will insert (or replace) a horizontal rule.
 
-Without a prefix argument, it will use the first horizontal rule in the @code{markdown-hr-strings} list.
+Without a prefix argument, it will use the first horizontal rule in
+the @code{markdown-hr-strings} list.
 
 @kbd{C-u C-c -} will use the last (sixth) horizontal rule in the list.
 
-@kbd{C-1 C-c -} through @kbd{C-6 C-c -} will use the horizontal rule string selected by the number.
+@kbd{C-1 C-c -} through @kbd{C-6 C-c -} will use the horizontal rule
+string selected by the number.
 
 @end table
 
@@ -653,34 +666,85 @@ Without a prefix argument, it will use the first horizontal rule in the @code{ma
 @cindex Lists
 @cindex How to Work with Lists
 
-ToDo Section Text
+This section describes how to insert, move and renumber lists.
 
-@menu
-* Inserting List Items::        How to Insert List Items
-* Changing List Items::         Moving Items Up, Dn, In, Out.
-* Renumbering Lists::           How to Renumber Lists.
-@end menu
+@table @asis
+@item @kbd{M-@key{UP}} @kbd{C-c C-x u} (@code{markdown-move-up})
+@kindex M-@key{UP}
+@kindex C-c C-x u
+@findex @code{markdown-move-up}
+@cindex How to move an item up
 
-@node Inserting List Items
-@subsection Inserting List Items
-@cindex Inserting List Items
-@cindex How to Insert List Items
+@item @kbd{M-@key{DOWN}} @kbd{C-c C-x d} (@code{markdown-move-down})
+@kindex M-@key{DOWN}
+@kindex C-c C-x d
+@findex @code{markdown-move-down}
+@cindex How to move an item up
 
-ToDo Subsection Text
+@item @kbd{C-c C--} @kbd{M-@key{LEFT}} @kbd{C-c C-x l} (@code{markdown-promote})
+@kindex C-c C--
+@kindex M-@key{LEFT}
+@kindex C-c C-x l
+@findex markdown-promote
+@cindex How to promote headers
+@cindex How to promote items
+This will promote headers, rules and list items at point, moving them
+left. See @code{markdown-promote} below.
 
-@node Changing List Items
-@subsection Changing List Items
-@cindex Changing List Items
-@cindex How to Change List Items
+@item @kbd{C-c C-=} @kbd{M-@key{RIGHT}} (@code{markdown-demote})
+@kindex C-c C-=
+@kindex M-@key{RIGHT}
+@kindex C-c C-x r
+@findex markdown-demote
+@cindex How to demote headers
+@cindex How to demote items
+This will demote headers, rules and list items at point, moving them
+right.
 
-ToDo Subsection Text
+Headings, horizontal rules, and list items can be promoted and
+demoted, as well as bold and italic text.
 
-@node Renumbering Lists
-@subsection Renumbering Lists
-@cindex Renumbering Lists
-@cindex How to Renumber Lists
+For headings, "promotion" means @emph{decreasing} the level (i.e.,
+moving from @samp{<h2>} to @samp{<h1>}) while "demotion" means
+@emph{increasing} the level.
 
-ToDo Subsection Text
+For horizontal rules, promotion and demotion means moving backward or
+forward through the list of rule strings in
+@code{markdown-hr-strings}.  For bold and italic text, promotion and
+demotion means changing the markup from underscores to asterisks.
+
+To remember these commands, note that @kbd{-} is for decreasing the
+level (promoting), and @kbd{=} (on the same key as @kbd{+}) is for
+increasing the level (demoting).  Similarly, the @key{LEFT} and
+@key{RIGHT} arrow keys indicate the direction that the atx heading
+markup is moving in when promoting or demoting.
+
+@item @kbd{M-S-@key{UP}} (@code{markdown-move-subtree-up})
+@kindex M-S-@key{UP}
+@findex markdown-move-subtree-up
+@cindex How to move a subtree up
+
+@item @kbd{M-S-@key{DOWN}} (@code{markdown-move-subtree-down})
+@kindex M-S-@key{DOWN}
+@findex markdown-move-subtree-down
+@cindex How to move a subtree down
+
+@item @kbd{M-S-@key{LEFT}} (@code{markdown-promote-subtree})
+@kindex M-S-@key{LEFT}
+@findex markdown-promote-subtree
+@cindex How to promote a subtree
+
+@item @kbd{M-S-@key{RIGHT}} (@code{markdown-demote-subtree})
+@kindex M-S-@key{RIGHT}
+@findex markdown-demote-subtree
+@cindex How to demote a subtree
+
+@item @kbd{C-c C-c n} (@code{markdown-cleanup-list-numbers})
+@kindex C-c C-c n
+@findex markdown-cleanup-list-numbers
+This renumbers any ordered lists in the buffer that are out of
+sequence.
+@end table
 
 @node Styles
 @section Styles
@@ -726,7 +790,6 @@ If the point is at a word, make the word an inline code fragment.
 Otherwise, simply insert code delimiters and place the cursor
 between them.
 
-
 @item @kbd{C-c C-s k} (@code{markdown-insert-kbd})
 @kindex C-c C-s k
 @findex markdown-insert-kbd
@@ -763,6 +826,17 @@ if any, or inserts empty preformatted code block markup.
 @findex markdown-pre-region
 This variation of the insert-pre function (above) always
 operates on the region, regardless of whether it is active or not.
+
+@item @kbd{C-c >} (@code{markdown-indent-region})
+@kindex C-c >
+@findex markdown-indent-region
+@cindex How to indent the region
+
+@item @kbd{C-c <} (@code{markdown-exdent-region})
+@kindex C-c <
+@findex markdown-exdent-region
+@cindex How to exdent the region
+ToDo
 
 @end table
 
@@ -881,14 +955,28 @@ This will move to the next inline, reference or wiki link, if any.
 @findex markdown-follow-thing-at-point
 @cindex How to open a link
 @cindex Hot to follow a link
+Press @kbd{C-c C-o} when the point is on an inline or reference link
+to open the URL in a browser.  When the point is at a wiki link, open
+it in another buffer (in the current window, or in the other window
+with the @kbd{C-u} prefix).
 
 @item @kbd{C-c C-l} (@code{markdown-jump})
 @kindex C-c C-l
 @findex markdown-jump
 @cindex How to jump to a footnote or its marker
 @cindex How to jump to link or its definition
+Use @kbd{C-c C-l}> to jump from the object at point to its counterpart
+elsewhere in the text, when possible.  Jumps between reference
+links and definitions; between footnote markers and footnote
+text.  If more than one link uses the same reference name, a
+new buffer will be created containing clickable buttons for jumping
+to each link.  You may press @key{TAB} or @kbd{S-@key{TAB}} to jump between
+buttons in this window.
 
-Note: the @code{markdown-jump} function's keybinding was changed from @kbd{C-c C-j} ('j'ump) in version 2.1 to @kbd{C-c C-l} ('l'eap) in version 2.2 so that @kbd{C-c C-j} could be used to insert list items using the same key binding as the AUCTeX editor.
+Note: the keybinding of the @code{markdown-jump} function was changed
+from @kbd{C-c C-j} ('j'ump) in version 2.1 to @kbd{C-c C-l} ('l'eap)
+in version 2.2 so that @kbd{C-c C-j} could be used to insert list
+items using the same key binding as the AUCTeX editor.
 @end table
 
 @node Images
@@ -903,19 +991,21 @@ for this group of commands is @kbd{C-c C-i}.
 @item @kbd{C-c C-i i} (@code{markdown-insert-image})
 @kindex C-c C-i i
 @findex markdown-insert-image
+@cindex How to insert image inline
 This inserts markup for an inline image using the active region or
 the word at point (if any) as the alt text.
 
 @item @kbd{C-c C-i I} (@code{markdown-insert-reference-image})
 @kindex C-c C-i I
 @findex markdown-insert-reference-image
+@cindex How to insert image reference
 This inserts markup for an reference-style image using the active region or
 the word at point (if any) as the alt text.
 
 @item @kbd{C-c C-i C-t} (@code{markdown-toggle-inline-images})
 @kindex C-c C-i C-t
 @findex markdown-toggle-inline-images
-
+@cindex How to toggle image display
 This will toggle display of local inline images. Use it again to
 remove local inline image display. (@code{markdown-mode} version 2.2).
 
@@ -924,14 +1014,15 @@ remove local inline image display. (@code{markdown-mode} version 2.2).
 @node Other Commands
 @section Other Commands
 @cindex Other Commands
-
 This section describes various other commands not described above.
 
 @table @asis
 @item @kbd{C-c C-k} (@code{markdown-kill-thing-at-point})
 @kindex C-c C-k
 @findex markdown-kill-thing-at-point
-
+@cindex How to kill markup
+@cindex How to kill headers
+@cindex How to kill items
 This kills the header, item or other markdown 'thing' at the
 point. The interesting text (but not the markup) is added to the
 kill-ring. You can use @kbd{C-y} as usual to yank the text back if
@@ -964,7 +1055,7 @@ The prefix for this group of commands is @kbd{C-c C-c}.
 
 This will run @code{markdown-command} on the current buffer and
 display the output (XHTML) in the other window with the buffer name
-``*markdown-output*''.
+@samp{*markdown-output*}.
 
 @item @kbd{C-c C-c p} (@code{markdown-preview})
 @kindex C-c C-c p
@@ -997,12 +1088,6 @@ This will run @code{markdown-command} on the current buffer and save
 the output to the kill ring. You can yank it back where desired with
 @kbd{C-y} as usual.
 
-@item @kbd{C-c C-c o} (@code{markdown-open})
-@kindex C-c C-c o
-@findex markdown-open
-This will use @code{markdown-open-command} to open the source markdown
-file visited by the buffer directly. See
-
 @item @kbd{C-c C-c l} (@code{markdown-live-preview-mode})
 @kindex C-c C-c l
 @findex markdown-live-preview-mode
@@ -1013,7 +1098,25 @@ the @code{eww} browser. You may customize the value of the variable
 @code{markdown-live-preview-window-function} with your own function to
 use a browser other than @code{eww}. The default value of the variable
 is the function @code{markdown-live-preview-window-eww}.
+
+@item @kbd{C-c C-c o} (@code{markdown-open})
+@kindex C-c C-c o
+@findex markdown-open
+This will use @code{markdown-open-command} to open the source markdown
+file visited by the buffer directly. See
 @end table
+
+Summary of compile commands:
+
+@itemize @bullet
+@item @kbd{C-c C-c m} @code{markdown-command} > @samp{*markdown-output*} buffer.
+@item @kbd{C-c C-c p} @code{markdown-command} > @samp{tempfile} > browser.
+@item @kbd{C-c C-c e} @code{markdown-command} > @file{basename.html}.
+@item @kbd{C-c C-c v} @code{markdown-command} > @file{basename.html} > browser.
+@item @kbd{C-c C-c w} @code{markdown-command} > kill ring.
+@item @kbd{C-c C-c l} @code{markdown-command} > @samp{*eww*} buffer (live).
+@item @kbd{C-c C-c o} buffer > file > @code{markdown-open-command}.
+@end itemize
 
 @node Maintenance Commands
 @section Maintenance Commands
@@ -1024,17 +1127,6 @@ This section describes maintenance commands.
 The prefix for this group of commands is also @kbd{C-c C-c}.
 
 @table @asis
-@item @kbd{C-c C-c n} (@code{markdown-cleanup-list-numbers})
-@kindex C-c C-c n
-@findex markdown-cleanup-list-numbers
-This renumbers any ordered lists in the buffer that are out of
-sequence.
-
-@item @kbd{C-c C-c ]} (@code{markdown-complete-buffer})
-@kindex C-c C-c ]
-@findex markdown-complete-buffer
-This completes all headings and normalizes all horizontal rules in the
-buffer.
 
 @item @kbd{C-c C-c c} (@code{markdown-check-refs})
 @kindex C-c C-c c
@@ -1148,7 +1240,6 @@ See @uref{https://daringfireball.net/projects/smartypants/}.
 @item @command{multimarkdown}
 @cindex How to Use with @command{multimarkdown}
 @pindex multimarkdown
-
 @command{multimarkdown} usually outputs to HTML like
 @command{markdown}, but can also output to several other formats with
 the @option{--to=@var{FORMAT}} option. It includes the functionality
@@ -1168,7 +1259,6 @@ See @uref{http://fletcherpenney.net/multimarkdown/}.
 @cindex How to Output to Other Formats
 @cindex Outputting to Other Formats
 @pindex pandoc
-
 @command{pandoc} (@uref{http://pandoc.org}) will output to HTML, but
 it can also output to 40 other formats and converts from 5 different
 markdown dialects, including github-flavored markdown.
@@ -1184,7 +1274,6 @@ See @uref{http://pandoc.org}
       " --to=html"))
 @end lisp
 @end cartouche
-
 @end table
 
 @item markdown-command-needs-filename
@@ -1238,14 +1327,12 @@ else open -a "Marked 2"
 fi
 @end example
 @end cartouche
-
 @end vtable
 
 @node Customizing Markdown Format
 @section Customizing Markdown Format
 @cindex Customizing Markdown Format
 @cindex How to Customize Markdown Format
-
 The variables in this section control how @code{markdown-mode} formats
 Markdown text. These variables may be set in the Emacs startup file or by using @kbd{M-x customize-mode}.
 
@@ -1305,7 +1392,6 @@ behavior induced when the global variable is non-nil.
 @section Customizing Markdown Headers
 @cindex Customizing Markdown Headers
 @cindex How to Customize Markdown Headers
-
 The variables in this section allow you to customize how
 @code{markdown-mode} uses headers.
 
@@ -1325,8 +1411,8 @@ of the title.
 
 Determines whether to use variable-height faces for headers.
 
-Set to a non-nil value to use a variable-pitch font for headings where
-the size corresponds to the level of the heading.
+Set to a non-nil value to use a variable-pitch font for headers where
+the size corresponds to the level of the header.
 
 In detail: When non-nil, @code{markdown-header-face} will inherit from
 @code{variable-pitch} and the six scaling values in
@@ -1339,10 +1425,10 @@ A list of 6 float, default: @code{(list 1.8 1.4 1.2 1.0 1.0 1.0)}
 A list of 6 scaling values, relative to baseline, for headers of levels
 one through six. They are used when `markdown-header-scaling` is non-nil.
 
-@item markdown-nested-imenu-heading-index
+@item markdown-nested-imenu-header-index
 @code{nil} or @code{t}, default: @code{nil}.
 
-Set to a non-nil value to use nested imenu heading instead of a flat
+Set to a non-nil value to use nested imenu header instead of a flat
 index.  A nested index may provide more natural browsing from the
 menu, but a flat list may allow for faster keyboard navigation via tab
 completion.
@@ -1372,7 +1458,6 @@ to smallest.
 @section Customizing Indenting
 @cindex Customizing Indenting
 @cindex How to Customize Indenting
-
 The variables in this section allow you to customize how
 @code{markdown-mode} handles indentation.
 
@@ -1477,7 +1562,6 @@ This only applies when @code{markdown-wiki-link-fontify-missing},
 above, is non-nil.
 
 See @uref{https://ikiwiki.info}
-
 @end vtable
 
 @node Customizing GitHub Flavored Markdown
