@@ -18,7 +18,7 @@ Emacs self-documenting features and the user could always consult the
 source code itself if s/he knows how. This is adequate documentation
 for expert Emacs users, but I am not an expert.
 
-[Texinfo][], the documentation format of the Emacs manual and
+[Texinfo][], the documentation format of the Emacs manual and other
 [GNU project documentation][], while more complex and arcane than
 [markdown][], excels at creating documentation about and for Emacs. In
 particular, it allows for extensive indexing, allowing the user to
@@ -26,8 +26,8 @@ quickly find information via the Emacs help.
 
 The Texinfo-format manual is compiled into info-format, which is
 compatible with both Emacs' `info` reader and the command line `info`
-command. (This `info` file must be intalled in a directory with other
-`info` files where `emacs` can find it. See $ info '(texinfo)New Info
+command. (This `info` file must be installed in a directory with other
+`info` files where `Emacs` can find it. See $ info '(texinfo)New Info
 File'.) The Texinfo-format manual can also be compiled into HTML, PDF,
 ePub and other formats - even markdown.
 
@@ -50,9 +50,6 @@ This project is still in progress with no release version.
 [markdown]: http://daringfireball.net/projects/markdown/syntax
 
 [GNU project documentation]: https://www.gnu.org/manual/manual.html
-
-[working draft]: https://raw.githubusercontent.com/daniel-birket/markdown-mode-texinfo/master/markdown-mode.html#Index
-
 
 
 
