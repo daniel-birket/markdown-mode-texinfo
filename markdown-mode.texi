@@ -850,8 +850,9 @@ ToDo
 This section describes how to insert and work with links.
 
 @menu
-* Inserting Links::
-* Navigating Links::
+* Inserting Links::             How to insert links
+* Checking References::         How to check references
+* Navigating Links::            How to navigate links
 @end menu
 
 @node Inserting Links
@@ -928,6 +929,25 @@ available, it will simply insert @samp{[[]]} and position the point
 between the brackets for inserting the link.  Note that wiki links are
 an extension to Markdown and are not supported by all processors.
 
+@end table
+
+@node Checking References
+@subsection Checking References
+@cindex Checking References
+@cindex How to check references
+
+This section describes how to check references.
+
+@table @asis
+@item @kbd{C-c C-c c} (@code{markdown-check-refs})
+@kindex C-c C-c c
+@findex markdown-check-refs
+This will check for undefined references.  If there are any, a small
+buffer will open with a list of undefined references and the line
+numbers on which they appear.  In Emacs 22 and greater, selecting a
+reference from this list and pressing @key{RET} will insert an empty
+reference definition at the end of the buffer.  Similarly, selecting
+the line number will jump to the corresponding line.
 @end table
 
 @node Navigating Links
@@ -1119,27 +1139,6 @@ Summary of compile commands:
 @item @kbd{C-c C-c l} @code{markdown-command} > @samp{*eww*} buffer (live).
 @item @kbd{C-c C-c o} buffer > file > @code{markdown-open-command}.
 @end itemize
-
-@node Maintenance Commands
-@section Maintenance Commands
-@cindex Maintenance Commands
-
-This section describes maintenance commands.
-
-The prefix for this group of commands is also @kbd{C-c C-c}.
-
-@table @asis
-
-@item @kbd{C-c C-c c} (@code{markdown-check-refs})
-@kindex C-c C-c c
-@findex markdown-check-refs
-This will check for undefined references.  If there are any, a small
-buffer will open with a list of undefined references and the line
-numbers on which they appear.  In Emacs 22 and greater, selecting a
-reference from this list and pressing @key{RET} will insert an empty
-reference definition at the end of the buffer.  Similarly, selecting
-the line number will jump to the corresponding line.
-@end table
 
 @node Using GFM Mode
 @chapter Using GFM Mode
