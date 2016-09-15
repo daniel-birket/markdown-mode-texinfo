@@ -7,6 +7,8 @@
 @set RELEASED January 9, 2016
 @set SWCYEARS 2007-2016
 @set EDITION @value{VERSION}-Draft
+@set TEXINFO @acronym{GNU} Texinfo v6.3
+@set EMACS Emacs v24.5
 @comment %**end of header
 
 @copying
@@ -22,19 +24,19 @@ Texts.  A copy of the license is included in the section entitled
 @cite{GNU Free Documentation License}.
 @end quotation
 
-This is the Emacs Markdown Mode manual (unauthorized),
-@value{EDITION}, by Daniel Birket, updated @today{}.
+This is the Emacs Markdown Mode manual (unauthorized), edition
+@value{EDITION}, by Daniel Birket, updated @today{}. This document was composed using @value{EMACS}.
 @ifinfo
-This @command{info} file was was compiled from @file{.texinfo} source with GNU Texinfo v6.1.
+This @command{info} file was was compiled from @file{.texinfo} source with @value{TEXINFO}.
 @end ifinfo
 @iftex
-This document was compiled from @file{.texinfo} source with GNU Texinfo v6.1 and typeset using @TeX{} by Donald Knuth, et al.
+It was compiled from @file{.texinfo} source with @value{TEXINFO} and typeset using @TeX{} by Donald Knuth, et al.
 @end iftex
 @ifhtml
-This HTML document was was compiled from @file{.texinfo} source with GNU Texinfo v6.1.
+This HTML document was was compiled from @file{.texinfo} source with @value{TEXINFO}.
 @end ifhtml
 @ifdocbook
-This document was was compiled from @file{.texinfo} source with GNU Texinfo v6.1 and converted from @command{docbook} format using  @command{pandoc}.
+It was was compiled from @file{.texinfo} source with @value{TEXINFO} and converted from @command{docbook} format using  @command{pandoc}. The indexs were omitted in this format.
 @end ifdocbook
 
 This manual describes how to install and use the Emacs Lisp software
