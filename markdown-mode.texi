@@ -419,27 +419,33 @@ keybindings are grouped based on their function:
 
 @table @kbd
 @item C-c C-a
-Prefix keys for insert link commands. (HTML <a> tag)
+Prefix keys for insert link commands. (HTML <a> tag).
+Use @kbd{C-c C-a C-h} to list all commands in this group.
 
 @item C-c C-c
 Prefix keys for 'compiling' markdown. ([c]ompile)
+Use @kbd{C-c C-c C-h} to list all commands in this group.
 
 @item C-c C-i
 Prefix keys for insert image commands. ([i]mage)
+Use @kbd{C-c C-i C-h} to list all commands in this group.
 
 @item C-c C-s
 Prefix keys for insert style commands. ([s]tyle)
+Use @kbd{C-c C-s C-h} to list all commands in this group.
 
 @item C-c C-t
 Prefix keys for insert title/header commands. ([t]itle)
+Use @kbd{C-c C-t C-h} to list all commands in this group.
 
 @item C-c C-x
 Prefix keys for manipulating lists.
+Use @kbd{C-c C-x C-h} to list all commands in this group.
 
 @end table
 
 Movement and shifting commands are gnerally associated with paired
-delimiters such as @kbd{M-@{} and @kbd{M-@}} or @kbd{C-c <} and
+delimiters such as @kbd{M-@{} and @kbd{M-@}}, or @kbd{C-c <} and
 @kbd{C-c >}.
 
 Outline navigation keybindings the same as in @code{org-mode}.
@@ -584,21 +590,21 @@ active region or the text on the current line, if any.
 @strong{setext-style (underlined) Headers}
 
 @table @asis
-@item @kbd{C-c C-t !} (@code{markdown-insert-header-setext-1})
+@item @kbd{C-c C-t !} or @kbd{C-c C-t t} (@code{markdown-insert-header-setext-1})
 @kindex C-c C-t t
 @kindex C-c C-t !
 @findex markdown-insert-header-setext-1
-(@kbd{C-c C-t t} depreciated keybinding)
 This inserts a first-level setext-style (underlined) header, using the
-text in the active region or the text on the current line, if any.
+text in the active region or the text on the current line, if any. The
+@kbd{C-c C-t t} keybinding is depreciated.
 
-@item @kbd{C-c C-t @@} (@code{markdown-insert-header-setext-2})
+@item @kbd{C-c C-t @@} or @kbd{C-c C-t s} (@code{markdown-insert-header-setext-2})
 @kindex C-c C-t s
 @kindex C-c C-t @@
 @findex markdown-insert-header-setext-2
-(@kbd{C-c C-t s} depreciated keybinding)
 This inserts a second-level setext-style (underlined) header, using the
-text in the active region or the text on the current line, if any.
+text in the active region or the text on the current line, if any. The
+@kbd{C-c C-t s} keybinding is depreciated.
 @end table
 
 The prefix for this group of header insert commands is @kbd{C-c C-c}.
@@ -671,19 +677,19 @@ string selected by the number.
 This section describes how to insert, move and renumber lists.
 
 @table @asis
-@item @kbd{M-@key{UP}} @kbd{C-c C-x u} (@code{markdown-move-up})
+@item @kbd{M-@key{UP}} or @kbd{C-c C-x u} (@code{markdown-move-up})
 @kindex M-@key{UP}
 @kindex C-c C-x u
 @findex @code{markdown-move-up}
 @cindex How to move an item up
 
-@item @kbd{M-@key{DOWN}} @kbd{C-c C-x d} (@code{markdown-move-down})
+@item @kbd{M-@key{DOWN}} or @kbd{C-c C-x d} (@code{markdown-move-down})
 @kindex M-@key{DOWN}
 @kindex C-c C-x d
 @findex @code{markdown-move-down}
 @cindex How to move an item up
 
-@item @kbd{C-c C--} @kbd{M-@key{LEFT}} @kbd{C-c C-x l} (@code{markdown-promote})
+@item @kbd{C-c C--} or @kbd{C-c C-x l} or @kbd{M-@key{LEFT}} (@code{markdown-promote})
 @kindex C-c C--
 @kindex M-@key{LEFT}
 @kindex C-c C-x l
@@ -693,7 +699,7 @@ This section describes how to insert, move and renumber lists.
 This will promote headers, rules and list items at point, moving them
 left. See @code{markdown-promote} below.
 
-@item @kbd{C-c C-=} @kbd{M-@key{RIGHT}} (@code{markdown-demote})
+@item @kbd{C-c C-=} or @kbd{C-c C-x r} or @kbd{M-@key{RIGHT}} (@code{markdown-demote})
 @kindex C-c C-=
 @kindex M-@key{RIGHT}
 @kindex C-c C-x r
