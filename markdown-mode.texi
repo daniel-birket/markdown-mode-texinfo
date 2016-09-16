@@ -6,7 +6,7 @@
 @set VERSION 2.1
 @set RELEASED January 9, 2016
 @set SWCYEARS 2007-2016
-@set EDITION @value{VERSION}-Draft
+@set EDITION @value{VERSION}.!
 @set TEXINFO @acronym{GNU} Texinfo v6.3
 @set EMACS Emacs v24.5
 @comment %**end of header
@@ -24,8 +24,8 @@ Texts.  A copy of the license is included in the section entitled
 @cite{GNU Free Documentation License}.
 @end quotation
 
-This is the Emacs Markdown Mode manual (unauthorized), edition
-@value{EDITION}, by Daniel Birket, updated @today{}. This document was composed using @value{EMACS}.
+This is the Emacs Markdown Mode manual (unauthorized),
+@value{EDITION} ed., by Daniel Birket, updated @today{}. This document was composed using @value{EMACS}.
 @ifinfo
 This @command{info} file was was compiled from @file{.texinfo} source with @value{TEXINFO}.
 @end ifinfo
@@ -36,7 +36,7 @@ It was compiled from @file{.texinfo} source with @value{TEXINFO} and typeset usi
 This HTML document was was compiled from @file{.texinfo} source with @value{TEXINFO}.
 @end ifhtml
 @ifdocbook
-It was was compiled from @file{.texinfo} source with @value{TEXINFO} and converted from @command{docbook} format using  @command{pandoc}. The indexs were omitted in this format.
+It was was compiled from @file{.texinfo} source with @value{TEXINFO} and converted from @command{docbook} format using  @command{pandoc}. The indices were omitted in this format.
 @end ifdocbook
 
 This manual describes how to install and use the Emacs Lisp software
@@ -151,12 +151,12 @@ The package implements two Emacs @emph{major modes}:
 @end itemize
 
 @pindex markdown
-@command{markdown}, created by John Gruber in 2004, is a popular unix
+@command{markdown}, created by John Gruber in 2004, is a popular Unix
 filter command that provides an easy way to produce styled text by
 editing simple text files and then converting the text to HTML.  It is
 described at @uref{http://daringfireball.net/projects/markdown/}.
 
-@command{markdown} has been reimplimented by various authors and with
+@command{markdown} has been re-implemented by various authors and with
 various additional features and syntax, including
 @command{multimarkdown}, @command{pandoc}, @command{python markdown}
 and many others.
@@ -211,13 +211,13 @@ file and restarting Emacs (or just evaluate the statements):
 @end cartouche
 
 @findex package-install
-Then, after restarting Emacs (or otherwise evaulating the above
+Then, after restarting Emacs (or otherwise evaluating the above
 statements), type the following command:
 
 @kbd{M-x package-install @key{RET} markdown-mode @key{RET}}.
 
 When installed using the package manager this way, the major modes
-@code{markdown-mode} and @code{gfm-mode} will be autoloaded, and
+@code{markdown-mode} and @code{gfm-mode} will be auto-loaded, and
 @code{markdown-mode} will be used automatically for file names ending
 in either @file{.md} or @file{.markdown}.
 
@@ -444,7 +444,7 @@ Use @kbd{C-c C-x C-h} to list all commands in this group.
 
 @end table
 
-Movement and shifting commands are gnerally associated with paired
+Movement and shifting commands are generally associated with paired
 delimiters such as @kbd{M-@{} and @kbd{M-@}}, or @kbd{C-c <} and
 @kbd{C-c >}.
 
@@ -454,15 +454,14 @@ You can obtain a list of all keybindings by pressing @kbd{C-c
 C-h}.
 
 @menu
-* Headers::                    How to Work with Headers.
+* Headers::                     How to Work with Headers.
 * Lists::                       How to Work with Lists.
 * Styles::                      How to Work with Styles.
 * Links::                       How to Work with Links.
 * Images::                      How to Work with Images.
-* Other Commands::              Miscellanous Commands
+* Common Commands::             Commands for Headers and Lists.
 * Differences::                 Differences from @code{text-mode}.
 * Compile Commands::            Compile Commands.
-* Maintenance Commands::        Maintenance Commands.
 @end menu
 
 @node Headers
@@ -481,7 +480,7 @@ This section describes how to work with headers and horizontal rules.
 
 Note: John Gruber created @command{markdown} to handle two pre-existing
 types of titles and headers: the underlined titles supported by
-@command{setext} by Ian Feldman and the headers marked with hashmarks
+@command{setext} by Ian Feldman and the headers marked with hash marks
 supported by @command{atx} by Aaron Swartz. @code{markdown-mode}
 refers to these header styles as @command{setext} and @command{atx}
 headers.
@@ -620,7 +619,7 @@ incomplete.
 For example, it ensures that the underline portion of a setext header
 is the same length as the heading text, or that the number of leading
 and trailing hash marks of an atx header are equal and that there is
-no extra whitespace in the header text.
+no extra white space in the header text.
 
 @item @kbd{C-c C-c ]} (@code{markdown-complete-buffer})
 @kindex C-c C-c ]
@@ -810,8 +809,8 @@ cursor between them. (@code{markdown-mode} version 2.2).
 @item @kbd{C-c C-s b} (@code{markdown-insert-blockquote})
 @kindex C-c C-s b
 @findex markdown-insert-blockquote
-This inserts blockquote markup around the active region, if any, or
-inserts empty blockquote markup.
+This inserts block quote markup around the active region, if any, or
+inserts empty block quote markup.
 
 @item @kbd{C-c C-s C-b} (@code{markdown-blockquote-region})
 @kindex C-c C-s C-b
@@ -893,9 +892,9 @@ This inserts a reference link of the form @samp{[text][label]} and an
 optional corresponding reference label definition.  The region (if
 active) or the word at point (if any) will be used for the link text.
 If neither is available, then the link text will be read from the
-minibuffer.
+mini-buffer.
 
-The reference label will be read from the minibuffer, with completion
+The reference label will be read from the mini-buffer, with completion
 from the set of currently defined references.  To create an implicit
 reference link, press @key{RET} to accept the default empty label.  If
 the entered reference label is not defined, it will prompt for the URL
@@ -1039,10 +1038,11 @@ remove local inline image display. (@code{markdown-mode} version 2.2).
 
 @end table
 
-@node Other Commands
-@section Other Commands
-@cindex Other Commands
-This section describes various other commands not described above.
+@node Common Commands
+@section Common Commands
+@cindex Common Commands
+This section describes commands common to both headers and lists, plus
+miscellaneous commands.
 
 @table @asis
 @item @kbd{C-c C-k} (@code{markdown-kill-thing-at-point})
@@ -1099,7 +1099,7 @@ a browser.
 
 This will run @code{markdown-command} on the current buffer and then
 save the result to the file @file{basename.html}, where
-@samp{basename} is the name of the markdown file (visted by the source
+@samp{basename} is the name of the markdown file (visited by the source
 buffer) without its extension.
 
 @item @kbd{C-c C-c v} (@code{markdown-export-and-preview})
@@ -1268,7 +1268,7 @@ See @uref{http://fletcherpenney.net/multimarkdown/}.
 @pindex pandoc
 @command{pandoc} (@uref{http://pandoc.org}) will output to HTML, but
 it can also output to 40 other formats and converts from 5 different
-markdown dialects, including github-flavored markdown.
+markdown dialects, including GitHub-flavored markdown.
 
 See @uref{http://pandoc.org}
 
@@ -1535,10 +1535,10 @@ function @code{markdown-toggle-wiki-links}.
 character, default: @code{"_"}
 
 Determines the character to replace spaces when mapping wiki links to
-filenames.
+file names.
 
 For example, use an underscore for compatibility with the Python
-Markdown WikiLinks extension.  In @code{gfm-mode}, this is set to
+Markdown Wiki-Links extension.  In @code{gfm-mode}, this is set to
 @code{"-"} to conform with GitHub wiki links.
 
 @item markdown-wiki-link-alias-first
@@ -1586,14 +1586,14 @@ list of strings, default @code{nil}
 Determines any more languages to make available, in addition to the
 300+ languages predefined in @code{markdown-gfm-recognized-languages},
 when inserting GFM code blocks. Language strings must be trimmed of
-whitespace and not contain any curly braces. They may be of arbitrary
+white space and not contain any curly braces. They may be of arbitrary
 capitalization.
 
 @item markdown-gfm-use-electric-backquote
 @findex markdown-electric-backquote
 @code{nil} or @code{t}, default @code{t}
 
-Set to non-nill to use the function @code{markdown-electric-backquote}
+Set to non-nil to use the function @code{markdown-electric-backquote}
 for interactive insertion of GFM code blocks when backquote is pressed
 three times.
 
