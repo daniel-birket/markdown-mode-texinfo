@@ -12,7 +12,7 @@
 @comment %**end of header
 
 @copying
-@cindex Copyright (manual)
+@cindex copyright (manual)
 Copyright @copyright{} 2016 Daniel Birket.
 
 @quotation
@@ -24,19 +24,25 @@ Texts.  A copy of the license is included in the section entitled
 @cite{GNU Free Documentation License}.
 @end quotation
 
-This is the Emacs Markdown Mode manual (unauthorized),
-@value{EDITION} ed., by Daniel Birket, updated @today{}. This document was composed using @value{EMACS}.
+This is the Emacs Markdown Mode manual (unauthorized), @value{EDITION}
+ed., by Daniel Birket, updated @today{}. This document was composed
+using @value{EMACS}.
 @ifinfo
-This @command{info} file was was compiled from @file{.texinfo} source with @value{TEXINFO}.
+This @command{info} file was was compiled from @file{.texinfo} source
+with @value{TEXINFO}.
 @end ifinfo
 @iftex
-It was compiled from @file{.texinfo} source with @value{TEXINFO} and typeset using @TeX{} by Donald Knuth, et al.
+It was compiled from @file{.texinfo} source with @value{TEXINFO} and
+typeset using @TeX{} by Donald Knuth, et al.
 @end iftex
 @ifhtml
-This HTML document was was compiled from @file{.texinfo} source with @value{TEXINFO}.
+This HTML document was was compiled from @file{.texinfo} source with
+@value{TEXINFO}.
 @end ifhtml
 @ifdocbook
-It was was compiled from @file{.texinfo} source with @value{TEXINFO} and converted from @command{docbook} format using  @command{pandoc}. The indices were omitted in this format.
+It was was compiled from @file{.texinfo} source with @value{TEXINFO}
+and converted from @command{docbook} format using
+@command{pandoc}. The indices were omitted in this format.
 @end ifdocbook
 
 This manual describes how to install and use the Emacs Lisp software
@@ -50,7 +56,7 @@ This manual is based upon (and frequently copied verbatim from) the
 extensive documentation in the @code{markdown-mode.el} source code,
 which begins with:
 
-@cindex Copyright (software)
+@cindex copyright (software)
 @lisp
 ;;; markdown-mode.el --- Major mode for Markdown-formatted text @dots{}
 
@@ -105,7 +111,7 @@ package for working with markdown-formatted text.
 
 @ifinfo
 In @command{info}, type @kbd{3} to jump to the chapter on usage, or type
-@w{@kbd{i How to@key{SPC}@key{TAB}}} to see the @cite{How to...} index.
+@w{@kbd{i how to@key{SPC}@key{TAB}}} to see the @cite{how to@dots{}} index.
 @end ifinfo
 
 @insertcopying
@@ -113,12 +119,12 @@ In @command{info}, type @kbd{3} to jump to the chapter on usage, or type
 @end ifnotdocbook
 
 @menu
-* Introduction::                About @command{markdown} & @code{markdown-mode}.
-* Installing::                  How to Download & Install @code{markdown-mode}.
-* Using Markdown Mode::         How to Use @code{markdown-mode}.
-* Using GFM Mode::              How to Use @code{gfm-mode}.
-* Customizing::                 How to Customize @code{markdown-mode} (Variables).
-* Development::                 For all those that contribute, past or future.
+* Introduction::        About @command{markdown} & @code{markdown-mode}.
+* Installing::          How to Download & Install @code{markdown-mode}.
+* Using @code{markdown-mode}::  Hot to Use @code{markdown-mode} commands.
+* Using GFM Mode::      How to Use @code{gfm-mode}.
+* Customizing::         How to Customize @code{markdown-mode} (Variables).
+* Development::         For all those that contribute, past or future.
 
 Appendices:
 * GNU General Public License 2.0::  License of @code{markdown-mode.el} (1991).
@@ -131,8 +137,7 @@ Appendices:
 
 @node Introduction
 @chapter Introduction
-@cindex Introduction
-@cindex markdown
+@cindex introduction
 This manual describes how to install and use @code{markdown-mode}, an Emacs
 package for working with markdown-formatted text. The features of this
 package assist the user to insert and manipulate markdown-compatible
@@ -143,7 +148,7 @@ The package implements two Emacs @emph{major modes}:
 @itemize @bullet
 @item
 @code{markdown-mode}, for editing standard markdown text.
-@xref{Using Markdown Mode}.
+@xref{Using @code{markdown-mode}}.
 
 @item
 @code{gfm-mode}, for editing GitHub-flavored markdown text.
@@ -151,9 +156,11 @@ The package implements two Emacs @emph{major modes}:
 @end itemize
 
 @pindex markdown
-@command{markdown}, created by John Gruber in 2004, is a popular Unix
-filter command that provides an easy way to produce styled text by
-editing simple text files and then converting the text to HTML.  It is
+The popular Unix filter command @command{markdown}, created by John
+Gruber in 2004, provides an easy way to produce styled text by first
+editing simple text files and then converting the text to HTML. This
+approach separates composition from formatting, allowing the writer to
+focus on writing without the distractions of WYSIWYG editors. It is
 described at @uref{http://daringfireball.net/projects/markdown/}.
 
 @command{markdown} has been re-implemented by various authors and with
@@ -166,30 +173,31 @@ is described at
 @uref{http://github.github.com/github-flavored-markdown/}.
 
 @pindex emacs
-@command{emacs} is a powerful text editor (and more).  It is highly
-extensible and has a large ecosystem of extensions like this one.  GNU
+The powerful text editor, @command{emacs}, created by Richard
+Stallman, et al. in 1976, is highly extensible and has a large
+ecosystem of extensions like this one created over 30 years.  GNU
 emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 
 @node Installing
 @chapter Installing
-@cindex Installing
-@cindex Downloading
-@cindex How to Download
-@cindex How to Install
+@cindex installing
+@cindex downloading
+@cindex how to download
+@cindex how to install
 This chapter describes how to install @code{markdown-mode} for use. To
 install the development version, see @ref{Development Version}.
 
 @menu
-* Recommended Installation::    How to Install with @code{package.el}.
-* Manual Installation::         How to Install the hard way.
-* Managed Loading::             How to Manage with @code{use-package.el}.
-* OS Package Managers::         How to Install with OS Package Managers.
+* Recommended Installation::    Install with @code{package.el}.
+* Manual Installation::         Install the hard way.
+* Managed Loading::             Manage with @code{use-package.el}.
+* OS Package Managers::         Install with OS Package Managers.
 @end menu
 
 @node Recommended Installation
 @section Recommended Installation
-@cindex Recommended Installation
-@cindex How to Install with @code{package.el}
+@cindex recommended installation
+@cindex how to Install with @code{package.el}
 @cindex MELPA Stable
 @findex package.el
 The recommended way to install the package @code{markdown-mode} is to
@@ -225,9 +233,9 @@ You may browse the 1500+ packages in the MELPA-Stable archive at @uref{http://st
 
 @node Manual Installation
 @section Manual Installation
-@cindex Manual Installation
-@cindex How to Install Manually
-@cindex How to Download Manually
+@cindex manual installation
+@cindex how to install manually
+@cindex how to download manually
 You can manually download and install markdown-mode.
 
 First, download @code{markdown-mode} from one of:
@@ -266,8 +274,8 @@ This package, @code{markdown-mode.el}, depends on the package
 
 @node Managed Loading
 @section Managed Loading
-@cindex Managed Loading
-@cindex How to Manage with @code{use-package}
+@cindex managed loading
+@cindex how to manage with @code{use-package}
 @findex use-package.el
 If you manage loading packages with @code{use-package} then you can
 automatically install and configure @code{markdown-mode} by adding a
@@ -290,8 +298,8 @@ example. Please adjust these settings as desired):
 
 @node OS Package Managers
 @section OS Package Managers
-@cindex OS Package Managers
-@cindex How to Download a Linux Package
+@cindex OS package managers
+@cindex how to download a Linux package
 You may download @code{markdown-mode} in packages for use with several
 OS package managers. Most OS packages do not contain the latest stable
 version.  (Please notify the package maintainer if you download one
@@ -302,7 +310,7 @@ Installation} if @code{markdown-mode} does not load automatically.
 
 @table @asis
 @item Debian Linux
-@cindex How to Download a Debian Package
+@cindex how to download a Debian package
 @uref{https://packages.debian.org/sid/lisp/elpa-markdown-mode}
 
 Note: As of Sep-2016, this package contains @code{markdown-mode}
@@ -315,7 +323,7 @@ Note: @cite{emacs-goodies-el} is a collection of Emacs programs. The
 version of @code{markdown-mode} included in it is unknown.
 
 @item Ubuntu Linux
-@cindex How to Download a Ubuntu @command{apt} Package
+@cindex how to download a Ubuntu @command{apt} package
 @pindex apt
 
 At the terminal prompt, type:
@@ -326,25 +334,24 @@ $ sudo apt update
 $ apt show elpa-markdown-mode
 
 Package: elpa-markdown-mode
-...
+@dots{}
 Source: markdown-mode
 Version: 2.1-1
-...
+@dots{}
 Description-en: mode for editing Markdown-formatted text
 files in GNU Emacs.  The mode provides syntax highlighted,
 and keyboard shortcuts for editing, compiling and previewing
 Markdown.
-...
+@dots{}
 Homepage: http://jblevins.org/projects/markdown-mode/
-...
+@dots{}
 
 $ sudo apt install elpa-markdown-mode
 @end example
 @end cartouche
 
 @item RedHat and Fedora Linux
-@cindex How to Download a RedHat Package
-@cindex How to Download a Fedora Package
+@cindex how to download a Redhat or Fedora package
 @uref{https://apps.fedoraproject.org/packages/emacs-goodies}
 
 Note: @cite{emacs-goodies} is a collection of Emacs programs. The
@@ -353,7 +360,7 @@ version of @code{markdown-mode} included in it is unknown.
 This package is maintained by @email{sagarun@@fedoraproject.org}
 
 @item NetBSD
-@cindex How to Download a NetBSD Package
+@cindex how to download a NetBSD package
 @uref{http://pkgsrc.se/textproc/markdown-mode}
 
 Note: As of Sep-2016, this package installs and byte-compiles an
@@ -364,7 +371,7 @@ must manually edit your startup file as described above under
 The package is maintained by @email{minskim@@NetBSD.org}.
 
 @item FreeBSD
-@cindex How to Download a FreeBSD Package
+@cindex how to download a FreeBSD package
 @uref{http://svnweb.freebsd.org/ports/head/textproc/markdown-mode.el}
 
 Note: As of Sep-2016, this package downloads (but does not
@@ -375,7 +382,7 @@ startup file as described above under @ref{Manual Installation}.
 The package is maintained by @email{olgeni@@FreeBSD.org}
 
 @item Macintosh MacPorts
-@cindex How to Download a MacPorts Package
+@cindex how to download a MacPorts package
 https://trac.macports.org/browser/trunk/dports/editors/markdown-mode.el/Portfile
 
 @raggedright
@@ -388,7 +395,7 @@ startup file as described above under @ref{Manual Installation}.
 @end raggedright
 
 @item Macintosh HomeBrew
-@cindex How to Download a Mac HomeBrew Package
+@cindex how to download a Mac Homebrew package
 @pindex brew
 At the terminal prompt type
 @cartouche
@@ -405,11 +412,11 @@ $ brew install homebrew/emacs/markdown-mode
 @end cartouche
 @end table
 
-@node Using Markdown Mode
-@chapter Using Markdown Mode
-@cindex Using Markdown Mode
+@node Using @code{markdown-mode}
+@chapter Using @code{markdown-mode}
+@cindex using @code{markdown-mode}
 @cindex Usage
-@cindex How to Use @code{markdown-mode}
+@cindex how to use @code{markdown-mode}
 @findex markdown-mode
 This chapter describes how to use @code{markdown-mode}.
 
@@ -454,28 +461,28 @@ You can obtain a list of all keybindings by pressing @kbd{C-c
 C-h}.
 
 @menu
-* Headers::                     How to Work with Headers.
-* Lists::                       How to Work with Lists.
-* Styles::                      How to Work with Styles.
-* Links::                       How to Work with Links.
-* Images::                      How to Work with Images.
-* Common Commands::             Commands for Headers and Lists.
+* Headers::                     Work with Headers.
+* Lists::                       Work with Lists.
+* Styles::                      Work with Styles.
+* Links::                       Work with Links.
+* Images::                      Work with Images.
+* Common Commands::             for both Headers and Lists.
 * Differences from text-mode::  Differences from text-mode
-* Compile Commands::            Compile Commands.
+* Compile Commands::            @command{markdown} integration.
 @end menu
 
 @node Headers
 @section Headers
-@cindex Headers
-@cindex Headers
-@cindex How to Work with Headers
+@cindex headers
+@cindex how to work with headers
 This section describes how to work with headers and horizontal rules.
 
+For more commands that work with headers: @xref{Common Commands}.
+
 @menu
-* Inserting Headers::          How to Insert Headers
-* Moving Headers::             Promote, Demote, and Reorder
-* Navigating Headers::         Outline Navigation
-* Inserting Horizontal Rules::  ------------------.
+* Inserting Headers::           Inserting Headers
+* Navigating Headers::          Outline Navigation
+* Inserting Horizontal Rules::
 @end menu
 
 Note: John Gruber created @command{markdown} to handle two pre-existing
@@ -487,8 +494,8 @@ headers.
 
 @node Inserting Headers
 @subsection Inserting Headers
-@cindex Inserting Headers
-@cindex How to Insert Headers
+@cindex inserting headers
+@cindex how to insert headers
 This subsection describes how to insert headers.
 
 All header insertion commands use the text in the active region, if
@@ -583,7 +590,6 @@ active region or the text on the current line, if any.
 @findex markdown-insert-header-atx-6
 This inserts a sixth-level atx-style (######) header, using the text in the
 active region or the text on the current line, if any.
-
 @end table
 
 @strong{setext-style (underlined) Headers}
@@ -612,7 +618,7 @@ The prefix for this group of header insert commands is @kbd{C-c C-c}.
 @item @kbd{C-c C-]} (@code{markdown-complete})
 @kindex C-c C-]
 @findex markdown-complete
-@cindex How to complete header
+@cindex how to complete header
 This completes the markup at the point, if it is determined to be
 incomplete.
 
@@ -628,28 +634,19 @@ This completes all headers and normalizes all horizontal rules in the
 buffer.
 @end table
 
-@node Moving Headers
-@subsection Moving Headers
-@cindex Moving Headers
-@cindex How to Move Headers
-@cindex How to Re-order Headers
-@cindex How to Promote & Demote Headers
-This subsection describes how to promote, demote and change the order
-of headers.
-
 @node Navigating Headers
 @subsection Navigating Headers
-@cindex Navigating Headers
-@cindex How to Navigate Headers
-@cindex How to Use Outlining
+@cindex navigating headers
+@cindex how to navigate headers
+@cindex how to use outlining
 @findex org-mode
 This subsection describes how to navigate among headers and collapse
 and expand header sections.
 
 @node Inserting Horizontal Rules
 @subsection Inserting Horizontal Rules
-@cindex Inserting Horizontal Rules
-@cindex How to Insert Horizontal Rules
+@cindex inserting horizontal rules
+@cindex how to insert horizontal rules
 This subsection describes how to insert horizontal rules.
 
 @table @asis
@@ -670,8 +667,8 @@ string selected by the number.
 
 @node Lists
 @section Lists
-@cindex Lists
-@cindex How to Work with Lists
+@cindex lists
+@cindex how to work with lists
 
 This section describes how to insert and renumber list items. To move
 list items, @xref{Common Commands}.
@@ -688,8 +685,8 @@ sequence.
 
 @node Styles
 @section Styles
-@cindex Styles
-@cindex How to Work with Styles
+@cindex styles
+@cindex how to work with styles
 
 This section describes how to insert style markup.
 
@@ -770,33 +767,33 @@ operates on the region, regardless of whether it is active or not.
 @item @kbd{C-c >} (@code{markdown-indent-region})
 @kindex C-c >
 @findex markdown-indent-region
-@cindex How to indent the region
+@cindex how to indent the region
 
 @item @kbd{C-c <} (@code{markdown-exdent-region})
 @kindex C-c <
 @findex markdown-exdent-region
-@cindex How to exdent the region
+@cindex how to exdent the region
 ToDo
 
 @end table
 
 @node Links
 @section Links
-@cindex Links
-@cindex How to Work with Links
+@cindex links
+@cindex how to work with links
 
 This section describes how to insert and work with links.
 
 @menu
-* Inserting Links::             How to insert links
-* Checking References::         How to check references
-* Navigating Links::            How to navigate links
+* Inserting Links::             Inserting Links
+* Checking References::         Checking References
+* Navigating Links::            Navigating Links
 @end menu
 
 @node Inserting Links
 @subsection Inserting Links
-@cindex Inserting Links
-@cindex How to Insert Links
+@cindex inserting links
+@cindex how to insert links
 
 The prefix for this group of commands is @kbd{C-c C-a}.
 
@@ -804,7 +801,7 @@ The prefix for this group of commands is @kbd{C-c C-a}.
 @item @kbd{C-c C-a l} (@code{markdown-insert-link})
 @kindex C-c C-a l
 @findex markdown-insert-link
-@cindex How to Insert Inline Links
+@cindex how to insert inline links
 This inserts an inline link of the form @samp{[text](url)}. The link
 text is determined as follows:  If there is an active region
 (i.e., when transient mark mode is on and the mark is active), use it
@@ -819,7 +816,7 @@ inserting the link text.
 @kindex C-c C-a r
 @findex markdown-insert-link
 @vindex markdown-reference-location
-@cindex How to Insert Reference Links
+@cindex how to insert reference links
 (@kbd{C-c C-a r} depreciated keybinding)
 This inserts a reference link of the form @samp{[text][label]} and an
 optional corresponding reference label definition.  The region (if
@@ -841,7 +838,7 @@ used to populate the title attribute when converted to XHTML.
 @item @kbd{C-c C-a u} (@code{markdown-insert-uri})
 @kindex C-c C-a u
 @findex markdown-insert-uri
-@cindex How to Insert URIs
+@cindex how to insert URIs
 This inserts a bare URI (URL), delimited by angle brackets.  The
 region (if active) or the URI at point (if any) will be used for the
 link text.  Otherwise, it will insert @samp{<>} and position the
@@ -850,7 +847,7 @@ point in between the brackets for inserting the URI.
 @item @kbd{C-c C-a f} (@code{markdown-insert-footnote})
 @kindex C-c C-a f
 @findex markdown-insert-footnote
-@cindex How to Insert Footnotes
+@cindex how to insert footnotes
 This inserts a footnote marker at the point, inserts a
 footnote definition below, and positions the point for
 inserting the footnote text.  Note that footnotes are an
@@ -859,7 +856,7 @@ extension to Markdown and are not supported by all processors.
 @item @kbd{C-c C-a w} (@code{markdown-insert-wiki-link})
 @kindex C-c C-a w
 @findex markdown-insert-wiki-link
-@cindex How to Insert Wiki-Links
+@cindex how to insert wiki-Links
 This is like the inline link insertion command but inserts a wiki link
 of the form @samp{[[WikiLink]]}.  The region (if active) or the word
 at point (if any) will be used for the link text.  If neither is
@@ -871,8 +868,8 @@ an extension to Markdown and are not supported by all processors.
 
 @node Checking References
 @subsection Checking References
-@cindex Checking References
-@cindex How to check references
+@cindex checking references
+@cindex how to check references
 
 This section describes how to check references.
 
@@ -890,8 +887,8 @@ the line number will jump to the corresponding line.
 
 @node Navigating Links
 @subsection Navigating Links
-@cindex Navigating Links
-@cindex How to Navigate Links
+@cindex navigating links
+@cindex how to navigate links
 
 This subsection describes commands that navigate links.
 
@@ -899,21 +896,21 @@ This subsection describes commands that navigate links.
 @item @kbd{M-p} (@code{markdown-previous-link})
 @kindex M-p
 @findex markdown-previous-link
-@cindex How to jump to previous link
+@cindex how to jump to previous link
 
 This will move to the previous inline, reference or wiki link, if any.
 
 @item @kbd{M-n} (@code{markdown-next-link})
 @kindex M-n
 @findex markdown-next-link
-@cindex How to jump to next link
+@cindex how to jump to next link
 
 This will move to the next inline, reference or wiki link, if any.
 
 @item @kbd{C-c C-o} (@code{markdown-follow-thing-at-point})
 @kindex C-c C-o
 @findex markdown-follow-thing-at-point
-@cindex How to open a link
+@cindex how to open a link
 @cindex Hot to follow a link
 Press @kbd{C-c C-o} when the point is on an inline or reference link
 to open the URL in a browser.  When the point is at a wiki link, open
@@ -923,8 +920,8 @@ with the @kbd{C-u} prefix).
 @item @kbd{C-c C-l} (@code{markdown-jump})
 @kindex C-c C-l
 @findex markdown-jump
-@cindex How to jump to a footnote or its marker
-@cindex How to jump to link or its definition
+@cindex how to jump to a footnote or its marker
+@cindex how to jump to link or its definition
 Use @kbd{C-c C-l}> to jump from the object at point to its counterpart
 elsewhere in the text, when possible.  Jumps between reference
 links and definitions; between footnote markers and footnote
@@ -941,8 +938,8 @@ items using the same key binding as the AUCTeX editor.
 
 @node Images
 @section Images
-@cindex Images
-@cindex How to Work with Images
+@cindex images
+@cindex how to work with images
 
 This section describes how to insert and work with images. The prefix
 for this group of commands is @kbd{C-c C-i}.
@@ -951,21 +948,21 @@ for this group of commands is @kbd{C-c C-i}.
 @item @kbd{C-c C-i i} (@code{markdown-insert-image})
 @kindex C-c C-i i
 @findex markdown-insert-image
-@cindex How to insert image inline
+@cindex how to insert image inline
 This inserts markup for an inline image using the active region or
 the word at point (if any) as the alt text.
 
 @item @kbd{C-c C-i I} (@code{markdown-insert-reference-image})
 @kindex C-c C-i I
 @findex markdown-insert-reference-image
-@cindex How to insert image reference
+@cindex how to insert image reference
 This inserts markup for an reference-style image using the active region or
 the word at point (if any) as the alt text.
 
 @item @kbd{C-c C-i C-t} (@code{markdown-toggle-inline-images})
 @kindex C-c C-i C-t
 @findex markdown-toggle-inline-images
-@cindex How to toggle image display
+@cindex how to toggle image display
 This will toggle display of local inline images. Use it again to
 remove local inline image display. (@code{markdown-mode} version 2.2).
 
@@ -973,7 +970,7 @@ remove local inline image display. (@code{markdown-mode} version 2.2).
 
 @node Common Commands
 @section Common Commands
-@cindex Common Commands
+@cindex common commands
 This section describes commands common to both headers and lists, plus
 miscellaneous commands.
 
@@ -984,16 +981,16 @@ miscellaneous commands.
 
 @node Moving Single Items
 @subsection Moving Single Items
-@cindex Moving Single Items
-@cindex How to move list items
-@cindex How to move headers
+@cindex moving single items
+@cindex how to move list items
+@cindex how to move headers
 
 @table @asis
 @item @kbd{M-@key{UP}} or @kbd{C-c C-x u} (@code{markdown-move-up})
 @kindex M-@key{UP}
 @kindex C-c C-x u
 @findex @code{markdown-move-up}
-@cindex How to move an item up
+@cindex how to move an item up
 
 ToDO
 
@@ -1001,7 +998,7 @@ ToDO
 @kindex M-@key{DOWN}
 @kindex C-c C-x d
 @findex @code{markdown-move-down}
-@cindex How to move an item up
+@cindex how to move an item up
 
 ToDO
 
@@ -1010,8 +1007,8 @@ ToDO
 @kindex M-@key{LEFT}
 @kindex C-c C-x l
 @findex markdown-promote
-@cindex How to promote headers
-@cindex How to promote items
+@cindex how to promote headers
+@cindex how to promote items
 This will promote headers, rules and list items at point, moving them
 left. See @code{markdown-promote} below.
 
@@ -1020,8 +1017,8 @@ left. See @code{markdown-promote} below.
 @kindex M-@key{RIGHT}
 @kindex C-c C-x r
 @findex markdown-demote
-@cindex How to demote headers
-@cindex How to demote items
+@cindex how to demote headers
+@cindex how to demote items
 This will demote headers, rules and list items at point, moving them
 right.
 
@@ -1046,36 +1043,36 @@ markup is moving in when promoting or demoting.
 
 @node Moving Subtrees
 @subsection Moving Subtrees
-@cindex Moving Subtrees
-@cindex How to move list trees
-@cindex How to move header trees
+@cindex moving subtrees
+@cindex how to move list trees
+@cindex how to move header trees
 
 @table @asis
 @item @kbd{M-S-@key{UP}} (@code{markdown-move-subtree-up})
 @kindex M-S-@key{UP}
 @findex markdown-move-subtree-up
-@cindex How to move a subtree up
+@cindex how to move a subtree up
 
 ToDO
 
 @item @kbd{M-S-@key{DOWN}} (@code{markdown-move-subtree-down})
 @kindex M-S-@key{DOWN}
 @findex markdown-move-subtree-down
-@cindex How to move a subtree down
+@cindex how to move a subtree down
 
 ToDO
 
 @item @kbd{M-S-@key{LEFT}} (@code{markdown-promote-subtree})
 @kindex M-S-@key{LEFT}
 @findex markdown-promote-subtree
-@cindex How to promote a subtree
+@cindex how to promote a subtree
 
 ToDO
 
 @item @kbd{M-S-@key{RIGHT}} (@code{markdown-demote-subtree})
 @kindex M-S-@key{RIGHT}
 @findex markdown-demote-subtree
-@cindex How to demote a subtree
+@cindex how to demote a subtree
 
 ToDO
 @end table
@@ -1085,9 +1082,9 @@ ToDO
 @item @kbd{C-c C-k} (@code{markdown-kill-thing-at-point})
 @kindex C-c C-k
 @findex markdown-kill-thing-at-point
-@cindex How to kill markup
-@cindex How to kill headers
-@cindex How to kill items
+@cindex how to kill markup
+@cindex how to kill headers
+@cindex how to kill items
 This kills the header, item or other markdown 'thing' at the
 point. The interesting text (but not the markup) is added to the
 kill-ring. You can use @kbd{C-y} as usual to yank the text back if
@@ -1096,16 +1093,16 @@ desired, without the old markup.
 
 @node Differences from text-mode
 @section Differences from text-mode
-@cindex Differences from @code{text-mode}
+@cindex differences from @code{text-mode}
 
 ToDo Section Text
 
 @node Compile Commands
 @section Compile Commands
-@cindex Compile Commands
-@cindex How to Compile
-@cindex How to Convert
-@cindex How to Output HTML
+@cindex compile commands
+@cindex how to compile
+@cindex how to convert
+@cindex how to output HTML
 
 This section describes compile (output) commands.
 
@@ -1183,18 +1180,18 @@ Summary of compile commands:
 
 @node Using GFM Mode
 @chapter Using GFM Mode
-@cindex Using GFM Mode
-@cindex GitHub Flavored Markdown
-@cindex How to Use gfm-mode
+@cindex using GFM mode
+@cindex GitHub flavored markdown
+@cindex how to use gfm-mode
 @findex gfm-mode
 
-This chapter describes ToDo...
+ToDo: This chapter describes
 
 @node Customizing
 @chapter Customizing
-@cindex Customizing
-@cindex How to Customize @code{markdown-mode}
-@cindex Variables
+@cindex customizing
+@cindex how to Customize @code{markdown-mode}
+@cindex variables
 
 This chapter describes how to customize @code{markdown-mode}.
 
@@ -1203,21 +1200,21 @@ your Emacs startup file or by running @kbd{M-x customize-group
 markdown} and then restarting Emacs.
 
 @menu
-* Customizing External Commands::  How to Customize External Commands.
-* Customizing Markdown Format::  How to Customize Markdown Format.
-* Customizing Markdown Headers::  How to Customize Markdown Headers
-* Customizing Indenting::       How to Customize Markdown Indenting
-* [[Wiki-Links]] Syntax Highlighting::  How to Highlight [[Wiki-Links]].
+* Customizing External Commands::       Customize External Commands.
+* Customizing Markdown Format::         Customize Markdown Format.
+* Customizing Markdown Headers::        Customize Markdown Headers
+* Customizing Indenting::               Customize Markdown Indenting
+* [[Wiki-Links]] Syntax Highlighting::  Highlight [[Wiki-Links]].
 * Customizing GitHub Flavored Markdown::
-* Customizing HTML Format::     How to Customize HTML Format.
-* @LaTeX{} Math Syntax Highlighting::  How to Highlight @LaTeX{} Math.
+* Customizing HTML Format::             Customize HTML Format.
+* @LaTeX{} Math Syntax Highlighting::   Highlight @LaTeX{} Math.
 @end menu
 
 @node Customizing External Commands
 @section Customizing External Commands
-@cindex Customizing External Commands
-@cindex How to Customize External Commands
-@cindex Variables that Control External Commands
+@cindex customizing external commands
+@cindex how to customize external commands
+@cindex variables that control external commands
 
 The variables in this section control how @code{markdown-mode} calls
 external commands to convert markdown text to HTML or another format
@@ -1226,7 +1223,7 @@ or to preview the markdown text.
 @vtable @code
 @item markdown-command
 @vindex markdown-command
-@cindex How to Configure @code{markdown-command}
+@cindex how to configure @code{markdown-command}
 string, default: @code{"markdown"}.
 
 This variable specifies the command and options that
@@ -1245,7 +1242,7 @@ Examples of @code{markdown-command} configurations in Emacs startup file:
 
 @table @asis
 @item Default. Assumes @command{markdown} command in @env{$PATH}.
-@cindex How to Use with @command{markdown}
+@cindex how to use with @command{markdown}
 @pindex markdown
 
 @cartouche
@@ -1265,8 +1262,8 @@ the @env{$PATH}, as when Emacs is launched as an app under MacOS.
 @end cartouche
 
 @item @command{markdown} with @command{smartypants}
-@cindex How to Use SmartyPants
-@cindex Smart Quotation Marks
+@cindex how to use @command{smartypants}
+@cindex smart quotation marks
 @pindex smartypants
 You may pipe the output of @command{markdown} to @command{smartypants}
 to add smart quotation marks.
@@ -1280,7 +1277,7 @@ See @uref{https://daringfireball.net/projects/smartypants/}.
 @end cartouche
 
 @item @command{multimarkdown}
-@cindex How to Use with @command{multimarkdown}
+@cindex how to use with @command{multimarkdown}
 @pindex multimarkdown
 @command{multimarkdown} usually outputs to HTML like
 @command{markdown}, but can also output to several other formats with
@@ -1297,9 +1294,9 @@ See @uref{http://fletcherpenney.net/multimarkdown/}.
 @end cartouche
 
 @item @command{pandoc}
-@cindex How to Use with @command{pandoc}
-@cindex How to Output to Other Formats
-@cindex Outputting to Other Formats
+@cindex how to use with @command{pandoc}
+@cindex how to output to other formats
+@cindex outputting to other formats
 @pindex pandoc
 @command{pandoc} (@uref{http://pandoc.org}) will output to HTML, but
 it can also output to 40 other formats and converts from 5 different
@@ -1339,9 +1336,10 @@ case, you will only be able to run @code{markdown-command} from
 buffers that are visiting a file.
 
 @item markdown-open-command
+@kindex C-c C-c o
 @vindex markdown-open-command
-@cindex How to Customize markdown-open
-@cindex How to Customize @kbd{C-c C-c o}
+@cindex how to customize markdown-open
+@cindex how to customize @kbd{C-c C-c o}
 string, default: @code{nil}.
 
 This variable specifies the command and options that the function
@@ -1373,8 +1371,8 @@ fi
 
 @node Customizing Markdown Format
 @section Customizing Markdown Format
-@cindex Customizing Markdown Format
-@cindex How to Customize Markdown Format
+@cindex customizing markdown format
+@cindex how to customize markdown format
 The variables in this section control how @code{markdown-mode} formats
 Markdown text. These variables may be set in the Emacs startup file or by using @kbd{M-x customize-mode}.
 
@@ -1432,8 +1430,8 @@ behavior induced when the global variable is non-nil.
 
 @node Customizing Markdown Headers
 @section Customizing Markdown Headers
-@cindex Customizing Markdown Headers
-@cindex How to Customize Markdown Headers
+@cindex customizing markdown headers
+@cindex how to customize markdown headers
 The variables in this section allow you to customize how
 @code{markdown-mode} uses headers.
 
@@ -1498,8 +1496,8 @@ to smallest.
 
 @node Customizing Indenting
 @section Customizing Indenting
-@cindex Customizing Indenting
-@cindex How to Customize Indenting
+@cindex customizing indenting
+@cindex how to customize indenting
 The variables in this section allow you to customize how
 @code{markdown-mode} handles indentation.
 
@@ -1526,10 +1524,10 @@ enter key is pressed.
 
 @node [[Wiki-Links]] Syntax Highlighting
 @section [[Wiki-Links]] Syntax Highlighting
-@cindex [[Wiki-Links]] Syntax Highlighting
-@cindex Wiki Links Syntax Highlighting
-@cindex Highlighting [[Wiki-Links]] Syntax
-@cindex How to Highlight [[Wiki-Links]]
+@cindex [[wiki-links]] syntax highlighting
+@cindex wiki links syntax highlighting
+@cindex highlighting [[wiki-links]] syntax
+@cindex how to highlight [[wiki-links]]
 
 Besides supporting the basic Markdown syntax, @code{markdown-mode} also
 includes syntax highlighting for [[Wiki-Links]].  This support is
@@ -1608,8 +1606,8 @@ See @uref{https://ikiwiki.info}
 
 @node Customizing GitHub Flavored Markdown
 @section Customizing GitHub Flavored Markdown
-@cindex Customizing GitHub Flavored Markdown
-@cindex How to Customize Markdown Format
+@cindex customizing GitHub flavored markdown
+@cindex how to customize @acronym{GFM} format
 
 This section describes variables that customize @code{gfm-mode}.
 
@@ -1644,8 +1642,8 @@ mouse-1 or RET. If non-nil, then buttons are enabled.  This works in
 
 @node Customizing HTML Format
 @section Customizing HTML Format
-@cindex Customizing HTML Format
-@cindex How to Customize HTML Format
+@cindex customizing HTML format
+@cindex how to customize HTML format
 
 This section describes variables that customize HTML formatting.
 
@@ -1706,9 +1704,9 @@ assumes the output is a fragment and adds a header and footer.
 
 @node @LaTeX{} Math Syntax Highlighting
 @section @LaTeX{} Math Syntax Highlighting
-@cindex @LaTeX{} Math Syntax Highlighting
-@cindex Highlighting @LaTeX{} Math Syntax
-@cindex How to Highlight @LaTeX{} Math
+@cindex @LaTeX{} math syntax highlighting
+@cindex highlighting @LaTeX{} math syntax
+@cindex how to highlight @LaTeX{} math
 
 This section describes the variable that enables @LaTeX{} Math Syntax
 highlighting.
@@ -1733,7 +1731,7 @@ Math support can be toggled later using @kbd{M-x markdown-enable-math}.
 
 @node Development
 @appendix Development
-@cindex Development
+@cindex development
 
 This appendix is for contributors to @code{markdown-mode}, past or
 future@dots{} @strong{Thank you.}
@@ -1741,16 +1739,16 @@ future@dots{} @strong{Thank you.}
 @menu
 * Acknowledgments::             Many Thanks to Contributors.
 * History of Releases::         History of Software Releases.
-* Development Version::         How to Get the Development Version.
-* Bugs and Errors::             How to Report Bugs and Errors.
+* Development Version::         how to Get the Development Version.
+* Bugs and Errors::             how to Report Bugs and Errors.
 @end menu
 
 @node Acknowledgments
 @section Acknowledgments
-@cindex Acknowledgments
-@cindex Contributors
-@cindex Credits
-@cindex Thank You
+@cindex acknowledgments
+@cindex contributors
+@cindex credits
+@cindex thank you
 
 @code{markdown-mode} has benefited greatly from the efforts of:
 
@@ -1814,9 +1812,8 @@ future@dots{} @strong{Thank you.}
 
 @node History of Releases
 @section History of Releases
-@cindex History of Releases
-@cindex History
-@cindex Releases
+@cindex history of releases
+@cindex releases
 
 @code{markdown-mode} was primarily written and is maintained by Jason
 Blevins. The first release, 1.1,  was on May 24, 2007. This manual
@@ -1842,17 +1839,17 @@ Most of the prior versions may be downloaded:
 
 @node Development Version
 @section Development Version
-@cindex Development Version
+@cindex development version
 
 You may browse the project files of @code{markdown-mode}, contribute
 to its development or help to test the current development version.
 
-@cindex How to Browse the Source Code
+@cindex how to browse the source code
 @itemize @bullet
 @item To browse the @code{markdown-mode} project files, visit the project's
 page on GitHub at @uref{https://github.com/jrblevin/markdown-mode}.
 
-@cindex How to Contribute to Development
+@cindex how to contribute to development
 @item To contribute to the development of @code{markdown-mode}, you may fork
 the project to your own GitHub account or clone the repository
 directly with:
@@ -1867,7 +1864,7 @@ directly with:
 @end table
 @end cartouche
 
-@cindex How to Test the Development Version
+@cindex how to test the development version
 @item To test the current development version of
 @code{markdown-mode}, you may either download @code{markdown-mode.el}
 from the repository at
@@ -1887,11 +1884,10 @@ times. See the next section for how to submit a bug report.
 @end itemize
 @node Bugs and Errors
 @section Bugs and Errors
-@cindex Bugs and Errors
-@cindex How to Report Bugs
-@cindex How to Report Errors
-@cindex Feedback
-@cindex Contact Information
+@cindex bugs and errors
+@cindex how to report bugs & errors
+@cindex feedback
+@cindex contact information
 
 @table @strong
 @item Software Bugs
@@ -1915,21 +1911,21 @@ will find his original manual at
 
 @node GNU General Public License 2.0
 @unnumbered GNU General Public License 2.0
-@cindex License (software)
+@cindex license (software)
 @cindex GNU General Public License 2.0
 
 @include gpl-2.0.texi
 
 @c @node GNU General Public License 3.0
 @c @unnumbered GNU General Public License 3.0
-@c @cindex License (updated)
+@c @cindex license (updated)
 @c @cindex GNU General Public License 3.0
 @c 
 @c @include gpl.texi
 @c 
 @node GNU Free Documentation License
 @unnumbered GNU Free Documentation License
-@cindex License (manual)
+@cindex license (manual)
 @cindex GNU Free Documentation License
 
 @include fdl.texi
@@ -1937,25 +1933,25 @@ will find his original manual at
 @ifnotdocbook
 @node Concept Index
 @unnumbered Concept Index
-@cindex Concept Index @samp{;-)}
+@cindex concept index @samp{;-)}
 
 @printindex cp
 
 @node Variable Index
 @unnumbered Variable Index
-@cindex Variable Index
+@cindex variable index
 
 @printindex vr
 
 @node Function Index
 @unnumbered Function Index
-@cindex Function Index
+@cindex function index
 
 @printindex fn
 
 @node Program Index
 @unnumbered Program Index
-@cindex Program Index
+@cindex program index
 
 @printindex pg
 @end ifnotdocbook
