@@ -17,11 +17,11 @@ Copyright @copyright{} 2016 Daniel Birket.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3 or
+under the terms of the @acronym{GNU} Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
 Texts.  A copy of the license is included in the section entitled
-@cite{GNU Free Documentation License}.
+@cite{@acronym{GNU} Free Documentation License}.
 @end quotation
 
 This is the Emacs Markdown Mode manual (unauthorized), @value{EDITION}
@@ -36,7 +36,7 @@ It was compiled from @file{.texinfo} source with @value{TEXINFO} and
 typeset using @TeX{} by Donald Knuth, et al.
 @end iftex
 @ifhtml
-This HTML document was was compiled from @file{.texinfo} source with
+This @acronym{HTML} document was was compiled from @file{.texinfo} source with
 @value{TEXINFO}.
 @end ifhtml
 @ifdocbook
@@ -119,16 +119,16 @@ In @command{info}, type @kbd{3} to jump to the chapter on usage, or type
 @end ifnotdocbook
 
 @menu
-* Introduction::        About @command{markdown} & @code{markdown-mode}.
-* Installing::          How to Download & Install @code{markdown-mode}.
-* Using @code{markdown-mode}::  Hot to Use @code{markdown-mode} commands.
-* Using GFM Mode::      How to Use @code{gfm-mode}.
-* Customizing::         How to Customize @code{markdown-mode} (Variables).
-* Development::         For all those that contribute, past or future.
+* Introduction::                About @command{markdown} & @code{markdown-mode}.
+* Installing::                  How to Download & Install @code{markdown-mode}.
+* Using @code{markdown-mode}::  How to Use @code{markdown-mode} commands.
+* Using GFM Mode::              How to Use @code{gfm-mode}.
+* Customizing::                 How to Customize @code{markdown-mode} (Variables).
+* Development::                 For all those that contribute, past or future.
 
 Appendices:
-* GNU General Public License 2.0::  License of @code{markdown-mode.el} (1991).
-* GNU Free Documentation License::  License of this manual (2008).
+* @acronym{GNU} General Public License 2.0::
+* @acronym{GNU} Free Documentation License::
 * Concept Index::
 * Variable Index::
 * Function Index::
@@ -142,7 +142,7 @@ This manual describes how to install and use @code{markdown-mode}, an Emacs
 package for working with markdown-formatted text. The features of this
 package assist the user to insert and manipulate markdown-compatible
 markup syntax and to use the external @command{markdown} command to
-convert the markdown-formatted text to HTML-formatted text.
+convert the markdown-formatted text to @acronym{HTML}-formatted text.
 
 The package implements two Emacs @emph{major modes}:
 @itemize @bullet
@@ -158,7 +158,7 @@ The package implements two Emacs @emph{major modes}:
 @pindex markdown
 The popular Unix filter command @command{markdown}, created by John
 Gruber in 2004, provides an easy way to produce styled text by first
-editing simple text files and then converting the text to HTML. This
+editing simple text files and then converting the text to @acronym{HTML}. This
 approach separates composition from formatting, allowing the writer to
 focus on writing without the distractions of WYSIWYG editors. It is
 described at @uref{http://daringfireball.net/projects/markdown/}.
@@ -173,10 +173,10 @@ is described at
 @uref{http://github.github.com/github-flavored-markdown/}.
 
 @pindex emacs
-The powerful text editor, @command{emacs}, created by Richard
+The powerful text editor, Emacs, created by Richard
 Stallman, et al. in 1976, is highly extensible and has a large
-ecosystem of extensions like this one created over 30 years.  GNU
-emacs is described at @uref{https://www.gnu.org/software/emacs/}.
+ecosystem of extensions like this one created over 30 years.  @acronym{GNU}
+Emacs is described at @uref{https://www.gnu.org/software/emacs/}.
 
 @node Installing
 @chapter Installing
@@ -267,8 +267,8 @@ to load automatically by adding the following to your init file:
 @end cartouche
 
 This package, @code{markdown-mode.el}, depends on the package
-@code{cl-lib}, which has been bundled with GNU Emacs since version
-24.3. If you use GNU Emacs version 24.1 or 24.2, you should install
+@code{cl-lib}, which has been bundled with @acronym{GNU} Emacs since version
+24.3. If you use @acronym{GNU} Emacs version 24.1 or 24.2, you should install
 @code{cl-lib} using @code{package.el}. To install @code{cl-lib} type
 @kbd{M-x package-install @key{RET} cl-lib @key{RET}}
 
@@ -339,7 +339,7 @@ Source: markdown-mode
 Version: 2.1-1
 @dots{}
 Description-en: mode for editing Markdown-formatted text
-files in GNU Emacs.  The mode provides syntax highlighted,
+files in @acronym{GNU} Emacs.  The mode provides syntax highlighted,
 and keyboard shortcuts for editing, compiling and previewing
 Markdown.
 @dots{}
@@ -426,7 +426,7 @@ keybindings are grouped based on their function:
 
 @table @kbd
 @item C-c C-a
-Prefix keys for insert link commands. (HTML <a> tag).@*
+Prefix keys for insert link commands. (@acronym{HTML} <a> tag).@*
 Use @kbd{C-c C-a C-h} to list all commands in this group.
 
 @item C-c C-c
@@ -833,7 +833,7 @@ and an optional title.
 If a URL is provided, a reference definition will be inserted in
 accordance with @code{markdown-reference-location}.  If a title is given,
 it will be added to the end of the reference definition and will be
-used to populate the title attribute when converted to XHTML.
+used to populate the title attribute when converted to @acronym{XHTML}.
 
 @item @kbd{C-c C-a u} (@code{markdown-insert-uri})
 @kindex C-c C-a u
@@ -911,7 +911,6 @@ This will move to the next inline, reference or wiki link, if any.
 @kindex C-c C-o
 @findex markdown-follow-thing-at-point
 @cindex how to open a link
-@cindex Hot to follow a link
 Press @kbd{C-c C-o} when the point is on an inline or reference link
 to open the URL in a browser.  When the point is at a wiki link, open
 it in another buffer (in the current window, or in the other window
@@ -1102,7 +1101,7 @@ ToDo Section Text
 @cindex compile commands
 @cindex how to compile
 @cindex how to convert
-@cindex how to output HTML
+@cindex how to output @acronym{HTML}
 
 This section describes compile (output) commands.
 
@@ -1114,7 +1113,7 @@ The prefix for this group of commands is @kbd{C-c C-c}.
 @findex markdown-other-window
 
 This will run @code{markdown-command} on the current buffer and
-display the output (XHTML) in the other window with the buffer name
+display the output (@acronym{XHMTL}) in the other window with the buffer name
 @samp{*markdown-output*}.
 
 @item @kbd{C-c C-c p} (@code{markdown-preview})
@@ -1190,7 +1189,7 @@ ToDo: This chapter describes
 @node Customizing
 @chapter Customizing
 @cindex customizing
-@cindex how to Customize @code{markdown-mode}
+@cindex how to customize @code{markdown-mode}
 @cindex variables
 
 This chapter describes how to customize @code{markdown-mode}.
@@ -1204,9 +1203,9 @@ markdown} and then restarting Emacs.
 * Customizing Markdown Format::         Customize Markdown Format.
 * Customizing Markdown Headers::        Customize Markdown Headers
 * Customizing Indenting::               Customize Markdown Indenting
-* [[Wiki-Links]] Syntax Highlighting::  Highlight [[Wiki-Links]].
+* Wiki-Links Syntax Highlighting::      Customize Wiki-Links Syntax
 * Customizing GitHub Flavored Markdown::
-* Customizing HTML Format::             Customize HTML Format.
+* Customizing @acronym{HTML} Format::   Customize @acronym{HTML} format
 * @LaTeX{} Math Syntax Highlighting::   Highlight @LaTeX{} Math.
 @end menu
 
@@ -1217,7 +1216,7 @@ markdown} and then restarting Emacs.
 @cindex variables that control external commands
 
 The variables in this section control how @code{markdown-mode} calls
-external commands to convert markdown text to HTML or another format
+external commands to convert markdown text to @acronym{HTML} or another format
 or to preview the markdown text.
 
 @vtable @code
@@ -1279,7 +1278,7 @@ See @uref{https://daringfireball.net/projects/smartypants/}.
 @item @command{multimarkdown}
 @cindex how to use with @command{multimarkdown}
 @pindex multimarkdown
-@command{multimarkdown} usually outputs to HTML like
+@command{multimarkdown} usually outputs to @acronym{HTML} like
 @command{markdown}, but can also output to several other formats with
 the @option{--to=@var{FORMAT}} option. It includes the functionality
 of @command{smartypants}.
@@ -1298,7 +1297,7 @@ See @uref{http://fletcherpenney.net/multimarkdown/}.
 @cindex how to output to other formats
 @cindex outputting to other formats
 @pindex pandoc
-@command{pandoc} (@uref{http://pandoc.org}) will output to HTML, but
+@command{pandoc} (@uref{http://pandoc.org}) will output to @acronym{HTML}, but
 it can also output to 40 other formats and converts from 5 different
 markdown dialects, including GitHub-flavored markdown.
 
@@ -1338,7 +1337,7 @@ buffers that are visiting a file.
 @item markdown-open-command
 @kindex C-c C-c o
 @vindex markdown-open-command
-@cindex how to customize markdown-open
+@cindex how to customize @code{markdown-open}
 @cindex how to customize @kbd{C-c C-c o}
 string, default: @code{nil}.
 
@@ -1486,7 +1485,7 @@ A list of 6 strings. The default is:
  @end lisp
 
 A list of strings to use when inserting horizontal rules.  Different
-strings will not be distinguished when converted to HTML -- they
+strings will not be distinguished when converted to @acronym{HTML} -- they
 will all be converted to @code{<hr/>} -- but they may add visual
 distinction and style to plain text documents.  To maintain some
 notion of promotion and demotion, keep these sorted from largest
@@ -1522,9 +1521,8 @@ enter key is pressed.
 
 @end vtable
 
-@node [[Wiki-Links]] Syntax Highlighting
-@section [[Wiki-Links]] Syntax Highlighting
-@cindex [[wiki-links]] syntax highlighting
+@node Wiki-Links Syntax Highlighting
+@section Wiki-Links Syntax Highlighting
 @cindex wiki links syntax highlighting
 @cindex highlighting [[wiki-links]] syntax
 @cindex how to highlight [[wiki-links]]
@@ -1640,12 +1638,12 @@ mouse-1 or RET. If non-nil, then buttons are enabled.  This works in
 
 @end vtable
 
-@node Customizing HTML Format
-@section Customizing HTML Format
-@cindex customizing HTML format
-@cindex how to customize HTML format
+@node Customizing @acronym{HTML} Format
+@section Customizing @acronym{HTML} Format
+@cindex customizing @acronym{HTML} format
+@cindex how to customize @acronym{HTML} format
 
-This section describes variables that customize HTML formatting.
+This section describes variables that customize @acronym{HTML} formatting.
 
 @vtable @code
 
@@ -1661,13 +1659,13 @@ that @code{markdown-mode} should highlight.
 @item markdown-css-paths
 list of strings, default @code{nil}
 
-Determines a list of URLs of CSS files to link to in the output XHTML.
+Determines a list of URLs of CSS files to link to in the output @acronym{XHMTL}.
 
 @item markdown-content-type
 string, default: @code{""}
 
 when set to a nonempty string, an @samp{http-equiv} attribute will be
-included in the XHTML @samp{<head>} block.  The suggested values are
+included in the @acronym{XHMTL} @samp{<head>} block.  The suggested values are
 @code{"application/xhtml+xml"} or @code{"text/html"}.
 
 This variable must be set to a non-empty string to use
@@ -1688,15 +1686,15 @@ when unavailable).  Common settings are @samp{utf-8} and
 @item markdown-xhtml-header-content
 string, default @code{""}
 
-Determines any additional content to include in the XHTML @samp{<head>}
+Determines any additional content to include in the @acronym{XHMTL} @samp{<head>}
 block.
 
 @item markdown-xhtml-standalone-regexp
 string, default @code{^\\(<\\?xml\\|<!DOCTYPE\\|<html\\)}
 
 a regular expression which @code{markdown-mode} uses to determine
-whether the output of @code{markdown-command} is a standalone XHTML
-document or an XHTML fragment.  If this regular expression is not
+whether the output of @code{markdown-command} is a standalone @acronym{XHMTL}
+document or an @acronym{XHMTL} fragment.  If this regular expression is not
 matched in the first five lines of output, @code{markdown-mode}
 assumes the output is a fragment and adds a header and footer.
 
@@ -1892,7 +1890,7 @@ times. See the next section for how to submit a bug report.
 @table @strong
 @item Software Bugs
 @code{markdown-mode} was developed and primarily tested for
-compatibility with GNU Emacs 24.3 and later. If you encounter a
+compatibility with @acronym{GNU} Emacs 24.3 and later. If you encounter a
 problem and have an older version of Emacs, please consider updating
 your version of Emacs to resolve the problem.
 
@@ -1909,24 +1907,24 @@ will find his original manual at
 @uref{https://github.com/jrblevin/markdown-mode}.
 @end table
 
-@node GNU General Public License 2.0
-@unnumbered GNU General Public License 2.0
+@node @acronym{GNU} General Public License 2.0
+@unnumbered @acronym{GNU} General Public License 2.0
 @cindex license (software)
-@cindex GNU General Public License 2.0
+@cindex @acronym{GNU} General Public License 2.0
 
 @include gpl-2.0.texi
 
-@c @node GNU General Public License 3.0
-@c @unnumbered GNU General Public License 3.0
+@c @node @acronym{GNU} General Public License 3.0
+@c @unnumbered @acronym{GNU} General Public License 3.0
 @c @cindex license (updated)
-@c @cindex GNU General Public License 3.0
+@c @cindex @acronym{GNU} General Public License 3.0
 @c 
 @c @include gpl.texi
 @c 
-@node GNU Free Documentation License
-@unnumbered GNU Free Documentation License
+@node @acronym{GNU} Free Documentation License
+@unnumbered @acronym{GNU} Free Documentation License
 @cindex license (manual)
-@cindex GNU Free Documentation License
+@cindex @acronym{GNU} Free Documentation License
 
 @include fdl.texi
 
