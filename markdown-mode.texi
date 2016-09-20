@@ -208,14 +208,12 @@ the list of archives used by @code{package.el} by adding the following
 lines to your @file{.emacs}, @file{init.el}, or other Emacs startup
 file and restarting Emacs (or just evaluate the statements):
 
-@cartouche
 @lisp
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 @end lisp
-@end cartouche
 
 @findex package-install
 Then, after restarting Emacs (or otherwise evaluating the above
@@ -249,7 +247,6 @@ and save the file where Emacs can find it in a directory listed in your
 Then configure @code{markdown-mode} and @code{gfm-mode}
 to load automatically by adding the following to your init file:
 
-@cartouche
 @lisp
 (autoload 'markdown-mode
           "markdown-mode"
@@ -262,7 +259,6 @@ to load automatically by adding the following to your init file:
           "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 @end lisp
-@end cartouche
 
 This package, @code{markdown-mode.el}, depends on the package
 @code{cl-lib}, which has been bundled with @acronym{GNU} Emacs since version
@@ -280,7 +276,6 @@ automatically install and configure @code{markdown-mode} by adding a
 declaration such as this one to your init file (This is an
 example. Please adjust these settings as desired):
 
-@cartouche
 @lisp
 (use-package markdown-mode
   :ensure t
@@ -290,7 +285,6 @@ example. Please adjust these settings as desired):
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 @end lisp
-@end cartouche
 
 @code{use-package} is documented at @uref{https://github.com/jwiegley/use-package}
 
@@ -1256,21 +1250,17 @@ Examples of @code{markdown-command} configurations in Emacs startup file:
 @cindex @command{markdown}, configure
 @pindex markdown
 
-@cartouche
 @lisp
 (setq markdown-command "markdown")
 @end lisp
-@end cartouche
 
 @item @command{markdown} with specified path
 You may need to specify the path to @command{markdown} if it is not in
 the @env{$PATH}, as when Emacs is launched as an app under MacOS.
 
-@cartouche
 @lisp
 (setq markdown-command "/usr/local/bin/markdown")
 @end lisp
-@end cartouche
 
 @item @command{markdown} with @command{smartypants}
 @cindex @command{smartypants}, configure
@@ -1281,11 +1271,9 @@ to add smart quotation marks.
 
 See @uref{https://daringfireball.net/projects/smartypants/}.
 
-@cartouche
 @lisp
 (setq markdown-command "markdown | smartypants")
 @end lisp
-@end cartouche
 
 @item @command{multimarkdown}
 @cindex @command{multimarkdown}, configure
@@ -1297,12 +1285,10 @@ of @command{smartypants}.
 
 See @uref{http://fletcherpenney.net/multimarkdown/}.
 
-@cartouche
 @lisp
 (setq markdown-command
       "/usr/local/bin/multimarkdown")
 @end lisp
-@end cartouche
 
 @item @command{pandoc}
 @cindex @command{pandoc}, configure
@@ -1315,7 +1301,6 @@ markdown dialects, including GitHub-flavored markdown.
 
 See @uref{http://pandoc.org}
 
-@cartouche
 @lisp
 (setq markdown-command
       (concat
@@ -1323,7 +1308,6 @@ See @uref{http://pandoc.org}
       " --from=markdown"
       " --to=html"))
 @end lisp
-@end cartouche
 @end table
 
 @item markdown-command-needs-filename
@@ -1413,11 +1397,9 @@ possible locations are:
 @end itemize
 
 Example:
-@cartouche
 @lisp
 (setq markdown-reference-location 'end)
 @end lisp
-@end cartouche
 
 @item markdown-footnote-location
 One of @code{header}, @code{end} (the default), or @code{immediately}
@@ -1627,17 +1609,17 @@ list of strings, default @code{nil}
 
 Determines any more languages to make available, in addition to the
 300+ languages predefined in @code{markdown-gfm-recognized-languages},
-when inserting GFM code blocks. Language strings must be trimmed of
-white space and not contain any curly braces. They may be of arbitrary
-capitalization.
+when inserting @acronym{GFM} code blocks. Language strings must be
+trimmed of white space and not contain any curly braces. They may be
+of arbitrary capitalization.
 
 @item markdown-gfm-use-electric-backquote
 @findex markdown-electric-backquote
 @code{nil} or @code{t}, default @code{t}
 
 Set to non-nil to use the function @code{markdown-electric-backquote}
-for interactive insertion of GFM code blocks when backquote is pressed
-three times.
+for interactive insertion of @acronym{GFM} code blocks when backquote
+is pressed three times.
 
 @item markdown-make-gfm-checkboxes-buttons
 @code{nil} or @code{t}, default @code{t}
