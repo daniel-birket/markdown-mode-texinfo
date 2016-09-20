@@ -32,12 +32,12 @@ markdown-mode.html: ${SOURCE} ${INCLUDE}
 
 pdf: markdown-mode.pdf
 
-markdown-mode.pdf: ${SOURCE} ${INCLUDE}
+markdown-mode.pdf: ${SOURCE} ${INCLUDE} markdown-mode.info
 	$(TEXI2PDF) $<
 
 ps: markdown-mode.ps
 
-markdown-mode.ps: ${SOURCE} ${INCLUDE}
+markdown-mode.ps: ${SOURCE} ${INCLUDE} markdown-mode.info
 	$(TEXI2DVI) --ps  $<
 
 txt: markdown-mode.txt
@@ -47,7 +47,7 @@ markdown-mode.txt: ${SOURCE} ${INCLUDE}
 
 docbook: markdown-mode.xml
 
-markdown-mode.xml: ${SOURCE} ${INCLUDE}
+markdown-mode.xml: ${SOURCE} ${INCLUDE} markdown-mode.info
 	$(TEXI2ANY) --docbook $<
 
 # index entries are not handled correctly in epub version
