@@ -460,7 +460,7 @@ C-h}.
 * Links::                       Work with Links.
 * Images::                      Work with Images.
 * Common Commands::             for both Headers and Lists.
-* Differences from text-mode::  Differences from text-mode
+* Notes::
 * Compile Commands::            @command{markdown} integration.
 @end menu
 
@@ -636,6 +636,34 @@ buffer.
 This subsection describes how to navigate among headers and collapse
 and expand header sections.
 
+@table @asis
+@item @kbd{C-c C-n} (@code{markdown-next-visible-heading})
+@kindex C-c C-n
+@findex markdown-next-visible-heading
+ToDo
+
+@item @kbd{C-c C-p} (@code{markdown-previous-visible-heading})
+@kindex C-c C-p
+@findex markdown-previous-visible-heading
+ToDo
+
+@item @kbd{C-c C-f} (@code{markdown-forward-same-level})
+@kindex C-c C-f
+@findex markdown-forward-same-level
+ToDo
+
+@item @kbd{C-c C-b} (@code{markdown-backward-same-level})
+@kindex C-c C-b
+@findex markdown-backward-same-level
+ToDo
+
+@item @kbd{C-c C-u} (@code{markdown-up-heading})
+@kindex C-c C-u
+@findex markdown-up-heading
+ToDo
+
+@end table
+
 @node Inserting Horizontal Rules
 @subsection Inserting Horizontal Rules
 @cindex inserting horizontal rules
@@ -664,11 +692,26 @@ string selected by the number.
 @cindex lists
 
 This section describes how to insert and renumber list items. To move
-list items, @xref{Common Commands}.
-
-ToDo
+list items: @xref{Common Commands}.
 
 @table @asis
+@item @kbd{M-@key{RET}} or @kbd{C-c C-x m} or @kbd{C-c C-j} (@code{markdown-insert-list-item})
+@kindex C-c C-j
+@kindex M-@key{RET}
+@findex markdown-insert-list-item
+@cindex list, insert item
+This inserts an appopriate new list item. It determines the
+appropriate marker (one of the possible unordered list markers or the
+next number in sequence for an ordered list) and indentation level by
+examining nearby list items.  If there is no list before or after the
+point, it starts a new list.  Prefix this command with @kbd{C-u} to
+decrease the indentation by one level.  Prefix this command with
+@kbd{C-u C-u} to increase the indentation by one level.
+
+@code{markdown-mode} version 2.2 repurposes the @kbd{C-c C-j}
+keybinding previously used for @code{markdown-jump} to match the AUCTex
+keybinding for inserting list items.
+
 @item @kbd{C-c C-c n} (@code{markdown-cleanup-list-numbers})
 @kindex C-c C-c n
 @findex markdown-cleanup-list-numbers
@@ -980,6 +1023,8 @@ miscellaneous commands.
 @menu
 * Moving Single Items::
 * Moving Subtrees::
+* Indenting the Region::
+* Killing Entities::
 @end menu
 
 @node Moving Single Items
@@ -1007,7 +1052,7 @@ ToDO
 
 ToDO
 
-@item @kbd{C-c C--} or @kbd{C-c C-x l} or @kbd{M-@key{LEFT}} (@code{markdown-promote})
+@item @kbd{M-@key{LEFT}} or @kbd{C-c C-x l} or @kbd{C-c C--} (@code{markdown-promote})
 @kindex C-c C--
 @kindex M-@key{LEFT}
 @kindex C-c C-x l
@@ -1018,7 +1063,7 @@ ToDO
 This will promote headers, rules and list items at point, moving them
 left. See @code{markdown-promote} below.
 
-@item @kbd{C-c C-=} or @kbd{C-c C-x r} or @kbd{M-@key{RIGHT}} (@code{markdown-demote})
+@item @kbd{M-@key{RIGHT}} or @kbd{C-c C-x r} or @kbd{C-c C-=} (@code{markdown-demote})
 @kindex C-c C-=
 @kindex M-@key{RIGHT}
 @kindex C-c C-x r
@@ -1085,6 +1130,32 @@ ToDO
 @end table
 
 
+@node Indenting the Region
+@subsection Indenting the Region
+@cindex indenting the region
+
+Text in the region can be indented or exdented as a group using
+@kbd{C-c >} to indent to the next indentation point (calculated in
+the current context), and @kbd{C-c <} to exdent to the previous
+indentation point.  These keybindings are the same as those for
+similar commands in @code{python-mode}.
+
+@table @asis
+@item @kbd{C-c <} (@code{markdown-exdent-region})
+@kindex C-c <
+@findex markdown-exdent-region
+This exdents the region to the previous indentation point.
+
+@item @kbd{C-c >} (@code{markdown-indent-region})
+@kindex C-c >
+@findex markdown-indent-region
+This indents the region to the previous indentation point.
+@end table
+
+@node Killing Entities
+@subsection Killing Entities
+@cindex killing entities
+
 @table @asis
 @item @kbd{C-c C-k} (@code{markdown-kill-thing-at-point})
 @kindex C-c C-k
@@ -1100,11 +1171,117 @@ kill-ring. You can use @kbd{C-y} as usual to yank the text back if
 desired, without the old markup.
 @end table
 
-@node Differences from text-mode
-@section Differences from text-mode
-@cindex differences from @code{text-mode}
+@node Notes
+@section Notes
+@cindex notes
+
+This section contains notes on various details of @code{markdown-mode}.
+
+@menu
+* Navigation Differences::
+* Mark and Region::
+* Indenting::
+* Org and Outline features::
+@end menu
+
+@node Navigation Differences
+@subsection Navigation Differences
+@cindex navigation differences
 
 ToDo Section Text
+
+@table @asis
+@item @kbd{M-@{} (@code{markdown-backward-paragraph})
+@kindex M-@{
+@findex markdown-backward-paragraph
+ToDo
+
+@item @kbd{M-@}} (@code{markdown-forward-paragraph})
+@kindex M-@}
+@findex markdown-forward-paragraph
+ToDo
+
+@item @kbd{C-M-a} (@code{markdown-beginning-of-defun})
+@kindex C-M-a
+@findex markdown-beginning-of-defun
+ToDo
+
+@item @kbd{C-M-e} (@code{markdown-end-of-defun})
+@kindex C-M-e
+@findex markdown-end-of-defun
+ToDo
+
+@item @kbd{C-M-h} (@code{mark-defun})
+@kindex C-M-h
+@findex mark-defun
+ToDo
+@end table
+
+@node Mark and Region
+@subsection Mark and Region
+@cindex mark
+@cindex transient mark
+@cindex region
+
+As noted, many of the commands above behave differently depending on
+whether Transient Mark mode is enabled or not.  When it makes sense,
+if Transient Mark mode is on and the region is active, the command
+applies to the text in the region (e.g., @kbd{C-c C-s s} makes the
+region bold).  For users who prefer to work outside of Transient Mark
+mode, since Emacs 22 it can be enabled temporarily by pressing
+@kbd{C-SPC C-SPC}.  When this is not the case, many commands then
+proceed to work with the word or line at the point.
+
+When applicable, commands that specifically act on the region even
+outside of Transient Mark mode have the same keybinding as their
+standard counterpart, but the letter is uppercase.  For example,
+@code{markdown-insert-blockquote} is bound to @kbd{C-c C-s b} and only acts
+on the region in Transient Mark mode while
+@code{markdown-blockquote-region} is bound to @kbd{C-c C-s B} and always
+applies to the region (when nonempty).
+
+Note that these region-specific functions are useful in many cases
+where it may not be obvious.  For example, yanking text from the kill
+ring sets the mark at the beginning of the yanked text and moves the
+point to the end.  Therefore, the (inactive) region contains the
+yanked text.  So, @kbd{C-y} followed by @kbd{C-c C-s C-B} will yank
+text and turn it into a blockquote.
+
+@node Indenting
+@subsection Indenting
+@cindex indenting
+
+@code{markdown-mode} attempts to be flexible in how it handles
+indentation.  When you press @key{TAB} repeatedly, the point will
+cycle through several possible indentation levels corresponding to
+things you might have in mind when you press @key{RET} at the end of a
+line or @key{TAB}.  For example, you may want to start a new list
+item, continue a list item with hanging indentation, indent for a
+nested pre block, and so on.  Exdention is handled similarly when
+backspace is pressed at the beginning of the non-whitespace portion of
+a line.
+
+@node Org and Outline features
+@subsection Org and Outline features
+@cindex org-mode visibility
+@cindex outline-minor-mode
+
+@code{markdown-mode} supports @code{outline-minor-mode} as well as @code{org-mode} style
+visibility cycling for atx- or hash-style headings.
+
+There are two
+types of visibility cycling:
+@itemize @bullet
+@item Pressing @kbd{S-@key{TAB}} cycles globally between
+the table of contents view (headings only), outline view (top-level
+headings only), and the full document view.
+@item Pressing @key{TAB} while the
+point is at a heading will cycle through levels of visibility for the
+subtree: completely folded, visible children, and fully visible.
+@end itemize
+
+Note that mixing hash and underline style headings will give undesired
+results.
 
 @node Compile Commands
 @section Compile Commands
