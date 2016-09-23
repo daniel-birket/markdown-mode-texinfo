@@ -65,3 +65,4 @@ clean:
 	rm markdown-mode.xml markdown-mode.epub markdown-mode.md || true
 	rm markdown-mode.html markdown-mode.txt markdown-mode.pdf || true
 	rm markdown-mode.info markdown-mode.info.gz || true
+	rm README.html || true
