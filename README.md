@@ -9,14 +9,14 @@ compatible with the [`info`][info] help function of Emacs and include
 an index, which the original manual lacks.
 
 Jason Blevins' `markdown-mode.el` Lisp source code includes an
-extensive block of commentary, which is extracted to create markdown and
-HTML format manuals, but not the info-format used by Emacs' help. The
+extensive block of comments, which are extracted to create markdown and
+HTML format manuals, but not the `info` format used by Emacs' help. The
 markdown-format manual (once located) can be consulted in one buffer
 while working with Emacs Markdown Mode in another buffer or the user
 may consult the HTML-format [online manual][]. The program also uses
 Emacs self-documenting features and the user could always consult the
 source code itself if s/he knows how. This is adequate documentation
-for expert Emacs users, but I am not an expert.
+for expert Emacs users. But, I am not an expert.
 
 [Texinfo][], the documentation format of the Emacs manual and other
 [GNU project documentation][], while more complex and arcane than
@@ -31,7 +31,8 @@ command. (This `info` file must be installed in a directory with other
 File'.) The Texinfo-format manual can also be compiled into HTML, PDF,
 ePub and other formats - even markdown.
 
-This project is still in progress with no release version.
+This project was because the author hoped to learn from it. It is
+still in progress with no release version.
 
 -- Daniel Birket
 
