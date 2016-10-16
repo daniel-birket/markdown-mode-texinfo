@@ -1622,7 +1622,6 @@ in Markdown documents are rare and the most users probably intend for
 the actual content of the document to be filled.  Making this variable
 buffer-local allows @code{markdown-mode} to override the default
 behavior induced when the global variable is non-nil.
-
 @end vtable
 
 @node Customizing Markdown Headers
@@ -1633,7 +1632,6 @@ The variables in this section allow you to customize how
 @code{markdown-mode} uses headers.
 
 @vtable @code
-
 @item markdown-asymmetric-header
 @code{nil} or @code{t}, default: @code{nil}.
 
@@ -1688,7 +1686,6 @@ will all be converted to @code{<hr/>} -- but they may add visual
 distinction and style to plain text documents.  To maintain some
 notion of promotion and demotion, keep these sorted from largest
 to smallest.
-
 @end vtable
 
 @node Customizing Indenting
@@ -1699,7 +1696,6 @@ The variables in this section allow you to customize how
 @code{markdown-mode} handles indentation.
 
 @vtable @code
-
 @item markdown-list-indent-width
 integer, default: 4
 
@@ -1716,7 +1712,6 @@ Determines the function to use for automatic indentation.
 
 Set to a non-nil value to automatically indent new lines when the
 enter key is pressed.
-
 @end vtable
 
 @node Wiki-Links Syntax Highlighting
@@ -1748,7 +1743,6 @@ to a non-nil value.
 The variables below customize how Wiki-Links are handled.
 
 @vtable @code
-
 @item markdown-enable-wiki-links
 @findex markdown-toggle-wiki-links
 @code{nil} or @code{t}, default: @code{nil}.
@@ -1807,7 +1801,6 @@ See @uref{https://ikiwiki.info}
 This section describes variables that customize @code{gfm-mode}.
 
 @vtable @code
-
 @item markdown-gfm-additional-languages
 list of strings, default @code{nil}
 
@@ -1832,7 +1825,6 @@ Determines whether GitHub Flavored Markdown style task lists
 (checkboxes) should be turned into buttons that can be toggled with
 mouse-1 or RET. If non-nil, then buttons are enabled.  This works in
 @code{markdown-mode} as well as @code{gfm-mode}.
-
 @end vtable
 
 @node Customizing @acronym{HTML} Format
@@ -1843,7 +1835,6 @@ mouse-1 or RET. If non-nil, then buttons are enabled.  This works in
 This section describes variables that customize @acronym{HTML} formatting.
 
 @vtable @code
-
 @item markdown-uri-types
 list of strings, default: @code{("acap" "cid" "data" "dav" "fax"
 "file" "ftp" "gopher" "http" "https" "imap" "ldap" "mailto" "mid"
@@ -1894,7 +1885,6 @@ whether the output of @code{markdown-command} is a standalone @acronym{XHMTL}
 document or an @acronym{XHMTL} fragment.  If this regular expression is not
 matched in the first five lines of output, @code{markdown-mode}
 assumes the output is a fragment and adds a header and footer.
-
 @end vtable
 
 @node @LaTeX{} Math Syntax Highlighting
@@ -1906,7 +1896,6 @@ This section describes the variable that enables @LaTeX{} Math Syntax
 highlighting.
 
 @vtable @code
-
 @item markdown-enable-math
 @code{nil} or @code{t}, default: @code{nil}.
 
@@ -1920,7 +1909,6 @@ Only expressions denoted by @samp{$..$}, @samp{$$..$$}, or
 @samp{\[..\]} are highlighted.
 
 Math support can be toggled later using @kbd{M-x markdown-enable-math}.
-
 @end vtable
 
 @node Development
