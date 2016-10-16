@@ -1208,27 +1208,40 @@ are separated by one or more lines.
 @item @kbd{M-@{} (@code{markdown-backward-paragraph})
 @kindex M-@{
 @findex markdown-backward-paragraph
-This command jumps to the beginning of the block of text at point, or 
+This command jumps to the beginning of the block of text at point, or
+to the previous paragraph.  Paragraphs are delimited by one or more
+blank lines.
 
 @item @kbd{M-@}} (@code{markdown-forward-paragraph})
 @kindex M-@}
 @findex markdown-forward-paragraph
-ToDo
+This command jumps to the end of the block of text at point, or
+to the next paragraph.  Paragraphs are delimited by one or more
+blank lines.
+@end table
 
+The usual Emacs commands can be used to move by defuns (top-level
+major definitions).  In markdown-mode, a defun is a section.  As
+usual, @kbd{C-M-a} will move the point to the beginning of the current
+or preceding defun, @kbd{C-M-e} will move to the end of the current or
+following defun, and @kbd{C-M-h} will put the region around the entire
+defun.
+
+@table @asis
 @item @kbd{C-M-a} (@code{markdown-beginning-of-defun})
 @kindex C-M-a
 @findex markdown-beginning-of-defun
-ToDo
+This command will move to the beginning of a section.
 
 @item @kbd{C-M-e} (@code{markdown-end-of-defun})
 @kindex C-M-e
 @findex markdown-end-of-defun
-ToDo
+This command will move to the end of a section.
 
 @item @kbd{C-M-h} (@code{mark-defun})
 @kindex C-M-h
 @findex mark-defun
-ToDo
+This command will put the region around the current section.
 @end table
 
 @node Mark and Region
