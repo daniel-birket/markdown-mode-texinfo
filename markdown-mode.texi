@@ -8,7 +8,7 @@
 @set SWCYEARS 2007-2016
 @set EDITION @value{VERSION}.!
 @set TEXINFO @acronym{GNU} Texinfo v6.3
-@set EMACS Emacs v24.5
+@set EMACS Emacs v25.1.1
 @comment %**end of header
 
 @copying
@@ -715,6 +715,7 @@ point, it starts a new list.  Prefix this command with @kbd{C-u} to
 decrease the indentation by one level.  Prefix this command with
 @kbd{C-u C-u} to increase the indentation by one level.
 
+@cindex v2.2
 @code{markdown-mode} version 2.2 repurposes the @kbd{C-c C-j}
 keybinding previously used for @code{markdown-jump} to match the AUCTex
 keybinding for inserting list items.
@@ -789,6 +790,7 @@ between them.
 @item @kbd{C-c C-s k} (@code{markdown-insert-kbd})
 @kindex C-c C-s k
 @findex markdown-insert-kbd
+@cindex v2.2
 Insert markup to wrap a region or word in <kbd> tags.
 
 If there is an active region, use the region.  If the point is at a
@@ -983,6 +985,7 @@ new buffer will be created containing clickable buttons for jumping
 to each link.  You may press @key{TAB} or @kbd{S-@key{TAB}} to jump between
 buttons in this window.
 
+@cindex v2.2
 Note: the keybinding of the @code{markdown-jump} function was changed
 from @kbd{C-c C-j} ('j'ump) in version 2.1 to @kbd{C-c C-l} ('l'eap)
 in version 2.2 so that @kbd{C-c C-j} could be used to insert list
@@ -1018,9 +1021,9 @@ the word at point (if any) as the alt text.
 @findex markdown-toggle-inline-images
 @cindex toggling image display
 @cindex image display, toggling
+@cindex v2.2
 This will toggle display of local inline images. Use it again to
 remove local inline image display. (@code{markdown-mode} version 2.2).
-
 @end table
 
 @node Common Commands
@@ -1745,6 +1748,7 @@ The default will ensure header characters are placed to the left and right
 of the title.
 
 @item markdown-header-scaling
+@cindex v2.2
 @code{nil} or @code{t}, default: @code{nil}.
 
 Determines whether to use variable-height faces for headers.
@@ -1758,12 +1762,14 @@ In detail: When non-nil, @code{markdown-header-face} will inherit from
 levels one through six respectively.
     
 @item markdown-header-scaling-values
+@cindex v2.2
 A list of 6 float, default: @code{(list 1.8 1.4 1.2 1.0 1.0 1.0)}
 
 A list of 6 scaling values, relative to baseline, for headers of levels
 one through six. They are used when `markdown-header-scaling` is non-nil.
 
 @item markdown-nested-imenu-header-index
+@cindex v2.2
 @code{nil} or @code{t}, default: @code{nil}.
 
 Set to a non-nil value to use nested imenu header instead of a flat
@@ -1848,6 +1854,7 @@ The variables below customize how Wiki-Links are handled.
 @vtable @code
 @item markdown-enable-wiki-links
 @findex markdown-toggle-wiki-links
+@cindex v2.2
 @code{nil} or @code{t}, default: @code{nil}.
 
 This enables syntax highlighting for [[Wiki-Links]].
