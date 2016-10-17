@@ -138,11 +138,12 @@ Appendices:
 @node Introduction
 @chapter Introduction
 @cindex introduction
-This manual describes how to install and use @code{markdown-mode}, an Emacs
-package for working with markdown-formatted text. The features of this
-package assist the user to insert and manipulate markdown-compatible
-markup syntax and to use the external @command{markdown} command to
-convert the markdown-formatted text to @acronym{HTML}-formatted text.
+This manual describes how to install and use @code{markdown-mode}, an
+Emacs package for working with markdown-formatted text. The features
+of this package assist the user to insert and manipulate
+markdown-compatible markup syntax and to use the external
+@command{markdown} command to convert the markdown-formatted text to
+@acronym{HTML}-formatted text.
 
 The package implements two Emacs @emph{major modes}:
 @itemize @bullet
@@ -158,10 +159,11 @@ The package implements two Emacs @emph{major modes}:
 @pindex markdown
 The popular Unix filter command @command{markdown}, created by John
 Gruber in 2004, provides an easy way to produce styled text by first
-editing simple text files and then converting the text to @acronym{HTML}. This
-approach separates composition from formatting, allowing the writer to
-focus on writing without the distractions of WYSIWYG editors. It is
-described at @uref{http://daringfireball.net/projects/markdown/}.
+editing simple text files and then converting the text to
+@acronym{HTML}. This approach separates composition from formatting,
+allowing the writer to focus on writing without the distractions of
+WYSIWYG editors. It is described at
+@uref{http://daringfireball.net/projects/markdown/}.
 
 @command{markdown} has been re-implemented by various authors and with
 various additional features and syntax, including
@@ -226,7 +228,9 @@ When installed using the package manager this way, the major modes
 @code{markdown-mode} will be used automatically for file names ending
 in either @file{.md} or @file{.markdown}.
 
-You may browse the 1500+ packages in the MELPA-Stable archive at @uref{http://stable.melpa.org/} or by typing @kbd{M-x list-packages @key{RET}} (after adding it to your package-archives list, above).
+You may browse the 1500+ packages in the MELPA-Stable archive at
+@uref{http://stable.melpa.org/} or by typing @kbd{M-x list-packages
+@key{RET}} (after adding it to your package-archives list, above).
 
 @node Manual Installation
 @section Manual Installation
@@ -261,10 +265,11 @@ to load automatically by adding the following to your init file:
 @end lisp
 
 This package, @code{markdown-mode.el}, depends on the package
-@code{cl-lib}, which has been bundled with @acronym{GNU} Emacs since version
-24.3. If you use @acronym{GNU} Emacs version 24.1 or 24.2, you should install
-@code{cl-lib} using @code{package.el}. To install @code{cl-lib} type
-@kbd{M-x package-install @key{RET} cl-lib @key{RET}}
+@code{cl-lib}, which has been bundled with @acronym{GNU} Emacs since
+version 24.3. If you use @acronym{GNU} Emacs version 24.1 or 24.2, you
+should install @code{cl-lib} using @code{package.el}. To install
+@code{cl-lib} type @kbd{M-x package-install @key{RET} cl-lib
+@key{RET}}
 
 @node Managed Loading
 @section Managed Loading
@@ -1396,7 +1401,105 @@ Summary of compile commands:
 @cindex GitHub flavored markdown
 @findex gfm-mode
 
-ToDo: This chapter describes
+ToDo: This chapter describes the differences between markdown-mode and
+the available @cite{GitHub Flavored Markdown Mode},
+@code{gfm-mode}. GitHub Flavored Markdown is described at
+@uref{http://github.github.com/github-flavored-markdown/}
+
+The GitHub implementation differs slightly from standard Markdown in
+that it supports things like different behavior for underscores inside
+of words, automatic linking of URLs, strikethrough text, and fenced
+code blocks with an optional language keyword.
+
+The GFM-specific features above apply to @file{README.md} files, wiki
+pages, and other Markdown-formatted files in repositories on GitHub.
+GitHub also enables additional features
+@uref{https://help.github.com/articles/writing-on-github/} for writing
+on the site (for issues, pull requests, messages, etc.)  that are
+further extensions of GFM.  These features include task lists
+(checkboxes), newlines corresponding to hard line breaks, auto-linked
+references to issues and commits, wiki links, and so on.  To make
+matters more confusing, although task lists are not part of GFM
+proper, since 2014 they are rendered (in a read-only fashion) in all
+Markdown documents in repositories on the
+site. @uref{https://github.com/blog/1825-task-lists-in-all-markdown-documents}
+These additional extensions are supported to varying degrees by
+@code{markdown-mode} and @code{gfm-mode} as described below.
+
+@table @strong
+@item URL autolinking
+@cindex GFM URL autolinking
+Both @code{markdown-mode} and @code{gfm-mode} support highlighting of
+URLs without angle brackets.
+
+@item Multiple underscores in words
+@cindex GFM Multiple underscores in words
+You must enable @code{gfm-mode} to toggle support for underscores
+inside of words. In this mode variable names such as
+@var{a_test_variable} will not trigger emphasis (italics).
+
+@item Fenced code blocks
+@cindex GFM Fenced code blocks
+Code blocks quoted with backticks, with optional programming language
+keywords, are highlighted in both @code{markdown-mode} and
+@code{gfm-mode}.  They can be inserted with @kbd{C-c C-s P}.  If there
+is an active region, the text in the region will be placed inside the
+code block.  You will be prompted for the name of the language, but
+may press enter to continue without naming a language.
+
+@item Strikethrough
+@cindex GFM Strikethrough
+Strikethrough text is only supported in @code{gfm-mode} and can be
+inserted (and toggled) using @kbd{C-c C-s d}.  Following the mnemonics
+for the other style keybindings, the letter @kbd{d} coincides with the
+HTML tag @code{<del>}.
+
+@item Task lists
+@cindex GFM Task lists
+@vindex markdown-make-gfm-checkboxes-buttons
+GFM task lists will be rendered as checkboxes (Emacs buttons) in both
+@code{markdown-mode} and @code{gfm-mode} when
+@code{markdown-make-gfm-checkboxes-buttons} is set to a non-nil value
+(and it is set to t by default).  These checkboxes can be toggled by
+clicking @kbd{mouse-1} or pressing @key{RET} over the button.
+
+@item Wiki links
+@cindex GFM Wiki links
+Generic wiki links are supported in @code{markdown-mode}, but in
+@code{gfm-mode} specifically they will be treated as they are on
+GitHub: spaces will be replaced by hyphens in filenames and the first
+letter of the filename will be capitalized.  For example, @cite{[[wiki
+link]]} will map to a file named @file{Wiki-link} with the same
+extension as the current file.
+
+@item Newlines
+@cindex GFM Newlines
+@findex visual-line-mode
+Neither @code{markdown-mode} nor @code{gfm-mode} do anything
+specifically with respect to newline behavior.  If you use
+@code{gfm-mode} mostly to write text for comments or issues on the
+GitHub site (where newlines are significant and correspond to hard
+line breaks) then you may want to enable @code{visual-line-mode} for
+line wrapping in buffers.  You can do this with a @code{gfm-mode-hook}
+as follows:
+
+@lisp
+;; Use visual-line-mode in gfm-mode
+(defun my-gfm-mode-hook ()
+       (visual-line-mode 1))
+(add-hook 'gfm-mode-hook 'my-gfm-mode-hook)
+@end lisp
+
+@item Preview
+@cindex GFM Preview
+@vindex markdown-command
+@vindex markdown-open-command
+GFM-specific preview can be powered by setting @code{markdown-command}
+to use a GFM preview application like Docter
+(@uref{https://github.com/alampros/Docter}).  This may also be
+configured to work with @cite{Marked 2} for
+@code{markdown-open-command}.
+@end table
 
 @node Customizing
 @chapter Customizing
