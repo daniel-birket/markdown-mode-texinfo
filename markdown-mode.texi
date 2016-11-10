@@ -6,7 +6,7 @@
 @set VERSION 2.1
 @set RELEASED January 9, 2016
 @set SWCYEARS 2007-2016
-@set EDITION @value{VERSION}.!
+@set EDITION @value{VERSION}.a
 @set TEXINFO @acronym{GNU} Texinfo v6.3
 @set EMACS Emacs v25.1.1
 @comment %**end of header
@@ -17,15 +17,15 @@ Copyright @copyright{} 2016 Daniel Birket.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the @acronym{GNU} Free Documentation License, Version 1.3 or
-any later version published by the Free Software Foundation; with no
-Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
-Texts.  A copy of the license is included in the section entitled
-@cite{@acronym{GNU} Free Documentation License}.
+under the terms of the @acronym{GNU} Free Documentation License,
+Version 1.3 or any later version published by the Free Software
+Foundation; with no Invariant Sections, with no Front-Cover Texts, and
+with no Back-Cover Texts.  A copy of the license is included in the
+section entitled @cite{@acronym{GNU} Free Documentation License}.
 @end quotation
 
 This is the Emacs Markdown Mode manual (unauthorized), @value{EDITION}
-ed., by Daniel Birket, updated @today{}. This document was composed
+ed., by Daniel Birket, updated @today{}.  This document was composed
 using @value{EMACS}.
 @ifinfo
 This @command{info} file was was compiled from @file{.texinfo} source
@@ -42,13 +42,13 @@ This @acronym{HTML} document was was compiled from @file{.texinfo} source with
 @ifdocbook
 It was was compiled from @file{.texinfo} source with @value{TEXINFO}
 and converted from @command{docbook} format using
-@command{pandoc}. The indices were omitted in this format.
+@command{pandoc}.  The indices were omitted in this format.
 @end ifdocbook
 
 This manual describes how to install and use the Emacs Lisp software
 package @code{markdown-mode}, version @value{VERSION}, released
 @value{RELEASED}, which was written by and Copyright @copyright{}
-@value{SWCYEARS} Jason R. Blevins, et al. The @code{markdown-mode}
+@value{SWCYEARS} Jason R. Blevins, et al.  The @code{markdown-mode}
 software package and its @emph{authorized} manual are online at
 @uref{http://jblevins.org/projects/markdown-mode/}.
 
@@ -139,7 +139,7 @@ Appendices:
 @chapter Introduction
 @cindex introduction
 This manual describes how to install and use @code{markdown-mode}, an
-Emacs package for working with markdown-formatted text. The features
+Emacs package for working with markdown-formatted text.  The features
 of this package assist the user to insert and manipulate
 markdown-compatible markup syntax and to use the external
 @command{markdown} command to convert the markdown-formatted text to
@@ -160,9 +160,9 @@ The package implements two Emacs @emph{major modes}:
 The popular Unix filter command @command{markdown}, created by John
 Gruber in 2004, provides an easy way to produce styled text by first
 editing simple text files and then converting the text to
-@acronym{HTML}. This approach separates composition from formatting,
+@acronym{HTML}.  This approach separates composition from formatting,
 allowing the writer to focus on writing without the distractions of
-WYSIWYG editors. It is described at
+WYSIWYG editors.  It is described at
 @uref{http://daringfireball.net/projects/markdown/}.
 
 @command{markdown} has been re-implemented by various authors and with
@@ -170,21 +170,21 @@ various additional features and syntax, including
 @command{multimarkdown}, @command{pandoc}, @command{python markdown}
 and many others.
 
-GitHub Flavored Markdown is the dialect of markdown used by GitHub. It
+GitHub Flavored Markdown is the dialect of markdown used by GitHub.  It
 is described at
 @uref{http://github.github.com/github-flavored-markdown/}.
 
-@pindex emacs
-The powerful text editor, Emacs, created by Richard
-Stallman, et al. in 1976, is highly extensible and has a large
-ecosystem of extensions like this one created over 30 years.  @acronym{GNU}
-Emacs is described at @uref{https://www.gnu.org/software/emacs/}.
+@pindex Emacs
+The powerful text editor, Emacs, created in 1976 by Richard Stallman,
+is highly extensible and has a large ecosystem of extensions like this
+one created over 40 years.  @acronym{GNU} Emacs is described at
+@uref{https://www.gnu.org/software/emacs/}.
 
 @node Installing
 @chapter Installing
 @cindex installing
 @cindex downloading
-This chapter describes how to install @code{markdown-mode} for use. To
+This chapter describes how to install @code{markdown-mode} for use.  To
 install the development version, see @ref{Development Version}.
 
 @menu
@@ -203,8 +203,10 @@ install the development version, see @ref{Development Version}.
 @findex package.el
 The recommended way to install the package @code{markdown-mode} is to
 use @code{package.el}, which has been integrated with Emacs since
-version 24. (It is included in version 23, but must be initialized.)
+version 24.  (It is included in version 23, but must be initialized.)
 
+@findex add-to-list
+@vindex package-archives
 To install @code{markdown-mode}, first add the MELPA Stable archive to
 the list of archives used by @code{package.el} by adding the following
 lines to your @file{.emacs}, @file{init.el}, or other Emacs startup
@@ -214,6 +216,7 @@ file and restarting Emacs (or just evaluate the statements):
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
+             
 (package-initialize)
 @end lisp
 
@@ -248,6 +251,9 @@ First, download @code{markdown-mode} from one of:
 and save the file where Emacs can find it in a directory listed in your
 @code{load-path} like @file{/usr/local/share/emacs/site-lisp}.
 
+@findex autoload
+@findex add-to-list
+@vindex auto-mode-alist
 Then configure @code{markdown-mode} and @code{gfm-mode}
 to load automatically by adding the following to your init file:
 
@@ -264,10 +270,11 @@ to load automatically by adding the following to your init file:
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 @end lisp
 
+@pindex cl-lib
 This package, @code{markdown-mode.el}, depends on the package
 @code{cl-lib}, which has been bundled with @acronym{GNU} Emacs since
-version 24.3. If you use @acronym{GNU} Emacs version 24.1 or 24.2, you
-should install @code{cl-lib} using @code{package.el}. To install
+version 24.3.  If you use @acronym{GNU} Emacs version 24.1 or 24.2, you
+should install @code{cl-lib} using @code{package.el}.  To install
 @code{cl-lib} type @kbd{M-x package-install @key{RET} cl-lib
 @key{RET}}
 
@@ -275,11 +282,11 @@ should install @code{cl-lib} using @code{package.el}. To install
 @section Managed Loading
 @cindex managed loading
 @cindex @code{use-package}, loading with
-@findex use-package.el
+@findex use-package
 If you manage loading packages with @code{use-package} then you can
 automatically install and configure @code{markdown-mode} by adding a
 declaration such as this one to your init file (This is an
-example. Please adjust these settings as desired):
+example.  Please adjust these settings as desired):
 
 @lisp
 (use-package markdown-mode
@@ -298,11 +305,11 @@ example. Please adjust these settings as desired):
 @cindex OS package managers
 @cindex Linux package, downloading
 You may download @code{markdown-mode} in packages for use with several
-OS package managers. Most OS packages do not contain the latest stable
+OS package managers.  Most OS packages do not contain the latest stable
 version.  (Please notify the package maintainer if you download one
-that does not.) Note that OS package managers generally do NOT
+that does not.)  Note that OS package managers generally do NOT
 byte-compile or configure @code{markdown-mode} to load
-automatically. Please see the instructions under @ref{Manual
+automatically.  Please see the instructions under @ref{Manual
 Installation} if @code{markdown-mode} does not load automatically.
 
 @table @asis
@@ -311,12 +318,12 @@ Installation} if @code{markdown-mode} does not load automatically.
 @uref{https://packages.debian.org/sid/lisp/elpa-markdown-mode}
 
 Note: As of Sep-2016, this package contains @code{markdown-mode}
-version 2.1. It is unknown if the package manager compiles or
+version 2.1.  It is unknown if the package manager compiles or
 configures @code{markdown-mode}.
 
 @uref{http://packages.debian.org/emacs-goodies-el}
 
-Note: @cite{emacs-goodies-el} is a collection of Emacs programs. The
+Note: @cite{emacs-goodies-el} is a collection of Emacs programs.  The
 version of @code{markdown-mode} included in it is unknown.
 
 @item Ubuntu Linux
@@ -352,7 +359,7 @@ $ sudo apt install elpa-markdown-mode
 @cindex Fedora package, downloading
 @uref{https://apps.fedoraproject.org/packages/emacs-goodies}
 
-Note: @cite{emacs-goodies} is a collection of Emacs programs. The
+Note: @cite{emacs-goodies} is a collection of Emacs programs.  The
 version of @code{markdown-mode} included in it is unknown.
 
 This package is maintained by @email{sagarun@@fedoraproject.org}
@@ -362,7 +369,7 @@ This package is maintained by @email{sagarun@@fedoraproject.org}
 @uref{http://pkgsrc.se/textproc/markdown-mode}
 
 Note: As of Sep-2016, this package installs and byte-compiles an
-@strong{obsolete} version 2.0 (Sep-2014) of @code{markdown-mode}. You
+@strong{obsolete} version 2.0 (Sep-2014) of @code{markdown-mode}.  You
 must manually edit your startup file as described above under
 @ref{Manual Installation}.
 
@@ -389,7 +396,7 @@ Note: As of Sep-2016, this package downloads (but does not
 byte-compile or configure) an @strong{obsolete} version 2.0 (Sep-2014)
 of @code{markdown-mode} from
 @uref{git://jblevins.org/git/markdown-mode.git} to
-@file{/usr/local/share/emacs/site-lisp}. You must manually edit your
+@file{/usr/local/share/emacs/site-lisp}.  You must manually edit your
 startup file as described above under @ref{Manual Installation}.
 @end raggedright
 
@@ -424,23 +431,23 @@ keybindings are grouped based on their function:
 
 @table @kbd
 @item C-c C-a
-Prefix keys for insert link commands. (@acronym{HTML} <a> tag).@*
+Prefix keys for insert link commands.  (@acronym{HTML} <a> tag).@*
 Use @kbd{C-c C-a C-h} to list all commands in this group.
 
 @item C-c C-c
-Prefix keys for 'compiling' markdown. ([c]ompile)@*
+Prefix keys for 'compiling' markdown.  ([c]ompile)@*
 Use @kbd{C-c C-c C-h} to list all commands in this group.
 
 @item C-c C-i
-Prefix keys for insert image commands. ([i]mage)@*
+Prefix keys for insert image commands.  ([i]mage)@*
 Use @kbd{C-c C-i C-h} to list all commands in this group.
 
 @item C-c C-s
-Prefix keys for insert style commands. ([s]tyle)@*
+Prefix keys for insert style commands.  ([s]tyle)@*
 Use @kbd{C-c C-s C-h} to list all commands in this group.
 
 @item C-c C-t
-Prefix keys for insert title/header commands. ([t]itle)@*
+Prefix keys for insert title/header commands.  ([t]itle)@*
 Use @kbd{C-c C-t C-h} to list all commands in this group.
 
 @item C-c C-x
@@ -485,7 +492,7 @@ For more commands that work with headers: @xref{Common Commands}.
 Note: John Gruber created @command{markdown} to handle two pre-existing
 types of titles and headers: the underlined titles supported by
 @command{setext} by Ian Feldman and the headers marked with hash marks
-supported by @command{atx} by Aaron Swartz. @code{markdown-mode}
+supported by @command{atx} by Aaron Swartz.  @code{markdown-mode}
 refers to these header styles as @command{setext} and @command{atx}
 headers.
 
@@ -497,7 +504,7 @@ This subsection describes how to insert headers.
 
 All header insertion commands use the text in the active region, if
 any, as the header text.  Otherwise, if the current line is not
-blank, they use the text on the current line. The setext-style
+blank, they use the text on the current line.  The setext-style
 (underlined) header insert commands will prompt for header text if
 there is no active region and the current line is blank.
 
@@ -533,7 +540,7 @@ prompt for text (setext).
 @item @kbd{C-c C-t H} (@code{markdown-insert-header-setext-dwim})
 @kindex C-c C-t H
 @findex markdown-insert-header-setext-dwim
-This will insert setext-style (underlined) headers when possible. (Note
+This will insert setext-style (underlined) headers when possible.  (Note
 that only level 1 or 2 setext headers are possible).
 
 @kbd{C-1 C-c C-t H} inserts level-one setext-style headers.
@@ -545,7 +552,7 @@ that only level 1 or 2 setext headers are possible).
 @end table
 
 To insert a specific style and level of header use one of the
-commands below. If the point is at a header, these commands will
+commands below.  If the point is at a header, these commands will
 replace the existing markup in order to update the level and/or type
 of the header.
 
@@ -597,7 +604,7 @@ active region or the text on the current line, if any.
 @kindex C-c C-t !
 @findex markdown-insert-header-setext-1
 This inserts a first-level setext-style (underlined) header, using the
-text in the active region or the text on the current line, if any. The
+text in the active region or the text on the current line, if any.  The
 @kbd{C-c C-t t} keybinding is depreciated.
 
 @item @kbd{C-c C-t @@} or @kbd{C-c C-t s} (@code{markdown-insert-header-setext-2})
@@ -605,7 +612,7 @@ text in the active region or the text on the current line, if any. The
 @kindex C-c C-t @@
 @findex markdown-insert-header-setext-2
 This inserts a second-level setext-style (underlined) header, using the
-text in the active region or the text on the current line, if any. The
+text in the active region or the text on the current line, if any.  The
 @kbd{C-c C-t s} keybinding is depreciated.
 @end table
 
@@ -639,7 +646,7 @@ buffer.
 @cindex outlining
 @findex org-mode
 This subsection describes how to navigate among headers and collapse
-and expand header sections. These commands are similar to the
+and expand header sections.  These commands are similar to the
 navigation commands in @code{outline-mode}.
 
 @table @asis
@@ -698,7 +705,7 @@ string selected by the number.
 @cindex lists
 
 This section describes how to insert and renumber list items and move
-them up and down. To promote or demote list items (and headers): @xref{Common
+them up and down.  To promote or demote list items (and headers): @xref{Common
 Commands}.
 
 @table @asis
@@ -707,7 +714,7 @@ Commands}.
 @kindex M-@key{RET}
 @findex markdown-insert-list-item
 @cindex list, insert item
-This inserts an appopriate new list item. It determines the
+This inserts an appopriate new list item.  It determines the
 appropriate marker (one of the possible unordered list markers or the
 next number in sequence for an ordered list) and indentation level by
 examining nearby list items.  If there is no list before or after the
@@ -733,7 +740,7 @@ sequence.
 @findex @code{markdown-move-up}
 @cindex move a list item up
 
-This command will move a list item up. It does not move headers.
+This command will move a list item up.  It does not move headers.
 
 @item @kbd{M-@key{DOWN}} or @kbd{C-c C-x d} (@code{markdown-move-down})
 @kindex M-@key{DOWN}
@@ -741,7 +748,7 @@ This command will move a list item up. It does not move headers.
 @findex @code{markdown-move-down}
 @cindex move a list item down
 
-This command will move a list item down. It does not move headers.
+This command will move a list item down.  It does not move headers.
 @end table
 
 @node Styles
@@ -795,7 +802,7 @@ Insert markup to wrap a region or word in <kbd> tags.
 
 If there is an active region, use the region.  If the point is at a
 word, use the word.  Otherwise, simply insert <kbd> tags and place the
-cursor between them. (@code{markdown-mode} version 2.2).
+cursor between them.  (@code{markdown-mode} version 2.2).
 
 @item @kbd{C-c C-s b} (@code{markdown-insert-blockquote})
 @kindex C-c C-s b
@@ -852,7 +859,7 @@ The prefix for this group of commands is @kbd{C-c C-a}.
 @cindex inserting inline links
 @cindex inline links, insert
 @cindex link, inline, insert
-This inserts an inline link of the form @samp{[text](url)}. The link
+This inserts an inline link of the form @samp{[text](url)}.  The link
 text is determined as follows:  If there is an active region
 (i.e., when transient mark mode is on and the mark is active), use it
 as the link text.  Otherwise, if the point is at a word, use that word as
@@ -996,7 +1003,7 @@ items using the same key binding as the AUCTeX editor.
 @section Images
 @cindex images
 
-This section describes how to insert and work with images. The prefix
+This section describes how to insert and work with images.  The prefix
 for this group of commands is @kbd{C-c C-i}.
 
 @table @asis
@@ -1022,8 +1029,8 @@ the word at point (if any) as the alt text.
 @cindex toggling image display
 @cindex image display, toggling
 @cindex v2.2
-This will toggle display of local inline images. Use it again to
-remove local inline image display. (@code{markdown-mode} version 2.2).
+This will toggle display of local inline images.  Use it again to
+remove local inline image display.  (@code{markdown-mode} version 2.2).
 @end table
 
 @node Common Commands
@@ -1076,7 +1083,7 @@ markup is moving in when promoting or demoting.
 @cindex promote items
 @cindex move an item left
 This will promote headers, rules and list items at point, moving them
-left. See @code{markdown-promote} below.
+left.  See @code{markdown-promote} below.
 
 @item @kbd{M-@key{RIGHT}} or @kbd{C-c C-x r} or @kbd{C-c C-=} (@code{markdown-demote})
 @kindex C-c C-=
@@ -1098,7 +1105,7 @@ right.
 
 Entire subtrees of ATX headings can be promoted and demoted with
 @kbd{M-S-@key{LEFT}} and @kbd{M-S-@key{RIGHT}}, which mirror the
-bindings for promotion and demotion of list items. Similarly, subtrees
+bindings for promotion and demotion of list items.  Similarly, subtrees
 can be moved up and down with @kbd{M-S-@key{UP}} and
 @kbd{M-S-@key{DOWN}}.
 
@@ -1181,8 +1188,8 @@ This indents the region to the previous indentation point.
 @cindex kill items
 @cindex list item, kill
 This kills the header, item or other markdown 'thing' at the
-point. The interesting text (but not the markup) is added to the
-kill-ring. You can use @kbd{C-y} as usual to yank the text back if
+point.  The interesting text (but not the markup) is added to the
+kill-ring.  You can use @kbd{C-y} as usual to yank the text back if
 desired, without the old markup.
 @end table
 
@@ -1365,25 +1372,25 @@ save the result to the file @file{basename.html}, as with
 @kindex C-c C-c w
 @findex markdown-kill-ring-save
 This will run @code{markdown-command} on the current buffer and save
-the output to the kill ring. You can yank it back where desired with
+the output to the kill ring.  You can yank it back where desired with
 @kbd{C-y} as usual.
 
 @item @kbd{C-c C-c l} (@code{markdown-live-preview-mode})
 @kindex C-c C-c l
 @findex markdown-live-preview-mode
-This will toggle markdown live preview mode. When enabled, it will
+This will toggle markdown live preview mode.  When enabled, it will
 preview the output in the Emacs @code{eww} browser whenever you save
-the markdown file. Toggle it off again to stop live preview and close
-the @code{eww} browser. You may customize the value of the variable
+the markdown file.  Toggle it off again to stop live preview and close
+the @code{eww} browser.  You may customize the value of the variable
 @code{markdown-live-preview-window-function} with your own function to
-use a browser other than @code{eww}. The default value of the variable
+use a browser other than @code{eww}.  The default value of the variable
 is the function @code{markdown-live-preview-window-eww}.
 
 @item @kbd{C-c C-c o} (@code{markdown-open})
 @kindex C-c C-c o
 @findex markdown-open
 This will use @code{markdown-open-command} to open the source markdown
-file visited by the buffer directly. See
+file visited by the buffer directly.  See @ref{Customizing External Commands}.
 @end table
 
 Summary of compile commands:
@@ -1406,7 +1413,7 @@ Summary of compile commands:
 
 ToDo: This chapter describes the differences between markdown-mode and
 the available @cite{GitHub Flavored Markdown Mode},
-@code{gfm-mode}. GitHub Flavored Markdown is described at
+@code{gfm-mode}.  GitHub Flavored Markdown is described at
 @uref{http://github.github.com/github-flavored-markdown/}
 
 The GitHub implementation differs slightly from standard Markdown in
@@ -1425,7 +1432,7 @@ references to issues and commits, wiki links, and so on.  To make
 matters more confusing, although task lists are not part of GFM
 proper, since 2014 they are rendered (in a read-only fashion) in all
 Markdown documents in repositories on the
-site. @uref{https://github.com/blog/1825-task-lists-in-all-markdown-documents}
+site.  @uref{https://github.com/blog/1825-task-lists-in-all-markdown-documents}
 These additional extensions are supported to varying degrees by
 @code{markdown-mode} and @code{gfm-mode} as described below.
 
@@ -1438,7 +1445,7 @@ URLs without angle brackets.
 @item Multiple underscores in words
 @cindex GFM Multiple underscores in words
 You must enable @code{gfm-mode} to toggle support for underscores
-inside of words. In this mode variable names such as
+inside of words.  In this mode variable names such as
 @var{a_test_variable} will not trigger emphasis (italics).
 
 @item Fenced code blocks
@@ -1556,7 +1563,7 @@ output processor in the following functions:
 Examples of @code{markdown-command} configurations in Emacs startup file:
 
 @table @asis
-@item Default. Assumes @command{markdown} command in @env{$PATH}.
+@item Default.  Assumes @command{markdown} command in @env{$PATH}.
 @cindex @command{markdown}, configure
 @pindex markdown
 
@@ -1590,7 +1597,7 @@ See @uref{https://daringfireball.net/projects/smartypants/}.
 @pindex multimarkdown
 @command{multimarkdown} usually outputs to @acronym{HTML} like
 @command{markdown}, but can also output to several other formats with
-the @option{--to=@var{FORMAT}} option. It includes the functionality
+the @option{--to=@var{FORMAT}} option.  It includes the functionality
 of @command{smartypants}.
 
 See @uref{http://fletcherpenney.net/multimarkdown/}.
@@ -1636,7 +1643,7 @@ program specified by @code{markdown-command} using standard input
 When @code{markdown-command-needs-filename} is set to @code{t} (or any
 non-@code{nil}), @code{markdown-mode} will pass the name of the file
 visited by the current buffer as the final command-line argument to
-the program specified by @code{markdown-command}. Note that in this
+the program specified by @code{markdown-command}.  Note that in this
 case, you will only be able to run @code{markdown-command} from
 buffers that are visiting a file.
 
@@ -1649,9 +1656,9 @@ string, default: @code{nil}.
 
 This variable specifies the command and options that the function
 @code{markdown-open}, bound to @kbd{C-c C-c o}, will use to open the
-markdown file in an external markdown previewer application. The
+markdown file in an external markdown previewer application.  The
 command will be called with a single argument: the name of the file
-visited by the buffer. (This only works if the buffer is visiting a
+visited by the buffer.  (This only works if the buffer is visiting a
 file.)
 
 One possible previewer application is @cite{Marked 2} by Brett
@@ -1679,7 +1686,7 @@ fi
 @cindex customizing markdown format
 @cindex markdown format, customize
 The variables in this section control how @code{markdown-mode} formats
-Markdown text. These variables may be set in the Emacs startup file or by using @kbd{M-x customize-mode}.
+Markdown text.  These variables may be set in the Emacs startup file or by using @kbd{M-x customize-mode}.
 
 @vtable @code
 @item markdown-bold-underscore
@@ -1697,7 +1704,7 @@ text instead of single asterisks.
 @item markdown-reference-location
 One of @code{header} (the default), @code{end}, or @code{immediately}
 
-This value determines where to insert reference definitions. The
+This value determines where to insert reference definitions.  The
 possible locations are:
 
 @itemize
@@ -1714,7 +1721,7 @@ Example:
 @item markdown-footnote-location
 One of @code{header}, @code{end} (the default), or @code{immediately}
 
-This value determines where to insert footnote text. The possible
+This value determines where to insert footnote text.  The possible
 locations are the same as for @code{markdown-reference-location},
 above.
 
@@ -1766,7 +1773,7 @@ levels one through six respectively.
 A list of 6 float, default: @code{(list 1.8 1.4 1.2 1.0 1.0 1.0)}
 
 A list of 6 scaling values, relative to baseline, for headers of levels
-one through six. They are used when `markdown-header-scaling` is non-nil.
+one through six.  They are used when `markdown-header-scaling` is non-nil.
 
 @item markdown-nested-imenu-header-index
 @cindex v2.2
@@ -1778,7 +1785,7 @@ menu, but a flat list may allow for faster keyboard navigation via tab
 completion.
 
 @item markdown-hr-strings
-A list of 6 strings. The default is:
+A list of 6 strings.  The default is:
 
 @lisp
 ("-------------------------------------------------------------------------------"
@@ -1895,7 +1902,7 @@ cause lag when typing on slower machines.
 @code{nil} or @code{t}, default: @code{nil}.
 
 When non-nil, search for wiki-link targets in parent
-directories. (This is the default search behavior of Ikiwiki.)
+directories.  (This is the default search behavior of Ikiwiki.)
 
 This only applies when @code{markdown-wiki-link-fontify-missing},
 above, is non-nil.
@@ -1916,8 +1923,8 @@ list of strings, default @code{nil}
 
 Determines any more languages to make available, in addition to the
 300+ languages predefined in @code{markdown-gfm-recognized-languages},
-when inserting @acronym{GFM} code blocks. Language strings must be
-trimmed of white space and not contain any curly braces. They may be
+when inserting @acronym{GFM} code blocks.  Language strings must be
+trimmed of white space and not contain any curly braces.  They may be
 of arbitrary capitalization.
 
 @item markdown-gfm-use-electric-backquote
@@ -1933,7 +1940,7 @@ is pressed three times.
 
 Determines whether GitHub Flavored Markdown style task lists
 (checkboxes) should be turned into buttons that can be toggled with
-mouse-1 or RET. If non-nil, then buttons are enabled.  This works in
+mouse-1 or RET.  If non-nil, then buttons are enabled.  This works in
 @code{markdown-mode} as well as @code{gfm-mode}.
 @end vtable
 
@@ -2011,7 +2018,7 @@ highlighting.
 
 Syntax highlighting for mathematical expressions written in @LaTeX{}
 can be enabled by default by setting @code{markdown-enable-math} to a
-non-nil value. You can set it either via customize or by placing @code{(setq
+non-nil value.  You can set it either via customize or by placing @code{(setq
 markdown-enable-math t)} in @file{.emacs}, and then restarting
 Emacs or calling @code{markdown-reload-extensions}.
 
@@ -2067,7 +2074,7 @@ future@dots{} @strong{Thank you.}
 @item @copyright{} 2012 Zhenlei Jia @email{zhenlei.jia@@gmail.com} for smart exdention function.
 @item @copyright{} 2012 Peter Jones @email{pjones@@pmade.com} for link following functions.
 @item @copyright{} 2013 Matus Goljer @email{dota.keys@@gmail.com} for improved wiki link following and GFM code block insertion.
-@item @copyright{} 2015 Google, Inc. (Contributor: Samuel Freilich @email{sfreilich@@google.com}) for improved filling behavior regarding list items, footnotes, and reference definitions, improved killing of footnotes, and numerous other tests and bug fixes.
+@item @copyright{} 2015 Google, Inc.  (Contributor: Samuel Freilich @email{sfreilich@@google.com}) for improved filling behavior regarding list items, footnotes, and reference definitions, improved killing of footnotes, and numerous other tests and bug fixes.
 @item @copyright{} 2015 Antonis Kanouras @email{antonis@@metadosis.gr} for strikethrough support.
 @item @copyright{} 2015 Howard Melman @email{hmelman@@gmail.com} for supporting GFM checkboxes as buttons.
 @item @copyright{} 2015-2016 Danny McClanahan @email{danieldmcclanahan@@gmail.com} for live preview mode, completion of GFM programming language names, improved font lock for fenced code blocks and meta-data blocks, @code{cl-lib} updates, and numerous other improvements.
@@ -2108,7 +2115,7 @@ future@dots{} @strong{Thank you.}
 @cindex releases
 
 @code{markdown-mode} was primarily written and is maintained by Jason
-Blevins. The first release, 1.1,  was on May 24, 2007. This manual
+Blevins.  The first release, 1.1,  was on May 24, 2007.  This manual
 documents @code{markdown-mode}, version @value{VERSION}, released
 @value{RELEASED}.
 
@@ -2172,7 +2179,7 @@ the following line to your Emacs startup file:
 @end lisp
 
 Please realize that the development version may be unstable at
-times. See the next section for how to submit a bug report.
+times.  See the next section for how to submit a bug report.
 @end itemize
 @node Bugs and Errors
 @section Bugs and Errors
@@ -2183,7 +2190,7 @@ times. See the next section for how to submit a bug report.
 @table @strong
 @item Software Bugs
 @code{markdown-mode} was developed and primarily tested for
-compatibility with @acronym{GNU} Emacs 24.3 and later. If you encounter a
+compatibility with @acronym{GNU} Emacs 24.3 and later.  If you encounter a
 problem and have an older version of Emacs, please consider updating
 your version of Emacs to resolve the problem.
 
@@ -2194,8 +2201,8 @@ tracker at @uref{https://github.com/jrblevin/markdown-mode/issues}.
 @item Manual Errors
 If you find an error in this @emph{unauthorized} manual, please create
 an issue on the issue tracker at
-@uref{https://github.com/daniel-birket/markdown-mode-texinfo/issues}. Please
-do not complain to Mr. Blevin about errors in @emph{this} manual. You
+@uref{https://github.com/daniel-birket/markdown-mode-texinfo/issues}.  Please
+do not complain to Mr. Blevin about errors in @emph{this} manual.  You
 will find his original manual at
 @uref{https://github.com/jrblevin/markdown-mode}.
 @end table
