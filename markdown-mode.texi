@@ -24,11 +24,11 @@ with no Back-Cover Texts.  A copy of the license is included in the
 section entitled @cite{@acronym{GNU} Free Documentation License}.
 @end quotation
 
-This is the Emacs Markdown Mode manual (unauthorized), @value{EDITION}
-ed., by Daniel Birket, updated @today{}.  This document was composed
-using @value{EMACS}.
+This is the Emacs Markdown Mode manual (unauthorized), edition
+@value{EDITION}, by Daniel Birket, updated @today{} and composed using
+@value{EMACS}.
 @ifinfo
-This @command{info} file was was compiled from @file{.texinfo} source
+This @command{info} file was compiled from @file{.texinfo} source
 with @value{TEXINFO}.
 @end ifinfo
 @iftex
@@ -36,7 +36,7 @@ It was compiled from @file{.texinfo} source with @value{TEXINFO} and
 typeset using @TeX{} by Donald Knuth, et al.
 @end iftex
 @ifhtml
-This @acronym{HTML} document was was compiled from @file{.texinfo} source with
+This @acronym{HTML} document was compiled from @file{.texinfo} source with
 @value{TEXINFO}.
 @end ifhtml
 @ifdocbook
@@ -140,10 +140,10 @@ Appendices:
 @cindex introduction
 This manual describes how to install and use @code{markdown-mode}, an
 Emacs package for working with markdown-formatted text.  The features
-of this package assist the user to insert and manipulate
-markdown-compatible markup syntax and to use the external
-@command{markdown} command to convert the markdown-formatted text to
-@acronym{HTML}-formatted text.
+of this package assist the user to insert and manipulate markup syntax
+compatible with the external @command{markdown} command and to use it
+to convert the markdown-formatted text into @acronym{HTML}-formatted
+text.
 
 The package implements two Emacs @emph{major modes}:
 @itemize @bullet
@@ -158,11 +158,13 @@ The package implements two Emacs @emph{major modes}:
 
 @pindex markdown
 The popular Unix filter command @command{markdown}, created by John
-Gruber in 2004, provides an easy way to produce styled text by first
-editing simple text files and then converting the text to
-@acronym{HTML}.  This approach separates composition from formatting,
-allowing the writer to focus on writing without the distractions of
-WYSIWYG editors.  It is described at
+Gruber in 2004 in collaboration with Aaron Swartz, provides an easy
+way to produce styled text by first editing simply-formatted text
+files and then converting that text to @acronym{HTML}.  This approach
+uses a programmer's familiar edit-compile workflow, is compatible with
+source-code management tools and separates composition from
+formatting, allowing the writer to focus on writing without the
+distractions of WYSIWYG editors.  It is described at
 @uref{http://daringfireball.net/projects/markdown/}.
 
 @command{markdown} has been re-implemented by various authors and with
@@ -184,8 +186,9 @@ one created over 40 years.  @acronym{GNU} Emacs is described at
 @chapter Installing
 @cindex installing
 @cindex downloading
-This chapter describes how to install @code{markdown-mode} for use.  To
-install the development version, see @ref{Development Version}.
+This chapter describes how to install @code{markdown-mode} for
+everyday use.  To install the development version for testing, see
+@ref{Development Version}.
 
 @menu
 * Recommended Installation::    Install with @code{package.el}.
@@ -231,9 +234,10 @@ When installed using the package manager this way, the major modes
 @code{markdown-mode} will be used automatically for file names ending
 in either @file{.md} or @file{.markdown}.
 
-You may browse the 1500+ packages in the MELPA-Stable archive at
-@uref{http://stable.melpa.org/} or by typing @kbd{M-x list-packages
-@key{RET}} (after adding it to your package-archives list, above).
+You may browse the 1500+ other Emacs packages in the MELPA-Stable
+archive at @uref{http://stable.melpa.org/} or by typing @kbd{M-x
+list-packages @key{RET}} (after adding it to your package-archives
+list, above).
 
 @node Manual Installation
 @section Manual Installation
@@ -273,10 +277,11 @@ to load automatically by adding the following to your init file:
 @pindex cl-lib
 This package, @code{markdown-mode.el}, depends on the package
 @code{cl-lib}, which has been bundled with @acronym{GNU} Emacs since
-version 24.3.  If you use @acronym{GNU} Emacs version 24.1 or 24.2, you
-should install @code{cl-lib} using @code{package.el}.  To install
-@code{cl-lib} type @kbd{M-x package-install @key{RET} cl-lib
-@key{RET}}
+version 24.3.  If you use @acronym{GNU} Emacs version 24.1 or 24.2 and
+lack @code{cl-lib}, you should install @code{cl-lib} using
+@code{package.el}.  To install @code{cl-lib} type:
+
+@kbd{M-x package-install @key{RET} cl-lib @key{RET}}
 
 @node Managed Loading
 @section Managed Loading
@@ -428,29 +433,47 @@ This chapter describes how to use @code{markdown-mode}.
 keybindings are grouped based on their function:
 
 @table @kbd
-@item C-c C-a
+@item @kbd{C-c C-a}
+@kindex C-c C-a
+@kindex C-c C-a C-h
 Prefix keys for insert link commands.  (@acronym{HTML} <a> tag).@*
-Use @kbd{C-c C-a C-h} to list all commands in this group.
+Use @kbd{C-c C-a C-h} to list all commands in this group.@*
+@xref{Links}
 
-@item C-c C-c
+@item @kbd{C-c C-c}
+@kindex C-c C-c
+@kindex C-c C-c C-h
 Prefix keys for 'compiling' markdown.  ([c]ompile)@*
-Use @kbd{C-c C-c C-h} to list all commands in this group.
+Use @kbd{C-c C-c C-h} to list all commands in this group.@*
+@xref{Compile Commands}
 
-@item C-c C-i
+@item @kbd{C-c C-i}
+@kindex C-c C-i
+@kindex C-c C-i C-h
 Prefix keys for insert image commands.  ([i]mage)@*
-Use @kbd{C-c C-i C-h} to list all commands in this group.
+Use @kbd{C-c C-i C-h} to list all commands in this group.@*
+@xref{Images}
 
-@item C-c C-s
+@item @kbd{C-c C-s}
+@kindex C-c C-s
+@kindex C-c C-s C-h
 Prefix keys for insert style commands.  ([s]tyle)@*
-Use @kbd{C-c C-s C-h} to list all commands in this group.
+Use @kbd{C-c C-s C-h} to list all commands in this group.@*
+@xref{Styles}
 
-@item C-c C-t
+@item @kbd{C-c C-t}
+@kindex C-c C-t
+@kindex C-c C-t C-h
 Prefix keys for insert title/header commands.  ([t]itle)@*
-Use @kbd{C-c C-t C-h} to list all commands in this group.
+Use @kbd{C-c C-t C-h} to list all commands in this group.@*
+@xref{Headers}
 
-@item C-c C-x
+@item @kbd{C-c C-x}
+@kindex C-c C-x
+@kindex C-c C-x C-h
 Prefix keys for manipulating lists.@*
-Use @kbd{C-c C-x C-h} to list all commands in this group.
+Use @kbd{C-c C-x C-h} to list all commands in this group.@*
+@xref{Lists}
 
 @end table
 
@@ -458,9 +481,12 @@ Movement and shifting commands are generally associated with paired
 delimiters such as @kbd{M-@{} and @kbd{M-@}}, or @kbd{C-c <} and
 @kbd{C-c >}.
 
-Outline navigation keybindings the same as in @code{org-mode}. See @ref{(org) Motion}
+@findex org-mode
+Outline navigation keybindings the same as in @code{org-mode}.@*
+@xref{(org) Motion}
 
-You can obtain a list of all keybindings by pressing @kbd{C-c
+@kindex C-c C-h
+You can obtain a list of most @code{markdown-mode} keybindings by pressing @kbd{C-c
 C-h}.
 
 @menu
@@ -469,8 +495,8 @@ C-h}.
 * Styles::                      Work with Styles.
 * Links::                       Work with Links.
 * Images::                      Work with Images.
-* Common Commands::             for both Headers and Lists.
-* Notes::
+* Misc. Commands::              Other Commands.
+* Notes::                       Notes.
 * Compile Commands::            @command{markdown} integration.
 @end menu
 
@@ -479,15 +505,17 @@ C-h}.
 @cindex headers
 This section describes how to work with headers and horizontal rules.
 
-For more commands that work with headers: @xref{Common Commands}.
-
 @menu
 * Inserting Headers::           Inserting Headers
+* Moving Headers::              Moving Single Headers
+* Moving Subtrees::             Moving Entire Trees
 * Navigating Headers::          Outline Navigation
 * Inserting Horizontal Rules::
 @end menu
 
-Note: John Gruber created @command{markdown} to handle two pre-existing
+@pindex setext
+@pindex atx
+Note: John Gruber designed @command{markdown} to handle two pre-existing
 types of titles and headers: the underlined titles supported by
 @command{setext} by Ian Feldman and the headers marked with hash marks
 supported by @command{atx} by Aaron Swartz.  @code{markdown-mode}
@@ -637,6 +665,72 @@ This completes all headers and normalizes all horizontal rules in the
 buffer.
 @end table
 
+
+@node Moving Headers
+@subsection Moving Headers
+@cindex moving headers
+@cindex move single headers
+
+To promote or demote both list items and headers: @xref{Promote/Demote Items}.
+
+
+@node Moving Subtrees
+@subsection Moving Subtrees
+@cindex moving subtrees
+@cindex move list trees
+@cindex move header trees
+
+To promote or demote both list items and headers: @xref{Promote/Demote Items}.
+
+Entire subtrees of atx headings can be promoted and demoted with
+@kbd{M-S-@key{LEFT}} and @kbd{M-S-@key{RIGHT}}, which mirror the
+bindings for promotion and demotion of list items.  Similarly, subtrees
+can be moved up and down with @kbd{M-S-@key{UP}} and
+@kbd{M-S-@key{DOWN}}.
+
+Please note the following "boundary" behavior for promotion and
+demotion.  Any level-six headings will not be demoted further
+(i.e., they remain at level six, since Markdown and HTML define
+only six levels) and any level-one headings will promoted away
+entirely (i.e., heading markup will be removed, since a
+level-zero heading is not defined).
+
+@table @asis
+@item @kbd{M-S-@key{UP}} (@code{markdown-move-subtree-up})
+@kindex M-S-@key{UP}
+@findex markdown-move-subtree-up
+@cindex move a subtree up
+
+This will move the heading at point and the associated sub-tree of
+sub-headings and text up above the previous heading of the same level.
+
+@item @kbd{M-S-@key{DOWN}} (@code{markdown-move-subtree-down})
+@kindex M-S-@key{DOWN}
+@findex markdown-move-subtree-down
+@cindex move a subtree down
+
+This will move the heading at point and the associated sub-tree of
+sub-headings and text down below the next heading of the same level.
+
+@item @kbd{M-S-@key{LEFT}} (@code{markdown-promote-subtree})
+@kindex M-S-@key{LEFT}
+@findex markdown-promote-subtree
+@cindex promote a subtree
+
+This command will promote the heading at point and the associated
+sub-tree of sub-headings and text to the lower (more inclusive) level
+to the left.
+
+@item @kbd{M-S-@key{RIGHT}} (@code{markdown-demote-subtree})
+@kindex M-S-@key{RIGHT}
+@findex markdown-demote-subtree
+@cindex demote a subtree
+
+This command will promote the heading at point and the associated
+sub-tree of sub-headings and text to the higher (less inclusive) level
+to the right.
+@end table
+
 @node Navigating Headers
 @subsection Navigating Headers
 @cindex navigating headers
@@ -703,8 +797,17 @@ string selected by the number.
 @cindex lists
 
 This section describes how to insert and renumber list items and move
-them up and down.  To promote or demote list items (and headers): @xref{Common
-Commands}.
+them up and down.
+
+@menu
+* Inserting List Items::        Insert & Renmber Lists
+* Promote/Demote List Items::   Move Items Left/Right
+* Move List Items::             Move Items Up/Down
+@end menu
+
+@node Inserting List Items
+@subsection Inserting List Items
+@cindex inserting list items
 
 @table @asis
 @item @kbd{M-@key{RET}} or @kbd{C-c C-x m} or @kbd{C-c C-j} (@code{markdown-insert-list-item})
@@ -731,12 +834,24 @@ keybinding for inserting list items.
 @cindex list, renumber all
 This renumbers any ordered lists in the buffer that are out of
 sequence.
+@end table
 
+@node Promote/Demote List Items
+@subsection Promote/Demote List Items
+@cindex promote/demote list items
+
+To promote or demote both list items and headers: @xref{Promote/Demote Items}.
+
+@node Move List Items
+@subsection Move List Items
+@cindex move list items
+
+@table @asis
 @item @kbd{M-@key{UP}} or @kbd{C-c C-x u} (@code{markdown-move-up})
 @kindex M-@key{UP}
 @kindex C-c C-x u
 @findex @code{markdown-move-up}
-@cindex move a list item up
+@cindex move list item up
 
 This command will move a list item up.  It does not move headers.
 
@@ -744,7 +859,7 @@ This command will move a list item up.  It does not move headers.
 @kindex M-@key{DOWN}
 @kindex C-c C-x d
 @findex @code{markdown-move-down}
-@cindex move a list item down
+@cindex move list item down
 
 This command will move a list item down.  It does not move headers.
 @end table
@@ -1031,27 +1146,25 @@ This will toggle display of local inline images.  Use it again to
 remove local inline image display.  (@code{markdown-mode} version 2.2).
 @end table
 
-@node Common Commands
-@section Common Commands
-@cindex common commands
+@node Misc. Commands
+@section Misc. Commands
+@cindex misc. commands
 This section describes commands common to both headers and lists, plus
 miscellaneous commands.
 
 @menu
-* Moving Single Items::
-* Moving Subtrees::
+* Promote/Demote Items::
 * Indenting the Region::
 * Killing Entities::
 @end menu
 
-@node Moving Single Items
-@subsection Moving Single Items
-@cindex moving single items
-@cindex move list items
-@cindex list items, moving
-@cindex move headers
-@cindex headers, moving
-
+@node Promote/Demote Items
+@subsection Promote/Demote Items
+@cindex promote/demote items
+@cindex promote/demote list items
+@cindex list items, promote/demote
+@cindex promote/demote headers
+@cindex headers, promote/demote
 
 Headings, horizontal rules, and list items can be promoted and
 demoted, as well as bold and italic text.
@@ -1093,61 +1206,6 @@ left.  See @code{markdown-promote} below.
 @cindex move an item right
 This will demote headers, rules and list items at point, moving them
 right.
-@end table
-
-@node Moving Subtrees
-@subsection Moving Subtrees
-@cindex moving subtrees
-@cindex move list trees
-@cindex move header trees
-
-Entire subtrees of ATX headings can be promoted and demoted with
-@kbd{M-S-@key{LEFT}} and @kbd{M-S-@key{RIGHT}}, which mirror the
-bindings for promotion and demotion of list items.  Similarly, subtrees
-can be moved up and down with @kbd{M-S-@key{UP}} and
-@kbd{M-S-@key{DOWN}}.
-
-Please note the following "boundary" behavior for promotion and
-demotion.  Any level-six headings will not be demoted further
-(i.e., they remain at level six, since Markdown and HTML define
-only six levels) and any level-one headings will promoted away
-entirely (i.e., heading markup will be removed, since a
-level-zero heading is not defined).
-
-@table @asis
-@item @kbd{M-S-@key{UP}} (@code{markdown-move-subtree-up})
-@kindex M-S-@key{UP}
-@findex markdown-move-subtree-up
-@cindex move a subtree up
-
-This will move the heading at point and the associated sub-tree of
-sub-headings and text up above the previous heading of the same level.
-
-@item @kbd{M-S-@key{DOWN}} (@code{markdown-move-subtree-down})
-@kindex M-S-@key{DOWN}
-@findex markdown-move-subtree-down
-@cindex move a subtree down
-
-This will move the heading at point and the associated sub-tree of
-sub-headings and text down below the next heading of the same level.
-
-@item @kbd{M-S-@key{LEFT}} (@code{markdown-promote-subtree})
-@kindex M-S-@key{LEFT}
-@findex markdown-promote-subtree
-@cindex promote a subtree
-
-This command will promote the heading at point and the associated
-sub-tree of sub-headings and text to the lower (more inclusive) level
-to the left.
-
-@item @kbd{M-S-@key{RIGHT}} (@code{markdown-demote-subtree})
-@kindex M-S-@key{RIGHT}
-@findex markdown-demote-subtree
-@cindex demote a subtree
-
-This command will promote the heading at point and the associated
-sub-tree of sub-headings and text to the higher (less inclusive) level
-to the right.
 @end table
 
 @node Indenting the Region
@@ -1307,20 +1365,23 @@ a line.
 @cindex outline-minor-mode
 
 @code{markdown-mode} supports @code{outline-minor-mode} as well as @code{org-mode} style
-visibility cycling for atx- or hash-style headings.
+visibility cycling for hash-style (atx) headings.
 
-There are two
-types of visibility cycling:
+There are two types of visibility cycling:
 @itemize @bullet
-@item Pressing @kbd{S-@key{TAB}} cycles globally between
-the table of contents view (headings only), outline view (top-level
-headings only), and the full document view.
-@item Pressing @key{TAB} while the
-point is at a heading will cycle through levels of visibility for the
-subtree: completely folded, visible children, and fully visible.
+@item @kbd{S-@key{TAB}}
+@kindex S-TAB
+This cycles globally between the table of contents view (headings
+only), outline view (top-level headings only), and the full document
+view.
+@item @key{TAB}
+@kindex TAB
+Pressing @key{TAB} while the point is at a heading will cycle through
+levels of visibility for the subtree: completely folded, visible
+children, and fully visible.
 @end itemize
 
-Note that mixing hash and underline style headings will give undesired
+Note that mixing hash (atx) and underline (setext) style headings will give undesired
 results.
 
 @node Compile Commands
