@@ -1,22 +1,35 @@
 SOURCE	:= markdown-mode.texi
 INCLUDE	:= fdl.texi gpl-2.0.texi gpl.texi
 
-TEXI2ANY = /usr/local/Cellar/texinfo/6.3/bin/texi2any
-TEXI2PDF = /usr/local/Cellar/texinfo/6.3/bin/texi2pdf
-TEXI2DVI = /usr/local/Cellar/texinfo/6.3/bin/texi2dvi
+INFODIR := /usr/local/share/info/emacs
+
+TEXINFODIR = /usr/local/Cellar/texinfo/6.3/bin
+TEXI2ANY = $(TEXINFODIR)/texi2any
+TEXI2PDF = $(TEXINFODIR)/texi2pdf
+TEXI2DVI = $(TEXINFODIR)/texi2dvi
+INSTALLINFO = $(TEXINFODIR)/install-info
 SMARTYPANTS = /usr/local/bin/smartypants
 PANDOC = /usr/local/bin/pandoc
 GZIP = /usr/bin/gzip
+INSTALL = /usr/bin/install
 
 help:
 	# Options:
 	# make info
+	# make install
+	#
 	# make html
 	# make pdf
 	# make ps
 	# make txt
 	# make docbook
 	# make clean
+	#
+	# Be sure to update file locations in top of Makefile for your system.
+
+install: markdown-mode.info.gz
+	$(INSTALL) $< $(INFODIR)
+	$(INSTALLINFO) $(INFODIR)/$< $(INFODIR)/dir
 
 info: markdown-mode.info.gz
 

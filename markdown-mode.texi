@@ -86,7 +86,7 @@ which begins with:
 
 @dircategory Emacs editing modes
 @direntry
-* markdown-mode: (markdown-mode).        Emacs mode for markdown text.
+* Markdown Mode: (markdown-mode).        Emacs mode for markdown text.
 @end direntry
 
 @titlepage
