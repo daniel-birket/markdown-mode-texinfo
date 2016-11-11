@@ -360,7 +360,7 @@ $ sudo apt install elpa-markdown-mode
 @uref{https://apps.fedoraproject.org/packages/emacs-goodies}
 
 Note: @cite{emacs-goodies} is a collection of Emacs programs.  The
-version of @code{markdown-mode} included in it is unknown.
+version of @code{markdown-mode} that it includes is unknown.
 
 This package is maintained by @email{sagarun@@fedoraproject.org}
 
@@ -401,19 +401,17 @@ startup file as described above under @ref{Manual Installation}.
 @end raggedright
 
 @item Macintosh HomeBrew
-@cindex Homebrew package, downloading
+@cindex Homebrew package, installing
 @pindex brew
 At the terminal prompt type
 @cartouche
 @example
+$ brew update
+@dots{}
 $ brew info homebrew/emacs/markdown-mode
-
-homebrew/emacs/markdown-mode: stable 2.1, HEAD
-Major mode for editing Markdown files
-http://jblevins.org/projects/markdown-mode/
-Not installed
-
+@dots{}
 $ brew install homebrew/emacs/markdown-mode
+@dots{}
 @end example
 @end cartouche
 @end table
@@ -460,7 +458,7 @@ Movement and shifting commands are generally associated with paired
 delimiters such as @kbd{M-@{} and @kbd{M-@}}, or @kbd{C-c <} and
 @kbd{C-c >}.
 
-Outline navigation keybindings the same as in @code{org-mode}.
+Outline navigation keybindings the same as in @code{org-mode}. See @ref{(org) Motion}
 
 You can obtain a list of all keybindings by pressing @kbd{C-c
 C-h}.
