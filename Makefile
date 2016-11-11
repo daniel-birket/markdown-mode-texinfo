@@ -1,11 +1,12 @@
 SOURCE	:= markdown-mode.texi
 INCLUDE	:= fdl.texi gpl-2.0.texi gpl.texi
 
-TEXI2ANY = texi2any
-TEXI2PDF = texi2pdf
-TEXI2DVI = texi2dvi
-PANDOC = pandoc
-GZIP = gzip
+TEXI2ANY = /usr/local/Cellar/texinfo/6.3/bin/texi2any
+TEXI2PDF = /usr/local/Cellar/texinfo/6.3/bin/texi2pdf
+TEXI2DVI = /usr/local/Cellar/texinfo/6.3/bin/texi2dvi
+SMARTYPANTS = /usr/local/bin/smartypants
+PANDOC = /usr/local/bin/pandoc
+GZIP = /usr/bin/gzip
 
 help:
 	# Options:
@@ -28,7 +29,7 @@ markdown-mode.info.gz: markdown-mode.info
 html: markdown-mode.html
 
 markdown-mode.html: ${SOURCE} ${INCLUDE}
-	$(TEXI2ANY) --HTML --no-split --no-headers ${SOURCE} | smartypants
+	$(TEXI2ANY) --HTML --no-split --no-headers ${SOURCE} | ${SMARTYPANTS}
 
 pdf: markdown-mode.pdf
 
