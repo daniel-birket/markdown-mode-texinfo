@@ -24,10 +24,7 @@
 *.xml
 *.epub
 README.html
-markdown-mode.html
 *.info
-*.info.gz
 *.md
-*.pdf
 *.ps
 *.txt
