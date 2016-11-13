@@ -3,15 +3,15 @@ INCLUDE	:= fdl.texi gpl-2.0.texi gpl.texi
 
 INFODIR := /usr/local/share/info/emacs
 
-TEXINFODIR = /usr/local/Cellar/texinfo/6.3/bin
-TEXI2ANY = $(TEXINFODIR)/texi2any
-TEXI2PDF = $(TEXINFODIR)/texi2pdf
-TEXI2DVI = $(TEXINFODIR)/texi2dvi
-INSTALLINFO = $(TEXINFODIR)/install-info
-SMARTYPANTS = /usr/local/bin/smartypants
-PANDOC = /usr/local/bin/pandoc
-GZIP = /usr/bin/gzip
-INSTALL = /usr/bin/install
+TEXINFODIR := /usr/local/Cellar/texinfo/6.3/bin
+TEXI2ANY := $(TEXINFODIR)/texi2any
+TEXI2PDF := $(TEXINFODIR)/texi2pdf
+TEXI2DVI := $(TEXINFODIR)/texi2dvi
+INSTALLINFO := $(TEXINFODIR)/install-info
+SMARTYPANTS := /usr/local/bin/smartypants
+PANDOC := /usr/local/bin/pandoc
+GZIP := /usr/bin/gzip
+INSTALL := /usr/bin/install
 
 help:
 	# Options:
