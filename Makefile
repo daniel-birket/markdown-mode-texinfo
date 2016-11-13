@@ -23,15 +23,28 @@ help:
 	# make ps
 	# make txt
 	# make docbook
+	# make epub	# lacks index
+	# make md	# lacks index
+	#
 	# make clean
 	#
 	# Be sure to update file locations in top of Makefile for your system.
 
-install: markdown-mode.info.gz
-	$(INSTALL) $< $(INFODIR)
-	$(INSTALLINFO) $(INFODIR)/$< $(INFODIR)/dir
-
 info: markdown-mode.info.gz
+
+html: markdown-mode.html
+
+pdf: markdown-mode.pdf
+
+ps: markdown-mode.ps
+
+txt: markdown-mode.txt
+
+docbook: markdown-mode.xml
+
+epub: markdown-mode.epub
+
+md: markdown-mode.md
 
 markdown-mode.info: ${SOURCE} ${INCLUDE}
 	$(TEXI2ANY) --info $<
@@ -39,27 +52,21 @@ markdown-mode.info: ${SOURCE} ${INCLUDE}
 markdown-mode.info.gz: markdown-mode.info
 	$(GZIP) $<
 
-html: markdown-mode.html
+install: markdown-mode.info.gz
+	$(INSTALL) $< $(INFODIR)
+	$(INSTALLINFO) $(INFODIR)/$< $(INFODIR)/dir
 
 markdown-mode.html: ${SOURCE} ${INCLUDE}
 	$(TEXI2ANY) --HTML --no-split --no-headers ${SOURCE} | ${SMARTYPANTS}
 
-pdf: markdown-mode.pdf
-
 markdown-mode.pdf: ${SOURCE} ${INCLUDE} markdown-mode.info
 	$(TEXI2PDF) $<
-
-ps: markdown-mode.ps
 
 markdown-mode.ps: ${SOURCE} ${INCLUDE} markdown-mode.info
 	$(TEXI2DVI) --ps  $<
 
-txt: markdown-mode.txt
-
 markdown-mode.txt: ${SOURCE} ${INCLUDE}
 	$(TEXI2ANY) --plaintext $< >$@
-
-docbook: markdown-mode.xml
 
 markdown-mode.xml: ${SOURCE} ${INCLUDE} markdown-mode.info
 	$(TEXI2ANY) --docbook $<
