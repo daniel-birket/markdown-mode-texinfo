@@ -2260,7 +2260,7 @@ tracker at @uref{https://github.com/jrblevin/markdown-mode/issues}.
 If you find an error in this @emph{unauthorized} manual, please create
 an issue on the issue tracker at
 @uref{https://github.com/daniel-birket/markdown-mode-texinfo/issues}.  Please
-do not complain to Mr. Blevin about errors in @emph{this} manual.  You
+do not complain to Dr. Blevin about errors in @emph{this} manual.  You
 will find his original manual at
 @uref{https://github.com/jrblevin/markdown-mode}.
 @end table

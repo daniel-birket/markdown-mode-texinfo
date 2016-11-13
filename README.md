@@ -6,7 +6,8 @@ Texinfo-format manual for [Jason Blevins][]' [Emacs Markdown Mode][]
 This project is an alternative manual for Jason Blevins'
 `markdown-mode` extension to [Emacs][] in `info` format.
 
-Status: 1st draft is complete. No independent review yet.
+Status: 1st draft is complete, but not yet reviewed by another. Please
+comment. Thank you.
 
 [Texinfo][], the documentation format of the Emacs manual and
 other [GNU project documentation][], while much more complex and
