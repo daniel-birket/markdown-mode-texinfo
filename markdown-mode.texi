@@ -130,6 +130,7 @@ Appendices:
 * @acronym{GNU} General Public License 2.0::
 * @acronym{GNU} Free Documentation License::
 * Concept Index::
+* Key Index::
 * Variable Index::
 * Function Index::
 * Program Index::
@@ -2290,25 +2291,26 @@ will find his original manual at
 @node Concept Index
 @unnumbered Concept Index
 @cindex concept index @samp{;-)}
-
 @printindex cp
+
+@node Key Index
+@unnumbered Key Index
+@cindex key index
+@printindex ky
 
 @node Variable Index
 @unnumbered Variable Index
 @cindex variable index
-
 @printindex vr
 
 @node Function Index
 @unnumbered Function Index
 @cindex function index
-
 @printindex fn
 
 @node Program Index
 @unnumbered Program Index
 @cindex program index
-
 @printindex pg
 @end ifnotdocbook
 @bye
