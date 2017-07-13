@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 2016 Daniel Birket.
+<!-- Copyright (C) 2017 Daniel Birket.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License,
@@ -9,58 +9,29 @@ Foundation; with no Invariant Sections, with no Front-Cover Texts, and
 with no Back-Cover Texts.  A copy of the license is included in the
 section entitled GNU Free Documentation License.
 
-This is the Emacs Markdown Mode manual (unauthorized), edition
-2.1.a, by Daniel Birket, updated November 14, 2016 and composed using
-Emacs v25.1.1.
-This HTML document was compiled from .texinfo source
-with GNU Texinfo v6.3.
+This is the markdown-mode Manual, edition 2.2.a, by
+Daniel Birket, updated July 13, 2017, which describes how to install and
+use the Emacs package markdown-mode, version 2.2,
+released May 26, 2017, which was written by and Copyright
+(C) 2007-2017 Jason R. Blevins, et al. (See http://jblevins.org/projects/markdown-mode/)
 
-This manual describes how to install and use the Emacs Lisp software
-package markdown-mode, version 2.1, released
-January 9, 2016, which was written by and Copyright (C)
-2007-2016 Jason R. Blevins, et al.  The markdown-mode
-software package and its authorized manual are online at
-http://jblevins.org/projects/markdown-mode/.
-
-This manual is based upon (and frequently copied verbatim from) the
-extensive documentation in the markdown-mode.el source code,
-which begins with:
-
-;;; markdown-mode.el - Major mode for Markdown-formatted text ...
-
-;; Copyright (C) 2007-2016 Jason R. Blevins <jrblevin@sdf.org>
-...
-;; Author: Jason R. Blevins <jrblevin@sdf.org>
-;; Maintainer: Jason R. Blevins <jrblevin@sdf.org>
-;; Created: May 24, 2007
-;; Version: 2.1
-;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
-;; Keywords: Markdown, GitHub Flavored Markdown, itex
-;; URL: http://jblevins.org/projects/markdown-mode/
-
-;; This file is not part of GNU Emacs.
-
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
-
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details. -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+This HTML
+document was composed using Emacs v25.2.1 (Richard
+M. Stallman, et al.  See https://www.gnu.org/software/emacs/)
+and compiled from .texi source with GNU Texinfo v6.4 (Richard
+M. Stallman, et al.  See https://www.gnu.org/software/texinfo/) -->
+<!-- Created by GNU Texinfo 6.4, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Emacs Markdown Mode</title>
 
-<meta name="description" content="Emacs Markdown Mode">
+<meta name="description" content="This manual describes how to install and use">
 <meta name="keywords" content="Emacs Markdown Mode">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
-<link href="#Concept-Index" rel="index" title="Concept Index">
+<link href="#Functions-_0026-Variables" rel="index" title="Functions &amp; Variables">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
@@ -96,6 +67,9 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <h1 class="settitle" align="center">Emacs Markdown Mode</h1>
+
+<p><code>markdown-mode</code>, an Emacs package for working with markdown-format files.
+</p>
 
 
 
@@ -174,24 +148,20 @@ ul.no-bullet {list-style: none}
   </ul></li>
   <li><a name="toc-GNU-General-Public-License-2_002e0-1" href="#GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a></li>
   <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a></li>
-  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
-  <li><a name="toc-Key-Index-1" href="#Key-Index">Key Index</a></li>
-  <li><a name="toc-Variable-Index-1" href="#Variable-Index">Variable Index</a></li>
-  <li><a name="toc-Function-Index-1" href="#Function-Index">Function Index</a></li>
-  <li><a name="toc-Program-Index-1" href="#Program-Index">Program Index</a></li>
+  <li><a name="toc-Functions-_0026-Variables-1" href="#Functions-_0026-Variables">Functions &amp; Variables</a></li>
+  <li><a name="toc-Keys-and-Concepts-1" href="#Keys-and-Concepts">Keys and Concepts</a></li>
 </ul>
 </div>
 
 
 <a name="Top"></a>
-<a name="Emacs-Markdown-Mode"></a>
-<h1 class="top">Emacs Markdown Mode</h1>
-<p>This manual describes how to install and use <code>markdown-mode</code>, an
-Emacs package for working with markdown-formatted text.
+<a name="markdown_002dmode-Manual"></a>
+<h1 class="top"><code>markdown-mode</code> Manual</h1>
+<p>This manual describes how to install and use
 </p>
 
 <a name="index-copying-copyright-_0028manual_0029"></a>
-<p>Copyright &copy; 2016 Daniel Birket.
+<p>Copyright &copy; 2017 Daniel Birket.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -202,33 +172,33 @@ with no Back-Cover Texts.  A copy of the license is included in the
 section entitled <cite><acronym>GNU</acronym> Free Documentation License</cite>.
 </p></blockquote>
 
-<p>This is the Emacs Markdown Mode manual (unauthorized), edition
-2.1.a, by Daniel Birket, updated November 14, 2016 and composed using
-Emacs v25.1.1.
-This <acronym>HTML</acronym> document was compiled from <samp>.texinfo</samp> source
-with <acronym>GNU</acronym> Texinfo v6.3.
+<p>This is the <cite><code>markdown-mode</code> Manual</cite>, edition 2.2.a, by
+Daniel Birket, updated July 13, 2017, which describes how to install and
+use the Emacs package <code>markdown-mode</code>, version 2.2,
+released May 26, 2017, which was written by and Copyright
+&copy; 2007-2017 Jason R. Blevins, et al. (See <a href="http://jblevins.org/projects/markdown-mode/">http://jblevins.org/projects/markdown-mode/</a>)
 </p>
-<p>This manual describes how to install and use the Emacs Lisp software
-package <code>markdown-mode</code>, version 2.1, released
-January 9, 2016, which was written by and Copyright &copy;
-2007-2016 Jason R. Blevins, et al.  The <code>markdown-mode</code>
-software package and its <em>authorized</em> manual are online at
-<a href="http://jblevins.org/projects/markdown-mode/">http://jblevins.org/projects/markdown-mode/</a>.
+<p>This <acronym>HTML</acronym>
+document was composed using <cite>Emacs v25.2.1</cite> (Richard
+M. Stallman, et al.  See <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>)
+and compiled from <samp>.texi</samp> source with <cite><acronym>GNU</acronym> Texinfo v6.4</cite> (Richard
+M. Stallman, et al.  See <a href="https://www.gnu.org/software/texinfo/">https://www.gnu.org/software/texinfo/</a>)
 </p>
-<p>This manual is based upon (and frequently copied verbatim from) the
-extensive documentation in the <code>markdown-mode.el</code> source code,
-which begins with:
-</p>
-<a name="index-copying-copyright-_0028software_0029"></a>
-<div class="lisp">
-<pre class="lisp">;;; markdown-mode.el --- Major mode for Markdown-formatted text &hellip;
 
-;; Copyright (C) 2007-2016 Jason R. Blevins &lt;jrblevin@sdf.org&gt;
+<p>This manual is based upon the comments and doc strings in the
+<code>markdown-mode.el</code> source code, which begins with:
+</p>
+<a name="index-copyright-_0028software_0029"></a>
+<div class="lisp">
+<pre class="lisp">;;; markdown-mode.el --- Major mode for Markdown-formatted text -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2007-2017 Jason R. Blevins &lt;jrblevin@sdf.org&gt;
 &hellip;
+
 ;; Author: Jason R. Blevins &lt;jrblevin@sdf.org&gt;
 ;; Maintainer: Jason R. Blevins &lt;jrblevin@sdf.org&gt;
 ;; Created: May 24, 2007
-;; Version: 2.1
+;; Version: 2.2
 ;; Package-Requires: ((emacs &quot;24&quot;) (cl-lib &quot;0.5&quot;))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -247,7 +217,6 @@ which begins with:
 </pre></div>
 
 
-
 <hr>
 <a name="Introduction"></a>
 <a name="Introduction-1"></a>
@@ -262,10 +231,10 @@ text.
 </p>
 <p>The package implements two Emacs <em>major modes</em>:
 </p><ul>
-<li> <code>markdown-mode</code>, for editing standard markdown text.
+<li> <code>markdown-mode</code>, for editing standard markdown text.<br>
 See <a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a>.
 
-</li><li> <code>gfm-mode</code>, for editing GitHub-flavored markdown text.
+</li><li> <code>gfm-mode</code>, for editing GitHub-flavored markdown text.<br>
 See <a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a>.
 </li></ul>
 
@@ -290,10 +259,11 @@ is described at
 <a href="http://github.github.com/github-flavored-markdown/">http://github.github.com/github-flavored-markdown/</a>.
 </p>
 <a name="index-Emacs"></a>
-<p>The powerful text editor, Emacs, created in 1976 by Richard Stallman,
-is highly extensible and has a large ecosystem of extensions like this
-one created over 40 years.  <acronym>GNU</acronym> Emacs is described at
-<a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>.
+<p>The powerful text editor, Emacs, was created in 1976 by Richard
+Stallman.  It is highly customizable and has 40 years of other
+extensions.  <cite><acronym>GNU</acronym> Emacs</cite> is documented at
+<a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>. <cite>XEmacs</cite> is
+documented at <a href="http://www.xemacs.org">http://www.xemacs.org</a>.
 </p>
 <hr>
 <a name="Installing"></a>
@@ -2432,66 +2402,10 @@ future&hellip; <strong>Thank you.</strong>
 <a name="index-credits"></a>
 <a name="index-thank-you"></a>
 
-<p><code>markdown-mode</code> has benefited greatly from the efforts of:
+<p><code>markdown-mode</code> has benefited greatly from the efforts of many
+people. Please see the &ldquo;;;; Acknowledgments:&rdquo; section of
+<code>markdown-mode.el</code> and the GitHub contributors graph at <a href="https://github.com/jrblevin/markdown-mode/graphs/contributors">https://github.com/jrblevin/markdown-mode/graphs/contributors</a>.
 </p>
-<ul>
-<li> &copy; 2007-2016 Jason R. Blevins <a href="mailto:jrblevin@sdf.org">jrblevin@sdf.org</a>, principle author and maintainer of <code>markdown-mode</code>.
-</li><li> &copy; 2007, 2009 Edward O&rsquo;Connor <a href="mailto:ted@oconnor.cx">ted@oconnor.cx</a> for a font-lock regexp fix and GitHub Flavored Markdown mode (<code>gfm-mode</code>).
-</li><li> &copy; 2007 Conal Elliott <a href="mailto:conal@conal.net">conal@conal.net</a> for a font-lock regexp patch.
-</li><li> &copy; 2008 Greg Bognar <a href="mailto:greg_bognar@hms.harvard.edu">greg_bognar@hms.harvard.edu</a> for menus and running <code>markdown</code> with an active region.
-</li><li> &copy; 2008 Dmitry Dzhus <a href="mailto:mail@sphinx.net.ru">mail@sphinx.net.ru</a> for undefined reference checking.
-</li><li> &copy; 2008 Bryan Kyle <a href="mailto:bryan.kyle@gmail.com">bryan.kyle@gmail.com</a> for indentation code.
-</li><li> &copy; 2008 Ben Voui <a href="mailto:intrigeri@boum.org">intrigeri@boum.org</a> for font-lock face customizations.
-</li><li> &copy; 2009 Ankit Solanki <a href="mailto:ankit.solanki@gmail.com">ankit.solanki@gmail.com</a> for <code>longlines.el</code> compatibility and custom CSS.
-</li><li> &copy; 2009 Hilko Bengen <a href="mailto:bengen@debian.org">bengen@debian.org</a> for proper XHTML output.
-</li><li> &copy; 2009 Peter Williams <a href="mailto:pezra@barelyenough.org">pezra@barelyenough.org</a> for <code>fill-paragraph</code> enhancements.
-</li><li> &copy; 2010 George Ogata <a href="mailto:george.ogata@gmail.com">george.ogata@gmail.com</a> for fixing several byte-compilation warnings.
-</li><li> &copy; 2011 Eric Merritt <a href="mailto:ericbmerritt@gmail.com">ericbmerritt@gmail.com</a> for wiki link features.
-</li><li> &copy; 2011 Philippe Ivaldi <a href="mailto:pivaldi@sfr.fr">pivaldi@sfr.fr</a> for XHTML preview customizations and XHTML export.
-</li><li> &copy; 2011 Jeremiah Dodds <a href="mailto:jeremiah.dodds@gmail.com">jeremiah.dodds@gmail.com</a> for supporting Markdown processors which do not accept input from stdin.
-</li><li> &copy; 2011 Christopher J. Madsen <a href="mailto:cjm@cjmweb.net">cjm@cjmweb.net</a> for patches to fix a match data bug and to prefer <code>visual-line-mode</code> in <code>gfm-mode</code>.
-</li><li> &copy; 2011 Shigeru Fukaya <a href="mailto:shigeru.fukaya@gmail.com">shigeru.fukaya@gmail.com</a> for better adherence to Emacs Lisp coding conventions.
-</li><li> &copy; 2011 Joost Kremers <a href="mailto:joostkremers@fastmail.fm">joostkremers@fastmail.fm</a> for footnote-handling functions, bug reports regarding indentation, and fixes for byte-compilation warnings.
-</li><li> &copy; 2011-2012 Donald Ephraim Curtis <a href="mailto:dcurtis@milkbox.net">dcurtis@milkbox.net</a> for fixing the <code>fill-paragraph</code> regexp, refactoring the compilation and preview functions, heading font-lock generalizations, list renumbering, and kill ring save.
-</li><li> &copy; 2012 Akinori Musha <a href="mailto:knu@idaemons.org">knu@idaemons.org</a> for an imenu index function.
-</li><li> &copy; 2012 Zhenlei Jia <a href="mailto:zhenlei.jia@gmail.com">zhenlei.jia@gmail.com</a> for smart exdention function.
-</li><li> &copy; 2012 Peter Jones <a href="mailto:pjones@pmade.com">pjones@pmade.com</a> for link following functions.
-</li><li> &copy; 2013 Matus Goljer <a href="mailto:dota.keys@gmail.com">dota.keys@gmail.com</a> for improved wiki link following and GFM code block insertion.
-</li><li> &copy; 2015 Google, Inc.  (Contributor: Samuel Freilich <a href="mailto:sfreilich@google.com">sfreilich@google.com</a>) for improved filling behavior regarding list items, footnotes, and reference definitions, improved killing of footnotes, and numerous other tests and bug fixes.
-</li><li> &copy; 2015 Antonis Kanouras <a href="mailto:antonis@metadosis.gr">antonis@metadosis.gr</a> for strikethrough support.
-</li><li> &copy; 2015 Howard Melman <a href="mailto:hmelman@gmail.com">hmelman@gmail.com</a> for supporting GFM checkboxes as buttons.
-</li><li> &copy; 2015-2016 Danny McClanahan <a href="mailto:danieldmcclanahan@gmail.com">danieldmcclanahan@gmail.com</a> for live preview mode, completion of GFM programming language names, improved font lock for fenced code blocks and meta-data blocks, <code>cl-lib</code> updates, and numerous other improvements.
-</li><li> &copy; 2015-2016 Syohei Yoshida <a href="mailto:syohex@gmail.com">syohex@gmail.com</a> for better heading detection and movement functions, improved italic font lock, fixing adaptive filling for hanging list items, more efficient fontification, and numerous other improvements.
-</li><li> &copy; 2016 Vitalie Spinu <a href="mailto:spinuvit@gmail.com">spinuvit@gmail.com</a> for improvements to font lock and source code aesthetics.
-</li><li> KÃ©vin Le Gouguec for improvements related to ATX headings and Pandoc fancy lists.
-</li><li> Cyril Brulebois for Debian packaging.
-</li><li> Daniel Burrows for filing Debian bug #456592.
-</li><li> Peter S. Galbraith for maintaining <code>emacs-goodies-el</code>.
-</li><li> Carsten Dominik for <code>org-mode</code>, from which the visibility cycling functionality was derived, and for a bug fix related to <code>orgtbl-mode</code>.
-</li><li> Jose A. Ortega Ruiz for Emacs 23 fixes.
-</li><li> Nelson Minar for <code>html-helper-mode</code>, from which comment matching functions were derived.
-</li><li> Werner Dittmann for bug reports regarding the <code>cl</code> dependency and <code>auto-fill-mode</code> and indentation.
-</li><li> Alec Resnick for bug reports.
-</li><li> Scott Pfister for generalizing the space substitution character for mapping wiki links to file names.
-</li><li> Marcin Kasperski for a patch to escape shell commands.
-</li><li> Kevin Porter for wiki link handling in <code>gfm-mode</code>.
-</li><li> Max Penet and Peter Eisentraut <a href="mailto:peter_e@gmx.net">peter_e@gmx.net</a> for an auto-load token for <code>gfm-mode</code>.
-</li><li> Ian Yang for improving the reference definition regex.
-</li><li> Michael Sperber for <code>XEmacs</code> fixes.
-</li><li> Francois Gannaz for suggesting charset declaration in XHTML output.
-</li><li> Bryan Fink for a bug report regarding externally modified files.
-</li><li> Vegard Vesterheim for a bug fix related to <code>orgtbl-mode</code>.
-</li><li> Makoto Motohashi for before- and after- export hooks, unit test improvements, and updates to support wide characters.
-</li><li> Michael Dwyer for <code>gfm-mode</code> underscore regexp.
-</li><li> Chris Lott for suggesting reference label completion.
-</li><li> Gunnar Franke for a completion bug report.
-</li><li> David Glasser for a <code>paragraph-separate</code> fix.
-</li><li> Daniel Brotsky for better auto-fill defaults.
-</li><li> Matt McClure for a patch to prevent overwriting source files with .html extensions upon export.
-</li><li> Roger Bolsius for ordered list improvements.
-</li><li> Google&rsquo;s Open Source Programs Office for recognizing the project with a monetary contribution in June 2015.
-</li></ul>
-
 <hr>
 <a name="History-of-Releases"></a>
 <a name="History-of-Releases-1"></a>
@@ -2500,9 +2414,7 @@ future&hellip; <strong>Thank you.</strong>
 <a name="index-releases"></a>
 
 <p><code>markdown-mode</code> was primarily written and is maintained by Jason
-Blevins.  The first release, 1.1,  was on May 24, 2007.  This manual
-documents <code>markdown-mode</code>, version 2.1, released
-January 9, 2016.
+Blevins.  The first release, 1.1,  was on May 24, 2007.
 </p>
 <p>Most of the prior versions may be downloaded:
 </p>
@@ -2519,6 +2431,7 @@ January 9, 2016.
 </li><li> 2013-01-25 v1.9   <a href="http://jblevins.org/projects/markdown-mode/rev-1-9">http://jblevins.org/projects/markdown-mode/rev-1-9</a>
 </li><li> 2013-03-24 v2.0   <a href="http://jblevins.org/projects/markdown-mode/rev-2-0">http://jblevins.org/projects/markdown-mode/rev-2-0</a>
 </li><li> 2016-01-09 v2.1   <a href="http://jblevins.org/projects/markdown-mode/rev-2-1">http://jblevins.org/projects/markdown-mode/rev-2-1</a>
+</li><li> 2017-05-26 v2.2   <a href="http://jblevins.org/projects/markdown-mode/rev-2-2">http://jblevins.org/projects/markdown-mode/rev-2-2</a>
 </li></ul>
 
 <hr>
@@ -2531,41 +2444,24 @@ January 9, 2016.
 to its development or help to test the current development version.
 </p>
 <ul>
-<li> To browse the <code>markdown-mode</code> project files, visit the project&rsquo;s
-page on GitHub at <a href="https://github.com/jrblevin/markdown-mode">https://github.com/jrblevin/markdown-mode</a>.
+<li> To browse the <code>markdown-mode</code> project files, visit the
+project&rsquo;s page on GitHub at <a href="https://github.com/jrblevin/markdown-mode">https://github.com/jrblevin/markdown-mode</a>.
 
-</li><li> To contribute to the development of <code>markdown-mode</code>, you may fork
-the project to your own GitHub account or clone the repository
-directly with:
-
-<table class="cartouche" border="1"><tr><td>
-<dl compact="compact">
-<dt>Using <acronym>HTTPS</acronym></dt>
-<dd><p>&lsquo;<samp>$ git clone https://github.com/jrblevin/markdown-mode.git</samp>&rsquo;
-</p>
-</dd>
-<dt>Using <acronym>SSH</acronym></dt>
-<dd><p>&lsquo;<samp>$ git clone ssh://git@github.com:jrblevin/markdown-mode.git</samp>&rsquo;
-</p></dd>
-</dl>
-</td></tr></table>
+</li><li> To contribute to the development of <code>markdown-mode</code>, you should fork
+the project to your own GitHub account.
 
 </li><li> To test the current development version of
-<code>markdown-mode</code>, you may either download <code>markdown-mode.el</code>
-from the repository at
-<a href="https://github.com/jrblevin/markdown-mode">https://github.com/jrblevin/markdown-mode</a> or from
-<acronym>MELPA</acronym> at <a href="https://melpa.org/#/markdown-mode">https://melpa.org/#/markdown-mode</a>.
+<code>markdown-mode</code>, download <code>markdown-mode.el</code> from <a href="https://github.com/jrblevin/markdown-mode">https://github.com/jrblevin/markdown-mode</a> or
+from <acronym>MELPA</acronym> at <a href="https://melpa.org/#/markdown-mode">https://melpa.org/#/markdown-mode</a> to the
+directory <samp>~/my/directory</samp>. Then ensure that Emacs can find it by
+adding the following line to your Emacs startup file:
 
-<p>After downloading <code>markdown-mode.el</code> to the directory
-<samp>~/my/directory</samp>, then ensure that Emacs can find it by adding
-the following line to your Emacs startup file:
-</p>
 <div class="lisp">
 <pre class="lisp">(add-to-list 'load-path &quot;~/my/directory&quot;)
 </pre></div>
 
-<p>Please realize that the development version may be unstable at
-times.  See the next section for how to submit a bug report.
+<p>Please realize that the development version may be unstable at times.
+See the next section for how to submit a bug report.
 </p></li></ul>
 <hr>
 <a name="Bugs-and-Errors"></a>
@@ -2577,10 +2473,9 @@ times.  See the next section for how to submit a bug report.
 
 <dl compact="compact">
 <dt><strong>Software Bugs</strong></dt>
-<dd><p><code>markdown-mode</code> was developed and primarily tested for
-compatibility with <acronym>GNU</acronym> Emacs 24.3 and later.  If you encounter a
-problem and have an older version of Emacs, please consider updating
-your version of Emacs to resolve the problem.
+<dd><p><code>markdown-mode</code> now requires <acronym>GNU</acronym> Emacs 24.3 and later.
+If have an older version of Emacs, please consider updating your
+version of Emacs to resolve any problems.
 </p>
 <p>If you have identified a bug with <code>markdown-mode.el</code>, please
 construct a test case or a patch and create an issue on the issue
@@ -2588,11 +2483,12 @@ tracker at <a href="https://github.com/jrblevin/markdown-mode/issues">https://gi
 </p>
 </dd>
 <dt><strong>Manual Errors</strong></dt>
-<dd><p>If you find an error in this <em>unauthorized</em> manual, please create
-an issue on the issue tracker at
-<a href="https://github.com/daniel-birket/markdown-mode-texinfo/issues">https://github.com/daniel-birket/markdown-mode-texinfo/issues</a>.  Please
-do not complain to Dr. Blevin about errors in <em>this</em> manual.  You
-will find his original manual at
+<dd><p>This manual is maintained on GitHub at<br>
+<a href="https://github.com/daniel-birket/markdown-mode-texinfo">https://github.com/daniel-birket/markdown-mode-texinfo</a> by
+Daniel Birket.
+Please submit document errata to the issue tracker
+there.  Please do not complain to Dr. Blevin about errors in
+<em>this</em> manual.  You will find <em>his</em> original manual at
 <a href="https://github.com/jrblevin/markdown-mode">https://github.com/jrblevin/markdown-mode</a>.
 </p></dd>
 </dl>
@@ -2669,7 +2565,7 @@ modification follow.
 <a name="TERMS-AND-CONDITIONS-FOR-COPYING_002c-DISTRIBUTION-AND-MODIFICATION"></a>
 <h3 class="heading">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</h3>
 
-<ol>
+<ol start="0">
 <li> This License applies to any program or other work which contains
 a notice placed by the copyright holder saying it may be distributed
 under the terms of this General Public License.  The &ldquo;Program&rdquo;, below,
@@ -2703,7 +2599,7 @@ of it, thus forming a work based on the Program, and copy and
 distribute such modifications or work under the terms of Section 1
 above, provided that you also meet all of these conditions:
 
-<ol>
+<ol type="a" start="1">
 <li> You must cause the modified files to carry prominent notices
 stating that you changed the files and the date of any change.
 
@@ -2748,7 +2644,7 @@ the scope of this License.
 under Section 2) in object code or executable form under the terms of
 Sections 1 and 2 above provided that you also do one of the following:
 
-<ol>
+<ol type="a" start="1">
 <li> Accompany it with the complete corresponding machine-readable
 source code, which must be distributed under the terms of Sections
 1 and 2 above on a medium customarily used for software interchange; or,
@@ -2978,7 +2874,7 @@ Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -3154,7 +3050,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -3435,345 +3331,240 @@ recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
 </p>
-
 <hr>
-<a name="Concept-Index"></a>
-<a name="Concept-Index-1"></a>
-<h2 class="unnumbered">Concept Index</h2>
-<a name="index-concept-index-_003b_002d_0029"></a>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+<a name="Functions-_0026-Variables"></a>
+<a name="Functions-_0026-Variables-1"></a>
+<h2 class="unnumbered">Functions &amp; Variables</h2>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-G"><b>G</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-M"><b>M</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-O"><b>O</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-F"><b>F</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-P"><b>P</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-G"><b>G</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-U"><b>U</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-H"><b>H</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-V"><b>V</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+</td></tr></table>
+<table class="index-fn" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-A">A</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-add_002dto_002dlist"><code>add-to-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-add_002dto_002dlist-1"><code>add-to-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-auto_002dmode_002dalist"><code>auto-mode-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-autoload"><code>autoload</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-comment_002dauto_002dfill_002donly_002dcomments"><code>comment-auto-fill-only-comments</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-G">G</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gfm_002dmode"><code>gfm-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mark_002ddefun"><code>mark-defun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dasymmetric_002dheader"><code>markdown-asymmetric-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dbackward_002dparagraph"><code>markdown-backward-paragraph</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dbackward_002dsame_002dlevel"><code>markdown-backward-same-level</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dbeginning_002dof_002ddefun"><code>markdown-beginning-of-defun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dblockquote_002dregion"><code>markdown-blockquote-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dbold_002dunderscore"><code>markdown-bold-underscore</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcheck_002drefs"><code>markdown-check-refs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcleanup_002dlist_002dnumbers"><code>markdown-cleanup-list-numbers</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcoding_002dsystem"><code>markdown-coding-system</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand"><code>markdown-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand-1"><code>markdown-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand-2"><code>markdown-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand_002dneeds_002dfilename"><code>markdown-command-needs-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand_002dneeds_002dfilename-1"><code>markdown-command-needs-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcomplete"><code>markdown-complete</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcomplete_002dbuffer"><code>markdown-complete-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcontent_002dtype"><code>markdown-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcss_002dpaths"><code>markdown-css-paths</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002ddemote"><code>markdown-demote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002ddemote_002dsubtree"><code>markdown-demote-subtree</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002delectric_002dbackquote"><code>markdown-electric-backquote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002denable_002dmath"><code>markdown-enable-math</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002denable_002dwiki_002dlinks"><code>markdown-enable-wiki-links</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dend_002dof_002ddefun"><code>markdown-end-of-defun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dexdent_002dregion"><code>markdown-exdent-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dexport"><code>markdown-export</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dexport_002dand_002dpreview"><code>markdown-export-and-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dfollow_002dthing_002dat_002dpoint"><code>markdown-follow-thing-at-point</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dfootnote_002dlocation"><code>markdown-footnote-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dforward_002dparagraph"><code>markdown-forward-paragraph</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dforward_002dsame_002dlevel"><code>markdown-forward-same-level</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dgfm_002dadditional_002dlanguages"><code>markdown-gfm-additional-languages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dgfm_002duse_002delectric_002dbackquote"><code>markdown-gfm-use-electric-backquote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dheader_002dscaling"><code>markdown-header-scaling</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dheader_002dscaling_002dvalues"><code>markdown-header-scaling-values</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dhr_002dstrings"><code>markdown-hr-strings</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dindent_002dfunction"><code>markdown-indent-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dindent_002don_002denter"><code>markdown-indent-on-enter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dindent_002dregion"><code>markdown-indent-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dblockquote"><code>markdown-insert-blockquote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dbold"><code>markdown-insert-bold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dcode"><code>markdown-insert-code</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dfootnote"><code>markdown-insert-footnote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d1"><code>markdown-insert-header-atx-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d2"><code>markdown-insert-header-atx-2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d3"><code>markdown-insert-header-atx-3</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d4"><code>markdown-insert-header-atx-4</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d5"><code>markdown-insert-header-atx-5</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d6"><code>markdown-insert-header-atx-6</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002ddwim"><code>markdown-insert-header-dwim</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002dsetext_002d1"><code>markdown-insert-header-setext-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002dsetext_002d2"><code>markdown-insert-header-setext-2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002dsetext_002ddwim"><code>markdown-insert-header-setext-dwim</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dhr"><code>markdown-insert-hr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dimage"><code>markdown-insert-image</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002ditalic"><code>markdown-insert-italic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dkbd"><code>markdown-insert-kbd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlink"><code>markdown-insert-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlink-1"><code>markdown-insert-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlist_002ditem"><code>markdown-insert-list-item</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dpre"><code>markdown-insert-pre</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dreference_002dimage"><code>markdown-insert-reference-image</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002duri"><code>markdown-insert-uri</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dwiki_002dlink"><code>markdown-insert-wiki-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002ditalic_002dunderscore"><code>markdown-italic-underscore</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002djump"><code>markdown-jump</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dkill_002dring_002dsave"><code>markdown-kill-ring-save</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dkill_002dthing_002dat_002dpoint"><code>markdown-kill-thing-at-point</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dlink_002dspace_002dsub_002dchar"><code>markdown-link-space-sub-char</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dlist_002dindent_002dwidth"><code>markdown-list-indent-width</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dlive_002dpreview_002dmode"><code>markdown-live-preview-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dmake_002dgfm_002dcheckboxes_002dbuttons"><code>markdown-make-gfm-checkboxes-buttons</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dmake_002dgfm_002dcheckboxes_002dbuttons-1"><code>markdown-make-gfm-checkboxes-buttons</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dmode"><code>markdown-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002ddown"><code><code>markdown-move-down</code></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002dsubtree_002ddown"><code>markdown-move-subtree-down</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002dsubtree_002dup"><code>markdown-move-subtree-up</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002dup"><code><code>markdown-move-up</code></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dnested_002dimenu_002dheader_002dindex"><code>markdown-nested-imenu-header-index</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dnext_002dlink"><code>markdown-next-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dnext_002dvisible_002dheading"><code>markdown-next-visible-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dopen"><code>markdown-open</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand-1"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand-2"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dother_002dwindow"><code>markdown-other-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dpre_002dregion"><code>markdown-pre-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dpreview"><code>markdown-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dprevious_002dlink"><code>markdown-previous-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dprevious_002dvisible_002dheading"><code>markdown-previous-visible-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dpromote"><code>markdown-promote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dpromote_002dsubtree"><code>markdown-promote-subtree</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dreference_002dlocation"><code>markdown-reference-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dreference_002dlocation-1"><code>markdown-reference-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dtoggle_002dinline_002dimages"><code>markdown-toggle-inline-images</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dtoggle_002dwiki_002dlinks"><code>markdown-toggle-wiki-links</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dup_002dheading"><code>markdown-up-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002duri_002dtypes"><code>markdown-uri-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dwiki_002dlink_002dalias_002dfirst"><code>markdown-wiki-link-alias-first</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dwiki_002dlink_002dfontify_002dmissing"><code>markdown-wiki-link-fontify-missing</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dwiki_002dlink_002dsearch_002dparent_002ddirectories"><code>markdown-wiki-link-search-parent-directories</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dxhtml_002dheader_002dcontent"><code>markdown-xhtml-header-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dxhtml_002dstandalone_002dregexp"><code>markdown-xhtml-standalone-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-O">O</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-org_002dmode"><code>org-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-org_002dmode-1"><code>org-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-package_002darchives"><code>package-archives</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-package_002dinstall"><code>package-install</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-package_002eel"><code>package.el</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-use_002dpackage"><code>use-package</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Functions-_0026-Variables_fn_letter-V">V</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-visual_002dline_002dmode"><code>visual-line-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-J"><b>J</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-K"><b>K</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-G"><b>G</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-L"><b>L</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-M"><b>M</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-O"><b>O</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-P"><b>P</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-O"><b>O</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-U"><b>U</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+<a class="summary-letter" href="#Functions-_0026-Variables_fn_letter-V"><b>V</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+</td></tr></table>
+<hr>
+<a name="Keys-and-Concepts"></a>
+<a name="Keys-and-Concepts-1"></a>
+<h2 class="unnumbered">Keys and Concepts</h2>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Keys-and-Concepts_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-N"><b>N</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-O"><b>O</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-V"><b>V</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-W"><b>W</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-cp" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-A">A</a></th><td></td><td></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-A">A</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-acknowledgments">acknowledgments</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-B">B</a></th><td></td><td></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-B">B</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-bugs-and-errors">bugs and errors</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-C">C</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-checking-references">checking references</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-compile-commands">compile commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-concept-index-_003b_002d_0029">concept index &lsquo;<samp>;-)</samp>&rsquo;</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Concept-Index">Concept Index</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contact-information">contact information</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-contributors">contributors</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-convert">convert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-copying-copyright-_0028manual_0029">copyright (manual)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-copying-copyright-_0028software_0029">copyright (software)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-credits">credits</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-customizing">customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing">Customizing</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-customizing-HTML-format">customizing <acronym>HTML</acronym> format</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-D">D</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Debian-package_002c-downloading">Debian package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-demote-a-subtree">demote a subtree</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-demote-headers">demote headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-demote-items">demote items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-development">development</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Development">Development</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-development-version">development version</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Development-Version">Development Version</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-downloading">downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing">Installing</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-E">E</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-external-commands_002c-customizing">external commands, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-F">F</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Fedora-package_002c-downloading">Fedora package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-feedback">feedback</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-footnote_002c-insert">footnote, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-FreeBSD-package_002c-downloading">FreeBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-function-index">function index</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Function-Index">Function Index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-G">G</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-Fenced-code-blocks">GFM Fenced code blocks</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-Multiple-underscores-in-words">GFM Multiple underscores in words</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-Newlines">GFM Newlines</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-Preview">GFM Preview</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-Strikethrough">GFM Strikethrough</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-Task-lists">GFM Task lists</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-URL-autolinking">GFM URL autolinking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-Wiki-links">GFM Wiki links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GitHub-flavored-markdown">GitHub flavored markdown</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GitHub-flavored-markdown_002c-customizing">GitHub flavored markdown, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-H">H</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-header_002c-complete">header, complete</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-header_002c-complete-all">header, complete all</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-header_002c-kill">header, kill</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-header_002c-navigating">header, navigating</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-headers">headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Headers">Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-headers_002c-insert">headers, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-headers_002c-promote_002fdemote">headers, promote/demote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-highlighting-LaTeX-math-syntax">highlighting LaTeX math syntax</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-highlighting-_005b_005bwiki_002dlinks_005d_005d-syntax">highlighting [[wiki-links]] syntax</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-history-of-releases">history of releases</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-of-Releases">History of Releases</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Homebrew-package_002c-installing">Homebrew package, installing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-horizontal-rule_002c-insert">horizontal rule, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-HTML-format_002c-customize"><acronym>HTML</acronym> format, customize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-I">I</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-image-display_002c-toggling">image display, toggling</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-image-reference_002c-insert">image reference, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-image_002c-insert-inline">image, insert inline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-images">images</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-indenting">indenting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting">Indenting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-indenting-the-region">indenting the region</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-indenting_002c-customizing">indenting, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inline-links_002c-insert">inline links, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-insert-image-inline">insert image inline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-insert-image-reference">insert image reference</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-insert-reference-links">insert reference links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-footnotes">inserting footnotes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-headers">inserting headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-horizontal-rules">inserting horizontal rules</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-inline-links">inserting inline links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-links">inserting links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-list-items">inserting list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-URIs">inserting URIs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-wiki_002dLinks">inserting wiki-Links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-installation_002c-the-easy-way">installation, the easy way</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-installation_002c-the-hard-way">installation, the hard way</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-installing">installing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing">Installing</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-introduction">introduction</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Introduction">Introduction</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-J">J</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-jump-to-a-footnote-or-its-marker">jump to a footnote or its marker</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-jump-to-link-or-its-definition">jump to link or its definition</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-jump-to-next-link">jump to next link</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-jump-to-previous-link">jump to previous link</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-K">K</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-key-index">key index</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Key-Index">Key Index</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kill-headers">kill headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kill-items">kill items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kill-markup">kill markup</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-killing-entities">killing entities</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-L">L</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-LaTeX-math-syntax-highlighting">LaTeX math syntax highlighting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-license-_0028manual_0029">license (manual)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-license-_0028software_0029">license (software)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-link_002c-inline_002c-insert">link, inline, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-link_002c-insert">link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-link_002c-reference_002c-insert">link, reference, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-links">links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Links">Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-links_002c-navigating">links, navigating</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-links_002c-opening">links, opening</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Linux-package_002c-downloading">Linux package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-list-item_002c-kill">list item, kill</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-list-items_002c-promote_002fdemote">list items, promote/demote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-list_002c-insert-item">list, insert item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-list_002c-renumber-all">list, renumber all</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-lists">lists</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Lists">Lists</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-M">M</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-MacPorts-package_002c-downloading">MacPorts package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-managed-loading">managed loading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-manual-installation">manual installation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-mark">mark</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown-format_002c-customizing">markdown format, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown-headers_002c-customizing">markdown headers, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002c-configure"><code>markdown</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand_002c-configure"><code>markdown-command</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002c-customize"><code>markdown-open</code>, customize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-MELPA-Stable_002c-installing-from">MELPA Stable, installing from</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-misc_002e-commands">misc. commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Misc_002e-Commands">Misc. Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-a-subtree-down">move a subtree down</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-a-subtree-up">move a subtree up</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-an-item-left">move an item left</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-an-item-right">move an item right</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-header-trees">move header trees</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-list-item-down">move list item down</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-list-item-up">move list item up</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-list-items">move list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-list-trees">move list trees</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-move-single-headers">move single headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Headers">Moving Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-moving-headers">moving headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Headers">Moving Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-moving-subtrees">moving subtrees</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-multimarkdown_002c-configure"><code>multimarkdown</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-N">N</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-navigating-headers">navigating headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-navigating-links">navigating links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-navigation-differences">navigation differences</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-NetBSD-package_002c-downloading">NetBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-notes">notes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Notes">Notes</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-O">O</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-opening-links">opening links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-org_002dmode-visibility">org-mode visibility</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-OS-package-managers">OS package managers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-other-formats_002c-output-to">other formats, output to</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-outline_002dminor_002dmode">outline-minor-mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-outlining">outlining</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-output-HTML">output <acronym>HTML</acronym></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-outputting-to-other-formats">outputting to other formats</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-P">P</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-package_002eel_002c-installing-with"><code>package.el</code>, installing with</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pandoc_002c-configure"><code>pandoc</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-program-index">program index</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Program-Index">Program Index</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-promote-a-subtree">promote a subtree</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-promote-headers">promote headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-promote-items">promote items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-headers">promote/demote headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-items">promote/demote items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-list-items">promote/demote list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-List-Items">Promote/Demote List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-list-items-1">promote/demote list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-R">R</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-recommended-installation">recommended installation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Redhat-package_002c-downloading">Redhat package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-reference-links_002c-insert">reference links, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-references_002c-check-all">references, check all</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-region">region</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-releases">releases</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-of-Releases">History of Releases</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-rule_002c-insert">rule, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-S">S</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-smart-quotation-marks">smart quotation marks</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-smartypants_002c-configure"><code>smartypants</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-styles">styles</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-T">T</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-thank-you">thank you</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-toggling-image-display">toggling image display</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-transient-mark">transient mark</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-U">U</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Ubuntu-apt-package_002c-downloading">Ubuntu <code>apt</code> package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-URI_002c-insert">URI, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-usage">usage</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-use_002dpackage_002c-loading-with"><code>use-package</code>, loading with</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-using-gfm_002dmode">using <code>gfm-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-using-markdown_002dmode">using <code>markdown-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-V">V</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-1">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-2">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-3">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-4">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-5">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-6">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-7">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-variable-index">variable index</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Variable-Index">Variable Index</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-variables">variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing">Customizing</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Concept-Index_cp_letter-W">W</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-wiki-links-syntax-highlighting">wiki links syntax highlighting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-wiki_002dlink_002c-insert">wiki-link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-</table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-F"><b>F</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-G"><b>G</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-H"><b>H</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-J"><b>J</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-K"><b>K</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-L"><b>L</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-N"><b>N</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-O"><b>O</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
- &nbsp; 
-</td></tr></table>
-
-<hr>
-<a name="Key-Index"></a>
-<a name="Key-Index-1"></a>
-<h2 class="unnumbered">Key Index</h2>
-<a name="index-key-index"></a>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Key-Index_ky_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Key-Index_ky_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Key-Index_ky_letter-S"><b>S</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Key-Index_ky_letter-T"><b>T</b></a>
- &nbsp; 
-</td></tr></table>
-<table class="index-ky" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Key-Index_ky_letter-C">C</a></th><td></td><td></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-_002d"><code>C-c -</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-_003c"><code>C-c &lt;</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-_003e"><code>C-c &gt;</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
@@ -3849,8 +3640,119 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-C_002dM_002da"><code>C-M-a</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dM_002de"><code>C-M-e</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dM_002dh"><code>C-M-h</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-checking-references">checking references</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-compile-commands">compile commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contact-information">contact information</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-contributors">contributors</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-convert">convert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-copyright-_0028manual_0029">copyright (manual)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copyright-_0028software_0029">copyright (software)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-credits">credits</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-customizing">customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing">Customizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-customizing-HTML-format">customizing <acronym>HTML</acronym> format</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Key-Index_ky_letter-M">M</a></th><td></td><td></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Debian-package_002c-downloading">Debian package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demote-a-subtree">demote a subtree</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demote-headers">demote headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-demote-items">demote items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-development">development</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Development">Development</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-development-version">development version</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Development-Version">Development Version</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-downloading">downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing">Installing</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-external-commands_002c-customizing">external commands, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-F">F</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Fedora-package_002c-downloading">Fedora package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-feedback">feedback</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-footnote_002c-insert">footnote, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-FreeBSD-package_002c-downloading">FreeBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-G">G</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-Fenced-code-blocks">GFM Fenced code blocks</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-Multiple-underscores-in-words">GFM Multiple underscores in words</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-Newlines">GFM Newlines</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-Preview">GFM Preview</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-Strikethrough">GFM Strikethrough</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-Task-lists">GFM Task lists</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-URL-autolinking">GFM URL autolinking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-Wiki-links">GFM Wiki links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GitHub-flavored-markdown">GitHub flavored markdown</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GitHub-flavored-markdown_002c-customizing">GitHub flavored markdown, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-H">H</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-header_002c-complete">header, complete</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-header_002c-complete-all">header, complete all</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-header_002c-kill">header, kill</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-header_002c-navigating">header, navigating</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-headers">headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Headers">Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-headers_002c-insert">headers, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-headers_002c-promote_002fdemote">headers, promote/demote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-highlighting-LaTeX-math-syntax">highlighting LaTeX math syntax</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-highlighting-_005b_005bwiki_002dlinks_005d_005d-syntax">highlighting [[wiki-links]] syntax</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-history-of-releases">history of releases</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-of-Releases">History of Releases</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Homebrew-package_002c-installing">Homebrew package, installing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-horizontal-rule_002c-insert">horizontal rule, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-HTML-format_002c-customize"><acronym>HTML</acronym> format, customize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-I">I</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-image-display_002c-toggling">image display, toggling</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-image-reference_002c-insert">image reference, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-image_002c-insert-inline">image, insert inline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-images">images</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-indenting">indenting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting">Indenting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-indenting-the-region">indenting the region</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-indenting_002c-customizing">indenting, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inline-links_002c-insert">inline links, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-insert-image-inline">insert image inline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-insert-image-reference">insert image reference</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-insert-reference-links">insert reference links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-footnotes">inserting footnotes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-headers">inserting headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-horizontal-rules">inserting horizontal rules</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-inline-links">inserting inline links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-links">inserting links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-list-items">inserting list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-URIs">inserting URIs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-wiki_002dLinks">inserting wiki-Links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-installation_002c-the-easy-way">installation, the easy way</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-installation_002c-the-hard-way">installation, the hard way</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-installing">installing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing">Installing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-introduction">introduction</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Introduction">Introduction</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-J">J</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jump-to-a-footnote-or-its-marker">jump to a footnote or its marker</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jump-to-link-or-its-definition">jump to link or its definition</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jump-to-next-link">jump to next link</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jump-to-previous-link">jump to previous link</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-K">K</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill-headers">kill headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill-items">kill items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill-markup">kill markup</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-killing-entities">killing entities</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-L">L</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-LaTeX-math-syntax-highlighting">LaTeX math syntax highlighting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-license-_0028manual_0029">license (manual)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-license-_0028software_0029">license (software)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_002c-inline_002c-insert">link, inline, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_002c-insert">link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_002c-reference_002c-insert">link, reference, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-links">links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Links">Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-links_002c-navigating">links, navigating</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-links_002c-opening">links, opening</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Linux-package_002c-downloading">Linux package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-list-item_002c-kill">list item, kill</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-list-items_002c-promote_002fdemote">list items, promote/demote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-list_002c-insert-item">list, insert item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-list_002c-renumber-all">list, renumber all</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-lists">lists</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Lists">Lists</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002dDOWN"><code>M-<span class="key">DOWN</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002dLEFT"><code>M-<span class="key">LEFT</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002dn"><code>M-n</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
@@ -3864,302 +3766,147 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-M_002dUP"><code>M-<span class="key">UP</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002d_007b"><code>M-{</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002d_007d"><code>M-}</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MacPorts-package_002c-downloading">MacPorts package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-managed-loading">managed loading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-manual-installation">manual installation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mark">mark</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown-format_002c-customizing">markdown format, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown-headers_002c-customizing">markdown headers, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002c-configure"><code>markdown</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand_002c-configure"><code>markdown-command</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002c-customize"><code>markdown-open</code>, customize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MELPA-Stable_002c-installing-from">MELPA Stable, installing from</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-misc_002e-commands">misc. commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Misc_002e-Commands">Misc. Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-a-subtree-down">move a subtree down</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-a-subtree-up">move a subtree up</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-an-item-left">move an item left</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-an-item-right">move an item right</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-header-trees">move header trees</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-list-item-down">move list item down</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-list-item-up">move list item up</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-list-items">move list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-list-trees">move list trees</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-move-single-headers">move single headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Headers">Moving Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-moving-headers">moving headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Headers">Moving Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-moving-subtrees">moving subtrees</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-multimarkdown_002c-configure"><code>multimarkdown</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Key-Index_ky_letter-S">S</a></th><td></td><td></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-N">N</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-navigating-headers">navigating headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-navigating-links">navigating links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-navigation-differences">navigation differences</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-NetBSD-package_002c-downloading">NetBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-notes">notes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Notes">Notes</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-O">O</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-opening-links">opening links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-org_002dmode-visibility">org-mode visibility</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-OS-package-managers">OS package managers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-other-formats_002c-output-to">other formats, output to</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-outline_002dminor_002dmode">outline-minor-mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-outlining">outlining</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-output-HTML">output <acronym>HTML</acronym></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-outputting-to-other-formats">outputting to other formats</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-package_002eel_002c-installing-with"><code>package.el</code>, installing with</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-pandoc_002c-configure"><code>pandoc</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-promote-a-subtree">promote a subtree</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-promote-headers">promote headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-promote-items">promote items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-headers">promote/demote headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-items">promote/demote items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-list-items">promote/demote list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-List-Items">Promote/Demote List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-promote_002fdemote-list-items-1">promote/demote list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-R">R</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-recommended-installation">recommended installation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Redhat-package_002c-downloading">Redhat package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-reference-links_002c-insert">reference links, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-references_002c-check-all">references, check all</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-region">region</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-releases">releases</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-of-Releases">History of Releases</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-rule_002c-insert">rule, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-S">S</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-S_002dTAB"><code>S-TAB</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-smart-quotation-marks">smart quotation marks</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-smartypants_002c-configure"><code>smartypants</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-styles">styles</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Key-Index_ky_letter-T">T</a></th><td></td><td></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-T">T</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-TAB"><code>TAB</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-thank-you">thank you</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-toggling-image-display">toggling image display</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-transient-mark">transient mark</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Ubuntu-apt-package_002c-downloading">Ubuntu <code>apt</code> package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-URI_002c-insert">URI, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-usage">usage</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-use_002dpackage_002c-loading-with"><code>use-package</code>, loading with</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-using-gfm_002dmode">using <code>gfm-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-using-markdown_002dmode">using <code>markdown-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-V">V</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2-1">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2-2">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2-3">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2-4">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2-5">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2-6">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-v2_002e2-7">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-variables">variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing">Customizing</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Keys-and-Concepts_cp_letter-W">W</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wiki-links-syntax-highlighting">wiki links syntax highlighting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wiki_002dlink_002c-insert">wiki-link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Key-Index_ky_letter-C"><b>C</b></a>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Keys-and-Concepts_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Key-Index_ky_letter-M"><b>M</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Key-Index_ky_letter-S"><b>S</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Key-Index_ky_letter-T"><b>T</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-D"><b>D</b></a>
  &nbsp; 
-</td></tr></table>
-
-<hr>
-<a name="Variable-Index"></a>
-<a name="Variable-Index-1"></a>
-<h2 class="unnumbered">Variable Index</h2>
-<a name="index-variable-index"></a>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-A"><b>A</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-C"><b>C</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-G"><b>G</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-P"><b>P</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-H"><b>H</b></a>
  &nbsp; 
-</td></tr></table>
-<table class="index-vr" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Variable-Index_vr_letter-A">A</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-auto_002dmode_002dalist"><code>auto-mode-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Variable-Index_vr_letter-C">C</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-comment_002dauto_002dfill_002donly_002dcomments"><code>comment-auto-fill-only-comments</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Variable-Index_vr_letter-M">M</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dasymmetric_002dheader"><code>markdown-asymmetric-header</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dbold_002dunderscore"><code>markdown-bold-underscore</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcoding_002dsystem"><code>markdown-coding-system</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand"><code>markdown-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand-1"><code>markdown-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand-2"><code>markdown-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand_002dneeds_002dfilename"><code>markdown-command-needs-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcommand_002dneeds_002dfilename-1"><code>markdown-command-needs-filename</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcontent_002dtype"><code>markdown-content-type</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcss_002dpaths"><code>markdown-css-paths</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002denable_002dmath"><code>markdown-enable-math</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002denable_002dwiki_002dlinks"><code>markdown-enable-wiki-links</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dfootnote_002dlocation"><code>markdown-footnote-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dgfm_002dadditional_002dlanguages"><code>markdown-gfm-additional-languages</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dgfm_002duse_002delectric_002dbackquote"><code>markdown-gfm-use-electric-backquote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dheader_002dscaling"><code>markdown-header-scaling</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dheader_002dscaling_002dvalues"><code>markdown-header-scaling-values</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dhr_002dstrings"><code>markdown-hr-strings</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dindent_002dfunction"><code>markdown-indent-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dindent_002don_002denter"><code>markdown-indent-on-enter</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002ditalic_002dunderscore"><code>markdown-italic-underscore</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dlink_002dspace_002dsub_002dchar"><code>markdown-link-space-sub-char</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dlist_002dindent_002dwidth"><code>markdown-list-indent-width</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dmake_002dgfm_002dcheckboxes_002dbuttons"><code>markdown-make-gfm-checkboxes-buttons</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dmake_002dgfm_002dcheckboxes_002dbuttons-1"><code>markdown-make-gfm-checkboxes-buttons</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dnested_002dimenu_002dheader_002dindex"><code>markdown-nested-imenu-header-index</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand-1"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand-2"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dreference_002dlocation"><code>markdown-reference-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dreference_002dlocation-1"><code>markdown-reference-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002duri_002dtypes"><code>markdown-uri-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dwiki_002dlink_002dalias_002dfirst"><code>markdown-wiki-link-alias-first</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dwiki_002dlink_002dfontify_002dmissing"><code>markdown-wiki-link-fontify-missing</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dwiki_002dlink_002dsearch_002dparent_002ddirectories"><code>markdown-wiki-link-search-parent-directories</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dxhtml_002dheader_002dcontent"><code>markdown-xhtml-header-content</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dxhtml_002dstandalone_002dregexp"><code>markdown-xhtml-standalone-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Variable-Index_vr_letter-P">P</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-package_002darchives"><code>package-archives</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-</table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Variable-Index_vr_letter-A"><b>A</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-I"><b>I</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-C"><b>C</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-J"><b>J</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-K"><b>K</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-P"><b>P</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-L"><b>L</b></a>
  &nbsp; 
-</td></tr></table>
-
-<hr>
-<a name="Function-Index"></a>
-<a name="Function-Index-1"></a>
-<h2 class="unnumbered">Function Index</h2>
-<a name="index-function-index"></a>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-A"><b>A</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-M"><b>M</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-G"><b>G</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-N"><b>N</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-O"><b>O</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-O"><b>O</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-P"><b>P</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-P"><b>P</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-R"><b>R</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-U"><b>U</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-S"><b>S</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-V"><b>V</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-T"><b>T</b></a>
  &nbsp; 
-</td></tr></table>
-<table class="index-fn" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-A">A</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-add_002dto_002dlist"><code>add-to-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-add_002dto_002dlist-1"><code>add-to-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-autoload"><code>autoload</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-G">G</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-gfm_002dmode"><code>gfm-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-M">M</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-mark_002ddefun"><code>mark-defun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dbackward_002dparagraph"><code>markdown-backward-paragraph</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dbackward_002dsame_002dlevel"><code>markdown-backward-same-level</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dbeginning_002dof_002ddefun"><code>markdown-beginning-of-defun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dblockquote_002dregion"><code>markdown-blockquote-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcheck_002drefs"><code>markdown-check-refs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcleanup_002dlist_002dnumbers"><code>markdown-cleanup-list-numbers</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcomplete"><code>markdown-complete</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dcomplete_002dbuffer"><code>markdown-complete-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002ddemote"><code>markdown-demote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002ddemote_002dsubtree"><code>markdown-demote-subtree</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002delectric_002dbackquote"><code>markdown-electric-backquote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dend_002dof_002ddefun"><code>markdown-end-of-defun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dexdent_002dregion"><code>markdown-exdent-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dexport"><code>markdown-export</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dexport_002dand_002dpreview"><code>markdown-export-and-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dfollow_002dthing_002dat_002dpoint"><code>markdown-follow-thing-at-point</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dforward_002dparagraph"><code>markdown-forward-paragraph</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dforward_002dsame_002dlevel"><code>markdown-forward-same-level</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dindent_002dregion"><code>markdown-indent-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dblockquote"><code>markdown-insert-blockquote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dbold"><code>markdown-insert-bold</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dcode"><code>markdown-insert-code</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dfootnote"><code>markdown-insert-footnote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d1"><code>markdown-insert-header-atx-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d2"><code>markdown-insert-header-atx-2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d3"><code>markdown-insert-header-atx-3</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d4"><code>markdown-insert-header-atx-4</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d5"><code>markdown-insert-header-atx-5</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002datx_002d6"><code>markdown-insert-header-atx-6</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002ddwim"><code>markdown-insert-header-dwim</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002dsetext_002d1"><code>markdown-insert-header-setext-1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002dsetext_002d2"><code>markdown-insert-header-setext-2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dheader_002dsetext_002ddwim"><code>markdown-insert-header-setext-dwim</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dhr"><code>markdown-insert-hr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dimage"><code>markdown-insert-image</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002ditalic"><code>markdown-insert-italic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dkbd"><code>markdown-insert-kbd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlink"><code>markdown-insert-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlink-1"><code>markdown-insert-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlist_002ditem"><code>markdown-insert-list-item</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dpre"><code>markdown-insert-pre</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dreference_002dimage"><code>markdown-insert-reference-image</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002duri"><code>markdown-insert-uri</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dwiki_002dlink"><code>markdown-insert-wiki-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002djump"><code>markdown-jump</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dkill_002dring_002dsave"><code>markdown-kill-ring-save</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dkill_002dthing_002dat_002dpoint"><code>markdown-kill-thing-at-point</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dlive_002dpreview_002dmode"><code>markdown-live-preview-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dmode"><code>markdown-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002ddown"><code><code>markdown-move-down</code></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002dsubtree_002ddown"><code>markdown-move-subtree-down</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002dsubtree_002dup"><code>markdown-move-subtree-up</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dmove_002dup"><code><code>markdown-move-up</code></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dnext_002dlink"><code>markdown-next-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dnext_002dvisible_002dheading"><code>markdown-next-visible-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dopen"><code>markdown-open</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dother_002dwindow"><code>markdown-other-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dpre_002dregion"><code>markdown-pre-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dpreview"><code>markdown-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dprevious_002dlink"><code>markdown-previous-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dprevious_002dvisible_002dheading"><code>markdown-previous-visible-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dpromote"><code>markdown-promote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dpromote_002dsubtree"><code>markdown-promote-subtree</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dtoggle_002dinline_002dimages"><code>markdown-toggle-inline-images</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dtoggle_002dwiki_002dlinks"><code>markdown-toggle-wiki-links</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dup_002dheading"><code>markdown-up-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-O">O</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-org_002dmode"><code>org-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-org_002dmode-1"><code>org-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-P">P</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-package_002dinstall"><code>package-install</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-package_002eel"><code>package.el</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-U">U</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-use_002dpackage"><code>use-package</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Function-Index_fn_letter-V">V</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-visual_002dline_002dmode"><code>visual-line-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-</table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Function-Index_fn_letter-A"><b>A</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-U"><b>U</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-G"><b>G</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-V"><b>V</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-O"><b>O</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-P"><b>P</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-U"><b>U</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Function-Index_fn_letter-V"><b>V</b></a>
- &nbsp; 
-</td></tr></table>
-
-<hr>
-<a name="Program-Index"></a>
-<a name="Program-Index-1"></a>
-<h2 class="unnumbered">Program Index</h2>
-<a name="index-program-index"></a>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-A"><b>A</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-B"><b>B</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-E"><b>E</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-I"><b>I</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-P"><b>P</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-S"><b>S</b></a>
- &nbsp; 
-</td></tr></table>
-<table class="index-pg" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-A">A</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-apt"><code>apt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-atx"><code>atx</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Headers">Headers</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-B">B</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-brew"><code>brew</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-C">C</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-cl_002dlib"><code>cl-lib</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-E">E</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Emacs"><code>Emacs</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Introduction">Introduction</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-I">I</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ikiwiki"><code>ikiwiki</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-M">M</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown"><code>markdown</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Introduction">Introduction</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown-1"><code>markdown</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Marked-2"><code>Marked 2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-multimarkdown"><code>multimarkdown</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-P">P</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pandoc"><code>pandoc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-port"><code>port</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Program-Index_pg_letter-S">S</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-setext"><code>setext</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Headers">Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-smartypants"><code>smartypants</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-</table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Program-Index_pg_letter-A"><b>A</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-B"><b>B</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-E"><b>E</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-I"><b>I</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-M"><b>M</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-P"><b>P</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Program-Index_pg_letter-S"><b>S</b></a>
+<a class="summary-letter" href="#Keys-and-Concepts_cp_letter-W"><b>W</b></a>
  &nbsp; 
 </td></tr></table>
 <hr>

@@ -19,6 +19,7 @@
 *.kys
 *.pg
 *.pgs
+*._texi
 
 # Output Files
 *.xml
@@ -28,3 +29,4 @@ README.html
 *.md
 *.ps
 *.txt
+*.adoc

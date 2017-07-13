@@ -1,9 +1,10 @@
-SOURCE	:= markdown-mode.texi
+BASENAME := markdown-mode
+SOURCE	:= $(BASENAME).texi
 INCLUDE	:= fdl.texi gpl-2.0.texi gpl.texi
 
-INFODIR := /usr/local/share/info/emacs
+INFODIR := ~/info
 
-TEXINFODIR := /usr/local/Cellar/texinfo/6.3/bin
+TEXINFODIR := /usr/local/Cellar/texinfo/6.4/bin
 TEXI2ANY := $(TEXINFODIR)/texi2any
 TEXI2PDF := $(TEXINFODIR)/texi2pdf
 TEXI2DVI := $(TEXINFODIR)/texi2dvi
@@ -23,67 +24,74 @@ help:
 	# make ps
 	# make txt
 	# make docbook
+	# make adoc
 	# make epub	# lacks index
 	# make md	# lacks index
 	#
 	# make clean
 	#
-	# Be sure to update file locations in top of Makefile for your system.
+	# This Makefile uses TexInfo and Pandoc
+	# Check the file locations at top of this Makefile.
 
-info: markdown-mode.info.gz
+info: $(BASENAME).info.gz
 
-html: markdown-mode.html
+html: $(BASENAME).html
 
-pdf: markdown-mode.pdf
+pdf: $(BASENAME).pdf
 
-ps: markdown-mode.ps
+ps: $(BASENAME).ps
 
-txt: markdown-mode.txt
+txt: $(BASENAME).txt
 
-docbook: markdown-mode.xml
+docbook: $(BASENAME).xml
 
-epub: markdown-mode.epub
+adoc: $(BASENAME).adoc
 
-md: markdown-mode.md
+epub: $(BASENAME).epub
 
-markdown-mode.info: ${SOURCE} ${INCLUDE}
+md: $(BASENAME).md
+
+$(BASENAME).info: ${SOURCE} ${INCLUDE}
 	$(TEXI2ANY) --info $<
 
-markdown-mode.info.gz: markdown-mode.info
+$(BASENAME).info.gz: $(BASENAME).info
 	$(GZIP) $<
 
-install: markdown-mode.info.gz
+install: $(BASENAME).info.gz
 	$(INSTALL) $< $(INFODIR)
 	$(INSTALLINFO) $(INFODIR)/$< $(INFODIR)/dir
 
-markdown-mode.html: ${SOURCE} ${INCLUDE}
+$(BASENAME).html: ${SOURCE} ${INCLUDE}
 	$(TEXI2ANY) --HTML --no-split --no-headers ${SOURCE} | ${SMARTYPANTS}
 
-markdown-mode.pdf: ${SOURCE} ${INCLUDE} markdown-mode.info
+$(BASENAME).pdf: ${SOURCE} ${INCLUDE} $(BASENAME).info
 	$(TEXI2PDF) $<
 
-markdown-mode.ps: ${SOURCE} ${INCLUDE} markdown-mode.info
+$(BASENAME).ps: ${SOURCE} ${INCLUDE} $(BASENAME).info
 	$(TEXI2DVI) --ps  $<
 
-markdown-mode.txt: ${SOURCE} ${INCLUDE}
+$(BASENAME).txt: ${SOURCE} ${INCLUDE}
 	$(TEXI2ANY) --plaintext $< >$@
 
-markdown-mode.xml: ${SOURCE} ${INCLUDE} markdown-mode.info
-	$(TEXI2ANY) --docbook $<
+# texi2any --docbook handles @Xindex entries poorly. Remove them first.
+$(BASENAME).xml: ${SOURCE} ${INCLUDE} $(BASENAME).info
+	grep -v "^@[cfkptv]index " $< >$(BASENAME)._texi
+	$(TEXI2ANY) --docbook $(BASENAME)._texi
 
-# index entries are not handled correctly in epub version
-markdown-mode.epub: markdown-mode.xml
-	$(PANDOC) -s -t epub -o $@ -f docbook $<
+$(BASENAME).adoc: $(BASENAME).xml
+	$(PANDOC) -t asciidoc -o $@ -f docbook $<
 
-# index entries are not handled correctly in markdown version
-markdown-mode.md: markdown-mode.xml
-	$(PANDOC) -s -t markdown_strict -o $@ -f docbook $<
+$(BASENAME).epub: $(BASENAME).xml
+	$(PANDOC) -t epub -o $@ -f docbook $<
+
+$(BASENAME).md: $(BASENAME).xml
+	$(PANDOC) -t markdown_strict -o $@ -f docbook $<
 
 clean:
 	rm *.aux *.toc *.log || true
 	rm *.cp *.cps *.vr *.vrs *.fn *.fns *.ky *.kys *.pg *.pgs || true
-	rm markdown-mode.dvi markdown-mode.ps || true
-	rm markdown-mode.xml markdown-mode.epub markdown-mode.md || true
-	rm markdown-mode.html markdown-mode.txt markdown-mode.pdf || true
-	rm markdown-mode.info markdown-mode.info.gz || true
-	rm README.html || true
+	rm $(BASENAME).dvi $(BASENAME).ps $(BASENAME).adoc || true
+	rm $(BASENAME).xml $(BASENAME).epub $(BASENAME).md || true
+	rm $(BASENAME).html $(BASENAME).txt $(BASENAME).pdf || true
+	rm $(BASENAME).info $(BASENAME).info.gz || true
+

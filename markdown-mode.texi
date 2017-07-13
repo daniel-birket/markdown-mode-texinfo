@@ -2,18 +2,37 @@
 @comment %**start of header
 @setfilename markdown-mode.info
 @settitle Emacs Markdown Mode
-@comment created under Texinfo 6.1
-@set VERSION 2.1
-@set RELEASED January 9, 2016
-@set SWCYEARS 2007-2016
+@comment created under Texinfo 6.4
+@set PACKAGE @code{markdown-mode}
+@set AUTHOR Jason R. Blevins, et al.
+@set VERSION 2.2
+@set RELEASED May 26, 2017
+@set SWCYEARS 2007-2017
+@set PACURL @uref{http://jblevins.org/projects/markdown-mode/}
+@set SRCURL @uref{https://github.com/jrblevin/markdown-mode}
+@set PACSRC @code{markdown-mode.el}
+
+@set TITLE @value{PACKAGE} Manual
+@settitle @value{TITLE}
+@set DESCRIPTION This manual describes how to install and use
+@value{PACKAGE}, an Emacs package for working with markdown-format files.
+@documentdescription
+@value{DESCRIPTION}
+@end documentdescription
 @set EDITION @value{VERSION}.a
-@set TEXINFO @acronym{GNU} Texinfo v6.3
-@set EMACS Emacs v25.1.1
+@set EDITOR Daniel Birket
+@set DOCURL @uref{https://github.com/daniel-birket/markdown-mode-texinfo}
+
+@set TEXINFO @cite{@acronym{GNU} Texinfo v6.4}
+@set EMACS @cite{Emacs v25.2.1}
+@set PANDOC @cite{Pandoc v1.19.2.1}
 @comment %**end of header
+@syncodeindex vr fn
+@syncodeindex ky cp
 
 @copying
 @cindex copyright (manual)
-Copyright @copyright{} 2016 Daniel Birket.
+Copyright @copyright{} 2017 Daniel Birket.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -24,48 +43,86 @@ with no Back-Cover Texts.  A copy of the license is included in the
 section entitled @cite{@acronym{GNU} Free Documentation License}.
 @end quotation
 
-This is the Emacs Markdown Mode manual (unauthorized), edition
-@value{EDITION}, by Daniel Birket, updated @today{} and composed using
-@value{EMACS}.
+This is the @cite{@value{TITLE}}, edition @value{EDITION}, by
+@value{EDITOR}, updated @today{}, which describes how to install and
+use the Emacs package @value{PACKAGE}, version @value{VERSION},
+released @value{RELEASED}, which was written by and Copyright
+@copyright{} @value{SWCYEARS} @value{AUTHOR} (See @value{PACURL})
+
 @ifinfo
-This @command{info} file was compiled from @file{.texinfo} source
-with @value{TEXINFO}.
+This @command{info}
 @end ifinfo
 @iftex
-It was compiled from @file{.texinfo} source with @value{TEXINFO} and
-typeset using @TeX{} by Donald Knuth, et al.
+This typeset
 @end iftex
 @ifhtml
-This @acronym{HTML} document was compiled from @file{.texinfo} source
-with @value{TEXINFO}.
+This @acronym{HTML}
 @end ifhtml
 @ifdocbook
-It was was compiled from @file{.texinfo} source with @value{TEXINFO}
-and converted from @command{docbook} format using
-@command{pandoc}.  The indices were omitted in this format.
+This
 @end ifdocbook
+document was composed using @value{EMACS} (Richard
+M. Stallman, et al.  See @uref{https://www.gnu.org/software/emacs/})
+and compiled from @file{.texi} source with @value{TEXINFO} (Richard
+M. Stallman, et al.  See @uref{https://www.gnu.org/software/texinfo/})
+@iftex
+and typeset using @TeX{} (Donald Knuth, et al.  See
+@uref{https://www.gnu.org/software/texinfo/})
+@end iftex
+@ifdocbook
+to @command{docbook} format (@acronym{OASIS} See @uref{http://docbook.org}, then
+converted to this format using @value{PANDOC} (John MacFarlane, et
+al@. @uref{http://pandoc.org})  This format has no index.
+@end ifdocbook
+@end copying
 
-This manual describes how to install and use the Emacs Lisp software
-package @code{markdown-mode}, version @value{VERSION}, released
-@value{RELEASED}, which was written by and Copyright @copyright{}
-@value{SWCYEARS} Jason R. Blevins, et al.  The @code{markdown-mode}
-software package and its @emph{authorized} manual are online at
-@uref{http://jblevins.org/projects/markdown-mode/}.
+@dircategory Emacs editing modes
+@direntry
+* Markdown Mode: (markdown-mode).        Emacs mode for markdown text.
+@end direntry
 
-This manual is based upon (and frequently copied verbatim from) the
-extensive documentation in the @code{markdown-mode.el} source code,
-which begins with:
+@titlepage
+@title @value{TITLE}
+@subtitle edition @value{EDITION}
+@subtitle for @value{PACKAGE} version @value{VERSION}
+@author @value{PACKAGE} by @value{AUTHOR}
+@author manual by @value{EDITOR}
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnotdocbook
+@ifnottex
+@node Top
+@top @value{TITLE}
+@value{DESCRIPTION}
+
+@ifinfo
+In @command{info}, type @kbd{3} to jump to the chapter on using
+@code{markdown-mode}.
+@end ifinfo
+
+@insertcopying
+@end ifnottex
+@end ifnotdocbook
+
+This manual is based upon the comments and doc strings in the
+@value{PACSRC} source code, which begins with:
 
 @cindex copyright (software)
 @lisp
-;;; markdown-mode.el --- Major mode for Markdown-formatted text @dots{}
+;;; markdown-mode.el --- Major mode for Markdown-formatted text -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2007-2016 Jason R. Blevins <jrblevin@@sdf.org>
+;; Copyright (C) 2007-2017 Jason R. Blevins <jrblevin@@sdf.org>
 @dots{}
+
 ;; Author: Jason R. Blevins <jrblevin@@sdf.org>
 ;; Maintainer: Jason R. Blevins <jrblevin@@sdf.org>
 ;; Created: May 24, 2007
-;; Version: 2.1
+;; Version: 2.2
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
 ;; URL: http://jblevins.org/projects/markdown-mode/
@@ -82,41 +139,6 @@ which begins with:
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 @end lisp
-@end copying
-
-@dircategory Emacs editing modes
-@direntry
-* Markdown Mode: (markdown-mode).        Emacs mode for markdown text.
-@end direntry
-
-@titlepage
-@title Emacs Markdown Mode
-@subtitle (Unauthorized)
-@subtitle @value{EDITION}
-@author @code{markdown-mode.el} by Jason R. Blevins, et al.
-@author Manual by Daniel Birket
-@page
-@vskip 0pt plus 1filll
-@insertcopying
-@end titlepage
-
-@contents
-
-@ifnotdocbook
-@ifnottex
-@node Top
-@top Emacs Markdown Mode
-This manual describes how to install and use @code{markdown-mode}, an
-Emacs package for working with markdown-formatted text.
-
-@ifinfo
-In @command{info}, type @kbd{3} to jump to the chapter on using
-@code{markdown-mode}.
-@end ifinfo
-
-@insertcopying
-@end ifnottex
-@end ifnotdocbook
 
 @menu
 * Introduction::                About @command{markdown} & @code{markdown-mode}.
@@ -129,11 +151,8 @@ In @command{info}, type @kbd{3} to jump to the chapter on using
 Appendices:
 * @acronym{GNU} General Public License 2.0::
 * @acronym{GNU} Free Documentation License::
-* Concept Index::
-* Key Index::
-* Variable Index::
-* Function Index::
-* Program Index::
+* Functions & Variables::
+* Keys and Concepts::
 @end menu
 
 @node Introduction
@@ -149,11 +168,11 @@ text.
 The package implements two Emacs @emph{major modes}:
 @itemize @bullet
 @item
-@code{markdown-mode}, for editing standard markdown text.
+@code{markdown-mode}, for editing standard markdown text.@*
 @xref{Using @code{markdown-mode}}.
 
 @item
-@code{gfm-mode}, for editing GitHub-flavored markdown text.
+@code{gfm-mode}, for editing GitHub-flavored markdown text.@*
 @xref{Using @code{gfm-mode}}.
 @end itemize
 
@@ -178,10 +197,11 @@ is described at
 @uref{http://github.github.com/github-flavored-markdown/}.
 
 @pindex Emacs
-The powerful text editor, Emacs, created in 1976 by Richard Stallman,
-is highly extensible and has a large ecosystem of extensions like this
-one created over 40 years.  @acronym{GNU} Emacs is described at
-@uref{https://www.gnu.org/software/emacs/}.
+The powerful text editor, Emacs, was created in 1976 by Richard
+Stallman.  It is highly customizable and has 40 years of other
+extensions.  @cite{@acronym{GNU} Emacs} is documented at
+@uref{https://www.gnu.org/software/emacs/}. @cite{XEmacs} is
+documented at @uref{http://www.xemacs.org}.
 
 @node Installing
 @chapter Installing
@@ -2111,65 +2131,9 @@ future@dots{} @strong{Thank you.}
 @cindex credits
 @cindex thank you
 
-@code{markdown-mode} has benefited greatly from the efforts of:
-
-@itemize @bullet
-@item @copyright{} 2007-2016 Jason R. Blevins @email{jrblevin@@sdf.org}, principle author and maintainer of @code{markdown-mode}.
-@item @copyright{} 2007, 2009 Edward O'Connor @email{ted@@oconnor.cx} for a font-lock regexp fix and GitHub Flavored Markdown mode (@code{gfm-mode}).
-@item @copyright{} 2007 Conal Elliott @email{conal@@conal.net} for a font-lock regexp patch.
-@item @copyright{} 2008 Greg Bognar @email{greg_bognar@@hms.harvard.edu} for menus and running @command{markdown} with an active region.
-@item @copyright{} 2008 Dmitry Dzhus @email{mail@@sphinx.net.ru} for undefined reference checking.
-@item @copyright{} 2008 Bryan Kyle @email{bryan.kyle@@gmail.com} for indentation code.
-@item @copyright{} 2008 Ben Voui @email{intrigeri@@boum.org} for font-lock face customizations.
-@item @copyright{} 2009 Ankit Solanki @email{ankit.solanki@@gmail.com} for @code{longlines.el} compatibility and custom CSS.
-@item @copyright{} 2009 Hilko Bengen @email{bengen@@debian.org} for proper XHTML output.
-@item @copyright{} 2009 Peter Williams @email{pezra@@barelyenough.org} for @code{fill-paragraph} enhancements.
-@item @copyright{} 2010 George Ogata @email{george.ogata@@gmail.com} for fixing several byte-compilation warnings.
-@item @copyright{} 2011 Eric Merritt @email{ericbmerritt@@gmail.com} for wiki link features.
-@item @copyright{} 2011 Philippe Ivaldi @email{pivaldi@@sfr.fr} for XHTML preview customizations and XHTML export.
-@item @copyright{} 2011 Jeremiah Dodds @email{jeremiah.dodds@@gmail.com} for supporting Markdown processors which do not accept input from stdin.
-@item @copyright{} 2011 Christopher J. Madsen @email{cjm@@cjmweb.net} for patches to fix a match data bug and to prefer @code{visual-line-mode} in @code{gfm-mode}.
-@item @copyright{} 2011 Shigeru Fukaya @email{shigeru.fukaya@@gmail.com} for better adherence to Emacs Lisp coding conventions.
-@item @copyright{} 2011 Joost Kremers @email{joostkremers@@fastmail.fm} for footnote-handling functions, bug reports regarding indentation, and fixes for byte-compilation warnings.
-@item @copyright{} 2011-2012 Donald Ephraim Curtis @email{dcurtis@@milkbox.net} for fixing the @code{fill-paragraph} regexp, refactoring the compilation and preview functions, heading font-lock generalizations, list renumbering, and kill ring save.
-@item @copyright{} 2012 Akinori Musha @email{knu@@idaemons.org} for an imenu index function.
-@item @copyright{} 2012 Zhenlei Jia @email{zhenlei.jia@@gmail.com} for smart exdention function.
-@item @copyright{} 2012 Peter Jones @email{pjones@@pmade.com} for link following functions.
-@item @copyright{} 2013 Matus Goljer @email{dota.keys@@gmail.com} for improved wiki link following and GFM code block insertion.
-@item @copyright{} 2015 Google, Inc.  (Contributor: Samuel Freilich @email{sfreilich@@google.com}) for improved filling behavior regarding list items, footnotes, and reference definitions, improved killing of footnotes, and numerous other tests and bug fixes.
-@item @copyright{} 2015 Antonis Kanouras @email{antonis@@metadosis.gr} for strikethrough support.
-@item @copyright{} 2015 Howard Melman @email{hmelman@@gmail.com} for supporting GFM checkboxes as buttons.
-@item @copyright{} 2015-2016 Danny McClanahan @email{danieldmcclanahan@@gmail.com} for live preview mode, completion of GFM programming language names, improved font lock for fenced code blocks and meta-data blocks, @code{cl-lib} updates, and numerous other improvements.
-@item @copyright{} 2015-2016 Syohei Yoshida @email{syohex@@gmail.com} for better heading detection and movement functions, improved italic font lock, fixing adaptive filling for hanging list items, more efficient fontification, and numerous other improvements.
-@item @copyright{} 2016 Vitalie Spinu @email{spinuvit@@gmail.com} for improvements to font lock and source code aesthetics.
-@item Kévin Le Gouguec for improvements related to ATX headings and Pandoc fancy lists.
-@item Cyril Brulebois for Debian packaging.
-@item Daniel Burrows for filing Debian bug #456592.
-@item Peter S. Galbraith for maintaining @code{emacs-goodies-el}.
-@item Carsten Dominik for @code{org-mode}, from which the visibility cycling functionality was derived, and for a bug fix related to @code{orgtbl-mode}.
-@item Jose A. Ortega Ruiz for Emacs 23 fixes.
-@item Nelson Minar for @code{html-helper-mode}, from which comment matching functions were derived.
-@item Werner Dittmann for bug reports regarding the @code{cl} dependency and @code{auto-fill-mode} and indentation.
-@item Alec Resnick for bug reports.
-@item Scott Pfister for generalizing the space substitution character for mapping wiki links to file names.
-@item Marcin Kasperski for a patch to escape shell commands.
-@item Kevin Porter for wiki link handling in @code{gfm-mode}.
-@item Max Penet and Peter Eisentraut @email{peter_e@@gmx.net} for an auto-load token for @code{gfm-mode}.
-@item Ian Yang for improving the reference definition regex.
-@item Michael Sperber for @command{XEmacs} fixes.
-@item Francois Gannaz for suggesting charset declaration in XHTML output.
-@item Bryan Fink for a bug report regarding externally modified files.
-@item Vegard Vesterheim for a bug fix related to @code{orgtbl-mode}.
-@item Makoto Motohashi for before- and after- export hooks, unit test improvements, and updates to support wide characters.
-@item Michael Dwyer for @code{gfm-mode} underscore regexp.
-@item Chris Lott for suggesting reference label completion.
-@item Gunnar Franke for a completion bug report.
-@item David Glasser for a @code{paragraph-separate} fix.
-@item Daniel Brotsky for better auto-fill defaults.
-@item Matt McClure for a patch to prevent overwriting source files with .html extensions upon export.
-@item Roger Bolsius for ordered list improvements.
-@item Google's Open Source Programs Office for recognizing the project with a monetary contribution in June 2015.
-@end itemize
+@code{markdown-mode} has benefited greatly from the efforts of many
+people. Please see the ``;;; Acknowledgments:'' section of
+@value{PACSRC} and the GitHub contributors graph at @uref{https://github.com/jrblevin/markdown-mode/graphs/contributors}.
 
 @node History of Releases
 @section History of Releases
@@ -2177,9 +2141,7 @@ future@dots{} @strong{Thank you.}
 @cindex releases
 
 @code{markdown-mode} was primarily written and is maintained by Jason
-Blevins.  The first release, 1.1,  was on May 24, 2007.  This manual
-documents @code{markdown-mode}, version @value{VERSION}, released
-@value{RELEASED}.
+Blevins.  The first release, 1.1,  was on May 24, 2007.
 
 Most of the prior versions may be downloaded:
 
@@ -2196,6 +2158,7 @@ Most of the prior versions may be downloaded:
 @item 2013-01-25 v1.9   @uref{http://jblevins.org/projects/markdown-mode/rev-1-9}
 @item 2013-03-24 v2.0   @uref{http://jblevins.org/projects/markdown-mode/rev-2-0}
 @item 2016-01-09 v2.1   @uref{http://jblevins.org/projects/markdown-mode/rev-2-1}
+@item 2017-05-26 v2.2   @uref{http://jblevins.org/projects/markdown-mode/rev-2-2}
 @end itemize
 
 @node Development Version
@@ -2206,39 +2169,24 @@ You may browse the project files of @code{markdown-mode}, contribute
 to its development or help to test the current development version.
 
 @itemize @bullet
-@item To browse the @code{markdown-mode} project files, visit the project's
-page on GitHub at @uref{https://github.com/jrblevin/markdown-mode}.
+@item To browse the @code{markdown-mode} project files, visit the
+project's page on GitHub at @value{SRCURL}.
 
-@item To contribute to the development of @code{markdown-mode}, you may fork
-the project to your own GitHub account or clone the repository
-directly with:
-
-@cartouche
-@table @asis
-@item Using @acronym{HTTPS}
-@samp{$ git clone https://github.com/jrblevin/markdown-mode.git}
-
-@item Using @acronym{SSH}
-@samp{$ git clone ssh://git@@github.com:jrblevin/markdown-mode.git}
-@end table
-@end cartouche
+@item To contribute to the development of @code{markdown-mode}, you should fork
+the project to your own GitHub account.
 
 @item To test the current development version of
-@code{markdown-mode}, you may either download @code{markdown-mode.el}
-from the repository at
-@uref{https://github.com/jrblevin/markdown-mode} or from
-@acronym{MELPA} at @url{https://melpa.org/#/markdown-mode}.
-
-After downloading @code{markdown-mode.el} to the directory
-@file{~/my/directory}, then ensure that Emacs can find it by adding
-the following line to your Emacs startup file:
+@code{markdown-mode}, download @value{PACSRC} from @value{SRCURL} or
+from @acronym{MELPA} at @url{https://melpa.org/#/markdown-mode} to the
+directory @file{~/my/directory}. Then ensure that Emacs can find it by
+adding the following line to your Emacs startup file:
 
 @lisp
 (add-to-list 'load-path "~/my/directory")
 @end lisp
 
-Please realize that the development version may be unstable at
-times.  See the next section for how to submit a bug report.
+Please realize that the development version may be unstable at times.
+See the next section for how to submit a bug report.
 @end itemize
 @node Bugs and Errors
 @section Bugs and Errors
@@ -2248,22 +2196,22 @@ times.  See the next section for how to submit a bug report.
 
 @table @strong
 @item Software Bugs
-@code{markdown-mode} was developed and primarily tested for
-compatibility with @acronym{GNU} Emacs 24.3 and later.  If you encounter a
-problem and have an older version of Emacs, please consider updating
-your version of Emacs to resolve the problem.
+@code{markdown-mode} now requires @acronym{GNU} Emacs 24.3 and later.
+If have an older version of Emacs, please consider updating your
+version of Emacs to resolve any problems.
 
 If you have identified a bug with @code{markdown-mode.el}, please
 construct a test case or a patch and create an issue on the issue
 tracker at @uref{https://github.com/jrblevin/markdown-mode/issues}.
 
 @item Manual Errors
-If you find an error in this @emph{unauthorized} manual, please create
-an issue on the issue tracker at
-@uref{https://github.com/daniel-birket/markdown-mode-texinfo/issues}.  Please
-do not complain to Dr. Blevin about errors in @emph{this} manual.  You
-will find his original manual at
-@uref{https://github.com/jrblevin/markdown-mode}.
+This manual is maintained on GitHub at@*
+@value{DOCURL} by
+@value{EDITOR}.
+Please submit document errata to the issue tracker
+there.  Please do not complain to Dr. Blevin about errors in
+@emph{this} manual.  You will find @emph{his} original manual at
+@value{SRCURL}.
 @end table
 
 @node @acronym{GNU} General Public License 2.0
@@ -2286,31 +2234,10 @@ will find his original manual at
 @cindex @acronym{GNU} Free Documentation License
 
 @include fdl.texi
-
-@ifnotdocbook
-@node Concept Index
-@unnumbered Concept Index
-@cindex concept index @samp{;-)}
-@printindex cp
-
-@node Key Index
-@unnumbered Key Index
-@cindex key index
-@printindex ky
-
-@node Variable Index
-@unnumbered Variable Index
-@cindex variable index
-@printindex vr
-
-@node Function Index
-@unnumbered Function Index
-@cindex function index
+@node Functions & Variables
+@unnumbered Functions & Variables
 @printindex fn
-
-@node Program Index
-@unnumbered Program Index
-@cindex program index
-@printindex pg
-@end ifnotdocbook
+@node Keys and Concepts
+@unnumbered Keys and Concepts
+@printindex cp
 @bye
