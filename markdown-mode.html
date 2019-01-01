@@ -9,27 +9,26 @@ Foundation; with no Invariant Sections, with no Front-Cover Texts, and
 with no Back-Cover Texts.  A copy of the license is included in the
 section entitled GNU Free Documentation License.
 
-This is the markdown-mode Manual, edition 2.2.a, by
-Daniel Birket, updated July 13, 2017, which describes how to install and
-use the Emacs package markdown-mode, version 2.2,
-released May 26, 2017, which was written by and Copyright
-(C) 2007-2017 Jason R. Blevins, et al. (See http://jblevins.org/projects/markdown-mode/)
+This manual is markdown-mode for Emacs, edition 2.3.a, by
+Daniel Birket, updated January 1, 2019, which describes how to install and
+use the Emacs package markdown-mode, version 2.3,
+released Aug 31, 2017, which was written by and Copyright
+(C) 2007-2017 Jason R. Blevins, et al. See http://jblevins.org/projects/markdown-mode/.
 
 This HTML
-document was composed using Emacs v25.2.1 (Richard
-M. Stallman, et al.  See https://www.gnu.org/software/emacs/)
-and compiled from .texi source with GNU Texinfo v6.4 (Richard
-M. Stallman, et al.  See https://www.gnu.org/software/texinfo/) -->
-<!-- Created by GNU Texinfo 6.4, http://www.gnu.org/software/texinfo/ -->
+document was composed using Emacs v26.1
+and compiled from .texi source using
+GNU Texinfo v6.5 -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Emacs Markdown Mode</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>markdown-mode for Emacs</title>
 
-<meta name="description" content="This manual describes how to install and use">
-<meta name="keywords" content="Emacs Markdown Mode">
+<meta name="description" content="How to install and use markdown-mode, an Emacs major-mode for markdown-formatted text.">
+<meta name="keywords" content="markdown-mode for Emacs">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Functions-_0026-Variables" rel="index" title="Functions &amp; Variables">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -66,10 +65,9 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Emacs Markdown Mode</h1>
+<h1 class="settitle" align="center"><code>markdown-mode</code> for Emacs</h1>
 
-<p><code>markdown-mode</code>, an Emacs package for working with markdown-format files.
-</p>
+
 
 
 
@@ -86,7 +84,7 @@ ul.no-bullet {list-style: none}
     <li><a name="toc-Recommended-Installation-1" href="#Recommended-Installation">2.1 Recommended Installation</a></li>
     <li><a name="toc-Manual-Installation-1" href="#Manual-Installation">2.2 Manual Installation</a></li>
     <li><a name="toc-Managed-Loading-1" href="#Managed-Loading">2.3 Managed Loading</a></li>
-    <li><a name="toc-OS-Package-Managers-1" href="#OS-Package-Managers">2.4 OS Package Managers</a></li>
+    <li><a name="toc-Package-Managers-1" href="#Package-Managers">2.4 Package Managers</a></li>
   </ul></li>
   <li><a name="toc-Using-markdown_002dmode-1" href="#Using-markdown_002dmode">3 Using <code>markdown-mode</code></a>
   <ul class="no-bullet">
@@ -108,24 +106,25 @@ ul.no-bullet {list-style: none}
     <li><a name="toc-Links-1" href="#Links">3.4 Links</a>
     <ul class="no-bullet">
       <li><a name="toc-Inserting-Links-1" href="#Inserting-Links">3.4.1 Inserting Links</a></li>
-      <li><a name="toc-Checking-References-1" href="#Checking-References">3.4.2 Checking References</a></li>
-      <li><a name="toc-Navigating-Links-1" href="#Navigating-Links">3.4.3 Navigating Links</a></li>
+      <li><a name="toc-Navigating-Links-1" href="#Navigating-Links">3.4.2 Navigating Links</a></li>
+      <li><a name="toc-Checking-References-1" href="#Checking-References">3.4.3 Checking References</a></li>
     </ul></li>
     <li><a name="toc-Images-1" href="#Images">3.5 Images</a></li>
-    <li><a name="toc-Misc_002e-Commands-1" href="#Misc_002e-Commands">3.6 Misc. Commands</a>
+    <li><a name="toc-Other-Commands-1" href="#Other-Commands">3.6 Other Commands</a>
     <ul class="no-bullet">
       <li><a name="toc-Promote_002fDemote-Items-1" href="#Promote_002fDemote-Items">3.6.1 Promote/Demote Items</a></li>
       <li><a name="toc-Indenting-the-Region-1" href="#Indenting-the-Region">3.6.2 Indenting the Region</a></li>
       <li><a name="toc-Killing-Entities-1" href="#Killing-Entities">3.6.3 Killing Entities</a></li>
+      <li><a name="toc-Editing-Code-1" href="#Editing-Code">3.6.4 Editing Code</a></li>
     </ul></li>
-    <li><a name="toc-Notes-1" href="#Notes">3.7 Notes</a>
+    <li><a name="toc-External-Commands-1" href="#External-Commands">3.7 External Commands</a></li>
+    <li><a name="toc-Notes-1" href="#Notes">3.8 Notes</a>
     <ul class="no-bullet">
-      <li><a name="toc-Navigation-Differences-1" href="#Navigation-Differences">3.7.1 Navigation Differences</a></li>
-      <li><a name="toc-Mark-and-Region-1" href="#Mark-and-Region">3.7.2 Mark and Region</a></li>
-      <li><a name="toc-Indenting-1" href="#Indenting">3.7.3 Indenting</a></li>
-      <li><a name="toc-Org-and-Outline-features-1" href="#Org-and-Outline-features">3.7.4 Org and Outline features</a></li>
+      <li><a name="toc-Navigation-Differences-1" href="#Navigation-Differences">3.8.1 Navigation Differences</a></li>
+      <li><a name="toc-Mark-and-Region-1" href="#Mark-and-Region">3.8.2 Mark and Region</a></li>
+      <li><a name="toc-Indenting-1" href="#Indenting">3.8.3 Indenting</a></li>
+      <li><a name="toc-Org-and-Outline-features-1" href="#Org-and-Outline-features">3.8.4 Org and Outline features</a></li>
     </ul></li>
-    <li><a name="toc-Compile-Commands-1" href="#Compile-Commands">3.8 Compile Commands</a></li>
   </ul></li>
   <li><a name="toc-Using-gfm_002dmode-1" href="#Using-gfm_002dmode">4 Using <code>gfm-mode</code></a></li>
   <li><a name="toc-Customizing-1" href="#Customizing">5 Customizing</a>
@@ -155,9 +154,9 @@ ul.no-bullet {list-style: none}
 
 
 <a name="Top"></a>
-<a name="markdown_002dmode-Manual"></a>
-<h1 class="top"><code>markdown-mode</code> Manual</h1>
-<p>This manual describes how to install and use
+<a name="markdown_002dmode-for-Emacs"></a>
+<h1 class="top"><code>markdown-mode</code> for Emacs</h1>
+<p>How to install and use <code>markdown-mode</code>, an Emacs major-mode for <code>markdown</code>-formatted text.
 </p>
 
 <a name="index-copying-copyright-_0028manual_0029"></a>
@@ -172,43 +171,43 @@ with no Back-Cover Texts.  A copy of the license is included in the
 section entitled <cite><acronym>GNU</acronym> Free Documentation License</cite>.
 </p></blockquote>
 
-<p>This is the <cite><code>markdown-mode</code> Manual</cite>, edition 2.2.a, by
-Daniel Birket, updated July 13, 2017, which describes how to install and
-use the Emacs package <code>markdown-mode</code>, version 2.2,
-released May 26, 2017, which was written by and Copyright
-&copy; 2007-2017 Jason R. Blevins, et al. (See <a href="http://jblevins.org/projects/markdown-mode/">http://jblevins.org/projects/markdown-mode/</a>)
+<p>This manual is <cite><code>markdown-mode</code> for Emacs</cite>, edition 2.3.a, by
+Daniel Birket, updated January 1, 2019, which describes how to install and
+use the Emacs package <code>markdown-mode</code>, version 2.3,
+released Aug 31, 2017, which was written by and Copyright
+&copy; 2007-2017 Jason R. Blevins, et al. See <a href="http://jblevins.org/projects/markdown-mode/">http://jblevins.org/projects/markdown-mode/</a>.
 </p>
 <p>This <acronym>HTML</acronym>
-document was composed using <cite>Emacs v25.2.1</cite> (Richard
-M. Stallman, et al.  See <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>)
-and compiled from <samp>.texi</samp> source with <cite><acronym>GNU</acronym> Texinfo v6.4</cite> (Richard
-M. Stallman, et al.  See <a href="https://www.gnu.org/software/texinfo/">https://www.gnu.org/software/texinfo/</a>)
+document was composed using <cite>Emacs v26.1</cite><a name="DOCF1" href="#FOOT1"><sup>1</sup></a>
+and compiled from <samp>.texi</samp> source using
+<cite><acronym>GNU</acronym> Texinfo v6.5</cite><a name="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 
-<p>This manual is based upon the comments and doc strings in the
-<code>markdown-mode.el</code> source code, which begins with:
+<p>This manual was not created by the author of <code>markdown-mode</code> but
+is based upon the comments and doc strings in the <code>markdown-mode.el</code>
+source code, which begins with:
 </p>
 <a name="index-copyright-_0028software_0029"></a>
 <div class="lisp">
 <pre class="lisp">;;; markdown-mode.el --- Major mode for Markdown-formatted text -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2007-2017 Jason R. Blevins &lt;jrblevin@sdf.org&gt;
-&hellip;
+;; Copyright (C) 2007-2017 Jason R. Blevins and markdown-mode
+;; contributors (see the commit log for details).
 
-;; Author: Jason R. Blevins &lt;jrblevin@sdf.org&gt;
-;; Maintainer: Jason R. Blevins &lt;jrblevin@sdf.org&gt;
+;; Author: Jason R. Blevins &lt;jblevins@xbeta.org&gt;
+;; Maintainer: Jason R. Blevins &lt;jblevins@xbeta.org&gt;
 ;; Created: May 24, 2007
-;; Version: 2.2
-;; Package-Requires: ((emacs &quot;24&quot;) (cl-lib &quot;0.5&quot;))
+;; Version: 2.4-dev
+;; Package-Requires: ((emacs &quot;24.4&quot;) (cl-lib &quot;0.5&quot;))
 ;; Keywords: Markdown, GitHub Flavored Markdown, itex
-;; URL: http://jblevins.org/projects/markdown-mode/
+;; URL: https://jblevins.org/projects/markdown-mode/
 
 ;; This file is not part of GNU Emacs.
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
 
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -222,48 +221,37 @@ M. Stallman, et al.  See <a href="https://www.gnu.org/software/texinfo/">https:/
 <a name="Introduction-1"></a>
 <h2 class="chapter">1 Introduction</h2>
 <a name="index-introduction"></a>
+<a name="index-Emacs"></a>
 <p>This manual describes how to install and use <code>markdown-mode</code>, an
-Emacs package for working with markdown-formatted text.  The features
-of this package assist the user to insert and manipulate markup syntax
-compatible with the external <code>markdown</code> command and to use it
-to convert the markdown-formatted text into <acronym>HTML</acronym>-formatted
-text.
+Emacs<a name="DOCF3" href="#FOOT3"><sup>3</sup></a> package for working with
+markdown-formatted text.  The features of this package assist the user
+to insert and manipulate markup syntax compatible with the external
+<code>markdown</code> command.  The separate program <code>markdown</code>
+(or a similar program) is required to convert the markdown-formatted
+text into <acronym>HTML</acronym>-formatted text.
 </p>
 <p>The package implements two Emacs <em>major modes</em>:
 </p><ul>
 <li> <code>markdown-mode</code>, for editing standard markdown text.<br>
 See <a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a>.
 
-</li><li> <code>gfm-mode</code>, for editing GitHub-flavored markdown text.<br>
+</li><li> <code>gfm-mode</code>, for editing GitHub-flavored markdown<a name="DOCF4" href="#FOOT4"><sup>4</sup></a> text.<br>
 See <a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a>.
 </li></ul>
 
 <a name="index-markdown"></a>
-<p>The popular Unix filter command <code>markdown</code>, created by John
-Gruber in 2004 in collaboration with Aaron Swartz, provides an easy
-way to produce styled text by first editing simply-formatted text
-files and then converting that text to <acronym>HTML</acronym>.  This approach
-uses a programmer&rsquo;s familiar edit-compile workflow, is compatible with
-source-code management tools and separates composition from
-formatting, allowing the writer to focus on writing without the
-distractions of WYSIWYG editors.  It is described at
-<a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>.
+<p>The popular Unix filter command <code>markdown</code><a name="DOCF5" href="#FOOT5"><sup>5</sup></a> provides an
+easy way to produce formatted and styled <acronym>HTML</acronym> from
+simply-formatted text files.  This approach uses the edit-compile
+workflow familiar to a programmer and is compatible with source-code
+management tools.  This separates composition from formatting, allowing
+the writer to focus on writing without the distractions of
+<acronym>WYSIWYG</acronym> editors.
 </p>
-<p><code>markdown</code> has been re-implemented by various authors and with
-various additional features and syntax, including
-<code>multimarkdown</code>, <code>pandoc</code>, <code>python markdown</code>
-and many others.
-</p>
-<p>GitHub Flavored Markdown is the dialect of markdown used by GitHub.  It
-is described at
-<a href="http://github.github.com/github-flavored-markdown/">http://github.github.com/github-flavored-markdown/</a>.
-</p>
-<a name="index-Emacs"></a>
-<p>The powerful text editor, Emacs, was created in 1976 by Richard
-Stallman.  It is highly customizable and has 40 years of other
-extensions.  <cite><acronym>GNU</acronym> Emacs</cite> is documented at
-<a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>. <cite>XEmacs</cite> is
-documented at <a href="http://www.xemacs.org">http://www.xemacs.org</a>.
+<p><code>markdown</code> has been re-implemented by others with
+various additional features and syntax.  These include
+<code>multimarkdown</code><a name="DOCF6" href="#FOOT6"><sup>6</sup></a>,
+<code>pandoc</code><a name="DOCF7" href="#FOOT7"><sup>7</sup></a> and others.
 </p>
 <hr>
 <a name="Installing"></a>
@@ -274,6 +262,14 @@ documented at <a href="http://www.xemacs.org">http://www.xemacs.org</a>.
 <p>This chapter describes how to install <code>markdown-mode</code> for
 everyday use.  To install the development version for testing, see
 <a href="#Development-Version">Development Version</a>.
+</p>
+<p><em>Note</em>: <code>markdown-mode</code> is an extension of
+Emacs<a name="DOCF8" href="#FOOT8"><sup>8</sup></a>.
+Install Emacs first.  You must also install an external markdown
+command such as <code>markdown</code><a name="DOCF9" href="#FOOT9"><sup>9</sup></a>,
+<code>multimarkdown</code><a name="DOCF10" href="#FOOT10"><sup>10</sup></a>, or <code>pandoc</code><a name="DOCF11" href="#FOOT11"><sup>11</sup></a> to render markdown text as HTML for preview
+or export.  An external command is not required for editing.
+See <a href="#Customizing-External-Commands">Customizing External Commands</a>
 </p>
 
 <hr>
@@ -291,10 +287,11 @@ version 24.  (It is included in version 23, but must be initialized.)
 </p>
 <a name="index-add_002dto_002dlist"></a>
 <a name="index-package_002darchives"></a>
-<p>To install <code>markdown-mode</code>, first add the MELPA Stable archive to
-the list of archives used by <code>package.el</code> by adding the following
-lines to your <samp>.emacs</samp>, <samp>init.el</samp>, or other Emacs startup
-file and restarting Emacs (or just evaluate the statements):
+<p>To install <code>markdown-mode</code>, first add the MELPA Stable
+archive<a name="DOCF12" href="#FOOT12"><sup>12</sup></a> to the list of archives used by
+<code>package.el</code> by adding the following lines to your <samp>.emacs</samp>,
+<samp>init.el</samp>, or other Emacs startup file and restarting Emacs (or
+just evaluate the statements):
 </p>
 <div class="lisp">
 <pre class="lisp">(require 'package)
@@ -314,11 +311,6 @@ statements), type the following command:
 <code>markdown-mode</code> and <code>gfm-mode</code> will be auto-loaded, and
 <code>markdown-mode</code> will be used automatically for file names ending
 in either <samp>.md</samp> or <samp>.markdown</samp>.
-</p>
-<p>You may browse the 1500+ other Emacs packages in the MELPA-Stable
-archive at <a href="http://stable.melpa.org/">http://stable.melpa.org/</a> or by typing <kbd>M-x
-list-packages <span class="key">RET</span></kbd> (after adding it to your package-archives
-list, above).
 </p>
 <hr>
 <a name="Manual-Installation"></a>
@@ -373,10 +365,11 @@ lack <code>cl-lib</code>, you should install <code>cl-lib</code> using
 <a name="index-managed-loading"></a>
 <a name="index-use_002dpackage_002c-loading-with"></a>
 <a name="index-use_002dpackage"></a>
-<p>If you manage loading packages with <code>use-package</code> then you can
-automatically install and configure <code>markdown-mode</code> by adding a
-declaration such as this one to your init file (This is an
-example.  Please adjust these settings as desired):
+<p>If you manage loading packages with
+<code>use-package</code><a name="DOCF13" href="#FOOT13"><sup>13</sup></a> then you
+can automatically install and configure <code>markdown-mode</code> by adding
+a declaration such as this one to your init file (This is an example.
+Please adjust these settings as desired):
 </p>
 <div class="lisp">
 <pre class="lisp">(use-package markdown-mode
@@ -388,36 +381,24 @@ example.  Please adjust these settings as desired):
   :init (setq markdown-command &quot;multimarkdown&quot;))
 </pre></div>
 
-<p><code>use-package</code> is documented at
-<a href="https://github.com/jwiegley/use-package">https://github.com/jwiegley/use-package</a>
-</p>
 <hr>
-<a name="OS-Package-Managers"></a>
-<a name="OS-Package-Managers-1"></a>
-<h3 class="section">2.4 OS Package Managers</h3>
-<a name="index-OS-package-managers"></a>
+<a name="Package-Managers"></a>
+<a name="Package-Managers-1"></a>
+<h3 class="section">2.4 Package Managers</h3>
+<a name="index-package-managers"></a>
 <a name="index-Linux-package_002c-downloading"></a>
-<p>You may download <code>markdown-mode</code> in packages for use with several
-OS package managers.  Most OS packages do not contain the latest
-stable version.  (Please notify the package maintainer if you download
-one that does not.)  Note that OS package managers generally do NOT
-byte-compile or configure <code>markdown-mode</code> to load automatically.
-Please see the instructions under <a href="#Manual-Installation">Manual Installation</a> if
-<code>markdown-mode</code> does not load automatically.
+<p>You may install <code>markdown-mode</code> using the package managers of
+various operating systems instead of the Emacs package manager.  This
+method is <em>not</em> recommended.  Many packages do not contain the
+latest stable version. (Please notify the package maintainer if you
+download one that does not.) OS-level package managers generally do
+NOT byte-compile or configure <code>markdown-mode</code> to load
+automatically.  Please see the instructions under <a href="#Manual-Installation">Manual Installation</a> if <code>markdown-mode</code> does not load automatically.
 </p>
 <dl compact="compact">
 <dt>Debian Linux</dt>
 <dd><a name="index-Debian-package_002c-downloading"></a>
 <p><a href="https://packages.debian.org/sid/lisp/elpa-markdown-mode">https://packages.debian.org/sid/lisp/elpa-markdown-mode</a>
-</p>
-<p>Note: As of Sep-2016, this package contains <code>markdown-mode</code>
-version 2.1.  It is unknown if the package manager compiles or
-configures <code>markdown-mode</code>.
-</p>
-<p><a href="http://packages.debian.org/emacs-goodies-el">http://packages.debian.org/emacs-goodies-el</a>
-</p>
-<p>Note: <cite>emacs-goodies-el</cite> is a collection of Emacs programs.  The
-version of <code>markdown-mode</code> included in it is unknown.
 </p>
 </dd>
 <dt>Ubuntu Linux</dt>
@@ -464,8 +445,8 @@ version of <code>markdown-mode</code> that it includes is unknown.
 <dd><a name="index-NetBSD-package_002c-downloading"></a>
 <p><a href="http://pkgsrc.se/textproc/markdown-mode">http://pkgsrc.se/textproc/markdown-mode</a>
 </p>
-<p>Note: As of Sep-2016, this package installs and byte-compiles an
-<strong>obsolete</strong> version 2.0 (Sep-2014) of <code>markdown-mode</code>.  You
+<p>Note: As of Dec-2018, this package installs and byte-compiles an
+<em>obsolete</em> version 2.1 (May-2017) of <code>markdown-mode</code>.  You
 must manually edit your startup file as described above under
 <a href="#Manual-Installation">Manual Installation</a>.
 </p>
@@ -476,8 +457,8 @@ must manually edit your startup file as described above under
 <dd><a name="index-FreeBSD-package_002c-downloading"></a>
 <p><a href="http://svnweb.freebsd.org/ports/head/textproc/markdown-mode.el">http://svnweb.freebsd.org/ports/head/textproc/markdown-mode.el</a>
 </p>
-<p>Note: As of Sep-2016, this package downloads (but does not
-byte-compile or configure) <code>markdown-mode</code> version 2.1 to
+<p>Note: As of Dec-2018, this package downloads (but does not
+byte-compile or configure) <code>markdown-mode</code> version 2.3 to
 <samp>/usr/local/share/emacs/site-lisp</samp>.  You must manually edit your
 startup file as described above under <a href="#Manual-Installation">Manual Installation</a>.
 </p>
@@ -489,8 +470,8 @@ startup file as described above under <a href="#Manual-Installation">Manual Inst
 <a name="index-port"></a>
 <p><a href="https://trac.macports.org/browser/trunk/dports/editors/markdown-mode.el/Portfile">https://trac.macports.org/browser/trunk/dports/editors/markdown-mode.el/Portfile</a>
 </p>
-<p>Note: As of Sep-2016, this package downloads (but does not
-byte-compile or configure) an <strong>obsolete</strong> version 2.0 (Sep-2014)
+<p>Note: As of Dec-2018, this package downloads (but does not
+byte-compile or configure) an <em>obsolete</em> version 2.0 (Sep-2014)
 of <code>markdown-mode</code> from
 <a href="git://jblevins.org/git/markdown-mode.git">git://jblevins.org/git/markdown-mode.git</a> to
 <samp>/usr/local/share/emacs/site-lisp</samp>.  You must manually edit your
@@ -528,64 +509,83 @@ $ brew install homebrew/emacs/markdown-mode
 keybindings are grouped based on their function:
 </p>
 <dl compact="compact">
-<dt><kbd><kbd>C-c C-a</kbd></kbd></dt>
+<dt><kbd>C-c C-a</kbd></dt>
 <dd><a name="index-C_002dc-C_002da"></a>
 <a name="index-C_002dc-C_002da-C_002dh"></a>
-<p>Prefix keys for insert link commands.  (<acronym>HTML</acronym> &lt;a&gt; tag).<br>
+
+<p>Prefix keys for insert link commands.<br>
+(Remember as <acronym>HTML</acronym> &lsquo;<samp>&lt;a&gt;</samp>&rsquo; link tag.)<br>
 Use <kbd>C-c C-a C-h</kbd> to list all commands in this group.<br>
 See <a href="#Links">Links</a>
 </p>
 </dd>
-<dt><kbd><kbd>C-c C-c</kbd></kbd></dt>
+<dt><kbd>C-c C-c</kbd></dt>
 <dd><a name="index-C_002dc-C_002dc"></a>
 <a name="index-C_002dc-C_002dc-C_002dh"></a>
-<p>Prefix keys for &rsquo;compiling&rsquo; markdown.  ([c]ompile)<br>
+
+<p>Prefix keys that use external [c]ommands.<br>
 Use <kbd>C-c C-c C-h</kbd> to list all commands in this group.<br>
-See <a href="#Compile-Commands">Compile Commands</a>
+See <a href="#External-Commands">External Commands</a>
 </p>
 </dd>
-<dt><kbd><kbd>C-c C-i</kbd></kbd></dt>
-<dd><a name="index-C_002dc-C_002di"></a>
-<a name="index-C_002dc-C_002di-C_002dh"></a>
-<p>Prefix keys for insert image commands.  ([i]mage)<br>
-Use <kbd>C-c C-i C-h</kbd> to list all commands in this group.<br>
-See <a href="#Images">Images</a>
-</p>
-</dd>
-<dt><kbd><kbd>C-c C-s</kbd></kbd></dt>
+<dt><kbd>C-c C-s</kbd></dt>
 <dd><a name="index-C_002dc-C_002ds"></a>
 <a name="index-C_002dc-C_002ds-C_002dh"></a>
-<p>Prefix keys for insert style commands.  ([s]tyle)<br>
+
+<p>Prefix keys to insert [s]tyle commands.<br>
 Use <kbd>C-c C-s C-h</kbd> to list all commands in this group.<br>
 See <a href="#Styles">Styles</a>
 </p>
 </dd>
-<dt><kbd><kbd>C-c C-t</kbd></kbd></dt>
+<dt><kbd>C-c C-t</kbd></dt>
 <dd><a name="index-C_002dc-C_002dt"></a>
 <a name="index-C_002dc-C_002dt-C_002dh"></a>
-<p>Prefix keys for insert title/header commands.  ([t]itle)<br>
+
+<p>Prefix keys for insert [t]itle/header commands.<br>
 Use <kbd>C-c C-t C-h</kbd> to list all commands in this group.<br>
 See <a href="#Headers">Headers</a>
 </p>
 </dd>
-<dt><kbd><kbd>C-c C-x</kbd></kbd></dt>
+<dt><kbd>C-c C-x</kbd></dt>
 <dd><a name="index-C_002dc-C_002dx"></a>
 <a name="index-C_002dc-C_002dx-C_002dh"></a>
-<p>Prefix keys for manipulating lists.<br>
+
+<p>Prefix keys for manipulating lists and settings.<br>
 Use <kbd>C-c C-x C-h</kbd> to list all commands in this group.<br>
 See <a href="#Lists">Lists</a>
 </p>
 </dd>
 </dl>
 
-<p>Movement and shifting commands are generally associated with paired
-delimiters such as <kbd>M-{</kbd> and <kbd>M-}</kbd>, or <kbd>C-c &lt;</kbd> and
-<kbd>C-c &gt;</kbd>.
-</p>
 <a name="index-org_002dmode"></a>
-<p>Outline navigation keybindings the same as in <code>org-mode</code>.<br>
-See <a href="http://www.gnu.org/software/emacs/manual/html_mono/org.html#Motion">(org)Motion</a>
+<p>Navigation and movement commands are usually associated with pairs
+of keybindings.  Outline navigation keybindings are the same as in
+<code>org-mode</code><a name="DOCF14" href="#FOOT14"><sup>14</sup></a>.
 </p>
+<dl compact="compact">
+<dt><kbd>M-{</kbd>|<kbd>M-}</kbd> or <kbd>C-<span class="key">UP</span></kbd>|<kbd>C-<span class="key">DOWN</span></kbd></dt>
+<dd><p>See <a href="#Navigation-Differences">Navigation Differences</a>
+</p>
+</dd>
+<dt><kbd>C-c C-f</kbd>|<kbd>C-c C-b</kbd> and <kbd>C-c C-n</kbd>|<kbd>C-c C-p</kbd></dt>
+<dd><p>See <a href="#Navigating-Headers">Navigating Headers</a>
+</p>
+</dd>
+<dt><kbd>M-n</kbd>|<kbd>M-p</kbd></dt>
+<dd><p>See <a href="#Navigating-Links">Navigating Links</a>
+</p>
+</dd>
+<dt><kbd>C-c C--</kbd>|<kbd>C-c C-=</kbd> or <kbd>M-<span class="key">LEFT</span></kbd>|<kbd>M-<span class="key">RIGHT</span></kbd></dt>
+<dd><p>See <a href="#Promote_002fDemote-Items">Promote/Demote Items</a>
+</p>
+</dd>
+<dt><kbd>C-c &lt;</kbd>|<kbd>C-c &gt;</kbd></dt>
+<dd><p>See <a href="#Indenting-the-Region">Indenting the Region</a>
+</p>
+</dd>
+<dt><kbd>C-M-{</kbd>|<kbd>C-M-}</kbd></dt>
+</dl>
+
 <a name="index-C_002dc-C_002dh"></a>
 <p>You can obtain a list of most <code>markdown-mode</code> keybindings by
 pressing <kbd>C-c C-h</kbd> or <kbd>C-h m</kbd>.
@@ -601,6 +601,7 @@ pressing <kbd>C-c C-h</kbd> or <kbd>C-h m</kbd>.
 
 <a name="index-setext"></a>
 <a name="index-atx"></a>
+
 <p>Note: John Gruber designed <code>markdown</code> to handle two
 pre-existing types of titles and headers: the underlined titles
 supported by <code>setext</code> by Ian Feldman and the headers marked
@@ -614,6 +615,7 @@ and <code>atx</code> headers.
 <h4 class="subsection">3.1.1 Inserting Headers</h4>
 <a name="index-inserting-headers"></a>
 <a name="index-headers_002c-insert"></a>
+
 <p>This subsection describes how to insert headers.
 </p>
 <p>All header insertion commands use the text in the active region, if
@@ -625,9 +627,10 @@ there is no active region and the current line is blank.
 <p>The prefix for this group of header insert commands is <kbd>C-c C-t</kbd>.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-t h</kbd> (<code>markdown-insert-header-dwim</code>)</dt>
+<dt><kbd>C-c C-t h</kbd> or <kbd>M-x markdown-insert-header-dwim <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-h"></a>
 <a name="index-markdown_002dinsert_002dheader_002ddwim"></a>
+
 <p>This will insert or replace &rsquo;appropriate&rsquo; header markup.
 </p>
 <p>The level and type of the header will match the type and level of the
@@ -652,9 +655,10 @@ the header text.  Finally, if the point is on a blank line, it will
 insert empty header markup (atx) or prompt for text (setext).
 </p>
 </dd>
-<dt><kbd>C-c C-t H</kbd> (<code>markdown-insert-header-setext-dwim</code>)</dt>
+<dt><kbd>C-c C-t H</kbd> or <kbd>M-x markdown-insert-header-setext-dwim <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-H"></a>
 <a name="index-markdown_002dinsert_002dheader_002dsetext_002ddwim"></a>
+
 <p>This will insert setext-style (underlined) headers when possible.  (Note
 that only level 1 or 2 setext headers are possible).
 </p>
@@ -676,44 +680,50 @@ of the header.
 <p><strong>atx-style (#) Headers</strong>
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-t 1</kbd> (<code>markdown-insert-header-atx-1</code>)</dt>
+<dt><kbd>C-c C-t 1</kbd> or <kbd>M-x markdown-insert-header-atx-1 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-1"></a>
 <a name="index-markdown_002dinsert_002dheader_002datx_002d1"></a>
+
 <p>This inserts a first-level atx-style (#) header, using the text in the
 active region or the text on the current line, if any.
 </p>
 </dd>
-<dt><kbd>C-c C-t 2</kbd> (<code>markdown-insert-header-atx-2</code>)</dt>
+<dt><kbd>C-c C-t 2</kbd> or <kbd>M-x markdown-insert-header-atx-2 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-2"></a>
 <a name="index-markdown_002dinsert_002dheader_002datx_002d2"></a>
+
 <p>This inserts a second-level atx-style (##) header, using the text in the
 active region or the text on the current line, if any.
 </p>
 </dd>
-<dt><kbd>C-c C-t 3</kbd> (<code>markdown-insert-header-atx-3</code>)</dt>
+<dt><kbd>C-c C-t 3</kbd> or <kbd>M-x markdown-insert-header-atx-3 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-3"></a>
 <a name="index-markdown_002dinsert_002dheader_002datx_002d3"></a>
+
 <p>This inserts a third-level atx-style (###) header, using the text in the
 active region or the text on the current line, if any.
 </p>
 </dd>
-<dt><kbd>C-c C-t 4</kbd> (<code>markdown-insert-header-atx-4</code>)</dt>
+<dt><kbd>C-c C-t 4</kbd> or <kbd>M-x markdown-insert-header-atx-4 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-4"></a>
 <a name="index-markdown_002dinsert_002dheader_002datx_002d4"></a>
+
 <p>This inserts a fourth-level atx-style (####) header, using the text in the
 active region or the text on the current line, if any.
 </p>
 </dd>
-<dt><kbd>C-c C-t 5</kbd> (<code>markdown-insert-header-atx-5</code>)</dt>
+<dt><kbd>C-c C-t 5</kbd> or <kbd>M-x markdown-insert-header-atx-5 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-5"></a>
 <a name="index-markdown_002dinsert_002dheader_002datx_002d5"></a>
+
 <p>This inserts a fifth-level atx-style (#####) header, using the text in the
 active region or the text on the current line, if any.
 </p>
 </dd>
-<dt><kbd>C-c C-t 6</kbd> (<code>markdown-insert-header-atx-6</code>)</dt>
+<dt><kbd>C-c C-t 6</kbd> or <kbd>M-x markdown-insert-header-atx-6 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-6"></a>
 <a name="index-markdown_002dinsert_002dheader_002datx_002d6"></a>
+
 <p>This inserts a sixth-level atx-style (######) header, using the text in the
 active region or the text on the current line, if any.
 </p></dd>
@@ -722,19 +732,21 @@ active region or the text on the current line, if any.
 <p><strong>setext-style (underlined) Headers</strong>
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-t !</kbd> or <kbd>C-c C-t t</kbd> (<code>markdown-insert-header-setext-1</code>)</dt>
+<dt><kbd>C-c C-t !</kbd> or <kbd>C-c C-t t</kbd> or <kbd>M-x markdown-insert-header-setext-1 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-t"></a>
 <a name="index-C_002dc-C_002dt-_0021"></a>
 <a name="index-markdown_002dinsert_002dheader_002dsetext_002d1"></a>
+
 <p>This inserts a first-level setext-style (underlined) header, using the
 text in the active region or the text on the current line, if any.  The
 <kbd>C-c C-t t</kbd> keybinding is depreciated.
 </p>
 </dd>
-<dt><kbd>C-c C-t @</kbd> or <kbd>C-c C-t s</kbd> (<code>markdown-insert-header-setext-2</code>)</dt>
+<dt><kbd>C-c C-t @</kbd> or <kbd>C-c C-t s</kbd> or <kbd>M-x markdown-insert-header-setext-2 <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dt-s"></a>
 <a name="index-C_002dc-C_002dt-_0040"></a>
 <a name="index-markdown_002dinsert_002dheader_002dsetext_002d2"></a>
+
 <p>This inserts a second-level setext-style (underlined) header, using the
 text in the active region or the text on the current line, if any.  The
 <kbd>C-c C-t s</kbd> keybinding is depreciated.
@@ -744,10 +756,11 @@ text in the active region or the text on the current line, if any.  The
 <p>The prefix for this group of header insert commands is <kbd>C-c C-c</kbd>.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-]</kbd> (<code>markdown-complete</code>)</dt>
+<dt><kbd>C-c C-]</kbd> or <kbd>M-x markdown-complete <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002d_005d"></a>
 <a name="index-markdown_002dcomplete"></a>
 <a name="index-header_002c-complete"></a>
+
 <p>This completes the markup at the point, if it is determined to be
 incomplete.
 </p>
@@ -757,10 +770,11 @@ and trailing hash marks of an atx header are equal and that there is
 no extra white space in the header text.
 </p>
 </dd>
-<dt><kbd>C-c C-c ]</kbd> (<code>markdown-complete-buffer</code>)</dt>
+<dt><kbd>C-c C-c ]</kbd> or <kbd>M-x markdown-complete-buffer <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dc-_005d"></a>
 <a name="index-markdown_002dcomplete_002dbuffer"></a>
 <a name="index-header_002c-complete-all"></a>
+
 <p>This completes all headers and normalizes all horizontal rules in the
 buffer.
 </p></dd>
@@ -774,7 +788,7 @@ buffer.
 <a name="index-moving-headers"></a>
 <a name="index-move-single-headers"></a>
 
-<p>To promote or demote both list items and headers: See <a href="#Promote_002fDemote-Items">Promote/Demote Items</a>.
+<p>To promote or demote both list items and headers, See <a href="#Promote_002fDemote-Items">Promote/Demote Items</a>.
 </p>
 
 <hr>
@@ -799,7 +813,7 @@ heading markup will be removed, since a level-zero heading is not
 defined).
 </p>
 <dl compact="compact">
-<dt><kbd>M-S-<span class="key">UP</span></kbd> (<code>markdown-move-subtree-up</code>)</dt>
+<dt><kbd>M-S-<span class="key">UP</span></kbd> or <kbd>M-x markdown-move-subtree-up <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dS_002dUP"></a>
 <a name="index-markdown_002dmove_002dsubtree_002dup"></a>
 <a name="index-move-a-subtree-up"></a>
@@ -808,7 +822,7 @@ defined).
 sub-headings and text up above the previous heading of the same level.
 </p>
 </dd>
-<dt><kbd>M-S-<span class="key">DOWN</span></kbd> (<code>markdown-move-subtree-down</code>)</dt>
+<dt><kbd>M-S-<span class="key">DOWN</span></kbd> or <kbd>M-x markdown-move-subtree-down <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dS_002dDOWN"></a>
 <a name="index-markdown_002dmove_002dsubtree_002ddown"></a>
 <a name="index-move-a-subtree-down"></a>
@@ -817,7 +831,7 @@ sub-headings and text up above the previous heading of the same level.
 sub-headings and text down below the next heading of the same level.
 </p>
 </dd>
-<dt><kbd>M-S-<span class="key">LEFT</span></kbd> (<code>markdown-promote-subtree</code>)</dt>
+<dt><kbd>M-S-<span class="key">LEFT</span></kbd> or <kbd>M-x markdown-promote-subtree <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dS_002dLEFT"></a>
 <a name="index-markdown_002dpromote_002dsubtree"></a>
 <a name="index-promote-a-subtree"></a>
@@ -827,7 +841,7 @@ sub-tree of sub-headings and text to the lower (more inclusive) level
 to the left.
 </p>
 </dd>
-<dt><kbd>M-S-<span class="key">RIGHT</span></kbd> (<code>markdown-demote-subtree</code>)</dt>
+<dt><kbd>M-S-<span class="key">RIGHT</span></kbd> or <kbd>M-x markdown-demote-subtree <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dS_002dRIGHT"></a>
 <a name="index-markdown_002ddemote_002dsubtree"></a>
 <a name="index-demote-a-subtree"></a>
@@ -851,35 +865,40 @@ and expand header sections.  These commands are similar to the
 navigation commands in <code>outline-mode</code>.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-n</kbd> (<code>markdown-next-visible-heading</code>)</dt>
+<dt><kbd>C-c C-n</kbd> or <kbd>M-x markdown-next-visible-heading <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dn"></a>
 <a name="index-markdown_002dnext_002dvisible_002dheading"></a>
+
 <p>This will move point to the next visible heading line (of any level).
 </p>
 </dd>
-<dt><kbd>C-c C-p</kbd> (<code>markdown-previous-visible-heading</code>)</dt>
+<dt><kbd>C-c C-p</kbd> or <kbd>M-x markdown-previous-visible-heading <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dp"></a>
 <a name="index-markdown_002dprevious_002dvisible_002dheading"></a>
+
 <p>This will move point to the previous visible heading line (of any level).
 </p>
 </dd>
-<dt><kbd>C-c C-f</kbd> (<code>markdown-forward-same-level</code>)</dt>
+<dt><kbd>C-c C-f</kbd> or <kbd>M-x markdown-forward-same-level <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002df"></a>
 <a name="index-markdown_002dforward_002dsame_002dlevel"></a>
+
 <p>This will move point to the next visible heading line at the same
 level as the heading currently at point.
 </p>
 </dd>
-<dt><kbd>C-c C-b</kbd> (<code>markdown-backward-same-level</code>)</dt>
+<dt><kbd>C-c C-b</kbd> or <kbd>M-x markdown-backward-same-level <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002db"></a>
 <a name="index-markdown_002dbackward_002dsame_002dlevel"></a>
+
 <p>This will move point to the previous visible heading line at the same
 level as the heading currently at point.
 </p>
 </dd>
-<dt><kbd>C-c C-u</kbd> (<code>markdown-up-heading</code>)</dt>
+<dt><kbd>C-c C-u</kbd> or <kbd>M-x markdown-up-heading <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002du"></a>
 <a name="index-markdown_002dup_002dheading"></a>
+
 <p>This will move point up to a lower-level (more inclusive) visible
 heading than the heading currently at point.
 </p>
@@ -896,9 +915,10 @@ heading than the heading currently at point.
 <p>This subsection describes how to insert horizontal rules.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c -</kbd> (<code>markdown-insert-hr</code>)</dt>
+<dt><kbd>C-c -</kbd> or <kbd>M-x markdown-insert-hr <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-_002d"></a>
 <a name="index-markdown_002dinsert_002dhr"></a>
+
 <p>This will insert (or replace) a horizontal rule.
 </p>
 <p>Without a prefix argument, it will use the first horizontal rule in
@@ -929,32 +949,32 @@ them up and down.
 <a name="index-inserting-list-items"></a>
 
 <dl compact="compact">
-<dt><kbd>M-<span class="key">RET</span></kbd> or <kbd>C-c C-x m</kbd> or <kbd>C-c C-j</kbd> (<code>markdown-insert-list-item</code>)</dt>
+<dt><kbd>M-<span class="key">RET</span></kbd>, <kbd>C-c C-x m</kbd>, <kbd>C-c C-j</kbd> or <kbd>M-x markdown-insert-list-item <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dj"></a>
 <a name="index-M_002dRET"></a>
 <a name="index-markdown_002dinsert_002dlist_002ditem"></a>
 <a name="index-list_002c-insert-item"></a>
+
 <p>This inserts an appopriate new list item.  It determines the
 appropriate marker (one of the possible unordered list markers or the
 next number in sequence for an ordered list) and indentation level by
 examining nearby list items.  If there is no list before or after the
-point, it starts a new list.  Prefix this command with <kbd>C-u</kbd> to
+point, it starts a new list.
+</p>
+<p>Prefix this command with <kbd>C-u</kbd> to
 decrease the indentation by one level.  Prefix this command with
 <kbd>C-u C-u</kbd> to increase the indentation by one level.
 </p>
-<a name="index-v2_002e2"></a>
-<p><code>markdown-mode</code> version 2.2 repurposes the <kbd>C-c C-j</kbd>
-keybinding previously used for <code>markdown-jump</code> to match the AUCTex
-keybinding for inserting list items.
-</p>
 </dd>
-<dt><kbd>C-c C-c n</kbd> (<code>markdown-cleanup-list-numbers</code>)</dt>
+<dt><kbd>C-c C-c n</kbd> or <kbd>M-x markdown-cleanup-list-numbers <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dc-n"></a>
 <a name="index-markdown_002dcleanup_002dlist_002dnumbers"></a>
 <a name="index-list_002c-renumber-all"></a>
+
 <p>This renumbers any ordered lists in the buffer that are out of
 sequence.
-</p></dd>
+</p>
+</dd>
 </dl>
 
 <hr>
@@ -972,7 +992,7 @@ sequence.
 <a name="index-move-list-items"></a>
 
 <dl compact="compact">
-<dt><kbd>M-<span class="key">UP</span></kbd> or <kbd>C-c C-x u</kbd> (<code>markdown-move-up</code>)</dt>
+<dt><kbd>M-<span class="key">UP</span></kbd> or <kbd>C-c C-x u</kbd> or <kbd>M-x markdown-move-up <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dUP"></a>
 <a name="index-C_002dc-C_002dx-u"></a>
 <a name="index-markdown_002dmove_002dup"></a>
@@ -981,7 +1001,7 @@ sequence.
 <p>This command will move a list item up.  It does not move headers.
 </p>
 </dd>
-<dt><kbd>M-<span class="key">DOWN</span></kbd> or <kbd>C-c C-x d</kbd> (<code>markdown-move-down</code>)</dt>
+<dt><kbd>M-<span class="key">DOWN</span></kbd> or <kbd>C-c C-x d</kbd> or <kbd>M-x markdown-move-down <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dDOWN"></a>
 <a name="index-C_002dc-C_002dx-d"></a>
 <a name="index-markdown_002dmove_002ddown"></a>
@@ -1002,9 +1022,10 @@ sequence.
 <p>The prefix for this group of commands is <kbd>C-c C-s</kbd>.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-s e</kbd> (<code>markdown-insert-italic</code>)</dt>
+<dt><kbd>C-c C-s e</kbd> or <kbd>M-x markdown-insert-italic <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-e"></a>
 <a name="index-markdown_002dinsert_002ditalic"></a>
+
 <p>This inserts markup to <em>emphasize</em> a region or word with
 <em>italic</em> face, or removes the existing italic emphasis.
 </p>
@@ -1015,9 +1036,10 @@ Otherwise, it simply inserts italic delimiters and place the cursor
 between them.
 </p>
 </dd>
-<dt><kbd>C-c C-s s</kbd> (<code>markdown-insert-bold</code>)</dt>
+<dt><kbd>C-c C-s s</kbd> or <kbd>M-x markdown-insert-bold <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-s"></a>
 <a name="index-markdown_002dinsert_002dbold"></a>
+
 <p>This inserts markup for <strong>strong</strong> emphasis of a region or word
 with <strong>bold</strong> face, or removes the existing bold strong
 emphasis.
@@ -1028,9 +1050,10 @@ an bold word or phrase, it removes the bold markup.  Otherwise, it
 simply inserts bold delimiters and place the cursor between them.
 </p>
 </dd>
-<dt><kbd>C-c C-s c</kbd> (<code>markdown-insert-code</code>)</dt>
+<dt><kbd>C-c C-s c</kbd> or <kbd>M-x markdown-insert-code <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-c"></a>
 <a name="index-markdown_002dinsert_002dcode"></a>
+
 <p>Insert markup to make a region or word an inline code fragment.
 </p>
 <p>If there is an active region, make the region an inline code fragment.
@@ -1039,27 +1062,29 @@ Otherwise, simply insert code delimiters and place the cursor between
 them.
 </p>
 </dd>
-<dt><kbd>C-c C-s k</kbd> (<code>markdown-insert-kbd</code>)</dt>
+<dt><kbd>C-c C-s k</kbd> or <kbd>M-x markdown-insert-kbd <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-k"></a>
 <a name="index-markdown_002dinsert_002dkbd"></a>
-<a name="index-v2_002e2-1"></a>
+
 <p>Insert markup to wrap a region or word in &lt;kbd&gt; tags.
 </p>
 <p>If there is an active region, use the region.  If the point is at a
-word, use the word.  Otherwise, simply insert &lt;kbd&gt; tags and place the
-cursor between them.  (<code>markdown-mode</code> version 2.2).
+word, use the word.  Otherwise, simply insert &lsquo;<samp>&lt;kbd&gt;</samp>&rsquo; tags and place the
+cursor between them.
 </p>
 </dd>
-<dt><kbd>C-c C-s b</kbd> (<code>markdown-insert-blockquote</code>)</dt>
+<dt><kbd>C-c C-s b</kbd> or <kbd>M-x markdown-insert-blockquote <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-b"></a>
 <a name="index-markdown_002dinsert_002dblockquote"></a>
+
 <p>This inserts block quote markup around the active region, if any, or
 inserts empty block quote markup.
 </p>
 </dd>
-<dt><kbd>C-c C-s C-b</kbd> (<code>markdown-blockquote-region</code>)</dt>
+<dt><kbd>C-c C-s C-b</kbd> or <kbd>M-x markdown-blockquote-region <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-C_002db"></a>
 <a name="index-markdown_002dblockquote_002dregion"></a>
+
 <p>This variation of the insert-blockquote function (above) always
 operates on the region, regardless of whether it is active or not.
 </p>
@@ -1068,16 +1093,18 @@ automatically given the surrounding context, but may be adjusted later
 using the region indentation commands.
 </p>
 </dd>
-<dt><kbd>C-c C-s p</kbd> (<code>markdown-insert-pre</code>)</dt>
+<dt><kbd>C-c C-s p</kbd> or <kbd>M-x markdown-insert-pre <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-p"></a>
 <a name="index-markdown_002dinsert_002dpre"></a>
+
 <p>This inserts preformatted code block markup around the active region,
 if any, or inserts empty preformatted code block markup.
 </p>
 </dd>
-<dt><kbd>C-c C-s C-p</kbd> (<code>markdown-pre-region</code>)</dt>
+<dt><kbd>C-c C-s C-p</kbd> or <kbd>M-x markdown-pre-region <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002ds-C_002dp"></a>
 <a name="index-markdown_002dpre_002dregion"></a>
+
 <p>This variation of the insert-pre function (above) always
 operates on the region, regardless of whether it is active or not.
 </p></dd>
@@ -1102,76 +1129,74 @@ operates on the region, regardless of whether it is active or not.
 <p>The prefix for this group of commands is <kbd>C-c C-a</kbd>.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-a l</kbd> (<code>markdown-insert-link</code>)</dt>
-<dd><a name="index-C_002dc-C_002da-l"></a>
-<a name="index-markdown_002dinsert_002dlink"></a>
-<a name="index-inserting-inline-links"></a>
-<a name="index-inline-links_002c-insert"></a>
-<a name="index-link_002c-inline_002c-insert"></a>
-<p>This inserts an inline link of the form &lsquo;<samp>[text](url)</samp>&rsquo;.  The link
-text is determined as follows: If there is an active region (i.e.,
-when transient mark mode is on and the mark is active), use it as the
-link text.  Otherwise, if the point is at a word, use that word as the
-link text.  In these two cases, the original text will be replaced
-with the link and point will be left at the position for inserting a
-URL.  Otherwise, insert empty link markup and place the point for
-inserting the link text.
-</p>
-</dd>
-<dt><kbd>C-c C-a L</kbd> (<code>markdown-insert-reference-link-dwim</code>)</dt>
-<dd><a name="index-C_002dc-C_002da-L"></a>
+<dt><kbd>C-c C-l</kbd> or <kbd>M-x markdown-insert-link <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dl"></a>
+<a name="index-C_002dc-C_002da-l"></a>
+<a name="index-C_002dc-C_002da-L"></a>
 <a name="index-C_002dc-C_002da-r"></a>
-<a name="index-markdown_002dinsert_002dlink-1"></a>
-<a name="index-markdown_002dreference_002dlocation"></a>
-<a name="index-insert-reference-links"></a>
-<a name="index-reference-links_002c-insert"></a>
-<a name="index-link_002c-reference_002c-insert"></a>
-<p>(<kbd>C-c C-a r</kbd> depreciated keybinding)
-This inserts a reference link of the form &lsquo;<samp>[text][label]</samp>&rsquo; and an
-optional corresponding reference label definition.  The region (if
-active) or the word at point (if any) will be used for the link text.
-If neither is available, then the link text will be read from the
-mini-buffer.
+<a name="index-markdown_002dinsert_002dlink"></a>
+<a name="index-inserting-links-1"></a>
+<a name="index-inline-link_002c-insert"></a>
+<a name="index-reference-link_002c-insert"></a>
+<a name="index-link_002c-insert-1"></a>
+
+<p>This is a multi-purpose command for inserting new link markup or
+editing existing link markup. <a name="DOCF15" href="#FOOT15"><sup>15</sup></a> This
+command can be used to insert links of any form: either inline links,
+reference links, or plain <acronym>URL</acronym>s in angle brackets. The
+<acronym>URL</acronym> or <code>[reference]</code> label, link text, and optional
+title are entered through a series of interactive prompts.
 </p>
-<p>The reference label will be read from the mini-buffer, with completion
-from the set of currently defined references.  To create an implicit
-reference link, press <tt class="key">RET</tt> to accept the default empty label.  If
-the entered reference label is not defined, it will prompt for the URL
-and an optional title.
+<p>The type of link is determined by which values are provided:
 </p>
-<p>If a URL is provided, a reference definition will be inserted in
-accordance with <code>markdown-reference-location</code>.  If a title is given,
-it will be added to the end of the reference definition and will be
-used to populate the title attribute when converted to <acronym>XHTML</acronym>.
+<ul>
+<li> If both a <acronym>URL</acronym> and link text are given, insert an inline link:
+<code>[text](url)</code>.
+
+</li><li> If both a <code>[reference]</code> label and link text are given, insert a
+reference link: <code>[text][reference]</code>.
+
+</li><li> If only link text is given, insert an implicit reference link:
+<code>[text][]</code>.
+
+</li><li> If only a <acronym>URL</acronym> is given, insert a plain <acronym>URL</acronym> link: <code>&lt;url&gt;</code>.
+</li></ul>
+
+<p><kbd>C-c C-a l</kbd>, <kbd>C-c C-a L</kbd> and <kbd>C-c C-a r</kbd> are all bound to
+<code>markdown-insert-link</code> for backward compatibility with older
+versions of <code>markdown-mode</code>.
 </p>
 </dd>
-<dt><kbd>C-c C-a u</kbd> (<code>markdown-insert-uri</code>)</dt>
+<dt><kbd>C-c C-a u</kbd> or <kbd>M-x markdown-insert-uri <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002da-u"></a>
 <a name="index-markdown_002dinsert_002duri"></a>
 <a name="index-inserting-URIs"></a>
 <a name="index-URI_002c-insert"></a>
-<p>This inserts a bare URI (URL), delimited by angle brackets.  The
-region (if active) or the URI at point (if any) will be used for the
+
+<p>This inserts a bare <acronym>URI</acronym> (URL), delimited by angle brackets.  The
+region (if active) or the <acronym>URI</acronym> at point (if any) will be used for the
 link text.  Otherwise, it will insert &lsquo;<samp>&lt;&gt;</samp>&rsquo; and position the
-point in between the brackets for inserting the URI.
+point in between the brackets for inserting the <acronym>URI</acronym>.
 </p>
 </dd>
-<dt><kbd>C-c C-a f</kbd> (<code>markdown-insert-footnote</code>)</dt>
+<dt><kbd>C-c C-a f</kbd> or <kbd>M-x markdown-insert-footnote <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002da-f"></a>
 <a name="index-markdown_002dinsert_002dfootnote"></a>
 <a name="index-inserting-footnotes"></a>
 <a name="index-footnote_002c-insert"></a>
+
 <p>This inserts a footnote marker at the point, inserts a
 footnote definition below, and positions the point for
 inserting the footnote text.  Note that footnotes are an
 extension to Markdown and are not supported by all processors.
 </p>
 </dd>
-<dt><kbd>C-c C-a w</kbd> (<code>markdown-insert-wiki-link</code>)</dt>
+<dt><kbd>C-c C-a w</kbd> or <kbd>M-x markdown-insert-wiki-link <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002da-w"></a>
 <a name="index-markdown_002dinsert_002dwiki_002dlink"></a>
 <a name="index-inserting-wiki_002dLinks"></a>
 <a name="index-wiki_002dlink_002c-insert"></a>
+
 <p>This is like the inline link insertion command but inserts a wiki link
 of the form &lsquo;<samp>[[WikiLink]]</samp>&rsquo;.  The region (if active) or the word
 at point (if any) will be used for the link text.  If neither is
@@ -1183,38 +1208,16 @@ an extension to Markdown and are not supported by all processors.
 </dl>
 
 <hr>
-<a name="Checking-References"></a>
-<a name="Checking-References-1"></a>
-<h4 class="subsection">3.4.2 Checking References</h4>
-<a name="index-checking-references"></a>
-<a name="index-references_002c-check-all"></a>
-
-<p>This section describes how to check references.
-</p>
-<dl compact="compact">
-<dt><kbd>C-c C-c c</kbd> (<code>markdown-check-refs</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-c"></a>
-<a name="index-markdown_002dcheck_002drefs"></a>
-<p>This will check for undefined references.  If there are any, a small
-buffer will open with a list of undefined references and the line
-numbers on which they appear.  In Emacs 22 and greater, selecting a
-reference from this list and pressing <tt class="key">RET</tt> will insert an empty
-reference definition at the end of the buffer.  Similarly, selecting
-the line number will jump to the corresponding line.
-</p></dd>
-</dl>
-
-<hr>
 <a name="Navigating-Links"></a>
 <a name="Navigating-Links-1"></a>
-<h4 class="subsection">3.4.3 Navigating Links</h4>
+<h4 class="subsection">3.4.2 Navigating Links</h4>
 <a name="index-navigating-links"></a>
 <a name="index-links_002c-navigating"></a>
 
 <p>This subsection describes commands that navigate links.
 </p>
 <dl compact="compact">
-<dt><kbd>M-p</kbd> (<code>markdown-previous-link</code>)</dt>
+<dt><kbd>M-p</kbd> or <kbd>M-x markdown-previous-link <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dp"></a>
 <a name="index-markdown_002dprevious_002dlink"></a>
 <a name="index-jump-to-previous-link"></a>
@@ -1222,7 +1225,7 @@ the line number will jump to the corresponding line.
 <p>This will move to the previous inline, reference or wiki link, if any.
 </p>
 </dd>
-<dt><kbd>M-n</kbd> (<code>markdown-next-link</code>)</dt>
+<dt><kbd>M-n</kbd> or <kbd>M-x markdown-next-link <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002dn"></a>
 <a name="index-markdown_002dnext_002dlink"></a>
 <a name="index-jump-to-next-link"></a>
@@ -1230,36 +1233,70 @@ the line number will jump to the corresponding line.
 <p>This will move to the next inline, reference or wiki link, if any.
 </p>
 </dd>
-<dt><kbd>C-c C-o</kbd> (<code>markdown-follow-thing-at-point</code>)</dt>
+<dt><kbd>C-c C-o</kbd> or <kbd>M-x markdown-follow-thing-at-point <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002do"></a>
 <a name="index-markdown_002dfollow_002dthing_002dat_002dpoint"></a>
 <a name="index-opening-links"></a>
 <a name="index-links_002c-opening"></a>
+
 <p>Press <kbd>C-c C-o</kbd> when the point is on an inline or reference link
-to open the URL in a browser.  When the point is at a wiki link, open
+to open the <acronym>URL</acronym> in a browser.  When the point is at a wiki link, open
 it in another buffer (in the current window, or in the other window
 with the <kbd>C-u</kbd> prefix).
 </p>
 </dd>
-<dt><kbd>C-c C-l</kbd> (<code>markdown-jump</code>)</dt>
-<dd><a name="index-C_002dc-C_002dl"></a>
-<a name="index-markdown_002djump"></a>
-<a name="index-jump-to-a-footnote-or-its-marker"></a>
-<a name="index-jump-to-link-or-its-definition"></a>
-<p>Use <kbd>C-c C-l</kbd>&gt; to jump from the object at point to its counterpart
-elsewhere in the text, when possible.  Jumps between reference links
-and definitions; between footnote markers and footnote text.  If more
-than one link uses the same reference name, a new buffer will be
-created containing clickable buttons for jumping to each link.  You
-may press <tt class="key">TAB</tt> or <kbd>S-<span class="key">TAB</span></kbd> to jump between buttons in
-this window.
+<dt><kbd>C-c C-d</kbd> or <kbd>M-x markdown-do <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dd"></a>
+<a name="index-markdown_002ddo"></a>
+<a name="index-links_002c-jumping"></a>
+<a name="index-footnotes_002c-jumping"></a>
+<a name="index-tables_002c-realigning"></a>
+<a name="index-check_002dboxes_002c-checking"></a>
+
+<p>Use this command to &ldquo;do&rdquo; something with the object at point,
+including:
 </p>
-<a name="index-v2_002e2-2"></a>
-<p>Note: the keybinding of the <code>markdown-jump</code> function was changed
-from <kbd>C-c C-j</kbd> (&rsquo;j&rsquo;ump) in version 2.1 to <kbd>C-c C-l</kbd> (&rsquo;l&rsquo;eap)
-in version 2.2 so that <kbd>C-c C-j</kbd> could be used to insert list
-items using the same key binding as the AUCTeX editor.
-</p></dd>
+<ul>
+<li> Reference Links and Reference Definitions : Jump between them.
+</li><li> Footnotes Markers and Footnote Text : Jump between them.
+</li><li> GFM task list items (check-boxes) : Toggle the check-box.
+</li><li> Tables : Realign table columns.
+</li></ul>
+
+</dd>
+<dt><kbd>C-c C-x C-l</kbd> or <kbd>M-x markdown-toggle-url-hiding <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dx-C_002dl"></a>
+<a name="index-markdown_002dtoggle_002durl_002dhiding"></a>
+<a name="index-toggle-URL-hiding"></a>
+<a name="index-URL-hiding_002c-toggle"></a>
+
+<p>This will toggle the display or hiding of <acronym>URL</acronym>s.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Checking-References"></a>
+<a name="Checking-References-1"></a>
+<h4 class="subsection">3.4.3 Checking References</h4>
+<a name="index-checking-references"></a>
+<a name="index-references_002c-check-all"></a>
+
+<p>This section describes how to check references.
+</p>
+<dl compact="compact">
+<dt><kbd>C-c C-c c</kbd> or <kbd>M-x markdown-check-refs <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-c"></a>
+<a name="index-markdown_002dcheck_002drefs"></a>
+
+<p>This will check for undefined references.  If there are any, a small
+buffer will open with a list of undefined references and the line
+numbers on which they appear.  In Emacs 22 and greater, selecting a
+reference from this list and pressing <tt class="key">RET</tt> will insert an empty
+reference definition at the end of the buffer.  Similarly, selecting
+the line number will jump to the corresponding line.
+</p>
+</dd>
 </dl>
 
 <hr>
@@ -1268,44 +1305,36 @@ items using the same key binding as the AUCTeX editor.
 <h3 class="section">3.5 Images</h3>
 <a name="index-images"></a>
 
-<p>This section describes how to insert and work with images.  The prefix
-for this group of commands is <kbd>C-c C-i</kbd>.
+<p>This section describes how to insert and work with images.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c C-i i</kbd> (<code>markdown-insert-image</code>)</dt>
-<dd><a name="index-C_002dc-C_002di-i"></a>
+<dt><kbd>C-c C-i</kbd> or <kbd>M-x markdown-insert-image <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002di"></a>
 <a name="index-markdown_002dinsert_002dimage"></a>
 <a name="index-insert-image-inline"></a>
 <a name="index-image_002c-insert-inline"></a>
-<p>This inserts markup for an inline image using the active region or
-the word at point (if any) as the alt text.
+
+<p>This inserts or updates markup for an inline or reference image depending on
+whether a <acronym>URL</acronym> or reference is given at the prompts.  If the active
+region is a <acronym>URL</acronym>, it is used, otherwise the region is used for Alt-Text.
 </p>
 </dd>
-<dt><kbd>C-c C-i I</kbd> (<code>markdown-insert-reference-image</code>)</dt>
-<dd><a name="index-C_002dc-C_002di-I"></a>
-<a name="index-markdown_002dinsert_002dreference_002dimage"></a>
-<a name="index-insert-image-reference"></a>
-<a name="index-image-reference_002c-insert"></a>
-<p>This inserts markup for an reference-style image using the active
-region or the word at point (if any) as the alt text.
-</p>
-</dd>
-<dt><kbd>C-c C-i C-t</kbd> (<code>markdown-toggle-inline-images</code>)</dt>
-<dd><a name="index-C_002dc-C_002di-C_002dt"></a>
+<dt><kbd>C-c C-x C-i</kbd> or <kbd>M-x markdown-toggle-inline-images <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dx-C_002di"></a>
 <a name="index-markdown_002dtoggle_002dinline_002dimages"></a>
-<a name="index-toggling-image-display"></a>
-<a name="index-image-display_002c-toggling"></a>
-<a name="index-v2_002e2-3"></a>
+<a name="index-toggle-inline-images"></a>
+<a name="index-inline-image_002c-toggle"></a>
+
 <p>This will toggle display of local inline images.  Use it again to
-remove local inline image display.  (<code>markdown-mode</code> version 2.2).
-</p></dd>
+remove local inline image display.
+</p>
+</dd>
 </dl>
 
 <hr>
-<a name="Misc_002e-Commands"></a>
-<a name="Misc_002e-Commands-1"></a>
-<h3 class="section">3.6 Misc. Commands</h3>
-<a name="index-misc_002e-commands"></a>
+<a name="Other-Commands"></a>
+<a name="Other-Commands-1"></a>
+<h3 class="section">3.6 Other Commands</h3>
 <p>This section describes commands common to both headers and lists, plus
 miscellaneous commands.
 </p>
@@ -1339,7 +1368,7 @@ increasing the level (demoting).  Similarly, the <tt class="key">LEFT</tt> and
 markup is moving in when promoting or demoting.
 </p>
 <dl compact="compact">
-<dt><kbd>M-<span class="key">LEFT</span></kbd> or <kbd>C-c C-x l</kbd> or <kbd>C-c C--</kbd> (<code>markdown-promote</code>)</dt>
+<dt><kbd>M-<span class="key">LEFT</span></kbd>, <kbd>C-c C-x l</kbd>, <kbd>C-c C--</kbd> or <kbd>M-x markdown-promote <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002d_002d"></a>
 <a name="index-M_002dLEFT"></a>
 <a name="index-C_002dc-C_002dx-l"></a>
@@ -1347,11 +1376,12 @@ markup is moving in when promoting or demoting.
 <a name="index-promote-headers"></a>
 <a name="index-promote-items"></a>
 <a name="index-move-an-item-left"></a>
+
 <p>This will promote headers, rules and list items at point, moving them
 left.  See <code>markdown-promote</code> below.
 </p>
 </dd>
-<dt><kbd>M-<span class="key">RIGHT</span></kbd> or <kbd>C-c C-x r</kbd> or <kbd>C-c C-=</kbd> (<code>markdown-demote</code>)</dt>
+<dt><kbd>M-<span class="key">RIGHT</span></kbd>, <kbd>C-c C-x r</kbd>, <kbd>C-c C-=</kbd> or <kbd>M-x markdown-demote <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002d_003d"></a>
 <a name="index-M_002dRIGHT"></a>
 <a name="index-C_002dc-C_002dx-r"></a>
@@ -1359,6 +1389,7 @@ left.  See <code>markdown-promote</code> below.
 <a name="index-demote-headers"></a>
 <a name="index-demote-items"></a>
 <a name="index-move-an-item-right"></a>
+
 <p>This will demote headers, rules and list items at point, moving them
 right.
 </p></dd>
@@ -1377,15 +1408,17 @@ indentation point.  These keybindings are the same as those for
 similar commands in <code>python-mode</code>.
 </p>
 <dl compact="compact">
-<dt><kbd>C-c &lt;</kbd> (<code>markdown-exdent-region</code>)</dt>
+<dt><kbd>C-c &lt;</kbd> or <kbd>M-x markdown-exdent-region <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-_003c"></a>
 <a name="index-markdown_002dexdent_002dregion"></a>
+
 <p>This exdents the region to the previous indentation point.
 </p>
 </dd>
-<dt><kbd>C-c &gt;</kbd> (<code>markdown-indent-region</code>)</dt>
+<dt><kbd>C-c &gt;</kbd> or <kbd>M-x markdown-indent-region <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-_003e"></a>
 <a name="index-markdown_002dindent_002dregion"></a>
+
 <p>This indents the region to the previous indentation point.
 </p></dd>
 </dl>
@@ -1397,25 +1430,147 @@ similar commands in <code>python-mode</code>.
 <a name="index-killing-entities"></a>
 
 <dl compact="compact">
-<dt><kbd>C-c C-k</kbd> (<code>markdown-kill-thing-at-point</code>)</dt>
+<dt><kbd>C-c C-k</kbd> or <kbd>M-x markdown-kill-thing-at-point <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dc-C_002dk"></a>
 <a name="index-markdown_002dkill_002dthing_002dat_002dpoint"></a>
 <a name="index-kill-markup"></a>
 <a name="index-kill-headers"></a>
 <a name="index-header_002c-kill"></a>
-<a name="index-kill-items"></a>
 <a name="index-list-item_002c-kill"></a>
-<p>This kills the header, item or other markdown &rsquo;thing&rsquo; at the point.
-The interesting text (but not the markup) is added to the kill-ring.
-You can use <kbd>C-y</kbd> as usual to yank the text back if desired,
-without the old markup.
+<a name="index-link_002c-kill"></a>
+<a name="index-footnote_002c-kill"></a>
+
+<p>This kills the header, item, links, footnotes or other markdown
+&rsquo;thing&rsquo; at the point.  The interesting text (but not the markup) is
+added to the kill-ring.  You can use <kbd>C-y</kbd> as usual to yank the
+text back if desired, without the old markup.
 </p></dd>
 </dl>
 
 <hr>
+<a name="Editing-Code"></a>
+<a name="Editing-Code-1"></a>
+<h4 class="subsection">3.6.4 Editing Code</h4>
+<a name="index-editing-code"></a>
+
+<dl compact="compact">
+<dt><kbd>C-c '</kbd>  or <kbd>M-x markdown-edit-code-block <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-_0027"></a>
+<a name="index-markdown_002dedit_002dcode_002dblock"></a>
+<a name="index-code_002c-editing"></a>
+
+<p>When the <code>edit-indirect</code><a name="DOCF16" href="#FOOT16"><sup>16</sup></a> package is installed
+, this command will edit a <code>markdown</code> code block in an
+indirect buffer in the appropriate major mode.  Use <kbd>C-c C-c</kbd> to
+commit changes to the code block and return, or use <kbd>C-c C-k</kbd> to
+cancel.
+</p>
+<p>Use <kbd>C-u C-c C-s C</kbd> to insert a code block and immediately edit it
+in an indirect buffer.
+</p>
+<p><code>markdown</code> code blocks are fenced by triple-backticks &lsquo;<samp>```</samp>&rsquo;
+before and after the code.
+</p>
+</dd>
+</dl>
+<hr>
+<a name="External-Commands"></a>
+<a name="External-Commands-1"></a>
+<h3 class="section">3.7 External Commands</h3>
+<a name="index-external-commands"></a>
+<a name="index-convert"></a>
+<a name="index-output-HTML"></a>
+
+<p>This section describes functions that call external commands.
+</p>
+<p>The prefix for this group of commands is <kbd>C-c C-c</kbd>.
+</p>
+<dl compact="compact">
+<dt><kbd>C-c C-c m</kbd> or <kbd>M-x markdown-other-window <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-m"></a>
+<a name="index-markdown_002dother_002dwindow"></a>
+
+<p>This will run <code>markdown-command</code> on the current buffer and
+display the output (<acronym>XHMTL</acronym>) in the other window with the
+buffer name &lsquo;<samp>*markdown-output*</samp>&rsquo;.
+</p>
+</dd>
+<dt><kbd>C-c C-c p</kbd> or <kbd>M-x markdown-preview <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-p"></a>
+<a name="index-markdown_002dpreview"></a>
+
+<p>This will run <code>markdown-command</code> on the current buffer and then
+preview it by writing it to a temporary file and opening that file in
+a browser.
+</p>
+</dd>
+<dt><kbd>C-c C-c e</kbd> or <kbd>M-x markdown-export <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-e"></a>
+<a name="index-markdown_002dexport"></a>
+
+<p>This will run <code>markdown-command</code> on the current buffer and then
+save the result to the file <samp>basename.html</samp>, where
+&lsquo;<samp>basename</samp>&rsquo; is the name of the markdown file (visited by the source
+buffer) without its extension.
+</p>
+</dd>
+<dt><kbd>C-c C-c v</kbd> or <kbd>M-x markdown-export-and-preview <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-v"></a>
+<a name="index-markdown_002dexport_002dand_002dpreview"></a>
+
+<p>This will run <code>markdown-command</code> on the current buffer and then
+save the result to the file <samp>basename.html</samp>, as with
+<code>markdown-export</code>above, and then preview that file in a browser.
+</p>
+</dd>
+<dt><kbd>C-c C-c w</kbd> or <kbd>M-x markdown-kill-ring-save <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-w"></a>
+<a name="index-markdown_002dkill_002dring_002dsave"></a>
+
+<p>This will run <code>markdown-command</code> on the current buffer and save
+the output to the kill ring.  You can yank it back where desired with
+<kbd>C-y</kbd> as usual.
+</p>
+</dd>
+<dt><kbd>C-c C-c l</kbd> or <kbd>M-x markdown-live-preview-mode <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-l"></a>
+<a name="index-markdown_002dlive_002dpreview_002dmode"></a>
+
+<p>This will toggle markdown live preview mode.  When enabled, it will
+preview the output in the Emacs <code>eww</code> browser whenever you save
+the markdown file.  Toggle it off again to stop live preview and close
+the <code>eww</code> browser.  You may customize the value of the variable
+<code>markdown-live-preview-window-function</code> with your own function to
+use a browser other than <code>eww</code>.  The default value of the variable
+is the function <code>markdown-live-preview-window-eww</code>.
+</p>
+</dd>
+<dt><kbd>C-c C-c o</kbd> or <kbd>M-x markdown-open <span class="key">RET</span></kbd></dt>
+<dd><a name="index-C_002dc-C_002dc-o"></a>
+<a name="index-markdown_002dopen"></a>
+
+<p>This will use <code>markdown-open-command</code> to open the source markdown
+file visited by the buffer directly.  See <a href="#Customizing-External-Commands">Customizing External Commands</a>.
+</p></dd>
+</dl>
+
+<p>Summary of compile commands:
+</p>
+<ul>
+<li> <kbd>C-c C-c m</kbd> <code>markdown-command</code> &gt; &lsquo;<samp>*markdown-output*</samp>&rsquo; buffer.
+</li><li> <kbd>C-c C-c p</kbd> <code>markdown-command</code> &gt; &lsquo;<samp>tempfile</samp>&rsquo; &gt; browser.
+</li><li> <kbd>C-c C-c e</kbd> <code>markdown-command</code> &gt; <samp>basename.html</samp>.
+</li><li> <kbd>C-c C-c v</kbd> <code>markdown-command</code> &gt; <samp>basename.html</samp> &gt; browser.
+</li><li> <kbd>C-c C-c w</kbd> <code>markdown-command</code> &gt; kill ring.
+</li><li> <kbd>C-c C-c l</kbd> <code>markdown-command</code> &gt; &lsquo;<samp>*eww*</samp>&rsquo; buffer (live).
+</li><li> <kbd>C-c C-c o</kbd> buffer &gt; file &gt; <code>markdown-open-command</code>.
+</li></ul>
+
+
+<hr>
 <a name="Notes"></a>
 <a name="Notes-1"></a>
-<h3 class="section">3.7 Notes</h3>
+<h3 class="section">3.8 Notes</h3>
 <a name="index-notes"></a>
 
 <p>This section contains notes on various details of <code>markdown-mode</code>.
@@ -1424,7 +1579,7 @@ without the old markup.
 <hr>
 <a name="Navigation-Differences"></a>
 <a name="Navigation-Differences-1"></a>
-<h4 class="subsection">3.7.1 Navigation Differences</h4>
+<h4 class="subsection">3.8.1 Navigation Differences</h4>
 <a name="index-navigation-differences"></a>
 
 <p>The definition of a &quot;paragraph&quot; is slightly different in markdown-mode
@@ -1436,17 +1591,19 @@ commands jump to the beginning or end of an entire block of text,
 respectively, where &quot;blocks&quot; are separated by one or more lines.
 </p>
 <dl compact="compact">
-<dt><kbd>M-{</kbd> (<code>markdown-backward-paragraph</code>)</dt>
+<dt><kbd>M-{</kbd> or <kbd>M-x markdown-backward-paragraph <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002d_007b"></a>
 <a name="index-markdown_002dbackward_002dparagraph"></a>
+
 <p>This command jumps to the beginning of the block of text at point, or
 to the previous paragraph.  Paragraphs are delimited by one or more
 blank lines.
 </p>
 </dd>
-<dt><kbd>M-}</kbd> (<code>markdown-forward-paragraph</code>)</dt>
+<dt><kbd>M-}</kbd> or <kbd>M-x markdown-forward-paragraph <span class="key">RET</span></kbd></dt>
 <dd><a name="index-M_002d_007d"></a>
 <a name="index-markdown_002dforward_002dparagraph"></a>
+
 <p>This command jumps to the end of the block of text at point, or
 to the next paragraph.  Paragraphs are delimited by one or more
 blank lines.
@@ -1461,21 +1618,24 @@ following defun, and <kbd>C-M-h</kbd> will put the region around the entire
 defun.
 </p>
 <dl compact="compact">
-<dt><kbd>C-M-a</kbd> (<code>markdown-beginning-of-defun</code>)</dt>
+<dt><kbd>C-M-a</kbd> or <kbd>M-x markdown-beginning-of-defun <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dM_002da"></a>
 <a name="index-markdown_002dbeginning_002dof_002ddefun"></a>
+
 <p>This command will move to the beginning of a section.
 </p>
 </dd>
-<dt><kbd>C-M-e</kbd> (<code>markdown-end-of-defun</code>)</dt>
+<dt><kbd>C-M-e</kbd> or <kbd>M-x markdown-end-of-defun <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dM_002de"></a>
 <a name="index-markdown_002dend_002dof_002ddefun"></a>
+
 <p>This command will move to the end of a section.
 </p>
 </dd>
-<dt><kbd>C-M-h</kbd> (<code>mark-defun</code>)</dt>
+<dt><kbd>C-M-h</kbd> or <kbd>M-x mark-defun <span class="key">RET</span></kbd></dt>
 <dd><a name="index-C_002dM_002dh"></a>
 <a name="index-mark_002ddefun"></a>
+
 <p>This command will put the region around the current section.
 </p></dd>
 </dl>
@@ -1483,7 +1643,7 @@ defun.
 <hr>
 <a name="Mark-and-Region"></a>
 <a name="Mark-and-Region-1"></a>
-<h4 class="subsection">3.7.2 Mark and Region</h4>
+<h4 class="subsection">3.8.2 Mark and Region</h4>
 <a name="index-mark"></a>
 <a name="index-transient-mark"></a>
 <a name="index-region"></a>
@@ -1515,7 +1675,7 @@ text and turn it into a blockquote.
 <hr>
 <a name="Indenting"></a>
 <a name="Indenting-1"></a>
-<h4 class="subsection">3.7.3 Indenting</h4>
+<h4 class="subsection">3.8.3 Indenting</h4>
 <a name="index-indenting"></a>
 
 <p><code>markdown-mode</code> attempts to be flexible in how it handles
@@ -1531,7 +1691,7 @@ a line.
 <hr>
 <a name="Org-and-Outline-features"></a>
 <a name="Org-and-Outline-features-1"></a>
-<h4 class="subsection">3.7.4 Org and Outline features</h4>
+<h4 class="subsection">3.8.4 Org and Outline features</h4>
 <a name="index-org_002dmode-visibility"></a>
 <a name="index-outline_002dminor_002dmode"></a>
 
@@ -1543,108 +1703,22 @@ headings.
 </p><ul>
 <li> <kbd>S-<span class="key">TAB</span></kbd>
 <a name="index-S_002dTAB"></a>
-This cycles globally between the table of contents view (headings
+
+<p>This cycles globally between the table of contents view (headings
 only), outline view (top-level headings only), and the full document
 view.
+</p>
 </li><li> <tt class="key">TAB</tt>
 <a name="index-TAB"></a>
-Pressing <tt class="key">TAB</tt> while the point is at a heading will cycle through
+
+<p>Pressing <tt class="key">TAB</tt> while the point is at a heading will cycle through
 levels of visibility for the subtree: completely folded, visible
 children, and fully visible.
-</li></ul>
+</p></li></ul>
 
 <p>Note that mixing hash (atx) and underline (setext) style headings will
 give undesired results.
 </p>
-<hr>
-<a name="Compile-Commands"></a>
-<a name="Compile-Commands-1"></a>
-<h3 class="section">3.8 Compile Commands</h3>
-<a name="index-compile-commands"></a>
-<a name="index-convert"></a>
-<a name="index-output-HTML"></a>
-
-<p>This section describes compile (output) commands.
-</p>
-<p>The prefix for this group of commands is <kbd>C-c C-c</kbd>.
-</p>
-<dl compact="compact">
-<dt><kbd>C-c C-c m</kbd> (<code>markdown-other-window</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-m"></a>
-<a name="index-markdown_002dother_002dwindow"></a>
-
-<p>This will run <code>markdown-command</code> on the current buffer and
-display the output (<acronym>XHMTL</acronym>) in the other window with the
-buffer name &lsquo;<samp>*markdown-output*</samp>&rsquo;.
-</p>
-</dd>
-<dt><kbd>C-c C-c p</kbd> (<code>markdown-preview</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-p"></a>
-<a name="index-markdown_002dpreview"></a>
-
-<p>This will run <code>markdown-command</code> on the current buffer and then
-preview it by writing it to a temporary file and opening that file in
-a browser.
-</p>
-</dd>
-<dt><kbd>C-c C-c e</kbd> (<code>markdown-export</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-e"></a>
-<a name="index-markdown_002dexport"></a>
-
-<p>This will run <code>markdown-command</code> on the current buffer and then
-save the result to the file <samp>basename.html</samp>, where
-&lsquo;<samp>basename</samp>&rsquo; is the name of the markdown file (visited by the source
-buffer) without its extension.
-</p>
-</dd>
-<dt><kbd>C-c C-c v</kbd> (<code>markdown-export-and-preview</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-v"></a>
-<a name="index-markdown_002dexport_002dand_002dpreview"></a>
-<p>This will run <code>markdown-command</code> on the current buffer and then
-save the result to the file <samp>basename.html</samp>, as with
-<code>markdown-export</code>above, and then preview that file in a browser.
-</p>
-</dd>
-<dt><kbd>C-c C-c w</kbd> (<code>markdown-kill-ring-save</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-w"></a>
-<a name="index-markdown_002dkill_002dring_002dsave"></a>
-<p>This will run <code>markdown-command</code> on the current buffer and save
-the output to the kill ring.  You can yank it back where desired with
-<kbd>C-y</kbd> as usual.
-</p>
-</dd>
-<dt><kbd>C-c C-c l</kbd> (<code>markdown-live-preview-mode</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-l"></a>
-<a name="index-markdown_002dlive_002dpreview_002dmode"></a>
-<p>This will toggle markdown live preview mode.  When enabled, it will
-preview the output in the Emacs <code>eww</code> browser whenever you save
-the markdown file.  Toggle it off again to stop live preview and close
-the <code>eww</code> browser.  You may customize the value of the variable
-<code>markdown-live-preview-window-function</code> with your own function to
-use a browser other than <code>eww</code>.  The default value of the variable
-is the function <code>markdown-live-preview-window-eww</code>.
-</p>
-</dd>
-<dt><kbd>C-c C-c o</kbd> (<code>markdown-open</code>)</dt>
-<dd><a name="index-C_002dc-C_002dc-o"></a>
-<a name="index-markdown_002dopen"></a>
-<p>This will use <code>markdown-open-command</code> to open the source markdown
-file visited by the buffer directly.  See <a href="#Customizing-External-Commands">Customizing External Commands</a>.
-</p></dd>
-</dl>
-
-<p>Summary of compile commands:
-</p>
-<ul>
-<li> <kbd>C-c C-c m</kbd> <code>markdown-command</code> &gt; &lsquo;<samp>*markdown-output*</samp>&rsquo; buffer.
-</li><li> <kbd>C-c C-c p</kbd> <code>markdown-command</code> &gt; &lsquo;<samp>tempfile</samp>&rsquo; &gt; browser.
-</li><li> <kbd>C-c C-c e</kbd> <code>markdown-command</code> &gt; <samp>basename.html</samp>.
-</li><li> <kbd>C-c C-c v</kbd> <code>markdown-command</code> &gt; <samp>basename.html</samp> &gt; browser.
-</li><li> <kbd>C-c C-c w</kbd> <code>markdown-command</code> &gt; kill ring.
-</li><li> <kbd>C-c C-c l</kbd> <code>markdown-command</code> &gt; &lsquo;<samp>*eww*</samp>&rsquo; buffer (live).
-</li><li> <kbd>C-c C-c o</kbd> buffer &gt; file &gt; <code>markdown-open-command</code>.
-</li></ul>
-
 <hr>
 <a name="Using-gfm_002dmode"></a>
 <a name="Using-gfm_002dmode-1"></a>
@@ -1660,7 +1734,7 @@ GitHub Flavored Markdown is described at
 </p>
 <p>The GitHub implementation differs slightly from standard Markdown in
 that it supports things like different behavior for underscores inside
-of words, automatic linking of URLs, strikethrough text, and fenced
+of words, automatic linking of <acronym>URL</acronym>s, strikethrough text, and fenced
 code blocks with an optional language keyword.
 </p>
 <p>The GFM-specific features above apply to <samp>README.md</samp> files, wiki
@@ -1679,14 +1753,16 @@ These additional extensions are supported to varying degrees by
 <code>markdown-mode</code> and <code>gfm-mode</code> as described below.
 </p>
 <dl compact="compact">
-<dt><strong>URL autolinking</strong></dt>
+<dt><strong><acronym>URL</acronym> autolinking</strong></dt>
 <dd><a name="index-GFM-URL-autolinking"></a>
+
 <p>Both <code>markdown-mode</code> and <code>gfm-mode</code> support highlighting of
 URLs without angle brackets.
 </p>
 </dd>
 <dt><strong>Multiple underscores in words</strong></dt>
 <dd><a name="index-GFM-Multiple-underscores-in-words"></a>
+
 <p>You must enable <code>gfm-mode</code> to toggle support for underscores
 inside of words.  In this mode variable names such as
 <var>a_test_variable</var> will not trigger emphasis (italics).
@@ -1694,6 +1770,7 @@ inside of words.  In this mode variable names such as
 </dd>
 <dt><strong>Fenced code blocks</strong></dt>
 <dd><a name="index-GFM-Fenced-code-blocks"></a>
+
 <p>Code blocks quoted with backticks, with optional programming language
 keywords, are highlighted in both <code>markdown-mode</code> and
 <code>gfm-mode</code>.  They can be inserted with <kbd>C-c C-s P</kbd>.  If there
@@ -1704,15 +1781,17 @@ may press enter to continue without naming a language.
 </dd>
 <dt><strong>Strikethrough</strong></dt>
 <dd><a name="index-GFM-Strikethrough"></a>
+
 <p>Strikethrough text is only supported in <code>gfm-mode</code> and can be
 inserted (and toggled) using <kbd>C-c C-s d</kbd>.  Following the mnemonics
 for the other style keybindings, the letter <kbd>d</kbd> coincides with the
-HTML tag <code>&lt;del&gt;</code>.
+HTML tag &lsquo;<samp>&lt;del&gt;</samp>&rsquo;.
 </p>
 </dd>
 <dt><strong>Task lists</strong></dt>
 <dd><a name="index-GFM-Task-lists"></a>
 <a name="index-markdown_002dmake_002dgfm_002dcheckboxes_002dbuttons"></a>
+
 <p>GFM task lists will be rendered as checkboxes (Emacs buttons) in both
 <code>markdown-mode</code> and <code>gfm-mode</code> when
 <code>markdown-make-gfm-checkboxes-buttons</code> is set to a non-nil value
@@ -1722,6 +1801,7 @@ clicking <kbd>mouse-1</kbd> or pressing <tt class="key">RET</tt> over the button
 </dd>
 <dt><strong>Wiki links</strong></dt>
 <dd><a name="index-GFM-Wiki-links"></a>
+
 <p>Generic wiki links are supported in <code>markdown-mode</code>, but in
 <code>gfm-mode</code> specifically they will be treated as they are on
 GitHub: spaces will be replaced by hyphens in filenames and the first
@@ -1733,6 +1813,7 @@ extension as the current file.
 <dt><strong>Newlines</strong></dt>
 <dd><a name="index-GFM-Newlines"></a>
 <a name="index-visual_002dline_002dmode"></a>
+
 <p>Neither <code>markdown-mode</code> nor <code>gfm-mode</code> do anything
 specifically with respect to newline behavior.  If you use
 <code>gfm-mode</code> mostly to write text for comments or issues on the
@@ -1753,6 +1834,7 @@ as follows:
 <dd><a name="index-GFM-Preview"></a>
 <a name="index-markdown_002dcommand"></a>
 <a name="index-markdown_002dopen_002dcommand"></a>
+
 <p>GFM-specific preview can be powered by setting <code>markdown-command</code>
 to use a GFM preview application like Docter
 (<a href="https://github.com/alampros/Docter">https://github.com/alampros/Docter</a>).  This may also be
@@ -1798,17 +1880,17 @@ another format or to preview the markdown text.
 output processor in the following functions:
 </p>
 <ul>
-<li> <kbd>C-c C-c m</kbd> (<code>markdown-other-buffer</code>)
-</li><li> <kbd>C-c C-c p</kbd> (<code>markdown-preview</code>)
-</li><li> <kbd>C-c C-c e</kbd> (<code>markdown-export</code>)
-</li><li> <kbd>C-c C-c v</kbd> (<code>markdown-export-and-preview</code>)
-</li><li> <kbd>C-c C-c w</kbd> (<code>markdown-kill-ring-save</code>)
+<li> <kbd>C-c C-c m</kbd> or <kbd>M-x markdown-other-buffer <span class="key">RET</span></kbd>
+</li><li> <kbd>C-c C-c p</kbd> or <kbd>M-x markdown-preview <span class="key">RET</span></kbd>
+</li><li> <kbd>C-c C-c e</kbd> or <kbd>M-x markdown-export <span class="key">RET</span></kbd>
+</li><li> <kbd>C-c C-c v</kbd> or <kbd>M-x markdown-export-and-preview <span class="key">RET</span></kbd>
+</li><li> <kbd>C-c C-c w</kbd> or <kbd>M-x markdown-kill-ring-save <span class="key">RET</span></kbd>
 </li></ul>
 
 <p>Examples of <code>markdown-command</code> configurations in Emacs startup file:
 </p>
 <dl compact="compact">
-<dt>Default.  Assumes <code>markdown</code> command in <code>$PATH</code>.</dt>
+<dt>Default.  Assumes <code>markdown</code><a name="DOCF17" href="#FOOT17"><sup>17</sup></a> command in <code>$PATH</code>.</dt>
 <dd><a name="index-markdown_002c-configure"></a>
 <a name="index-markdown-1"></a>
 
@@ -1818,7 +1900,8 @@ output processor in the following functions:
 
 </dd>
 <dt><code>markdown</code> with specified path</dt>
-<dd><p>You may need to specify the path to <code>markdown</code> if it is not in
+<dd>
+<p>You may need to specify the path to <code>markdown</code> if it is not in
 the <code>$PATH</code>, as when Emacs is launched as an app under MacOS.
 </p>
 <div class="lisp">
@@ -1826,29 +1909,27 @@ the <code>$PATH</code>, as when Emacs is launched as an app under MacOS.
 </pre></div>
 
 </dd>
-<dt><code>markdown</code> with <code>smartypants</code></dt>
+<dt><code>markdown</code> with <code>smartypants</code><a name="DOCF18" href="#FOOT18"><sup>18</sup></a></dt>
 <dd><a name="index-smartypants_002c-configure"></a>
 <a name="index-smart-quotation-marks"></a>
 <a name="index-smartypants"></a>
+
 <p>You may pipe the output of <code>markdown</code> to <code>smartypants</code>
 to add smart quotation marks.
-</p>
-<p>See <a href="https://daringfireball.net/projects/smartypants/">https://daringfireball.net/projects/smartypants/</a>.
 </p>
 <div class="lisp">
 <pre class="lisp">(setq markdown-command &quot;markdown | smartypants&quot;)
 </pre></div>
 
 </dd>
-<dt><code>multimarkdown</code></dt>
+<dt><code>multimarkdown</code><a name="DOCF19" href="#FOOT19"><sup>19</sup></a></dt>
 <dd><a name="index-multimarkdown_002c-configure"></a>
 <a name="index-multimarkdown"></a>
+
 <p><code>multimarkdown</code> usually outputs to <acronym>HTML</acronym> like
 <code>markdown</code>, but can also output to several other formats with
 the <samp>--to=<var>FORMAT</var></samp> option.  It includes the functionality
 of <code>smartypants</code>.
-</p>
-<p>See <a href="http://fletcherpenney.net/multimarkdown/">http://fletcherpenney.net/multimarkdown/</a>.
 </p>
 <div class="lisp">
 <pre class="lisp">(setq markdown-command
@@ -1856,16 +1937,15 @@ of <code>smartypants</code>.
 </pre></div>
 
 </dd>
-<dt><code>pandoc</code></dt>
+<dt><code>pandoc</code><a name="DOCF20" href="#FOOT20"><sup>20</sup></a></dt>
 <dd><a name="index-pandoc_002c-configure"></a>
 <a name="index-other-formats_002c-output-to"></a>
 <a name="index-outputting-to-other-formats"></a>
 <a name="index-pandoc"></a>
+
 <p><code>pandoc</code> will output to <acronym>HTML</acronym>, but it can also output
 to 40 other formats and converts from 5 different markdown dialects,
 including GitHub-flavored markdown.
-</p>
-<p>See <a href="http://pandoc.org">http://pandoc.org</a>
 </p>
 <div class="lisp">
 <pre class="lisp">(setq markdown-command
@@ -1886,12 +1966,11 @@ including GitHub-flavored markdown.
 </p>
 <p>Set <code>markdown-command-needs-filename</code> to <code>t</code> if the program
 specified by <code>markdown-command</code> needs a filename, that is, if the
-program does not accept standard input (<code>stdin</code>).
+program does not accept standard input.
 </p>
 <p>When <code>markdown-command-needs-filename</code> is set to <code>nil</code>, the
 default, <code>markdown-mode</code> will pass the markdown content to the
-program specified by <code>markdown-command</code> using standard input
-(<code>stdin</code>).
+program specified by <code>markdown-command</code> using standard input.
 </p>
 <p>When <code>markdown-command-needs-filename</code> is set to <code>t</code> (or any
 non-<code>nil</code>), <code>markdown-mode</code> will pass the name of the file
@@ -1943,6 +2022,7 @@ fi
 <a name="Customizing-Markdown-Format-1"></a>
 <h3 class="section">5.2 Customizing Markdown Format</h3>
 <a name="index-markdown-format_002c-customizing"></a>
+
 <p>The variables in this section control how <code>markdown-mode</code> formats
 Markdown text.  These variables may be set in the Emacs startup file
 or by using <kbd>M-x customize-mode</kbd>.
@@ -1967,7 +2047,7 @@ text instead of single asterisks.
 </p>
 </dd>
 <dt><code>markdown-reference-location</code>
-<a name="index-markdown_002dreference_002dlocation-1"></a>
+<a name="index-markdown_002dreference_002dlocation"></a>
 </dt>
 <dd><p><code>header</code>, <code>end</code>, or <code>immediately</code>, default <code>header</code>
 </p>
@@ -2016,6 +2096,7 @@ behavior induced when the global variable is non-nil.
 <a name="Customizing-Markdown-Headers-1"></a>
 <h3 class="section">5.3 Customizing Markdown Headers</h3>
 <a name="index-markdown-headers_002c-customizing"></a>
+
 <p>The variables in this section allow you to customize how
 <code>markdown-mode</code> uses headers.
 </p>
@@ -2035,8 +2116,7 @@ left and right of the title.
 <dt><code>markdown-header-scaling</code>
 <a name="index-markdown_002dheader_002dscaling"></a>
 </dt>
-<dd><a name="index-v2_002e2-4"></a>
-<p><code>nil</code> or <code>t</code>, default: <code>nil</code>.
+<dd><p><code>nil</code> or <code>t</code>, default: <code>nil</code>.
 </p>
 <p>Determines whether to use variable-height faces for headers.
 </p>
@@ -2052,8 +2132,7 @@ levels one through six respectively.
 <dt><code>markdown-header-scaling-values</code>
 <a name="index-markdown_002dheader_002dscaling_002dvalues"></a>
 </dt>
-<dd><a name="index-v2_002e2-5"></a>
-<p>A list of 6 float, default: <code>(list 1.8 1.4 1.2 1.0 1.0 1.0)</code>
+<dd><p>A list of 6 float, default: <code>(list 1.8 1.4 1.2 1.0 1.0 1.0)</code>
 </p>
 <p>A list of 6 scaling values, relative to baseline, for headers of
 levels one through six.  They are used when &lsquo;markdown-header-scaling&lsquo;
@@ -2063,8 +2142,7 @@ is non-nil.
 <dt><code>markdown-nested-imenu-header-index</code>
 <a name="index-markdown_002dnested_002dimenu_002dheader_002dindex"></a>
 </dt>
-<dd><a name="index-v2_002e2-6"></a>
-<p><code>nil</code> or <code>t</code>, default: <code>nil</code>.
+<dd><p><code>nil</code> or <code>t</code>, default: <code>nil</code>.
 </p>
 <p>Set to a non-nil value to use nested imenu header instead of a flat
 index.  A nested index may provide more natural browsing from the
@@ -2088,11 +2166,12 @@ completion.
 
 <p>A list of strings to use when inserting horizontal rules.  Different
 strings will not be distinguished when converted to <acronym>HTML</acronym> &ndash;
-they will all be converted to <code>&lt;hr/&gt;</code> &ndash; but they may add visual
+they will all be converted to &lsquo;<samp>&lt;hr/&gt;</samp>&rsquo; &ndash; but they may add visual
 distinction and style to plain text documents.  To maintain some
 notion of promotion and demotion, keep these sorted from largest to
 smallest.
-</p></dd>
+</p>
+</dd>
 </dl>
 
 <hr>
@@ -2100,6 +2179,7 @@ smallest.
 <a name="Customizing-Indenting-1"></a>
 <h3 class="section">5.4 Customizing Indenting</h3>
 <a name="index-indenting_002c-customizing"></a>
+
 <p>The variables in this section allow you to customize how
 <code>markdown-mode</code> handles indentation.
 </p>
@@ -2167,7 +2247,6 @@ value.
 <a name="index-markdown_002denable_002dwiki_002dlinks"></a>
 </dt>
 <dd><a name="index-markdown_002dtoggle_002dwiki_002dlinks"></a>
-<a name="index-v2_002e2-7"></a>
 <p><code>nil</code> or <code>t</code>, default: <code>nil</code>.
 </p>
 <p>This enables syntax highlighting for [[Wiki-Links]].
@@ -2291,7 +2370,7 @@ mouse-1 or RET.  If non-nil, then buttons are enabled.  This works in
 &quot;modem&quot; &quot;news&quot; &quot;nfs&quot; &quot;nntp&quot; &quot;pop&quot; &quot;prospero&quot; &quot;rtsp&quot; &quot;service&quot; &quot;sip&quot;
 &quot;tel&quot; &quot;telnet&quot; &quot;tip&quot; &quot;urn&quot; &quot;vemmi&quot; &quot;wais&quot;)</code>
 </p>
-<p>Determines the list of protocol schemes (e.g., <code>&quot;http&quot;</code>) for URIs
+<p>Determines the list of protocol schemes (e.g., <code>&quot;http&quot;</code>) for <acronym>URI</acronym>s
 that <code>markdown-mode</code> should highlight.
 </p>
 </dd>
@@ -2300,7 +2379,7 @@ that <code>markdown-mode</code> should highlight.
 </dt>
 <dd><p>list of strings, default <code>nil</code>
 </p>
-<p>Determines a list of URLs of CSS files to link to in the output <acronym>XHMTL</acronym>.
+<p>Determines a list of <acronym>URL</acronym>s of CSS files to link to in the output <acronym>XHMTL</acronym>.
 </p>
 </dd>
 <dt><code>markdown-content-type</code>
@@ -2345,12 +2424,12 @@ block.
 </dt>
 <dd><p>string, default <code>^\\(&lt;\\?xml\\|&lt;!DOCTYPE\\|&lt;html\\)</code>
 </p>
-<p>a regular expression which <code>markdown-mode</code> uses to determine
-whether the output of <code>markdown-command</code> is a standalone
-<acronym>XHMTL</acronym> document or an <acronym>XHMTL</acronym> fragment.  If this
-regular expression is not matched in the first five lines of output,
-<code>markdown-mode</code> assumes the output is a fragment and adds a
-header and footer.
+<p>This variable contains a regular expression which <code>markdown-mode</code>
+uses to determine whether the output of <code>markdown-command</code> is a
+standalone <acronym>XHMTL</acronym> document or an <acronym>XHMTL</acronym> fragment. If
+this regular expression is not matched in the first five lines of
+output, <code>markdown-mode</code> assumes the output is a fragment and adds
+a header and footer.
 </p></dd>
 </dl>
 
@@ -2403,7 +2482,7 @@ future&hellip; <strong>Thank you.</strong>
 <a name="index-thank-you"></a>
 
 <p><code>markdown-mode</code> has benefited greatly from the efforts of many
-people. Please see the &ldquo;;;; Acknowledgments:&rdquo; section of
+people.  Please see the &ldquo;;;; Acknowledgments:&rdquo; section of
 <code>markdown-mode.el</code> and the GitHub contributors graph at <a href="https://github.com/jrblevin/markdown-mode/graphs/contributors">https://github.com/jrblevin/markdown-mode/graphs/contributors</a>.
 </p>
 <hr>
@@ -2432,6 +2511,7 @@ Blevins.  The first release, 1.1,  was on May 24, 2007.
 </li><li> 2013-03-24 v2.0   <a href="http://jblevins.org/projects/markdown-mode/rev-2-0">http://jblevins.org/projects/markdown-mode/rev-2-0</a>
 </li><li> 2016-01-09 v2.1   <a href="http://jblevins.org/projects/markdown-mode/rev-2-1">http://jblevins.org/projects/markdown-mode/rev-2-1</a>
 </li><li> 2017-05-26 v2.2   <a href="http://jblevins.org/projects/markdown-mode/rev-2-2">http://jblevins.org/projects/markdown-mode/rev-2-2</a>
+</li><li> 2017-08-31 v2.3   <a href="http://jblevins.org/projects/markdown-mode/rev-2-3">http://jblevins.org/projects/markdown-mode/rev-2-3</a>
 </li></ul>
 
 <hr>
@@ -3389,13 +3469,15 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-markdown_002dcss_002dpaths"><code>markdown-css-paths</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002ddemote"><code>markdown-demote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002ddemote_002dsubtree"><code>markdown-demote-subtree</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002ddo"><code>markdown-do</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dedit_002dcode_002dblock"><code>markdown-edit-code-block</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Editing-Code">Editing Code</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002delectric_002dbackquote"><code>markdown-electric-backquote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002denable_002dmath"><code>markdown-enable-math</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002denable_002dwiki_002dlinks"><code>markdown-enable-wiki-links</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dend_002dof_002ddefun"><code>markdown-end-of-defun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dexdent_002dregion"><code>markdown-exdent-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dexport"><code>markdown-export</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dexport_002dand_002dpreview"><code>markdown-export-and-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dexport"><code>markdown-export</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dexport_002dand_002dpreview"><code>markdown-export-and-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dfollow_002dthing_002dat_002dpoint"><code>markdown-follow-thing-at-point</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dfootnote_002dlocation"><code>markdown-footnote-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dforward_002dparagraph"><code>markdown-forward-paragraph</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
@@ -3427,19 +3509,16 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002ditalic"><code>markdown-insert-italic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dkbd"><code>markdown-insert-kbd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlink"><code>markdown-insert-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlink-1"><code>markdown-insert-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dlist_002ditem"><code>markdown-insert-list-item</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dpre"><code>markdown-insert-pre</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dreference_002dimage"><code>markdown-insert-reference-image</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002duri"><code>markdown-insert-uri</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dinsert_002dwiki_002dlink"><code>markdown-insert-wiki-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002ditalic_002dunderscore"><code>markdown-italic-underscore</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002djump"><code>markdown-jump</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dkill_002dring_002dsave"><code>markdown-kill-ring-save</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dkill_002dring_002dsave"><code>markdown-kill-ring-save</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dkill_002dthing_002dat_002dpoint"><code>markdown-kill-thing-at-point</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dlink_002dspace_002dsub_002dchar"><code>markdown-link-space-sub-char</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dlist_002dindent_002dwidth"><code>markdown-list-indent-width</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dlive_002dpreview_002dmode"><code>markdown-live-preview-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dlive_002dpreview_002dmode"><code>markdown-live-preview-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dmake_002dgfm_002dcheckboxes_002dbuttons"><code>markdown-make-gfm-checkboxes-buttons</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dmake_002dgfm_002dcheckboxes_002dbuttons-1"><code>markdown-make-gfm-checkboxes-buttons</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dmode"><code>markdown-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
@@ -3450,20 +3529,20 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-markdown_002dnested_002dimenu_002dheader_002dindex"><code>markdown-nested-imenu-header-index</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dnext_002dlink"><code>markdown-next-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dnext_002dvisible_002dheading"><code>markdown-next-visible-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dopen"><code>markdown-open</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dopen"><code>markdown-open</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand-1"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002dcommand-2"><code>markdown-open-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dother_002dwindow"><code>markdown-other-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dother_002dwindow"><code>markdown-other-window</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dpre_002dregion"><code>markdown-pre-region</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dpreview"><code>markdown-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dpreview"><code>markdown-preview</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dprevious_002dlink"><code>markdown-previous-link</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dprevious_002dvisible_002dheading"><code>markdown-previous-visible-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dpromote"><code>markdown-promote</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dpromote_002dsubtree"><code>markdown-promote-subtree</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dreference_002dlocation"><code>markdown-reference-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-markdown_002dreference_002dlocation-1"><code>markdown-reference-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dreference_002dlocation"><code>markdown-reference-location</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Format">Customizing Markdown Format</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dtoggle_002dinline_002dimages"><code>markdown-toggle-inline-images</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-markdown_002dtoggle_002durl_002dhiding"><code>markdown-toggle-url-hiding</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dtoggle_002dwiki_002dlinks"><code>markdown-toggle-wiki-links</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dup_002dheading"><code>markdown-up-heading</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002duri_002dtypes"><code>markdown-uri-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
@@ -3565,6 +3644,7 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-bugs-and-errors">bugs and errors</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-_0027"><code>C-c '</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Editing-Code">Editing Code</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-_002d"><code>C-c -</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-_003c"><code>C-c &lt;</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-_003e"><code>C-c &gt;</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
@@ -3582,26 +3662,23 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc"><code>C-c C-c</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-c"><code>C-c C-c c</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-C_002dh"><code>C-c C-c C-h</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-e"><code>C-c C-c e</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-l"><code>C-c C-c l</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-m"><code>C-c C-c m</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-e"><code>C-c C-c e</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-l"><code>C-c C-c l</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-m"><code>C-c C-c m</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-n"><code>C-c C-c n</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-o"><code>C-c C-c o</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-o"><code>C-c C-c o</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-o-1"><code>C-c C-c o</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-p"><code>C-c C-c p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-v"><code>C-c C-c v</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-w"><code>C-c C-c w</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-p"><code>C-c C-c p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-v"><code>C-c C-c v</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-w"><code>C-c C-c w</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dc-_005d"><code>C-c C-c ]</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dd"><code>C-c C-d</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002df"><code>C-c C-f</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dh"><code>C-c C-h</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002di"><code>C-c C-i</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002di-C_002dh"><code>C-c C-i C-h</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002di-C_002dt"><code>C-c C-i C-t</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002di-i"><code>C-c C-i i</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002di-I"><code>C-c C-i I</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002di"><code>C-c C-i</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dj"><code>C-c C-j</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dk"><code>C-c C-k</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dl"><code>C-c C-l</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dl"><code>C-c C-l</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dn"><code>C-c C-n</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002do"><code>C-c C-o</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dp"><code>C-c C-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
@@ -3632,6 +3709,8 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002du"><code>C-c C-u</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dx"><code>C-c C-x</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dx-C_002dh"><code>C-c C-x C-h</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dx-C_002di"><code>C-c C-x C-i</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dx-C_002dl"><code>C-c C-x C-l</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dx-d"><code>C-c C-x d</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dx-l"><code>C-c C-x l</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dx-r"><code>C-c C-x r</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
@@ -3640,11 +3719,12 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-C_002dM_002da"><code>C-M-a</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dM_002de"><code>C-M-e</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dM_002dh"><code>C-M-h</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-check_002dboxes_002c-checking">check-boxes, checking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-checking-references">checking references</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-compile-commands">compile commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-code_002c-editing">code, editing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Editing-Code">Editing Code</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contact-information">contact information</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-contributors">contributors</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-convert">convert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-convert">convert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-copyright-_0028manual_0029">copyright (manual)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copyright-_0028software_0029">copyright (software)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-credits">credits</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
@@ -3652,7 +3732,7 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-customizing-HTML-format">customizing <acronym>HTML</acronym> format</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-D">D</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Debian-package_002c-downloading">Debian package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Debian-package_002c-downloading">Debian package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-demote-a-subtree">demote a subtree</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-demote-headers">demote headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-demote-items">demote items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
@@ -3661,13 +3741,17 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-downloading">downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Installing">Installing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-editing-code">editing code</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Editing-Code">Editing Code</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-external-commands">external commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-external-commands_002c-customizing">external commands, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-F">F</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Fedora-package_002c-downloading">Fedora package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Fedora-package_002c-downloading">Fedora package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-feedback">feedback</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Bugs-and-Errors">Bugs and Errors</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-footnote_002c-insert">footnote, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-FreeBSD-package_002c-downloading">FreeBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-footnote_002c-kill">footnote, kill</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-footnotes_002c-jumping">footnotes, jumping</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-FreeBSD-package_002c-downloading">FreeBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-G">G</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-GFM-Fenced-code-blocks">GFM Fenced code blocks</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
@@ -3676,7 +3760,7 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-GFM-Preview">GFM Preview</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-GFM-Strikethrough">GFM Strikethrough</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-GFM-Task-lists">GFM Task lists</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GFM-URL-autolinking">GFM URL autolinking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-GFM-URL-autolinking">GFM <acronym>URL</acronym> autolinking</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-GFM-Wiki-links">GFM Wiki links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-GitHub-flavored-markdown">GitHub flavored markdown</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-GitHub-flavored-markdown_002c-customizing">GitHub flavored markdown, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-GitHub-Flavored-Markdown">Customizing GitHub Flavored Markdown</a></td></tr>
@@ -3694,29 +3778,26 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-highlighting-LaTeX-math-syntax">highlighting LaTeX math syntax</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-highlighting-_005b_005bwiki_002dlinks_005d_005d-syntax">highlighting [[wiki-links]] syntax</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-history-of-releases">history of releases</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-of-Releases">History of Releases</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Homebrew-package_002c-installing">Homebrew package, installing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Homebrew-package_002c-installing">Homebrew package, installing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-horizontal-rule_002c-insert">horizontal rule, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-HTML-format_002c-customize"><acronym>HTML</acronym> format, customize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-HTML-Format">Customizing <acronym>HTML</acronym> Format</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-I">I</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-image-display_002c-toggling">image display, toggling</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-image-reference_002c-insert">image reference, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-image_002c-insert-inline">image, insert inline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-images">images</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-indenting">indenting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting">Indenting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-indenting-the-region">indenting the region</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indenting-the-Region">Indenting the Region</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-indenting_002c-customizing">indenting, customizing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Indenting">Customizing Indenting</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inline-links_002c-insert">inline links, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inline-image_002c-toggle">inline image, toggle</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inline-link_002c-insert">inline link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-insert-image-inline">insert image inline</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-insert-image-reference">insert image reference</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-insert-reference-links">insert reference links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inserting-footnotes">inserting footnotes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inserting-headers">inserting headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Headers">Inserting Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inserting-horizontal-rules">inserting horizontal rules</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Horizontal-Rules">Inserting Horizontal Rules</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-inline-links">inserting inline links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inserting-links">inserting links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-links-1">inserting links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inserting-list-items">inserting list items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-inserting-URIs">inserting URIs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-inserting-URIs">inserting <acronym>URI</acronym>s</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-inserting-wiki_002dLinks">inserting wiki-Links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-installation_002c-the-easy-way">installation, the easy way</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-installation_002c-the-hard-way">installation, the hard way</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
@@ -3724,14 +3805,11 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-introduction">introduction</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Introduction">Introduction</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-J">J</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-jump-to-a-footnote-or-its-marker">jump to a footnote or its marker</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-jump-to-link-or-its-definition">jump to link or its definition</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-jump-to-next-link">jump to next link</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-jump-to-previous-link">jump to previous link</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-K">K</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-kill-headers">kill headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kill-items">kill items</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-kill-markup">kill markup</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-killing-entities">killing entities</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -3739,13 +3817,14 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-LaTeX-math-syntax-highlighting">LaTeX math syntax highlighting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#LaTeX-Math-Syntax-Highlighting">LaTeX Math Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-license-_0028manual_0029">license (manual)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-Free-Documentation-License"><acronym>GNU</acronym> Free Documentation License</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-license-_0028software_0029">license (software)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-General-Public-License-2_002e0"><acronym>GNU</acronym> General Public License 2.0</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-link_002c-inline_002c-insert">link, inline, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-link_002c-insert">link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-link_002c-reference_002c-insert">link, reference, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_002c-insert-1">link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-link_002c-kill">link, kill</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-links">links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Links">Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-links_002c-jumping">links, jumping</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-links_002c-navigating">links, navigating</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-links_002c-opening">links, opening</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Linux-package_002c-downloading">Linux package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Linux-package_002c-downloading">Linux package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-list-item_002c-kill">list item, kill</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Killing-Entities">Killing Entities</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-list-items_002c-promote_002fdemote">list items, promote/demote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-list_002c-insert-item">list, insert item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
@@ -3766,7 +3845,7 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-M_002dUP"><code>M-<span class="key">UP</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Move-List-Items">Move List Items</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002d_007b"><code>M-{</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002d_007d"><code>M-}</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-MacPorts-package_002c-downloading">MacPorts package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-MacPorts-package_002c-downloading">MacPorts package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-managed-loading">managed loading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-manual-installation">manual installation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Manual-Installation">Manual Installation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mark">mark</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
@@ -3776,7 +3855,6 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-markdown_002dcommand_002c-configure"><code>markdown-command</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-markdown_002dopen_002c-customize"><code>markdown-open</code>, customize</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-MELPA-Stable_002c-installing-from">MELPA Stable, installing from</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-misc_002e-commands">misc. commands</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Misc_002e-Commands">Misc. Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-move-a-subtree-down">move a subtree down</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-move-a-subtree-up">move a subtree up</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-move-an-item-left">move an item left</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Promote_002fDemote-Items">Promote/Demote Items</a></td></tr>
@@ -3795,20 +3873,20 @@ to permit their use in free software.
 <tr><td></td><td valign="top"><a href="#index-navigating-headers">navigating headers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-navigating-links">navigating links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-navigation-differences">navigation differences</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigation-Differences">Navigation Differences</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-NetBSD-package_002c-downloading">NetBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-NetBSD-package_002c-downloading">NetBSD package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-notes">notes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Notes">Notes</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-O">O</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-opening-links">opening links</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-org_002dmode-visibility">org-mode visibility</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-OS-package-managers">OS package managers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-other-formats_002c-output-to">other formats, output to</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-outline_002dminor_002dmode">outline-minor-mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-outlining">outlining</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Headers">Navigating Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-output-HTML">output <acronym>HTML</acronym></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Compile-Commands">Compile Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-output-HTML">output <acronym>HTML</acronym></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Commands">External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-outputting-to-other-formats">outputting to other formats</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-package-managers">package managers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-package_002eel_002c-installing-with"><code>package.el</code>, installing with</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pandoc_002c-configure"><code>pandoc</code>, configure</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-External-Commands">Customizing External Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-promote-a-subtree">promote a subtree</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Moving-Subtrees">Moving Subtrees</a></td></tr>
@@ -3821,8 +3899,8 @@ to permit their use in free software.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-R">R</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-recommended-installation">recommended installation</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Recommended-Installation">Recommended Installation</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Redhat-package_002c-downloading">Redhat package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-reference-links_002c-insert">reference links, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Redhat-package_002c-downloading">Redhat package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-reference-link_002c-insert">reference link, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-references_002c-check-all">references, check all</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Checking-References">Checking References</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-region">region</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-releases">releases</a>:</td><td>&nbsp;</td><td valign="top"><a href="#History-of-Releases">History of Releases</a></td></tr>
@@ -3836,27 +3914,22 @@ to permit their use in free software.
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-T">T</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-TAB"><code>TAB</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Org-and-Outline-features">Org and Outline features</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tables_002c-realigning">tables, realigning</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-thank-you">thank you</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Acknowledgments">Acknowledgments</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-toggling-image-display">toggling image display</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-toggle-inline-images">toggle inline images</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-toggle-URL-hiding">toggle <acronym>URL</acronym> hiding</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-transient-mark">transient mark</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mark-and-Region">Mark and Region</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-U">U</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Ubuntu-apt-package_002c-downloading">Ubuntu <code>apt</code> package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#OS-Package-Managers">OS Package Managers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-URI_002c-insert">URI, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-Ubuntu-apt-package_002c-downloading">Ubuntu <code>apt</code> package, downloading</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Package-Managers">Package Managers</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-URI_002c-insert"><acronym>URI</acronym>, insert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-Links">Inserting Links</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-URL-hiding_002c-toggle"><acronym>URL</acronym> hiding, toggle</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-usage">usage</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-use_002dpackage_002c-loading-with"><code>use-package</code>, loading with</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Managed-Loading">Managed Loading</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-using-gfm_002dmode">using <code>gfm-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-gfm_002dmode">Using <code>gfm-mode</code></a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-using-markdown_002dmode">using <code>markdown-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Using-markdown_002dmode">Using <code>markdown-mode</code></a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-V">V</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Inserting-List-Items">Inserting List Items</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-1">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Styles">Styles</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-2">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Navigating-Links">Navigating Links</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-3">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Images">Images</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-4">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-5">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-6">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-Markdown-Headers">Customizing Markdown Headers</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-v2_002e2-7">v2.2</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Wiki_002dLinks-Syntax-Highlighting">Wiki-Links Syntax Highlighting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-variables">variables</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing">Customizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Keys-and-Concepts_cp_letter-W">W</a></th><td></td><td></td></tr>
@@ -3909,6 +3982,71 @@ to permit their use in free software.
 <a class="summary-letter" href="#Keys-and-Concepts_cp_letter-W"><b>W</b></a>
  &nbsp; 
 </td></tr></table>
+<div class="footnote">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>Emacs was created by Richard
+M. Stallman, et al. See <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>.</p>
+<h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
+<p>Texinfo was created by Richard M. Stallman, et al. See
+<a href="https://www.gnu.org/software/texinfo/">https://www.gnu.org/software/texinfo/</a>.</p>
+<h3><a name="FOOT3" href="#DOCF3">(3)</a></h3>
+<p>Emacs was created by Richard Stallman in 1976.
+<cite><acronym>GNU</acronym> Emacs</cite> is documented at
+<a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>. <cite>XEmacs</cite> is
+documented at <a href="http://www.xemacs.org">http://www.xemacs.org</a>.</p>
+<h3><a name="FOOT4" href="#DOCF4">(4)</a></h3>
+<p>GitHub Flavored Markdown is the dialect of markdown used by GitHub.  See <a href="http://github.github.com/github-flavored-markdown/">http://github.github.com/github-flavored-markdown/</a>.</p>
+<h3><a name="FOOT5" href="#DOCF5">(5)</a></h3>
+<p>Markdown
+was created by
+John Gruber in collaboration with Aaron Swartz in 2004.  See <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>.</p>
+<h3><a name="FOOT6" href="#DOCF6">(6)</a></h3>
+<p>Multimarkdown was created by Fletcher
+T. Penny.  See <a href="https://fletcherpenney.net">https://fletcherpenney.net</a>.</p>
+<h3><a name="FOOT7" href="#DOCF7">(7)</a></h3>
+<p>Pandoc was created by John MacFarlane.  See
+<a href="https://pandoc.org">https://pandoc.org</a>.</p>
+<h3><a name="FOOT8" href="#DOCF8">(8)</a></h3>
+<p>See <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>.</p>
+<h3><a name="FOOT9" href="#DOCF9">(9)</a></h3>
+<p>See
+<a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>.</p>
+<h3><a name="FOOT10" href="#DOCF10">(10)</a></h3>
+<p>See
+<a href="https://fletcherpenney.net">https://fletcherpenney.net</a>.</p>
+<h3><a name="FOOT11" href="#DOCF11">(11)</a></h3>
+<p>See
+<a href="https://pandoc.org">https://pandoc.org</a>.</p>
+<h3><a name="FOOT12" href="#DOCF12">(12)</a></h3>
+<p>You may browse the 1500+ other Emacs packages in the
+MELPA-Stable archive at <a href="http://stable.melpa.org/">http://stable.melpa.org/</a> or by typing
+<kbd>M-x list-packages <span class="key">RET</span></kbd> after adding it to your
+package-archives list.</p>
+<h3><a name="FOOT13" href="#DOCF13">(13)</a></h3>
+<p><code>use-package</code> by John Wiegley is
+documented at <a href="https://github.com/jwiegley/use-package">https://github.com/jwiegley/use-package</a>.</p>
+<h3><a name="FOOT14" href="#DOCF14">(14)</a></h3>
+<p>Created by Carsten Dominik in 2003.  See
+<a href="https://orgmode.org">https://orgmode.org</a></p>
+<h3><a name="FOOT15" href="#DOCF15">(15)</a></h3>
+<p>Editing existing links is
+especially useful when markup or <acronym>URL</acronym> hiding is enabled
+because <acronym>URL</acronym>s can&rsquo;t then be easily edited directly.</p>
+<h3><a name="FOOT16" href="#DOCF16">(16)</a></h3>
+<p>by Fanael Linithien.  See
+<a href="https://github.com/Fanael/edit-indirect/">https://github.com/Fanael/edit-indirect/</a></p>
+<h3><a name="FOOT17" href="#DOCF17">(17)</a></h3>
+<p>See <a href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a>.</p>
+<h3><a name="FOOT18" href="#DOCF18">(18)</a></h3>
+<p>See <a href="https://daringfireball.net/projects/smartypants/">https://daringfireball.net/projects/smartypants/</a>.</p>
+<h3><a name="FOOT19" href="#DOCF19">(19)</a></h3>
+<p>See <a href="http://fletcherpenney.net/multimarkdown/">http://fletcherpenney.net/multimarkdown/</a>.</p>
+<h3><a name="FOOT20" href="#DOCF20">(20)</a></h3>
+<p>See <a href="http://pandoc.org">http://pandoc.org</a>.</p>
+</div>
 <hr>
 
 

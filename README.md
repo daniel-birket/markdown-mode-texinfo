@@ -1,30 +1,25 @@
 markdown-mode-texinfo
 =====================
 
-Texinfo-format manual for [Jason Blevins][]' [Emacs Markdown Mode][]
+This project is an alternative, info-format manual for
+[Jason Blevins][]' [Markdown Mode][] extension to [Emacs][].
 
-This project is an alternative manual for Jason Blevins'
-`markdown-mode` extension to [Emacs][] in `info` format.
+Status: Updated for `markdown-mode` version 2.3. Not yet reviewed.
 
-Status: 1st draft is complete, but not yet reviewed by another. Please
-comment. Thank you.
-
-[Texinfo][], the documentation format of the Emacs manual and
-other [GNU project documentation][], while much more complex and
-arcane than [markdown][], excels at creating documentation for
-Emacs. In particular, it allows for extensive indexing, allowing the
-user to quickly find indexed information with the Emacs info reader by
-pressing 'i' while reading the file.
+[Texinfo][], the documentation format of the Emacs manual and other
+[GNU project documentation][], while quite arcane compared to the
+simplicity of [markdown][], was designed to create indexed
+documentation usable from within Emacs.
 
 The Texinfo-format manual is compiled into info-format, which is
 compatible with both Emacs' `info` reader and the command line [info][]
 command. Type `$ make info`.
 
-The Makefile includes commands to install the .info file into the
-directory with your other emacs info files. You must update the file
-locations in the Makefile for your system. Type `$ make install`.
+You may type `$ make install` to install the .info file into the
+directory with your other emacs info files, but you must first update
+the file locations in the Makefile to match your system.
 
-The Texinfo-format manual can also be compiled into HTML, PDF, ePub
+This Texinfo-format manual can also be compiled into HTML, PDF, ePub
 and other formats - even markdown. Type `make` or `make help` for
 options.
 
@@ -32,7 +27,7 @@ options.
 
 [Jason Blevins]: http://jblevins.org/cv
 
-[Emacs Markdown Mode]: http://jblevins.org/projects/markdown-mode/
+[Markdown Mode]: http://jblevins.org/projects/markdown-mode/
 
 [Emacs]: https://www.gnu.org/software/emacs/
 
